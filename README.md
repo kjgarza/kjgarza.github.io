@@ -1,2 +1,3 @@
 # kjgarza.github.io
-my blog
+
+This repository would be my new, hopefully up-to-date, blog.

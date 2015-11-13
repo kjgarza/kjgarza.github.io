@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>For example in ...</title>
-    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <description>Kristian Garza comments and opinions.
 </description>
     <link>http://kjgarza.github.io/</link>
     <atom:link href="http://kjgarza.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 13 Nov 2015 10:11:03 +0000</pubDate>
-    <lastBuildDate>Fri, 13 Nov 2015 10:11:03 +0000</lastBuildDate>
+    <pubDate>Fri, 13 Nov 2015 10:54:22 +0000</pubDate>
+    <lastBuildDate>Fri, 13 Nov 2015 10:54:22 +0000</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -35,6 +35,55 @@
         <category>jekyll</category>
         
         <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Short Story Wine</title>
+        <description>&lt;h1 id=&quot;a-mucho-vino-poco-tino&quot;&gt;A mucho vino poco tino&lt;/h1&gt;
+
+&lt;p&gt;El hombre miró al piso antes de caer fulminado.&lt;/p&gt;
+
+&lt;p&gt;Dos horas antes.&lt;/p&gt;
+
+&lt;p&gt;Voy a matarlo. Voy a matarte, Gilberto G. -me repito mientras entro al hotel.  Libro la vigilancia del área de servicio diciendo que soy del equipo de meseros. A paso firme me dirijo a los vestidores mientras oculto mi mirada de todos los que me rodean. Siento como si tuviera cargando a alguien en mis hombros. Mi cuello está tenso y mi columna tiembla. Sin embargo, estoy tan concentrado que ni siquiera puedo escuchar el va y viene de la gente del hotel mientras camino por los pasillos de servicio.&lt;/p&gt;
+
+&lt;p&gt;Pido un uniforme limpio, y me apresuro a colocármelo. Con el cuidado con el que se maneja un bebé, paso el veneno del bolsillo de mi chamarra a los pantalones del uniforme. Ninguno de los otros meseros parece notar mi inusual presencia, quizás porque el turno está a punto de terminar y están todos cansados.&lt;/p&gt;
+
+&lt;p&gt;Me dirijo al bar en la planta baja del hotel y ordeno una copa de vino, dando el número del primer cuarto que me viene a la mente. No puedo separar la mirada de las manos del cantinero mientras sirve el vino. Dejo que coloque la copa en mi charola, y apresuradamente me doy media vuelta sin decir nada. Antes de alejarme lo oigo balbucear algo, pero no puedo distinguir qué dijo, y no me importa.&lt;/p&gt;
+
+&lt;p&gt;De pronto, siento mi brazo ser tomado con firmeza. Mi corazón se acelera. Es uno de los supervisores.&lt;/p&gt;
+
+&lt;p&gt;-Tienes otro pedido- me dice apuntando en la dirección del cantinero.
+-¿Vas al primer piso, cierto? Lleva esta copa a la oficina de Gilberto G. –me ordena el cantinero mientras pone otra copa en mi charola.- ¿Sabes dónde está?
+Yo solo contesto con la cabeza.&lt;/p&gt;
+
+&lt;p&gt;Me apresuro a vertir el veneno en una de las copas de vino mientras estoy en el elevador. Dejo momentáneamente la copa extra en el piso para después regresarla a la charola y colocar veneno en ella también. Será menos sospechoso si le doy a elegir, pienso.&lt;/p&gt;
+
+&lt;p&gt;Sin darme cuenta ya estoy enfrente de la puerta de Gilberto G. La golpeo dos veces como me enseñaron durante la inducción semanas antes, pero ante la nula respuesta me aventuro a abrirla.&lt;/p&gt;
+
+&lt;p&gt;-Pasa, pasa, déjalo sobre la mesa. Me sorprende el mismo Gilberto, quien se encuentra en su escritorio. No parece recordar mi rostro. Aunque tampoco me dirige la mirada. Coloco la charola sobre la mesa mientras él se levanta, y se dirige hacia mí, manteniendo su mirada en un par de documentos que sostiene a la altura del pecho.&lt;/p&gt;
+
+&lt;p&gt;Como con el cantinero, mi mirada está fija de nuevo sobre la copa de vino. Ahora solo estoy esperando que la tome para salir de la oficina.&lt;/p&gt;
+
+&lt;p&gt;Mi cuerpo se sacude de terror cuando escucho la puerta abrirse con brusquedad. Un hombre entra, pero se detiene intempestivamente al verme. Déjanos solos, me ordena mientras sostiene la puerta para que yo salga. Yo obedezco sin ni siquiera pensar.  &lt;/p&gt;
+
+&lt;p&gt;Me quedo afuera de la oficina sin saber qué hacer. Debería de irme o debería esperar, me pregunto. Puedo escuchar sus voces, pero no puedo distinguir si están riendo o gritando.&lt;/p&gt;
+
+&lt;p&gt;Decido irme.&lt;/p&gt;
+
+&lt;p&gt;Entro al elevador y presiono el botón del lobby. Pero antes de que se cierren las puertas veo al hombre salir de la oficina de Gilberto G.  Sin saber por qué detengo las puertas del elevador. Acto seguido el hombre miró al piso…&lt;/p&gt;
+</description>
+        <pubDate>Sat, 07 Sep 2013 00:00:00 +0100</pubDate>
+        <link>http://kjgarza.github.io/pages/2013/09/07/short-story-wine.html</link>
+        <guid isPermaLink="true">http://kjgarza.github.io/pages/2013/09/07/short-story-wine.html</guid>
+        
+        <category>short-story</category>
+        
+        <category>nonlinear</category>
+        
+        
+        <category>pages</category>
         
       </item>
     

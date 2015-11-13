@@ -1,9 +1,17 @@
-How can Social Semantic Web Enable Collective Intelligence and improve Knowledge Discovery Strategies in a Heliophysics Virtual Observatory
+---
+layout: post
+category : pages
+title: "How can Social Semantic Web Enable Collective Intelligence and improve Knowledge Discovery Strategies in a Heliophysics Virtual Observatory"
+tags: [phd proposal, scientific collaboration]
+---
+
+
 
 Kristian Garza
 
 kj.garza[at]gmail[dot]com
-Introduction
+
+##Introduction
 
 Heliophysics is an environmental science that analyses the connections between the Sun, solar wind, planetary space environments, and our place in the Galaxy, in an attempt to uncover the fundamental physical processes that occur throughout the Universe  (NASA, 2011). Heliophysics has experienced an exponential growth in the amount and variety of data collected. The community has responded to this challenge with the development of Virtual Heliophysics Observatories linking databases from all over the world  (Martens, 2010). Although Virtual Observatories (VxOs) efficiently link data from many research centres, they are mostly used to overcome infrastructure barriers. Most of their services are domain-specific and their data models do not value links created by user interaction with the data objects in the Virtual Observatory (i.e. has data-set A been analysed with program D? Who has published something about data-set A? Who is analysing data-set A or an ontologically related data-set?) .  At the same time, research has been conducted, which holds the view that to achieve the potential of e-Science implementations; the social aspect of research must be taken into consideration. This proposal seeks to discover the principles under which Social Networking and Semantic Web Technology can improve Knowledge Discovery strategies in a Virtual Organisation for the Heliophysics community. Specifically, I use an ontology to annotate the user’s activities and groundwork within the Virtual Observatory to expose them to other users, who might be interested. I intend to develop this work on top of the Heliophysics Integrated Observatory (HELIO)[1].
 
@@ -41,7 +49,8 @@ Targeting interesting links to validate users could help to improve the user exp
 Currently, upon logging into the Virtual Observatory users need to know which data object they wish to fetch, which algorithm they will use to process it and which graph engine to display it. By semantically targeting interesting links from other users performing these activities, one could be exposed to the more pertinent algorithms used on the data object of their interest, the different available engines to display this object, which users have fetched data objects ontologically related to the data period at hand and what work have they developed on these data objects.
 
 A similar approach to the one proposed here is used in Stellaris  (Hogqvist & Reinefeld, 2007). Stellaris is metadata service that enables users to share resources such as robotic telescopes. Moreover, this research would contribute to the vision of the Virtual Observatory posed by Williams  (Williams et al., 2003), in which peer-reviewed publications that explain well enough what the data means are attached to the data as metadata.
-Methodology
+
+##Methodology
 
 I will attempt to measure changes of knowledge discovery while increasing the amount of data links by including links made by users. The impact on knowledge discovery might vary if the links created by users connect one or more nodes with different kinds of objects (publications, algorithms, display engines, etc.). Therefore interoperability (intervening variable) of the user-generated links will be an influential factor in the changes in the measurements.
 
@@ -76,6 +85,9 @@ Thereafter, I will need to identify and collect suitable data for the analysis. 
 
 Following the above, the evaluation stage will take place and will last six months. Finally, four months will be allocated for writing up the thesis report.
 Works Cited
+
+
+## Bibliography
 
 Williams, R., 2004. Virtual Observatory Architecture Overview. [Online] Available at: http://www.ivoa.net/Documents/Notes/IVOArch/IVOArch-20040615.html [Accessed February 2011].
 

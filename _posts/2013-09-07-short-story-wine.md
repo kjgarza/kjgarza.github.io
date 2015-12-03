@@ -1,10 +1,10 @@
 ---
 layout: post
 category : pages
+title: "A mucho vino poco tino"
 tags : [short-story, nonlinear]
 ---
 
-# A mucho vino poco tino
 
 El hombre miró al piso antes de caer fulminado.
 

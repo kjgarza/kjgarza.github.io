@@ -9,5 +9,7 @@ twitter_username: kriztean
 github_username:  kjgarza
 linkedin_username:  "https://uk.linkedin.com/in/kjgarza"
 
+profile_picture: https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAPaAAAAJGE0ZTY1ZGE3LWZkYWQtNDAzZi1hYjU3LTk4MjRmOGRlYzYzNg.jpg
+
 # Build settings
 markdown: kramdown

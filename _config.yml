@@ -1,8 +1,8 @@
 # Site settings
 title: Avoiding Exposition
-email: k.garza@manchester.ac.uk
+email: kj.garza@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
- I'm a PhD Candidate in the School of Computer Science at Univeristy of Manchester. I study sciensits behaviour towards Data Sharing and Collaboration.
+ I'm a PhD Candidate in the School of Computer Science at Univeristy of Manchester. I study scientists behaviour towards Data Sharing and Collaboration.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://kjgarza.github.io" # the base hostname & protocol for your site
 twitter_username: kriztean

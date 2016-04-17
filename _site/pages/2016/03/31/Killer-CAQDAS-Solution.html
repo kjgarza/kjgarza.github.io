@@ -84,66 +84,75 @@
   <p>There is not a perfect #CAQDAS but #RQDA and #Annotations are leading the way.</p>
 </blockquote>
 
+<p><br /><br />  </p>
+
 <p><img src="http://i.imgur.com/LSv0PEm.png = 20x" alt="Coding Interviews" /></p>
 
-<p>One of the experiences I loathe during my research was coding interview transcripts. The process was confusing, mechanical, and required a good deal of organisation for which I was not ready. I tend to throw technical solutions at problems and so I did with this one. I used the CAQDAS application RQDA<sup id="fnref:rqda"><a href="#fn:rqda" class="footnote">1</a></sup>. RQDA is an R package with a GUI that can be used to analyse textual data. Since RQDA is a R package is open source. Unfortunately, my CAQDAS selection turned out to be not a great decision but not because RQDA was not perfect but because there is no perfect CAQDAS solution now. Unfortunately, reviews are not great source of help, as they mostly list the features of each CAQDAS solution (e.g. Woods, Macklin, and Lewis 2015<sup id="fnref:woods"><a href="#fn:woods" class="footnote">2</a></sup>, Schönfelder 2011<sup id="fnref:scho"><a href="#fn:scho" class="footnote">3</a></sup>, Hwang 2008<sup id="fnref:hwang"><a href="#fn:hwang" class="footnote">4</a></sup>, Lewins and Silver 2009<sup id="fnref:lewis"><a href="#fn:lewis" class="footnote">5</a></sup>). If I could have something different I would have taken a few of these CAQDAS solutions used for a bit and compared them. That is what has retrospectively made in this post. I took three CAQDAS solutions (i.e. RQDA, Annotations and Atlas.ti) and compared them in four simple aspects: Coding Experience, Coding Exporting, Analysis Tools and Inter-coder Reliability Support.</p>
+<p>One of the experiences I loathe during my research was coding interview transcripts. The process was confusing, mechanical, and required a good deal of organisation for which I was not ready. I tend to throw technical solutions at problems and so I did with this one. I used the CAQDAS application RQDA<sup id="fnref:rqda"><a href="#fn:rqda" class="footnote">1</a></sup>. RQDA is an R package with a GUI that can be used to analyse textual data.  Unfortunately, my CAQDAS selection turned out to be not a great decision but not because RQDA was not perfect but because currently there is no perfect CAQDAS solution.</p>
+
+<p>I wish I had been more analytical on the tool selection and checked a few options. Because, unfortunately, reviews are not great source of help, as they mostly list the features of each CAQDAS solution (e.g. Woods, Macklin, and Lewis 2015<sup id="fnref:woods"><a href="#fn:woods" class="footnote">2</a></sup>, Schönfelder 2011<sup id="fnref:scho"><a href="#fn:scho" class="footnote">3</a></sup>, Hwang 2008<sup id="fnref:hwang"><a href="#fn:hwang" class="footnote">4</a></sup>, Lewins and Silver 2009<sup id="fnref:lewis"><a href="#fn:lewis" class="footnote">5</a></sup>). If I could have something different I would have taken a few of these CAQDAS solutions used for a bit and compared them. That is what I have retrospectively made in this post. I took three CAQDAS solutions (i.e. <a href="http://rqda.r-forge.r-project.org/"><strong>RQDA</strong></a>, <a href="http://www.annotationsapp.com/"><strong>Annotations</strong> </a>and <a href="http://atlasti.com/"><strong>Atlas.ti</strong></a>) and compared them in four simple aspects: Coding Experience, Coding Exporting, Analysis Tools and Inter-coder Reliability Support. The results are in the table below:</p>
+
+<p><br /><br />    </p>
 
 <table rules="groups">
   <tbody>
     <tr>
-      <td>Solution</td>
-      <td>Coding Experience</td>
-      <td>Coding Exporting</td>
-      <td>Analysis Tools</td>
-      <td>Inter-coder Reliability Support</td>
-      <td>License</td>
+      <td><strong>Solution</strong></td>
+      <td><strong>Coding Experience</strong></td>
+      <td><strong>Coding Exporting</strong></td>
+      <td><strong>Analysis Tools</strong></td>
+      <td><strong>Inter-coder Reliability Support</strong></td>
+      <td><strong>License</strong></td>
     </tr>
   </tbody>
-  <tbody>
+  <tfoot>
     <tr>
       <td>RQDA</td>
-      <td>Code Text: 7.5s  Create Code: 13.42s</td>
-      <td>2</td>
-      <td>Quantitative (<em>) and Qualitative (</em>)</td>
-      <td>Multiple coders</td>
+      <td>CT:  7.5sec           CC: 13.42sec</td>
+      <td><em>2</em></td>
+      <td><em>Multitude of packages</em></td>
+      <td><em>Multiple coders</em></td>
       <td>Free</td>
     </tr>
     <tr>
       <td>Atlas.ti</td>
-      <td>Code Text: 6.82s  Create Code: 7.10s</td>
+      <td>CT:  6.82sec            CC: 7.10sec</td>
       <td>1</td>
-      <td>Quantitative (2)</td>
+      <td>Word Crucher and Concurrency Table</td>
       <td>Multiple coders</td>
       <td>Proprietary</td>
     </tr>
     <tr>
       <td>Annotations</td>
-      <td>Code text: 5.1s  Code text: 6.62s  Create Code: 6.99s</td>
+      <td>CT:  <em>5.1sec</em>             CC:  <em>6.99sec</em></td>
       <td>0</td>
       <td>No support</td>
       <td>No support</td>
       <td>Proprietary</td>
     </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <td>* Multiple number of tools</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
   </tfoot>
 </table>
 
-<p>In terms of coding experience, Annotations is the best and fastest coding experience. Atlas.ti comes close but Annotations is still a bit ahead in terms of speed. This could be mostly related to Annotation’s auto pop-up tagging menu, which appears every time you select a piece of text. RQDA trails way behind the other two solutions mostly due to the lack of autocomplete search for codes; a feature both Atlas.ti and Annotations have built-in. In theory, those two features make the coding experience in Annontations and Atlas.ti, faster  than in RQDA. However, the backend of Annotations and to some extend Atlas.ti are in shambles when compared with RQDA. RQDA can handle almost any standard data exchange format[^formats], which comes very useful to exchange your coded text with other applications, R scripts, or even publishing your data[^publish]. Atlas.ti at least can output the coded text in XML but Annotations can only expert plain text on HTML. In terms of analysis tools, RQDA has a number of tools included in the package like a code concurrency table; but it can be hooked up with maybe other R libraries to check Sentiment Analysis, Text Mining and Visualisations. Atlas.ti also supports a concurrency table and a word cruncher (you can use TM in R). On the other hand, Annotations has nothing. The lack of analysis tools could stem from the perspective that doing a quantitative analysis in qualitative data does not lead to reliable inferences. In essence, RQDA’s backend robustness is superior to the other two solutions. A worrying issue is the absence of support of Intercode reliability in all these packages. RQDA and Atlas.ti both support multiple coders but no tool is provided to check reliability among them. The lack of support in this area could be related to the same reason as with the lack of analysis tools (i.e., quantitative analysis in qualitative data.). If that is the case, then the software should support other types of analysis tools. For example, support card sorting as a reliability test.
-Overall, Atlas.ti seems a waterdown compromise between the usability and speed of annotations and the robust backend of RQDA. Unfortunately is not free or open. The make the killer app you will need a combination of the Annotations front-end with the RQDA backend. This would certainly would disrupt the entire CAQDAS market, because using RQDA would means that the app has to be open. I hope that Christian Klutz (Annotations) and Huang Ronggui (RQDA) would sit together and make this happen.</p>
+<p>Time is   given in seconds
+<strong>CT</strong>: Time   to code/tag text
+<strong>CC</strong>: Time   to create a new code/tag</p>
+
+<p><br /><br /></p>
+
+<p>In terms of coding experience, Annotations is the best and fastest coding experience. Atlas.ti comes close but Annotations is still a bit ahead in terms of speed. This could be mostly related to Annotation’s auto pop-up tagging menu, which appears every time you select a piece of text. RQDA trails way behind the other two solutions mostly due to the lack of autocomplete search for codes; a feature both Atlas.ti and Annotations have built-in.</p>
+
+<p>However, RQDA offer advantages in other dimensions. The backend of Annotations and to some extend Atlas.ti are in shambles when compared with RQDA. RQDA can handle almost any standard data exchange format <sup id="fnref:formats"><a href="#fn:formats" class="footnote">6</a></sup> , which comes very useful to exchange your coded text with other applications, R scripts, or even publishing your data. Atlas.ti at least can output the coded text in XML but Annotations can only expert plain text on HTML.</p>
+
+<p>In terms of analysis tools, RQDA has a number of tools included in the package like a code concurrency table; but it can be hooked up with many other R libraries to conduct Sentiment Analysis, Text Mining, Visualisation, etc <sup id="fnref:rpack"><a href="#fn:rpack" class="footnote">7</a></sup>. Atlas.ti also supports a concurrency table and a word cruncher. On the other hand, Annotations no analysis tools. The lack of analysis tools could stem from the perspective that doing a quantitative analysis in qualitative data does not lead to reliable inferences. In essence, RQDA’s backend robustness is superior to the other two solutions.</p>
+
+<p>A worrying issue is the absence of support of Intercode reliability in all these packages. RQDA and Atlas.ti both support multiple coders but no tool is provided to check reliability among them. The lack of support in this area could be related to the same reason as with the lack of analysis tools (i.e., quantitative analysis in qualitative data.). If that is the case, then the software should support other types of analysis tools. For example, support card sorting as a reliability test <sup id="fnref:cards"><a href="#fn:cards" class="footnote">8</a></sup>.</p>
+
+<p>Overall, <strong>Atlas.ti</strong> seems a decent compromise between the usability and speed of <strong>Annotations</strong> and the backend of <strong>RQDA</strong>. Unfortunately, Atlas.ti is not free or open. I think that to make the killer app you will need a combination of the Annotations front-end with the RQDA backend. This would certainly would disrupt the entire CAQDAS market, because using RQDA would mean that the app has to be open. I can only wish that Christian Klutz (Annotations) and Huang Ronggui (RQDA) would sit together and make this happen.</p>
 
 <hr />
 
 <p style="background-color:white; font-size: 80%; text-align: justify;"><strong>Methods</strong>
-I compared the three solutions in four areas: Coding Experience, Coding Exporting, Analysis Tools and Inter-coder Reliability Support. First, I use the term coding experience to refer the usability of the software to code text and create codes (i.e., tags). I used the Keystroke-level (KL) model to quantify coding experience. The KL model predicts how long it will take an expert user to accomplish a routine task without errors^klm. Second, I use the term Coding Exporting to refer to the option to export the coded/tagged text into other formats or applications. I ranked each application’s exporting capabilities based on whether or not they could export in to a Web/ISO standard exchange format and whether the exporting language was available in a computer interpretable form. Third, Analysis tools refer to the availability of tools for coded text. Specifically, whether the tools a quantitative tools and how many analysis they can be performed. Fourth, I used the term Intercoder Reliability Support to refer features the application provide to support two or more independent coders to evaluate the same data/text.</p>
+I compared the three solutions in four areas: Coding Experience, Coding Exporting, Analysis Tools and Inter-coder Reliability Support. First, I use the term coding experience to refer the usability of the software to code text and create codes (i.e., tags). I used the Keystroke-level (KL) model to quantify coding experience. The KL model predicts how long it will take an expert user to accomplish a routine task without errors <sup id="fnref:klm"><a href="#fn:klm" class="footnote">9</a></sup> . Second, I use the term Coding Exporting to refer to the options to export the coded/tagged text into other formats or applications. I ranked each application’s exporting capabilities based on whether or not they could export in to a Web/ISO standard exchange format and whether the exporting language was available in a computer interpretable form <sup id="fnref:formats:1"><a href="#fn:formats" class="footnote">6</a></sup>. Third, Analysis tools refer to the availability of tools for coded text. Specifically, whether the tools a quantitative tools and how many analysis they can be performed. Fourth, I used the term Intercoder Reliability Support to refer features the application provide to support two or more independent coders to evaluate the same data/text.</p>
 
 <hr />
 
@@ -164,6 +173,18 @@ I compared the three solutions in four areas: Coding Experience, Coding Exportin
     <li id="fn:lewis">
       <p>Lewins, Ann, and Christina Silver. 2009. “Choosing a CAQDAS Package.” Working Paper. Guildford, UK: University of Surrey. http://caqdas.soc.surrey.ac.uk/PDF/2009ChoosingaCAQDASPackage.pdf. <a href="#fnref:lewis" class="reversefootnote">&#8617;</a></p>
     </li>
+    <li id="fn:formats">
+      <p>https://en.wikipedia.org/wiki/Data_exchange <a href="#fnref:formats" class="reversefootnote">&#8617;</a> <a href="#fnref:formats:1" class="reversefootnote">&#8617;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:rpack">
+      <p>http://rpackages.ianhowson.com/all/ <a href="#fnref:rpack" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:cards">
+      <p>Stephen C. Bowden , Kylie S. Fowler , Richard C. Bell , Gregory Whelan ,Christine C. Clifford , Alison J. Ritter &amp; Caroline M. Long (1998) The Reliability and Internal Validity of the Wisconsin Card Sorting Test, Neuropsychological Rehabilitation, 8:3, 243-254, DOI: 10.1080/713755573 <a href="#fnref:cards" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:klm">
+      <p>http://courses.csail.mit.edu/6.831/2009/handouts/ac18-predictive-evaluation/klm.shtml <a href="#fnref:klm" class="reversefootnote">&#8617;</a></p>
+    </li>
   </ol>
 </div>
 
@@ -177,7 +198,7 @@ I compared the three solutions in four areas: Coding Experience, Coding Exportin
   </div>
 
 </div>
-<<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57138ead524b78f7"></script>
 
       </div>

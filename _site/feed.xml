@@ -6,8 +6,8 @@
 </description>
     <link>http://kjgarza.github.io/</link>
     <atom:link href="http://kjgarza.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 17 Apr 2016 23:39:41 +0100</pubDate>
-    <lastBuildDate>Sun, 17 Apr 2016 23:39:41 +0100</lastBuildDate>
+    <pubDate>Sun, 17 Apr 2016 23:42:09 +0100</pubDate>
+    <lastBuildDate>Sun, 17 Apr 2016 23:42:09 +0100</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -37,7 +37,7 @@
       &lt;td&gt;&lt;strong&gt;License&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
-  &lt;tfoot&gt;
+  &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;RQDA&lt;/td&gt;
       &lt;td&gt;CT:  7.5sec           CC: 13.42sec&lt;/td&gt;
@@ -61,6 +61,16 @@
       &lt;td&gt;No support&lt;/td&gt;
       &lt;td&gt;No support&lt;/td&gt;
       &lt;td&gt;Proprietary&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tfoot&gt;
 &lt;/table&gt;

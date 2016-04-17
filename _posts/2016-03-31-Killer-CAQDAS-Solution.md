@@ -26,7 +26,8 @@ I wish I had been more analytical on the tool selection and checked a few option
 | RQDA | CT:  7.5sec &nbsp; &nbsp;  &nbsp; &nbsp;  CC: 13.42sec | *2* | *Multitude of packages* | *Multiple coders* | Free |
 | Atlas.ti | CT:  6.82sec  &nbsp; &nbsp;  &nbsp; &nbsp;  CC: 7.10sec | 1 | Word Crucher and Concurrency Table  | Multiple coders | Proprietary |
 | Annotations | CT:  *5.1sec*  &nbsp; &nbsp;  &nbsp; &nbsp;   CC:  *6.99sec* | 0 | No support | No support | Proprietary |
-|----
+|=====
+|
 {: rules="groups"}
 
 Time is   given in seconds

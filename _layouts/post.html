@@ -8,6 +8,9 @@ layout: default
     <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
   </header>
 
+<a href="{{site.github.repository_url}}/blob/gh-pages/{{page.path}}">Edit this page</a>
+
+
   <article class="post-content">
     {{ content }}
   </article>

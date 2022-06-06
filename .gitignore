@@ -10,3 +10,4 @@ dist/
 .tmp/
 _site/
 .ruby-version
+___backup

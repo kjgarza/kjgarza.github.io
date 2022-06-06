@@ -1,16 +1,35 @@
-<head>
+<!DOCTYPE html>
+<html lang="">
+  <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <base href="{{ site.baseurl }}">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <meta name="author" content="{{ site.author }}">
     <meta name="description" content="{{ site.description }}">
-
-    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-    <script src="https://unpkg.com/vue"></script>
-<script src="https://cdn.jsdelivr.net/npm/counter-usage-metrics/dist/counter-usage-metrics.min.js"></script>
-
-
-
-</head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/forestryio/ubuild-blocks@1.0.0/dist/css/ubuild.css"/>
+    <link href="{{ 'main.css' | absolute_url }}" rel="stylesheet" type="text/css">
+    <meta name="og:title" content="Kristian Garza">
+    <meta name="og:url" content="https://kjgarza.github.io/">
+    <meta name="og:type" content="person">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "sameAs": [
+          "https://www.linkedin.com/in/kjgarza",
+          "https://commons.datacite.org/orcid.org/0000-0003-3484-6875",
+          "https://orcid.org/0000-0003-3484-6875",
+          "https://twitter.com/kriztean",
+          "https://github.com/kjgarza"
+          ], 
+        "email": "mailto:kj.garza@gmail.com",
+        "image": "/uploads/2022/02/18/photo.jpeg",
+        "jobTitle": "Product Design Manager",
+        "name": "Kristian Garza",
+        "url": "https://kjgarza.github.io/"
+      }
+      </script>
+  </head>
+  <body>

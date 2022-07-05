@@ -16,7 +16,7 @@ page_sections:
   - link: "#references"
     link_text: Publications
   cta:
-    url: "/homepage/uploads/2022/02/18/cv.pdf"
+    url: "/uploads/2022/02/18/cv.pdf"
     button_text: Download
 - template: hero-banner-w-image
   block: hero-2

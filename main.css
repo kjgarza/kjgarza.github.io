@@ -3,3 +3,7 @@ a.kglink {
   color: #333;
   text-decoration: none;
 }
+
+.block-hero-2 {
+  min-height: 50vh;
+}

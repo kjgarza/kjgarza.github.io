@@ -4,6 +4,18 @@ a.kglink {
   text-decoration: none;
 }
 
+
+@media screen and (min-width: 800px) {
+  /* put your css styles in here */
+
 .block-hero-2 {
-  min-height: 50vh;
+  min-height: 10vh;
+  max-height: 50vh;
+}
+
+#hero-img {
+  max-height: 40vh;
+  object-fit: cover;
+}
+
 }

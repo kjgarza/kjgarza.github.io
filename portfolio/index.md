@@ -30,11 +30,11 @@ page_sections:
   col_1:
     headline: Bibliometrics Dashabord
     content: 
-          "<a class='kglink' target='_blank' href='/case-c'>Interviews and design process</a>"
+          "<a class='kglink' target='_blank' href='https://kjgarza.github.io/portfolio/case-c'>Interviews and design process</a>"
   col_2:
     headline: Metadata Harvesting Services
     content: 
-      "<a class='kglink' target='_blank' href='/case-a'>Design Sprint</a>"
+      "<a class='kglink' target='_blank' href='https://kjgarza.github.io/portfolio/case-a'>Design Sprint</a>"
   col_3:
     headline:
     content:

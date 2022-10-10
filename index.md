@@ -5,7 +5,6 @@ date: 2022-01-22T23:00:00.000+00:00
 page_sections:
 - template: navigation-header-w-button
   block: header-2
-  # logo: "/uploads/2022/02/18/logo-web-3.png"
   navigation:
   - link: '/'
     link_text: Home
@@ -50,19 +49,27 @@ page_sections:
   slug: development
   headline: <strong>Experienced in a range of technologies</strong><span class="light"> used in front-end, back-end and infrastructure.</span>
   content: Architected and implemented and Usage Metrics processing pipeline <a class="kglink" target="_blank" href="https://github.com/datacite/sashimi">(inc. REST API, queueing, display)</a> that is currently used by hundreds of organizations worldwide. Engineered the developed a set of web components <a class="kglink" target="_blank" href="https://github.com/datacite/spitz">(in VueJs, using CustomElements)</a> that targeted customers with low development resourcing. Experienced on setting up AWS infrastructure using <a class="kglink" target="_blank" href="https://github.com/datacite/mastino"> Terraform </a>, to developing front-end apps in both <a class="kglink" target="_blank" href="https://github.com/datacite/bracco">React</a> and <a class="kglink" target="_blank" href="https://github.com/datacite/bracco">Ember</a>. Passing through developing <a class="kglink" target="_blank" href="https://github.com/datacite/lupo"> Rails-based REST</a> and <a class="kglink" target="_blank" href="https://github.com/datacite/lupo/tree/master/app/graphql"> GraphQL APIs</a> 
-
- 
   media:
     image: "/uploads/2022/02/18/code.png"
     alt_text: Customize Blocks
-# - template: 1-column-text
-#   block: one-column-1
-#   slug: responsive
-#   headline: 16 Fully Responsive Design Blocks
-#   content: |
-#     The Design Blocks can be used without Forestry but to harness the power
-#     of Blocks we recommend using <a href="https://forestry.io">Forestry</a>". Once the site is imported you can immediately
-#     create new sites and make them fully customizable.
+
+#### Dynamic content Doesn't work
+# - template: content-feature
+#   block: three-column-1
+#   slug: stats
+#   col_1:
+#     headline: Commits Statistics
+#     content: 
+#     #  <a href='https://github.com/kjgarza'>
+#     #   <img align='center' src='https://github-readme-stats.vercel.app/api?username=kjgarza&show_icons=true&theme=radical'/></a>
+#   col_2:
+#     headline: Language Statistics
+#     content: 
+#       # <a href='https://github.com/kjgarza'>
+#       # <img align='center' src='https://github-readme-stats.vercel.app/api/top-langs/?username=kjgarza&layout=compact&langs_count=8&hide=html,jupyter+notebook,php,web+ontology+language,css&orgs=datacite'/></a>
+#   col_3:
+#     headline: ""
+#     content: ""
 - template: content-references
   block: references-1
   headline: Published Work

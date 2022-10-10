@@ -1,6 +1,6 @@
 ---
 layout: blocks
-title: Kristian Garza - Case A
+title: Kristian Garza - Case B
 date: 2022-01-22T23:00:00.000+00:00
 page_sections:
 - template: navigation-header-w-button
@@ -21,8 +21,12 @@ page_sections:
     url: "/uploads/2022/02/18/cv.pdf"
     button_text: Download
 - template: content-feature
-  block: hero-2
-  slug: features
+  block: hero-1
+  slug: intro
+  heading: Web Tracker for analytics
+- template: content-feature
+  block: one-column-1
+  slug: contxt
   headline: Context
   content:  |
     Currently, every single service for data usage processing requires using weblogs. Since weblogs are hard to share across distributed borders, there was a need to provide a different type of service. I set to define a service that could provide an alternative to the current state.
@@ -31,8 +35,8 @@ page_sections:
     alt_text: Product Shot
   background_image: "/uploads/2018/06/21/hero-2-bg.png"
 - template: content-feature
-  block: two-column-1
-  media_alignment: Left
+  block: feature-1
+  media_alignment: right
   slug: product
   headline: Discovery 
   content: |
@@ -46,7 +50,7 @@ page_sections:
   slug: product
   headline: Idea Validation
   content: |
-    I validated the original idea using a productboard portal and opened it for discussion with our member community.
+    I validated the original idea using [DataCite Roadmap](https://datacite.org/roadmap.html) (using ProductBoard) and opened it for discussion with our member community.
   media:
     image: "/uploads/2022/02/18/designsprint-eosc.png"
     alt_text: Design Sprint Board for Metadata Harveststing Service
@@ -71,50 +75,19 @@ page_sections:
     image: "/uploads/2022/02/18/code.png"
     alt_text: Customize Blocks
 - template: content-feature
-  block: feature-1
-  media_alignment: Left
-  slug: development
-  headline: Stats
-  content: | 
-    85 Survey responses
-    10 Group Expert Walkthrough participants
-  media:
-    image: "/uploads/2022/02/18/code.png"
-    alt_text: Customize Blocks
-- template: content-feature
-  block: feature-1
-  media_alignment: Left
-  slug: development
-  headline: Test
-  content: | 
-    At the beginning of my design process I created wireframes for testing purposes.
-    Guiding Questions
-    - Why was it useful to do this?
-    - What kind of wireframes did you make?
-    - Low fidelity or high fidelity?
-    - What tool did you use for this?
-    - Did you use them for testing?
-    - How many iterations did you have?
-  media:
-    image: "/uploads/2022/02/18/code.png"
-    alt_text: Customize Blocks
-- template: content-feature
-  block: feature-1
-  media_alignment: Right
-  slug: development
-  headline: results
-  content: | 
-    What have you learned from this project?
-    - Explain what you had learned, experienced, or simply how you felt during the project.
-    - What were your biggest fears, problems, struggles?
-    - How did you overcome them?
-    - Being honest is a good thing, it means that you are aware of what you're doing.
-  media:
-    image: "/uploads/2022/02/18/code.png"
-    alt_text: Customize Blocks
+  block: stats-column-1
+  slug: summary
+  headline: Design Sprint in Numbers
+  col_1:
+    headline: 85
+    content: Survey responses
+  col_2:
+    headline: ""
+    content: ""
+  col_3:
+    headline: 10
+    content: Group Expert Walkthrough participants
 - template: simple-footer
   block: footer-1
   content: Copyright (c) 2022 Kristian Garza <kj.garza@gmail.com>
-
-
 ---

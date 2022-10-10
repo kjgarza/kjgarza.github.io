@@ -26,7 +26,6 @@ page_sections:
 - template: content-feature
   block: three-column-1
   slug: portfolio
-  headline: Kristian <br><strong>Garza Gutierrez</strong>
   col_1:
     headline: Bibliometrics Dashabord
     content: 
@@ -36,9 +35,8 @@ page_sections:
     content: 
       "<a class='kglink' target='_blank' href='https://kjgarza.github.io/portfolio/case-a'>Design Sprint</a>"
   col_3:
-    headline:
-    content:
-
+    headline: Web Tracker for analytics
+    content: "<a class='kglink' target='_blank' href='https://kjgarza.github.io/portfolio/case-b'>Survey and design process</a>"
 - template: simple-footer
   block: footer-1
   content: Copyright (c) 2022 Kristian Garza <kj.garza@gmail.com>

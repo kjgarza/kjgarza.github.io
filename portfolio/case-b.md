@@ -13,8 +13,8 @@ page_sections:
     link_text: Design
   - link: "#development"
     link_text: Dev
-  - link: "/portofolio"
-    link_text: Portofolio
+  - link: "/portfolio"
+    link_text: Portfolio
   - link: "#references"
     link_text: Publications
   cta:

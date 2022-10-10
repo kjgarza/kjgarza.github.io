@@ -18,4 +18,9 @@ a.kglink {
   object-fit: cover;
 }
 
+.block .block-feature-2{
+  min-height: 10vh;
+  max-height: 50vh;
+}
+
 }

@@ -3,22 +3,6 @@ layout: blocks
 title: Kristian Garza - Portfolio
 date: 2022-01-22T23:00:00.000+00:00
 page_sections:
-- template: navigation-header-w-button
-  block: header-2
-  navigation:
-  - link: '/'
-    link_text: Home
-  - link: "#product"
-    link_text: Design
-  - link: "#development"
-    link_text: Dev
-  - link: "/portfolio"
-    link_text: Portfolio
-  - link: "#references"
-    link_text: Publications
-  cta:
-    url: "/uploads/2022/02/18/cv.pdf"
-    button_text: Download
 - template: content-feature
   block: hero-1
   slug: intro
@@ -37,9 +21,6 @@ page_sections:
   col_3:
     headline: Web Tracker for analytics
     content: "<a class='kglink' target='_blank' href='https://kjgarza.github.io/portfolio/case-b'>Survey and design process</a>"
-- template: simple-footer
-  block: footer-1
-  content: Copyright (c) 2022 Kristian Garza <kj.garza@gmail.com>
 
 
 ---

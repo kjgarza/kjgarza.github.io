@@ -1,0 +1,15 @@
+---
+navigation:
+  - link: '/'
+    link_text: Home
+  - link: "#product"
+    link_text: Design
+  - link: "#development"
+    link_text: Dev
+  - link: "/portfolio"
+    link_text: Portfolio
+  - link: "#references"
+    link_text: Publications
+cta:
+  url: "/uploads/2022/02/18/cv.pdf"
+  button_text: Download

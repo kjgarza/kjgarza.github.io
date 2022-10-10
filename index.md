@@ -3,22 +3,6 @@ layout: blocks
 title: Kristian Garza - homepage
 date: 2022-01-22T23:00:00.000+00:00
 page_sections:
-- template: navigation-header-w-button
-  block: header-2
-  navigation:
-  - link: '/'
-    link_text: Home
-  - link: "#product"
-    link_text: Design
-  - link: "#development"
-    link_text: Dev
-  - link: "/portfolio"
-    link_text: Portfolio
-  - link: "#references"
-    link_text: Publications
-  cta:
-    url: "/uploads/2022/02/18/cv.pdf"
-    button_text: Download
 - template: hero-banner-w-image
   block: hero-2
   slug: features
@@ -112,9 +96,5 @@ page_sections:
   - "Garza, K. (2015). <i>Framing the Community Data System Interface</i>. figshare. <a class='kglink' target='_blank' href='https://doi.org/10.6084/M9.FIGSHARE.1300051'>https://doi.org/10.6084/M9.FIGSHARE.1300051</a>"
   - "Garza, K. (2014). <i>seek-analytics</i>. figshare. <a class='kglink' target='_blank' href='https://doi.org/10.6084/M9.FIGSHARE.1211850'>https://doi.org/10.6084/M9.FIGSHARE.1211850</a>"
   - "Garza, K. (2013). <i>Individual Motivations Change Activity in Online Scientific Communities</i>. figshare. <a class='kglink' target='_blank' href='https://doi.org/10.6084/M9.FIGSHARE.830404'>https://doi.org/10.6084/M9.FIGSHARE.830404</a>"
-- template: simple-footer
-  block: footer-1
-  content: Copyright (c) 2022 Kristian Garza <kj.garza@gmail.com>
-
 
 ---

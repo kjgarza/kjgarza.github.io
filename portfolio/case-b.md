@@ -3,23 +3,6 @@ layout: blocks
 title: Kristian Garza - Case B
 date: 2022-01-22T23:00:00.000+00:00
 page_sections:
-- template: navigation-header-w-button
-  block: header-2
-  # logo: "/uploads/2022/02/18/logo-web-3.png"
-  navigation:
-  - link: '/'
-    link_text: Home
-  - link: "#product"
-    link_text: Design
-  - link: "#development"
-    link_text: Dev
-  - link: "/portfolio"
-    link_text: Portfolio
-  - link: "#references"
-    link_text: Publications
-  cta:
-    url: "/uploads/2022/02/18/cv.pdf"
-    button_text: Download
 - template: content-feature
   block: hero-1
   slug: intro
@@ -87,7 +70,4 @@ page_sections:
   col_3:
     headline: 10
     content: Group Expert Walkthrough participants
-- template: simple-footer
-  block: footer-1
-  content: Copyright (c) 2022 Kristian Garza <kj.garza@gmail.com>
 ---

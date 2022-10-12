@@ -6,7 +6,7 @@ page_sections:
 - template: content-feature
   block: hero-1
   slug: intro
-  heading: Dashboard for bibliometricians in scholalrly communications
+  heading: Dashboard for bibliometricians in scholarly communications
 - template: content-feature
   block: one-column-1
   slug: intro
@@ -18,7 +18,7 @@ page_sections:
   slug: discovery
   headline: Discovery
   content: | 
-    I conducted a series of interviews with bibliometricians and stakeholders; the main challenge was aligning the goals and finding consensus on dashboard objectives. 
+    I conducted interviews with bibliometricians and stakeholders; the main challenge was aligning the goals and finding consensus on dashboard objectives. 
 
     A major challenge here was DataCite's infrastructure and data capabilities; I had to conciliate the infrastructure and data limitations with the user stories and goals we were aiming to address in the dashboard. 
   media:
@@ -61,7 +61,7 @@ page_sections:
   col_1:
     headline: 9
     content: 
-          Organisations participated in idea validation
+          Organizations participated in idea validation
   col_2:
     headline: 5
     content: 

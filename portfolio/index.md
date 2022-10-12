@@ -11,7 +11,7 @@ page_sections:
   block: three-column-1
   slug: portfolio
   col_1:
-    headline: Bibliometrics Dashabord
+    headline: Bibliometrics Dashboard
     content: 
           "<a class='kglink' target='_blank' href='https://kjgarza.github.io/portfolio/case-c'>Interviews and design process</a>"
   col_2:

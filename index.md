@@ -7,7 +7,7 @@ page_sections:
   block: hero-2
   slug: features
   headline: Kristian <br><strong>Garza Gutierrez</strong>
-  content:  Now, I work at Datacite as the Product Design Mananger. The goal is to bring the value of state-of-the-art design thinking practices to the Open Science Community and specially to design stat-of-the-art PID services.
+  content:  Now, I work at Datacite as the Product Design Manager. The goal is to bring the value of state-of-the-art design thinking practices to the Open Science Community and especially to design state-of-the-art PID services.
   cta:
     enabled: true
     url: https://www.linkedin.com/in/kjgarza
@@ -26,7 +26,7 @@ page_sections:
   content: Experienced in running <a class="kglink" target="_blank" href="https://miro.com/app/board/o9J_kg4jVgQ=/">Design Sprints</a>, Group-based expert walkthroughs, <a class="kglink" target="_blank" href="https://miro.com/app/board/uXjVOZtNNlI=/?share_link_id=691813336807">Lighting Decision Jams</a> for complex apps in specialized domains.
   media:
     image: "/uploads/2022/02/18/designsprint-eosc.png"
-    alt_text: Design Sprint Board for Metadata Harveststing Service
+    alt_text: Design Sprint Board for Metadata Harvesting Service
 - template: content-feature
   block: feature-1
   media_alignment: Right

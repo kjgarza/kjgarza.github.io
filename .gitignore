@@ -6,6 +6,7 @@ vendor/bundle
 # Ensure Hugo builds aren't committed to Git
 public/
 site/public/
+_site/*
 dist/
 .tmp/
 _site/

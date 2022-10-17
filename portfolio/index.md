@@ -8,19 +8,20 @@ page_sections:
   slug: intro
   heading: Portfolio
 - template: content-feature
-  block: three-column-1
+  block: three-column-links-1
   slug: portfolio
   col_1:
     headline: Bibliometrics Dashboard
-    content: 
-          "<a class='kglink' target='_blank' href='https://kjgarza.github.io/portfolio/case-c'>Interviews and design process</a>"
+    content: Interviews and design process
+    case: "portfolio/case-c.html"
   col_2:
     headline: Metadata Harvesting Services
-    content: 
-      "<a class='kglink' target='_blank' href='https://kjgarza.github.io/portfolio/case-a'>Design Sprint</a>"
+    content: Design Sprint
+    case: "portfolio/case-a.html"
   col_3:
     headline: Web Tracker for analytics
-    content: "<a class='kglink' target='_blank' href='https://kjgarza.github.io/portfolio/case-b'>Survey and design process</a>"
+    content: Survey and design process
+    case: "portfolio/case-b.html"
 
 
 ---

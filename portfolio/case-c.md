@@ -30,7 +30,7 @@ page_sections:
   slug: idea-validation
   headline: Idea Validation
   content: | 
-    Since it was difficult to find users to validate, I posted a conceptual idea of the dashboard in [DataCite Roadmap](https://datacite.org/roadmap.html) (using ProductBoard). I requested visitors to provide feedback regarding their interest in the service and use cases. Nine organizations provided use cases during this idea validation.
+    Since it was difficult to find users to validate, I posted a conceptual idea of the dashboard in <a class="kglink" href="https://datacite.org/roadmap.html">DataCite Roadmap</a> (using ProductBoard). I requested visitors to provide feedback regarding their interest in the service and use cases. Nine organizations provided use cases during this idea validation.
   media:
     image: "/uploads/2022/02/18/code.png"
     alt_text: Customize Blocks
@@ -41,7 +41,7 @@ page_sections:
   headline: Design
   content: | 
     FIGMA
-    Since it was difficult to find users to validate, I posted a conceptual idea of the dashboard in [DataCite Roadmap](https://datacite.org/roadmap.html) (using ProductBoard). I requested visitors to provide feedback regarding their interest in the service and use cases. Nine organizations provided use cases during this idea validation.
+    Since it was difficult to find users to validate, I posted a conceptual idea of the dashboard in <a class="kglink" href="https://datacite.org/roadmap.html">DataCite Roadmap</a> (using ProductBoard). I requested visitors to provide feedback regarding their interest in the service and use cases. Nine organizations provided use cases during this idea validation.
   media:
     image: "/uploads/2022/02/18/code.png"
     alt_text: Customize Blocks

@@ -23,7 +23,7 @@ page_sections:
   slug: product
   headline: Discovery 
   content: |
-    Our team ran a [survey](https://zenodo.org/record/3476545#.YwOYF-xBxqt) with key stakeholders to identify the main challenges with the existing usage processing services and technical capabilities in the stakeholder groups. Based on the survey findings, I set up to define a web tracker as opposed to a usage processing service. That would reduce the main challenges the stakeholder groups had (time spent in processing and transferring logs)
+    Our team ran a   <a class="kglink" href="https://zenodo.org/record/3476545#.YwOYF-xBxqt">survey</a> with key stakeholders to identify the main challenges with the existing usage processing services and technical capabilities in the stakeholder groups. Based on the survey findings, I set up to define a web tracker as opposed to a usage processing service. That would reduce the main challenges the stakeholder groups had (time spent in processing and transferring logs)
   media:
     image: "/uploads/2022/02/18/designsprint-eosc.png"
     alt_text: Design Sprint Board for Metadata Harvesting Service
@@ -33,7 +33,7 @@ page_sections:
   slug: product
   headline: Idea Validation
   content: |
-    I validated the original idea using [DataCite Roadmap](https://datacite.org/roadmap.html) (using ProductBoard) and opened it for discussion with our member community.
+    I validated the original idea using <a class="kglink" href="https://datacite.org/roadmap.html">DataCite Roadmap</a> (using ProductBoard) and opened it for discussion with our member community.
   media:
     image: "/uploads/2022/02/18/designsprint-eosc.png"
     alt_text: Design Sprint Board for Metadata Harvesting Service

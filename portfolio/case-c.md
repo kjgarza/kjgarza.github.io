@@ -43,7 +43,7 @@ page_sections:
     FIGMA
     Since it was difficult to find users to validate, I posted a conceptual idea of the dashboard in <a class="kglink" href="https://datacite.org/roadmap.html">DataCite Roadmap</a> (using ProductBoard). I requested visitors to provide feedback regarding their interest in the service and use cases. Nine organizations provided use cases during this idea validation.
   media:
-    image: "/uploads/2022/02/18/code.png"
+    image: "/uploads/2022/02/18/figma-dashboard.png"
     alt_text: Customize Blocks
 - template: content-feature
   block: feature-1
@@ -54,6 +54,9 @@ page_sections:
     A technical walkthrough with experts was carried out to validate the prototype design. Here I used the same subject that provided use cases and support during the idea validation stage. 
 
     Overall the comments on the features were positive, but requests for additional visualization were made. To address this new input, I made the second round of interviews—this time laser-focused on visualization design. My questionary examined aspects such as dimensions, aggregations, filters, and measures to be included in the visualizations. 
+  media:
+    image: "/uploads/2022/02/18/validation-dashboard.png"
+    alt_text: Customize Blocks
 - template: content-feature
   block: stats-column-1
   slug: summary

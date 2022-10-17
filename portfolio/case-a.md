@@ -100,11 +100,13 @@ page_sections:
   media_alignment: Left
   slug: testimony
   headline: Testimony
+  link: https://doi.org/10.5438/f03x-vr69
   content: | 
-    When we were involved in the design sprint for the DataCite harvesting service, the "How Might We" question technique supported creativity while focusing on the problem to solve for the user.  -- [https://doi.org/10.5438/f03x-vr69](https://doi.org/10.5438/f03x-vr69)
-    Britta Dreyer,  Head of PID and Metadata Services, Technische Informationsbibliothek (TIB)
-
-
+    When we were involved in the design sprint for the DataCite harvesting service, the "How Might We" question technique supported creativity while focusing on the problem to solve for the user.
+    -- Britta Dreyer,  Head of PID and Metadata Services, Technische Informationsbibliothek (TIB)
+  media:
+    image: "/uploads/2022/02/18/britta.webp"
+    alt_text: Britta Dreyer,  Head of PID and Metadata Services, Technische Informationsbibliothek (TIB)
 ---
 
 

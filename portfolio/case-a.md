@@ -36,7 +36,7 @@ page_sections:
 
     I defined a questionnaire I used during the interviews, and all the participants took How-Might-We notes. And I led the participants through the "Long-Term goal" and sprint questions activities. As well as introduce them to dot voting.
   media:
-    image: "/uploads/2022/02/18/code.png"
+    image: "/uploads/2022/02/18/hmw-harvester.png"
     alt_text: Customize Blocks
 - template: content-feature
   block: feature-1
@@ -46,7 +46,7 @@ page_sections:
   content: | 
     Since it was difficult to find users to validate, I posted a conceptual idea of the dashboard in <a class="kglink" href="https://datacite.org/roadmap.html">DataCite Roadmap</a>  (using ProductBoard). I requested visitors to provide feedback regarding their interest in the service and use cases. Nine organizations provided use cases during this idea validation.
   media:
-    image: "/uploads/2022/02/18/code.png"
+    image: "/uploads/2022/02/18/map-harvester.png"
     alt_text: Customize Blocks
 - template: content-feature
   block: feature-1
@@ -57,7 +57,9 @@ page_sections:
     Allowed the participants to work on the sketch individually and bring them together to do the heatmap voting and solution presentation. Some sketches were quite abstract, and I allowed time for questioning and further explanation. 
     
     Two sketches gather a significant amount of votes; hence rather than choosing only one, we consent to use both to generate a prototype.
-
+  media:
+    image: "/uploads/2022/02/18/sketch-harvester.png"
+    alt_text: Customize Blocks
 - template: content-feature
   block: feature-1
   media_alignment: right
@@ -67,7 +69,9 @@ page_sections:
     To clarify the pieces, you need to prototype, I helped the team through a user test flow exercise. That helped me to explain the required pieces to prototype.
 
     Then I prepared the prototype, which consisted of **low-fidelity wireframes**.
-
+  media:
+    image: "/uploads/2022/02/18/testflow-harvester.png"
+    alt_text: Customize Blocks
 - template: content-feature
   block: feature-1
   media_alignment: Left
@@ -77,7 +81,9 @@ page_sections:
     For the Validation, I facilitated a secondary session inviting the Focus group participants to validate a wireframe prototype of the service and provided feedback. 
 
     Overall the design prototype got excellent comments and addressed the large majority of the needs of the users.
-
+  media:
+    image: "/uploads/2022/02/18/figma-harvester.png"
+    alt_text: Customize Blocks
 - template: content-feature
   block: stats-column-1
   slug: summary

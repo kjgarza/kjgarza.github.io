@@ -59,6 +59,7 @@ page_sections:
   headline: Published Work
   slug: references
   references: 
+  - "Garza, K. Refining our Thinking: How we are improving DataCite design processes. <a class='kglink' target='_blank' href='https://doi.org/10.5438/F03X-VR69'>https://doi.org/10.5438/F03X-VR69</a>"
   - "Garza, K., Strecker, D., Ninkov, A., Schabinger, R., &amp; Gregory, K. (2021). <i>DFG to OECD subject classification Mapping</i> (Version 1.0). Zenodo. <a class='kglink' target='_blank' href='https://doi.org/10.5281/ZENODO.5176121'>https://doi.org/10.5281/ZENODO.5176121</a>"
   - "Garza, K., &amp; Hirsch, M. (2021). <i>DataCite Open Hours in 2021</i>. <a class='kglink' target='_blank' href='https://doi.org/10.5438/KW4K-Q070'>https://doi.org/10.5438/KW4K-Q070</a>"
   - "Garza, K. (2021). <i>Product Roadmap -Today and beyond</i>. <a class='kglink' target='_blank' href='https://doi.org/10.5281/ZENODO.5534129'>https://doi.org/10.5281/ZENODO.5534129</a>"

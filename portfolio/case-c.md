@@ -21,9 +21,7 @@ page_sections:
     I conducted interviews with bibliometricians and stakeholders; the main challenge was aligning the goals and finding consensus on dashboard objectives. 
 
     A major challenge here was DataCite's infrastructure and data capabilities; I had to conciliate the infrastructure and data limitations with the user stories and goals we were aiming to address in the dashboard. 
-  media:
-    image: "/uploads/2022/02/18/code.png"
-    alt_text: Customize Blocks
+
 - template: content-feature
   block: feature-1
   media_alignment: Left
@@ -31,9 +29,7 @@ page_sections:
   headline: Idea Validation
   content: | 
     Since it was difficult to find users to validate, I posted a conceptual idea of the dashboard in <a class="kglink" href="https://datacite.org/roadmap.html">DataCite Roadmap</a> (using ProductBoard). I requested visitors to provide feedback regarding their interest in the service and use cases. Nine organizations provided use cases during this idea validation.
-  media:
-    image: "/uploads/2022/02/18/code.png"
-    alt_text: Customize Blocks
+
 - template: content-feature
   block: feature-1
   media_alignment: Right
@@ -44,7 +40,7 @@ page_sections:
     Since it was difficult to find users to validate, I posted a conceptual idea of the dashboard in <a class="kglink" href="https://datacite.org/roadmap.html">DataCite Roadmap</a> (using ProductBoard). I requested visitors to provide feedback regarding their interest in the service and use cases. Nine organizations provided use cases during this idea validation.
   media:
     image: "/uploads/2022/02/18/figma-dashboard.png"
-    alt_text: Customize Blocks
+    alt_text: Design
 - template: content-feature
   block: feature-1
   media_alignment: Left
@@ -56,7 +52,7 @@ page_sections:
     Overall the comments on the features were positive, but requests for additional visualization were made. To address this new input, I made the second round of interviews—this time laser-focused on visualization design. My questionary examined aspects such as dimensions, aggregations, filters, and measures to be included in the visualizations. 
   media:
     image: "/uploads/2022/02/18/validation-dashboard.png"
-    alt_text: Customize Blocks
+    alt_text: Solution Validation
 - template: content-feature
   block: stats-column-1
   slug: summary

@@ -13,10 +13,8 @@ page_sections:
     url: https://www.linkedin.com/in/kjgarza
     button_text: 'See on LinkedIn '
   image:
-    image: "/uploads/2022/02/18/photo.jpeg"
-    id: "hero-img"
+    image: "/uploads/2018/06/21/blob.svg"
     alt_text: Product Shot
-  background_image: "/uploads/2018/06/21/hero-2-bg.png"
 - template: content-feature
   block: feature-1
   media_alignment: Left

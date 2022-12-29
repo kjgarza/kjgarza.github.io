@@ -2,6 +2,7 @@
 layout: blocks
 title: Kristian Garza - Case B
 date: 2022-01-22T23:00:00.000+00:00
+type: "design"
 page_sections:
 - template: content-feature
   block: hero-1

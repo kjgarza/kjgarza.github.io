@@ -10,6 +10,12 @@ navigation:
     link_text: Portfolio
   - link: "#references"
     link_text: Publications
+navigation-design:
+  - link: '/'
+    link_text: Home
+  - link: "/"
+    link_text: Portfolio
+
 cta:
   url: "https://drive.google.com/file/d/1QR62whOAcloJGPG5Wo_qQBH9Yc2sD909/view?usp=share_link"
   button_text: Download

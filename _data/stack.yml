@@ -7,67 +7,87 @@ design:
   }
   - {
     title: "Figma",
-    logo: "https://cdn.svgporn.com/logos/figma.svg"
+    logo: "https://cdn.svgporn.com/logos/figma.svg",
+    example-url: "/portfolio/case-c.html"
   }
 frontend:
   - {
     title: "Vue.js",
-    logo: "https://cdn.svgporn.com/logos/vue.svg"
+    logo: "https://cdn.svgporn.com/logos/vue.svg",
+    example-url: "https://github.com/datacite/spitz"
   }
   - {
     title: "Typescript",
-    logo: "https://cdn.svgporn.com/logos/typescript-icon.svg"
+    logo: "https://cdn.svgporn.com/logos/typescript-icon.svg",
+    example-url: "https://github.com/datacite/akita"
   }
   - {
     title: "React.js",
-    logo: "https://cdn.svgporn.com/logos/react.svg"
+    logo: "https://cdn.svgporn.com/logos/react.svg",
+    example-url: "https://github.com/datacite/akita"
+  }
+  - {
+    title: "NextJs",
+    logo: "https://cdn.svgporn.com/logos/nextjs-icon.svg",
+    example-url: "https://github.com/datacite/akita"
   }
 backend:
   - {
     title: "Ruby on Rails ",
-    logo: "https://cdn.svgporn.com/logos/ruby.svg"
+    logo: "https://cdn.svgporn.com/logos/ruby.svg",
+    example-url: "https://github.com/datacite/lupo"
   }
   - {
     title: "PHP",
-    logo: "https://cdn.svgporn.com/logos/php.svg"
+    logo: "https://cdn.svgporn.com/logos/php.svg",
+    example-url: ""
   }
   - {
     title: "Python",
-    logo: "https://cdn.svgporn.com/logos/python.svg"
+    logo: "https://cdn.svgporn.com/logos/python.svg",
+    example-url: "https://github.com/datacite/viringo"
   }
   - {
     title: "R",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/724px-R_logo.svg.png?20160212050515"
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/724px-R_logo.svg.png?20160212050515",
+    example-url: "https://github.com/datacite/notebooks"
   }
   - {
     title: "Gherkin",
-    logo: "https://www.freelogovectors.net/wp-content/uploads/2020/11/cucumber-logo-768x768.png"
+    logo: "https://www.freelogovectors.net/wp-content/uploads/2020/11/cucumber-logo-768x768.png",
+    example-url: "https://github.com/datacite/tasks"
   }
 db:
   - {
     title: "MySQL",
-    logo: "https://cdn.svgporn.com/logos/mysql-icon.svg"
+    logo: "https://cdn.svgporn.com/logos/mysql-icon.svg",
+    example-url: "https://github.com/datacite/sashimi"
   }
   - {
     title: "ElasticSearch",
-    logo: "https://cdn.svgporn.com/logos/elasticsearch.svg"
+    logo: "https://cdn.svgporn.com/logos/elasticsearch.svg",
+    example-url: "https://github.com/datacite/lupo"
   }
 infrastructure:
   - {
     title: "AWS",
-    logo: "https://cdn.svgporn.com/logos/aws.svg"
+    logo: "https://cdn.svgporn.com/logos/aws.svg",
+    example-url: "https://github.com/datacite/mastino"
   }
   - {
     title: "Docker",
-    logo: "https://cdn.svgporn.com/logos/docker-icon.svg"
+    logo: "https://cdn.svgporn.com/logos/docker-icon.svg",
+    example-url: "https://github.com/datacite/lupo"
   }
   - {
     title: "Terraform",
-    logo: "https://cdn.svgporn.com/logos/terraform-icon.svg"
+    logo: "https://cdn.svgporn.com/logos/terraform-icon.svg",
+    example-url: "https://github.com/datacite/mastino"
   }
   - {
     title: "Github",
-    logo: "https://cdn.svgporn.com/logos/github-icon.svg"
+    logo: "https://cdn.svgporn.com/logos/github-icon.svg",
+    example-url: "https://github.com/kjgarza"
   }
   - {
     title: "Jenkins",

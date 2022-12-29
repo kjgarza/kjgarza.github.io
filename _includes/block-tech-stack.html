@@ -20,7 +20,9 @@
       {% for item in stack %}
       <div class="col">
         <div class="card h-100 border-light" style="width: 8rem;">
-          <img src="{{ item.logo }}" class="card-img-top" alt="Experience on {{ item.title }}">
+          <a href="{{ item.example-url }}">
+            <img src="{{ item.logo }}" class="card-img-top" alt="Experience on {{ item.title }}">
+          </a>
           <div class="card-body">
             <h5 class="card-title text-center">{{ item.title }}</h5>
             <!-- <p class="card-text">This is a short card.</p> -->

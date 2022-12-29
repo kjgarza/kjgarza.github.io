@@ -57,6 +57,64 @@ body {
   font-size: 16px;
 }
 
+.carousel-inner-item {
+  display: inline-grid;
+  position: relative;
+  padding: 0 2em 2em 0;
+  background-color: white;
+} 
+
+/* .carousel-item {
+  margin-right: 0;
+  flex: 0 0 33.333333%;
+  display: block;
+}
+
+*/
+
+/* .carousel-inner-item {
+  display: flex;
+  padding: 1em;
+} 
+
+.carousel-item-multi {
+  --items: 3;
+}
+
+.carousel-item-multi .carousel-item {
+   --items: 3; 
+  margin-right: 0;
+  flex: 0 0 33%;
+  text-align: left;
+  display: block;
+}
+
+
+/* .carousel-item-multi .carousel-item > div {
+  --items: 3;
+  flex: 0 0 33;
+  text-align: left;
+  display: block;
+} */ 
+
+/* @media (min-width: 768px) { */
+    
+  .carousel-inner .carousel-item-end.active,
+  .carousel-inner .carousel-item-next {
+    transform: translateX(25%);
+  }
+  
+  .carousel-inner .carousel-item-start.active, 
+  .carousel-inner .carousel-item-prev {
+    transform: translateX(-25%);
+  }
+/* } */
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start { 
+transform: translateX(0);
+}
+
 @media screen and (min-width: 800px) {
   /* put your css styles in here */
 

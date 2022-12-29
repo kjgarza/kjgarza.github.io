@@ -23,7 +23,7 @@ page_sections:
 - template: content-feature
   block: three-column-cards-1
   slug: portfolio
-  heading: Portfolio
+  headline: Portfolio
   col_1:
     headline: Bibliometrics Dashboard
     content: Interviews and design process
@@ -43,4 +43,8 @@ page_sections:
   block: tech-stack
   headline: "My Tech Stack"
   content: "Below are some of the technologies I have experience on. This is not an exhaustive list."
+- template: content-feature
+  block: carousel
+  headline: "Published articles"
+  content: "Some of my more recent published work on the web"
 ---

@@ -1,0 +1,75 @@
+---
+design:
+  - {
+    title: "Miro",
+    logo: "https://cdn.cdnlogo.com/logos/m/32/miro.svg",
+    example-url: "/portfolio/case-c.html"
+  }
+  - {
+    title: "Figma",
+    logo: "https://cdn.svgporn.com/logos/figma.svg"
+  }
+frontend:
+  - {
+    title: "Vue.js",
+    logo: "https://cdn.svgporn.com/logos/vue.svg"
+  }
+  - {
+    title: "Typescript",
+    logo: "https://cdn.svgporn.com/logos/typescript-icon.svg"
+  }
+  - {
+    title: "React.js",
+    logo: "https://cdn.svgporn.com/logos/react.svg"
+  }
+backend:
+  - {
+    title: "Ruby on Rails ",
+    logo: "https://cdn.svgporn.com/logos/ruby.svg"
+  }
+  - {
+    title: "PHP",
+    logo: "https://cdn.svgporn.com/logos/php.svg"
+  }
+  - {
+    title: "Python",
+    logo: "https://cdn.svgporn.com/logos/python.svg"
+  }
+  - {
+    title: "R",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/724px-R_logo.svg.png?20160212050515"
+  }
+  - {
+    title: "Gherkin",
+    logo: "https://www.freelogovectors.net/wp-content/uploads/2020/11/cucumber-logo-768x768.png"
+  }
+db:
+  - {
+    title: "MySQL",
+    logo: "https://cdn.svgporn.com/logos/mysql-icon.svg"
+  }
+  - {
+    title: "ElasticSearch",
+    logo: "https://cdn.svgporn.com/logos/elasticsearch.svg"
+  }
+infrastructure:
+  - {
+    title: "AWS",
+    logo: "https://cdn.svgporn.com/logos/aws.svg"
+  }
+  - {
+    title: "Docker",
+    logo: "https://cdn.svgporn.com/logos/docker-icon.svg"
+  }
+  - {
+    title: "Terraform",
+    logo: "https://cdn.svgporn.com/logos/terraform-icon.svg"
+  }
+  - {
+    title: "Github",
+    logo: "https://cdn.svgporn.com/logos/github-icon.svg"
+  }
+  - {
+    title: "Jenkins",
+    logo: "https://cdn.svgporn.com/logos/jenkins.svg"
+  }

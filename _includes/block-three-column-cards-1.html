@@ -1,0 +1,42 @@
+<section class="block block-three-column-1">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>{{section.heading}}</h2>
+      </div>
+    </div>
+
+    <div class="columns">
+      <div class="column">
+        <div class="card" style="width: 20rem;">
+          <img src="{{ section.col_1.image }}" class="card-img-top" alt="{{ section.col_1.content }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ section.col_1.headline }}</h5>
+            <p class="card-text">{{ section.col_1.content }}</p>
+            <a href="{{ section.col_1.case | relative_url }}" class="button primary">Go to case</a>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card" style="width: 20rem;">
+          <img src="{{ section.col_2.image }}" class="card-img-top" alt="{{ section.col_2.content }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ section.col_2.headline }}</h5>
+            <p class="card-text">{{ section.col_2.content }}</p>
+            <a href="{{ section.col_2.case | relative_url }}" class="button primary">Go to case</a>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card" style="width: 20rem;">
+          <img src="{{ section.col_3.image }}" class="card-img-top" alt="{{ section.col_3.content }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ section.col_3.headline }}</h5>
+            <p class="card-text">{{ section.col_3.content }}</p>
+            <a href="{{ section.col_3.case | relative_url }}" class="button primary">Go to case</a>
+          </div>
+        </div>
+      </div>            
+    </div>
+  </div>
+</section>

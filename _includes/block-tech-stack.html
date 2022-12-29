@@ -1,0 +1,33 @@
+<section class="block block-three-column-1">
+  <div class="container">
+
+    <div class="row">
+      <div class="col">
+        <h2>{{ section.headline }}</h2>
+        <p>{{ section.content }}</p>
+      </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-6 g-4">
+      {% case page.stack %}
+      {% when "design" %}
+        {% assign stack = site.data.stack.design | concat: site.data.stack.frontend  %}
+      {% when "dev" %}
+        {% assign stack = site.data.stack.frontend | concat: site.data.stack.backend | concat: site.data.stack.db | concat: site.data.stack.infrastructure %}
+      {% else %}
+        {% assign stack = site.data.stack.design | concat: site.data.stack.frontend | concat: site.data.stack.backend | concat: site.data.stack.db | concat: site.data.stack.infrastructure %}
+      {% endcase %}
+      {% for item in stack %}
+      <div class="col">
+        <div class="card h-100 border-light" style="width: 8rem;">
+          <img src="{{ item.logo }}" class="card-img-top" alt="Experience on {{ item.title }}">
+          <div class="card-body">
+            <h5 class="card-title text-center">{{ item.title }}</h5>
+            <!-- <p class="card-text">This is a short card.</p> -->
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</section>

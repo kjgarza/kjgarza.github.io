@@ -7,12 +7,12 @@ page_sections:
 - template: content-feature
   block: hero-1
   slug: intro
-  heading: Web Tracker for analytics
+  heading: Designing an Alternative Service for Data Usage Processing
 - template: content-feature
   block: one-column-1
   slug: context
   content:  |
-    Currently, every single service for data usage processing requires using weblogs. Since weblogs are hard to share across distributed borders, there was a need to provide a different type of service. I set to define a service that could provide an alternative to the current state.
+    For this project, I worked as a senior Product Designer to define a new service that could provide an alternative to existing usage processing services that rely on weblogs. These weblogs can be difficult to share across distributed borders, so there was a need for a different type of service
   image:
     image: "/uploads/2022/02/18/designsprint-eosc.png"
     alt_text: Product Shot

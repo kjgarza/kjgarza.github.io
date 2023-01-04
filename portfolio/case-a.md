@@ -7,12 +7,12 @@ page_sections:
 - template: content-feature
   block: hero-1
   slug: intro
-  heading: Metadata Harvesting Service
+  heading: Re-framing DataCite's Harvesting Services through a Design Sprint
 - template: content-feature
   block: one-column-1
   slug: intro
   content: |
-    Rebuilding the service and re-framing it from a freemium service to a premium service with premium features.
+    For this project, I worked as a senior Product Designer with experience in UX research methodologies, including design sprints. The goal of the project was to re-frame DataCite's harvesting services to better meet the needs of users.
 - template: content-feature
   block: feature-1
   media_alignment: Right

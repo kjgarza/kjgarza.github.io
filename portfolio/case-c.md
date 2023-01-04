@@ -7,12 +7,12 @@ page_sections:
 - template: content-feature
   block: hero-1
   slug: intro
-  heading: Dashboard for bibliometricians in scholarly communications
+  heading: Designing a Dashboard for bibliometricians in scholarly communications
 - template: content-feature
   block: one-column-1
   slug: intro
   content: |
-    To catalyze researcher and bibliometrics interest and work in assessing data sharing and metrics, DataCite will build a bibliometrics dashboard that visualizes key fundamental bibliometrics indicators, which we will pilot on the more than 6 million datasets registered with DataCite.
+    For this project, I worked as a senior Product Designer with a focus on UX research. The goal of the project was to design an analytics dashboard that would allow bibliometricians to perform open-science analysis.
 - template: content-feature
   block: feature-1
   media_alignment: Right

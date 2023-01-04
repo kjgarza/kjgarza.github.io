@@ -64,40 +64,7 @@ body {
   background-color: white;
 } 
 
-/* .carousel-item {
-  margin-right: 0;
-  flex: 0 0 33.333333%;
-  display: block;
-}
-
-*/
-
-/* .carousel-inner-item {
-  display: flex;
-  padding: 1em;
-} 
-
-.carousel-item-multi {
-  --items: 3;
-}
-
-.carousel-item-multi .carousel-item {
-   --items: 3; 
-  margin-right: 0;
-  flex: 0 0 33%;
-  text-align: left;
-  display: block;
-}
-
-
-/* .carousel-item-multi .carousel-item > div {
-  --items: 3;
-  flex: 0 0 33;
-  text-align: left;
-  display: block;
-} */ 
-
-/* @media (min-width: 768px) { */
+@media (min-width: 768px) {
     
   .carousel-inner .carousel-item-end.active,
   .carousel-inner .carousel-item-next {
@@ -108,11 +75,20 @@ body {
   .carousel-inner .carousel-item-prev {
     transform: translateX(-25%);
   }
-/* } */
+}
 
 .carousel-inner .carousel-item-end,
 .carousel-inner .carousel-item-start { 
 transform: translateX(0);
+}
+
+.icon-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.stack-icon  {
+  padding: 10px 10px 20px 10px;
 }
 
 @media screen and (min-width: 800px) {

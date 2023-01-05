@@ -34,7 +34,7 @@ page_sections:
 
     I defined a questionnaire I used during the interviews, and all the participants took How-Might-We notes. And I led the participants through the "Long-Term goal" and sprint questions activities. As well as introduce them to dot voting.
   media:
-    image: "/uploads/2022/02/18/hmw-harvester.png"
+    image: "/uploads/2022/02/19/hmw-harvester medium.png"
     alt_text: Day 1 - Defining the challenge
 - template: content-feature
   block: feature-1
@@ -44,7 +44,7 @@ page_sections:
   content: | 
     Since it was difficult to find users to validate, I posted a conceptual idea of the dashboard in <a class="kglink" href="https://datacite.org/roadmap.html">DataCite Roadmap</a>  (using ProductBoard). I requested visitors to provide feedback regarding their interest in the service and use cases. Nine organizations provided use cases during this idea validation.
   media:
-    image: "/uploads/2022/02/18/map-harvester.png"
+    image: "/uploads/2022/02/19/map-harvester medium.png"
     alt_text: Day 2  - Map & Lighting demos 
 - template: content-feature
   block: feature-1
@@ -56,7 +56,7 @@ page_sections:
     
     Two sketches gather a significant amount of votes; hence rather than choosing only one, we consent to use both to generate a prototype.
   media:
-    image: "/uploads/2022/02/18/sketch-harvester.png"
+    image: "/uploads/2022/02/19/sketch-harvester medium.png"
     alt_text:  Day 3 - Vote on solutions 
 - template: content-feature
   block: feature-1
@@ -68,7 +68,7 @@ page_sections:
 
     Then I prepared the prototype, which consisted of **low-fidelity wireframes**.
   media:
-    image: "/uploads/2022/02/18/testflow-harvester.png"
+    image: "/uploads/2022/02/19/testflow-harvester medium.png"
     alt_text: Day 4 - The StoryBoard and Prototype
 - template: content-feature
   block: feature-1
@@ -80,7 +80,7 @@ page_sections:
 
     Overall the design prototype got excellent comments and addressed the large majority of the needs of the users.
   media:
-    image: "/uploads/2022/02/18/figma-harvester.png"
+    image: "/uploads/2022/02/19/figma-harvester medium.png"
     alt_text: Day 5 - Validation
 - template: content-feature
   block: stats-column-1

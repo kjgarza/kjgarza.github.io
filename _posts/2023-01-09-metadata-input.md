@@ -1,11 +1,12 @@
 ---
 layout: post
 category : pages
-title: "Web forms, meet your demise: The unstoppable rise of large language models (ChatGPT)"
+title: "Academic Publishing web forms, meet your demise: The unstoppable rise of large language models (ChatGPT)"
 tags : [ai, metadata, web forms, chatgpt, ux]
 published: true
 ---
 
+# Academic Publishing web forms, meet your demise: The unstoppable rise of large language models (ChatGPT)
 
 <img src="/uploads/2022/02/19/2023-01-20-create_metadata.png" width="700">
 
@@ -13,7 +14,7 @@ As we enter the age of artificial intelligence, it's worth considering how large
 Web forms have been the dominant method for users to input data and complete tasks online for decades. But as anyone who has struggled to fill out a form on the web can attest, these forms can be clunky and frustrating. Large language models offer a more intuitive and human-like alternative.
 Imagine being able to speak or type your request to a website or application, rather than having to remember which information goes in which field and navigate through multiple pages of a form. This level of convenience doesn't exist, but chatGPT shows signs of the possibilities. 
 
-An area of application in which I'm genuinely interested is metadata input in academic publications and data. The replacement of web forms with large language models for metadata input in academic journals has the potential to streamline the submission process significantly. Traditionally web forms can be time-consuming and laborious to complete, especially for academics who may have to input large amounts of information about their research and publication history. With large language models, academics could type prompts about their metadata into a web application, saving significant time and effort. This could also lead to fewer errors in the submission process, as large language models can understand the context and provide more accurate input. Adopting large language models for metadata input in academic publications could lead to a more efficient and user-friendly submission process.
+An area of application in which I'm genuinely interested is **metadata input in academic publications and data**. The replacement of web forms with large language models for metadata input in academic journals has the potential to streamline the submission process significantly. Traditionally web forms can be time-consuming and laborious to complete, especially for academics who may have to input large amounts of information about their research and publication history. With large language models, academics could type prompts about their metadata into a web application, saving significant time and effort. This could also lead to fewer errors in the submission process, as large language models can understand the context and provide more accurate input. Adopting large language models for metadata input in academic publications could lead to a more efficient and user-friendly submission process.
 
 In the past, one potential criticism of this approach is that LLM may only sometimes be able to understand and respond to user requests accurately. While large language models have made significant progress in recent years, they can still struggle with ambiguous or complex language, particularly in domain-specific contexts such as academic publications. This could lead to confusion or frustration for users who may not get the desired results from their natural language queries. However, [OpenAI announcement](https://openai.com/blog/chatgpt/) of the GPT-3.5 series model and its flagship app chatGPT has potentially shattered that criticism. Since the announcement, the web has been floated with examples of prompts generating code, creating copy, and answering questions.
 

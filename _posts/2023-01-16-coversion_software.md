@@ -94,7 +94,7 @@ The second experiment is different; why bother transforming the code when the GP
 <img src="/uploads/2022/02/19/Capture-2023-01-17-115718.png" width="400">
 
 
-Overall the results are excellent. The first chatGPT conversion in valid DataCite metadata indicates that it understands the DataCite Metadata. Second, in terms of the comparison, the results are very positive but not perfect. Mandatory fields mapped corrected. ChatGPT also made some interpretations to enrich the metadata with "subjects" and a "description." Optional fields like dates and funding had mixed results, but they are not inaccurate. 
+Overall the results are excellent. The first chatGPT conversion in valid DataCite metadata indicates that it understands the DataCite Metadata. Second, in terms of the comparison, the results are very positive but not perfect. Mandatory fields mapped corrected. ChatGPT also made some interpretations to enrich the metadata with "subjects" and a "description." Optional fields like dates and funding had mixed results, but they are not inaccurate. The metadata [file outputs can be found in github](https://gist.github.com/kjgarza/343e8c44b3ed018eaa9d216b479145f9)
 
 The results from both experiments are promising. Both examples show that the LLM model is aware of the different schemas,their properties, formats, software patterns, languages, and syntax. 
 

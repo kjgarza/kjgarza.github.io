@@ -86,7 +86,7 @@ While it is clear that large language models and the Chain-of-Thought approach h
 
 ## Forget about Code; just transfrom the data
 
-<img src="/uploads/2022/02/19/2023-01-20_comparison.png" width="600">
+<img src="/uploads/2022/02/19/2023-01-20_comparison.png" width="700">
 
 The second experiment is different; why bother transforming the code when the GPT-3.5 model already knows about Datacite Schema and Crossref Schema? I can ask the GPT-3.5 model, via ChatGPT, to covert data from one schema to another. The example below shows that. I took the metadata of a DOI in Crossref schema (i.e., [10.1002/EJIC.201900339](https://doi.org/10.1002/EJIC.201900339))  and used it as a prompt to convert to DataCite Schema. I had to trim the metadata a bit as it has too many relationships, but it is good enough to check the conversation. Then compared, the results with the metadata conversion using Crosscite Content Negotiation (a service maintained by Crossref and DataCite). Finally, I validated the resulting metadata against the DataCite API validation.
 

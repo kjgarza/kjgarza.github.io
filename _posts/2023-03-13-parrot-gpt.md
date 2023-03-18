@@ -8,7 +8,7 @@ published: true
 
 # ParrotGPT: On the Advantages of Large Language Models for Academic Metadata Schema Mapping
 
-<img src="/uploads/2023/03/16/parrot-crosswalk-160323.png" width="700">
+<img src="/uploads/2023/03/16/parrot-crosswalk-160323-min.png" width="700">
 
 Picture, if you will, the labyrinthine world of academic information management, where metadata schema mapping serves as a vital underpinning for the exchange and intermingling of data across diverse platforms and systems. This arena has long been dominated by the venerable metadata schema crosswalk, which, though serviceable, has begun to show its age. As I [discussed in the past](https://medium.com/@kj.garza/revolutionizing-metadata-schema-mapping-with-chatgpt-a8df54e41e24), the traditional method of creating metadata schema crosswalks is a time-consuming and monotonous task that requires significant coordation. Enter the digital behemoths known as large language models (LLMs), whose unparalleled prowess in understanding and generating the complex tapestry of human language has opened up a new frontier in metadata schema mapping. These LLMs present a far superior alternative to the traditional crosswalks of yore.
 

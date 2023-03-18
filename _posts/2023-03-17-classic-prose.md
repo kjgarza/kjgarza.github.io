@@ -8,6 +8,9 @@ published: true
 
 # Title: Leveraging LLMs to Improve Academic Prose: Learning from Steven Pinker
 
+<img src="/uploads/2023/03/16/pinker-2-min.png" width="700">
+
+
 Academic prose, despite its goal of disseminating knowledge, has often been criticized for being difficult to comprehend and laden with jargon. In his book ["A Sense of Style,"](https://www.penguinrandomhouse.ca/books/310859/the-sense-of-style-by-steven-pinker/9780143127796/excerpt) Steven Pinker identifies several reasons for the poor quality of academic writing. By examining Pinker's critique and combining it with the capabilities of large language models (LLMs), we can explore the potential for improving academic prose and making it more accessible to readers.
 
 ## Steven Pinker's Critique of Academic Writing

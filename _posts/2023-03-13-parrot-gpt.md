@@ -18,7 +18,7 @@ In a [previous blogpost](https://medium.com/@kj.garza/revolutionizing-metadata-s
 
 Furthermore, the [newly released GPT-4 model](https://openai.com/research/gpt-4) is more accurate and can perform tasks that previous GPT-3 family models will give up on performing. For example, while mapping metadata is a task that all GPT-family models can perform with different degrees of accuracy, generating a crosswalk of two schemas is a task that the GPT-3 family models will reject performing. GPT-4 models do perform that task with good results when compared to [expert crosswalks](https://zenodo.org/record/7661399#.ZBcMaOzMI-Q). Below you can see how the GPT-4 generates a crosswalk between DataCite Schema and schema.org (type ResearchProject) schema.
 
-<img src="/uploads/2023/03/16/gpt4-schema-org-2.png" width="400">
+<img src="/uploads/2023/03/16/gpt4-schema-org-2.png" width="500">
 
 ## Tools to interact with Large Language models
 
@@ -142,6 +142,7 @@ So, there you have it. The potential of large language models to transform metad
 
 
 ## suggest 5 reddit titles to promote this essay in reddit
+"How to map metadata without Schema Crosswalks wiht Parrot_GPT?"
 "Say Goodbye to Tedious Metadata Schema Crosswalks - Large Language Models Are the Future!"
 "Parrot-GPT: The Python Package Making Metadata Schema Mapping More Efficient and Automated"
 "Why Large Language Models Are the Better Method for Mapping Academic Metadata Schemas - A Comprehensive Essay"

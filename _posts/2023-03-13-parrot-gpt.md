@@ -1,27 +1,31 @@
 ---
 layout: post
 category: pages
-title: "ParrotGPT: On the Advantages of Large Language Models for Academic Metadata Schema Mapping"
-tags: [ai, metadata, schema crosswalk, chatgpt, rda, eosc]
+title: "ParrotGPT: On the Advantages of Large Language Models Tools for Academic Metadata Schema Mapping"
+tags: [ai, metadata, schema, crosswalk, chatgpt, rda, eosc]
 published: true
 ---
 
-# ParrotGPT: On the Advantages of Large Language Models for Academic Metadata Schema Mapping
+# ParrotGPT: On the Advantages of Large Language Models Tools for Academic Metadata Schema Mapping
 
 <img src="/uploads/2023/03/16/parrot-crosswalk-180323-min.png" width="700">
-This image was created with the assistance of DALL·E 2
+
+Picture, if you will, the labyrinthine world of academic information management, where metadata schema mapping serves as a vital underpinning for the exchange and intermingling of data across diverse platforms and systems. This arena has long been dominated by the venerable metadata schema crosswalk, which, though serviceable, has begun to show its age. As I [previously discussed](https://medium.com/@kj.garza/revolutionizing-metadata-schema-mapping-with-chatgpt-a8df54e41e24), the traditional method of creating metadata schema crosswalks is a time-consuming and monotonous task that requires significant coordination. Enter the digital behemoths known as large language models (LLMs), whose unparalleled prowess in understanding and generating the complex tapestry of human language has opened up a new frontier in metadata schema mapping. These LLMs present a far superior alternative to the traditional crosswalks of yore.
 
 
-Picture, if you will, the labyrinthine world of academic information management, where metadata schema mapping serves as a vital underpinning for the exchange and intermingling of data across diverse platforms and systems. This arena has long been dominated by the venerable metadata schema crosswalk, which, though serviceable, has begun to show its age. As I [discussed in the past](https://medium.com/@kj.garza/revolutionizing-metadata-schema-mapping-with-chatgpt-a8df54e41e24), the traditional method of creating metadata schema crosswalks is a time-consuming and monotonous task that requires significant coordation. Enter the digital behemoths known as large language models (LLMs), whose unparalleled prowess in understanding and generating the complex tapestry of human language has opened up a new frontier in metadata schema mapping. These LLMs present a far superior alternative to the traditional crosswalks of yore.
+The LLMs have undergone significant improvements and can perform scholarly metadata mapping with minimal input. 
+In a [previous blogpost](https://medium.com/@kj.garza/revolutionizing-metadata-schema-mapping-with-chatgpt-a8df54e41e24), I showed that with a short prompt, the LLM behind ChatGPT can convert metadata from Crossref schema to DataCite schema with great accuracy and even metadata enrichment. Among the multiple GPT-3 models available, the "Davinci" model stands out as the most powerful and efficient at this task. Compared with other GPT-3 models such as [ADA](https://platform.openai.com/docs/models/gpt-3) and [Curie](https://platform.openai.com/docs/models/gpt-3) it performs way better in terms of metadata transformation. "Davinci" has been trained on different datasets, which makes it capable of handling various metadata schema mapping. This level of precision is challenging to achieve with crosswalks, which require a considerable amount of manual input to create and maintain.
+
+Furthermore, the [newly released GPT-4 model](https://openai.com/research/gpt-4) is more accurate and can perform tasks that previous GPT-3 family models will give up on performing. For example, while mapping metadata is a task that all GPT-family models can perform with different degrees of accuracy, generating a crosswalk of two schemas is a task that the GPT-3 family models will reject performing. GPT-4 models do perform that task with good results when compared to [expert crosswalks](https://zenodo.org/record/7661399#.ZBcMaOzMI-Q). Below you can see how the GPT-4 generates a crosswalk between DataCite Schema and schema.org (type ResearchProject) schema.
+
+<img src="/uploads/2023/03/16/gpt4-schema-org-2.png" width="700">
+
+## Tools to interact with Large Language models
+
+In an effort to harness the full potential of all the GPT models for metadata schema mapping, we have taken it upon ourselves to develop the Python package, [Parrot-GPT](https://githu.com/kjgarza/parrot_gpt). This tool utilizes the formidable GPT-3 models to effortlessly translate metadata from one schema to another, all the while obviating the need for the manual creation and upkeep of crosswalks, thus bestowing upon its users the gift of time and resource savings. As of this publication, I am working on [incorporating](https://github.com/kjgarza/parrot_gpt/issues/1) the new [OpenAI Chat API syntax for GPT-3.5 and 4](https://platform.openai.com/docs/guides/chat/introduction). Contributions are [welcomed](https://github.com/kjgarza/parrot_gpt/blob/main/CONTRIBUTING.rst).
 
 
-The LLMs have undergone significant improvements and can perform schorlaly metadata mapping with minimal input. 
-In a [previous blogpost](https://medium.com/@kj.garza/revolutionizing-metadata-schema-mapping-with-chatgpt-a8df54e41e24), I showed that with a short prompt the LLM behind ChatGPT can convert metadata from Crossref schema to DataCite schema with great accuracy and even metadata enrichment. Among the multiple models available, the "Davinci" model stands out as the most powerful and efficient. Compared with other GPT-3 model such as [ADA](https://platform.openai.com/docs/models/gpt-3) and [Curie](https://platform.openai.com/docs/models/gpt-3) it performs way better in terms of metadata transformation; see Figure 1. "Davinci" has been trained on different datasets, which makes it capable of handling various metadata schema mapping. This level of precision is challenging to achieve with crosswalks, which require a considerable amount of manual input to create and maintain.
-
-In an effort to harness the full potential of the all the GPT models for metadata schema mapping, we have taken it upon ourselves to develop the Python package, [Parrot-GPT](https://githu.com/kjgarza/parrot_gpt). This  tool utilizes the formidable GPT-3 models to effortlessly translate metadata from one schema to another, all the while obviating the need for the manual creation and upkeep of crosswalks, thus bestowing upon its users the gift of time and resource savings.
-
-
-## Continuous Adaptation in the LLM's Realm
+### Continuous Adaptation in the LLM's Realm
 
 Consider the crosswalk, which, much like an aging, inflexible cartographer, finds itself unable to evolve with minimal intervention. In stark contrast, the LLM-based mapping is a veritable chameleon, gracefully adapting to new schema properties and maintaining accuracy in its ever-changing environment. Furthermore, Parrot-GPT can even generate metadata for new schema properties, making it a truly versatile tool for metadata management.
 
@@ -29,35 +33,28 @@ Parrot-GPT can also be used to generate metadata from new schema properties. In 
 
 The goal of this experiment is to demonstrate the ability of the LLM behind Parrot_GPT to correctly map metadata fields from one schema to another, even when new fields are introduced that were not present in the original schema.
 
-To begin the experiment, a metadata file was created with a new field that did not exist in DataCite Schema, but an analogus field is present in DCAT schema. The Parrot_GPT was then asked to convert the metadata file from DataCite Schema to DCAT schema, with no prior knowledge of the mapping between the two schemas. For the new field I choose the "distribution" a field that currently does not exist in DataCite schema 4.4 but it will be included soon in version 4.5.
+To begin the experiment, a metadata file was created with a new field that did not exist in DataCite Schema, but an analogous field is present in the DCAT schema. The Parrot_GPT was then asked to convert the metadata file from DataCite Schema to DCAT schema, with no prior knowledge of the mapping between the two schemas. For the new field, I choose the "distribution" a field that currently does not exist in DataCite schema 4.4, but it will be included soon in [version 4.5](https://docs.google.com/document/d/1UyQQwtjnu-4_4zXE4TFZ74-mjLZI3NkEf8RrF0WeOdI). I took the example from the examples that [DataCite is preparing for the new schema release](https://github.com/datacite/schema/blob/schema-4.5/source/meta/kernel-4.5/example/datacite-distribution1-v4.xml)
 
-The results of the experiment were impressive. The LLM correctly mapped the new fields in DataCite Schema to the expected fields in schema B, without any prior knowledge of the mapping. 
-
-This demonstrated the capability of the LLM to learn and adapt to new data, making it a highly efficient and adaptable solution for metadata schema mapping.
-
-The experiment provides strong evidence for the effectiveness of using LLMs for metadata schema mapping, as it can accurately handle new and unexpected metadata fields, without requiring any additional input or intervention. This capability makes LLM mapping a highly scalable and efficient solution for managing metadata schemas in academic institutions and other organizations that deal with large volumes of data.
+Parrot_GPT can be run directly from the CLI specifying the file to transform {-mf}, the input schema {-i}, and the output schema {-t}. I transformed this DataCite Schema 4.5 metadata file in the example below to the DCAT schema. Input and output files can be found in [github](https://gist.github.com/kjgarza/6bbd6b0653d7ade6c7a67c954d926fed).
 
 
 ```shell
 python -m parrot_gpt.cli -mf tests/example-distribution.xml -i datacite_xml -t DCAT > output.rdf
 ```
 
-
 The results were promising, demonstrating that LLM mapping can handle new schema properties with minimal intervention. This capability makes LLM mapping more flexible and adaptable than crosswalks.
 
-## 
+The experiment provides support for the effectiveness of using LLMs for metadata schema mapping, as it can accurately handle new and unexpected metadata fields without requiring any additional input or intervention. This capability makes LLM mapping a highly scalable and efficient solution for managing metadata schemas in academic institutions and other organizations that deal with large volumes of data.
+
+## The diminishment of the LLMs drawbacks   
 
 Despite its advantages, using LLMs for metadata schema mapping has some drawbacks. One such drawback is the limited accuracy of LLMs when dealing with complex and nuanced metadata schemas. Human intervention may still be necessary to ensure accuracy.
 
 On the other hand, creating metadata schema crosswalks can be a tedious and manual process that requires continuous updates to ensure accuracy. Additionally, crosswalks may not be as scalable as LLMs in handling a large volume of metadata schema mapping.
 
-One counterargument is that LLMs, particularly state-of-the-art models like "GPT-3", require substantial computational resources to run. This may present a barrier for smaller institutions or those with limited budgets. In contrast, traditional crosswalks can be created and maintained with significantly less computational power. However, recent developments have made LLMs-based services truly affordable. While writing this article, Microsoft Azure just just announced [Azure OpenAI Service](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/) providing REST API access to OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series with very affordable prices. This very week, the [inference of Facebook's LLaMA model](https://news.ycombinator.com/item?id=35100086) was published in pure C/C++ allowing anybody to run a model of similar capabilites to GPT-3 directly from a macbook. 
+One counterargument is that LLMs, particularly state-of-the-art models like "GPT-3", require substantial computational resources to run. This may present a barrier for smaller institutions or those with limited budgets. In contrast, traditional crosswalks can be created and maintained with significantly less computational power. However, recent developments have made LLMs-based services truly affordable. While writing this article, Microsoft Azure just announced [Azure OpenAI Service](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/) providing REST API access to OpenAI's powerful language models, including the GPT-3, Codex and Embeddings model series with very affordable prices. This very week, the [inference of Facebook's LLaMA model](https://news.ycombinator.com/item?id=35100086) was published in pure C/C++, allowing anybody to run a model of similar capabilities to GPT-3 directly from a MacBook. 
 
-
-<!-- In conclusion, LLMs provide a better alternative for mapping academic metadata schemas than creating metadata schema crosswalks. Parrot-GPT is an excellent example of how LLMs can simplify the mapping process, making it more efficient and accurate. However, both LLMs and crosswalks have their advantages and disadvantages, and it is essential to consider the specific needs of an academic institution when choosing a metadata schema mapping solution. -->
-
-In conclusion, allow me to reiterate that the utilization of large language models, particularly the "davinci" model, for the mapping of academic metadata schemas represents a transcendent method when compared to the creation of metadata schema crosswalks. Through the development of the Parrot-GPT Python package, we have unlocked seamless schema mapping, continuous adaptation to new schema properties, and the generation of metadata for novel fields. The results of this experiment serve as a testimony to the myriad advantages of using LLMs for metadata schema mapping, thus making a compelling case for their adoption in the hallowed halls of academic information management systems.
-
+In conclusion, allow me to reiterate that the utilization of large language models, particularly the "davinci" from the GPT-3 models, for mapping academic metadata schemas represents a transcendent method when compared to the creation of metadata schema crosswalks. Through the development of the Parrot-GPT Python package, we have unlocked seamless schema mapping, continuous adaptation to new schema properties, and the generation of metadata for novel fields. The results of this experiment serve as a testimony to the myriad advantages of using LLMs for metadata schema mapping, thus making a compelling case for their adoption in the hallowed halls of academic information management systems. 
 
 The dawn of this new metadata mapping era, fueled by large language models, sparks immense enthusiasm. As we delve further into these groundbreaking technologies, I look forward to a more interconnected, efficient future in academic information management.
 
@@ -66,7 +63,7 @@ The dawn of this new metadata mapping era, fueled by large language models, spar
 
 
 
-
+<!-- 
 
 ## gpt4
 
@@ -149,4 +146,4 @@ So, there you have it. The potential of large language models to transform metad
 "Parrot-GPT: The Python Package Making Metadata Schema Mapping More Efficient and Automated"
 "Why Large Language Models Are the Better Method for Mapping Academic Metadata Schemas - A Comprehensive Essay"
 "The Advantages of Large Language Models for Metadata Schema Mapping - Find Out More Here"
-"Tired of Manual Metadata Schema Mapping? Discover the Advantages of Large Language Models in Our Latest Essay"
+"Tired of Manual Metadata Schema Mapping? Discover the Advantages of Large Language Models in Our Latest Essay" -->

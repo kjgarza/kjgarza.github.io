@@ -3,7 +3,7 @@ layout: post
 category: pages
 title: "ParrotGPT: On the Advantages of Large Language Models for Academic Metadata Schema Mapping"
 tags: [ai, metadata, schema crosswalk, chatgpt, rda, eosc]
-published: true
+published: false
 ---
 
 # Title: Leveraging LLMs to Improve Academic Prose: Learning from Steven Pinker

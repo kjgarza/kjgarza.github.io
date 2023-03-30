@@ -3,6 +3,7 @@ layout: post
 category : pages
 title: "How can Social Semantic Web Enable Collective Intelligence and improve Knowledge Discovery Strategies in a Heliophysics Virtual Observatory"
 tags: [phd proposal, scientific collaboration]
+published: false
 ---
 
 

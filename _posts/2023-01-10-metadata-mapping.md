@@ -3,7 +3,7 @@ layout: post
 category : pages
 title: "Decoding Jargon: How ChatGPT will transform the generation of controlled Vocabulary Mappings"
 tags : [ai, metadata, schema mapping, chatgpt, ontology mapping]
-published: true
+published: false
 ---
 
 # Decoding Jargon: How ChatGPT will transform the generation of controlled Vocabulary Mappings 

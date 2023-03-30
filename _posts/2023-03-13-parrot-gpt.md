@@ -142,7 +142,7 @@ So, there you have it. The potential of large language models to transform metad
 
 
 ## suggest 5 reddit titles to promote this essay in reddit
-"How to map metadata without Schema Crosswalks wiht Parrot_GPT?"
+"How to map metadata without Schema Crosswalks using LLMs with Parrot_GPT?"
 "Say Goodbye to Tedious Metadata Schema Crosswalks - Large Language Models Are the Future!"
 "Parrot-GPT: The Python Package Making Metadata Schema Mapping More Efficient and Automated"
 "Why Large Language Models Are the Better Method for Mapping Academic Metadata Schemas - A Comprehensive Essay"

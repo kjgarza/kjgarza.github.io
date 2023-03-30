@@ -1,5 +1,17 @@
 ---
 nodes:
+  - id: "https://doi.org/10.5438/tpah-aj25"
+    title: "DataCite Design System is ready to be worn."
+    publicationYear: 2023
+  - id: "https://medium.com/@kj.garza/parrotgpt-on-the-advantages-of-large-language-models-tools-for-academic-metadata-schema-mapping-434cceabc68b"
+    title: "ParrotGPT: On the Advantages of Large Language Models Tools for Academic Metadata Schema Mapping"
+    publicationYear: 2023
+  - id: "https://medium.com/@kj.garza/academic-publishing-web-forms-meet-your-demise-the-unstoppable-rise-of-large-language-models-dbb1bd6c2ee8"
+    title: "Academic Publishing web forms meet your demise: The unstoppable rise of large language models (ChatGPT)"
+    publicationYear: 2023
+  - id: "https://medium.com/@kj.garza/revolutionizing-metadata-schema-mapping-with-chatgpt-a8df54e41e24"
+    title: "Revolutionizing Metadata Schema Mapping with ChatGPT"
+    publicationYear: 2022
   - id: "https://doi.org/10.5438/f03x-vr69"
     title: "Refining our Thinking: How we are improving DataCite design processes."
     publicationYear: 2022

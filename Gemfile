@@ -10,6 +10,7 @@ source "https://rubygems.org"
 # Happy Jekylling!
 gem "jekyll", "~> 3.9"
 gem 'jekyll-redirect-from'
+gem 'jekyll-feed'
 
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and

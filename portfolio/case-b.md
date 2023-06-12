@@ -7,12 +7,12 @@ page_sections:
 - template: content-feature
   block: hero-1
   slug: intro
-  heading: Designing an Alternative Service for Data Usage Processing
+  heading: Innovating Data Usage Processing Services
 - template: content-feature
   block: one-column-1
   slug: context
   content:  |
-    For this project, I worked as a senior Product Designer to define a new service that could provide an alternative to existing usage processing services that rely on weblogs. These weblogs can be difficult to share across distributed borders, so there was a need for a different type of service
+    In this project, I took on the role of a Senior Product Designer to pioneer an alternative to existing data usage processing services. These services were heavily dependent on weblogs, which posed challenges when sharing across distributed borders, thus the necessity for a novel solution was clear.
   image:
     image: "/uploads/2022/02/19/designsprint-eosc Medium.png"
     alt_text: Product Shot
@@ -21,9 +21,9 @@ page_sections:
   block: feature-1
   media_alignment: right
   slug: product
-  headline: Discovery 
+  headline: Discovery Phase
   content: |
-    Our team ran a   <a class="kglink" href="https://zenodo.org/record/3476545#.YwOYF-xBxqt">survey</a> with key stakeholders to identify the main challenges with the existing usage processing services and technical capabilities in the stakeholder groups. Based on the survey findings, I set up to define a web tracker as opposed to a usage processing service. That would reduce the main challenges the stakeholder groups had (time spent in processing and transferring logs)
+    To kick off the project, we conducted a  <a class="kglink" href="https://zenodo.org/record/3476545#.YwOYF-xBxqt">survey</a> with key stakeholders to ascertain the primary difficulties associated with current usage processing services, as well as to gauge the technical capabilities within the stakeholder groups. Informed by the survey insights, we made the strategic decision to focus on developing a web tracker, which promised to alleviate stakeholders' challenges, particularly the time-consuming process of handling and transferring logs.
   media:
     image: "/uploads/2022/02/19/survey-web-tracker Medium.png"
     alt_text: Discovery
@@ -33,7 +33,7 @@ page_sections:
   slug: product
   headline: Idea Validation
   content: |
-    I validated the original idea using <a class="kglink" href="https://datacite.org/roadmap.html">DataCite Roadmap</a> (using ProductBoard) and opened it for discussion with our member community.
+    The initial idea for the web tracker was presented on the <a class="kglink" href="https://datacite.org/roadmap.html">DataCite Roadmap</a> via ProductBoard. This provided a platform for our member community to discuss and provide feedback on the proposed concept.
   media:
     image: "/uploads/2022/02/19/designsprint-eosc Medium.png"
     alt_text: Idea Validation
@@ -43,7 +43,7 @@ page_sections:
   slug: development
   headline: Design
   content: | 
-    During the Idea validation stage, I also collected more nuanced use cases that I used to create a detailed product specification using FIGMA for wireframing and Gherkin syntax for defining the acceptance criteria for engineering.
+    In tandem with the idea validation, we gathered detailed use cases which informed the creation of a comprehensive product specification. I employed FIGMA for wireframing and Gherkin syntax for defining clear acceptance criteria, ensuring a smooth handover to the engineering team.
   media:
     image: "/uploads/2022/02/19/gherkin-web-tracker Medium.png"
     alt_text: Design
@@ -53,7 +53,7 @@ page_sections:
   slug: development
   headline: Solution Validation
   content: | 
-    I prepared and facilitated a Group Expert Walkthrough on the FIGMA wireframes to validate that the solution met the needs of the users and stakeholders. During this session, I collected additional information about user requirements.
+    To ensure that our design solution effectively addressed user and stakeholder needs, I organised and facilitated a Group Expert Walkthrough on the FIGMA wireframes. This session yielded valuable insights into user requirements, further refining our approach.
   media:
     image: "/uploads/2022/02/19/figma-web-tracker Medium.png"
     alt_text: Solution Validation

@@ -8,7 +8,7 @@ page_sections:
   block: hero-2
   slug: features
   headline: Kristian <br><strong>Garza Gutierrez</strong>
-  content:  Now, I work at Datacite as the Product Designer. The goal is to bring the value of state-of-the-art design thinking practices to the Open Science Community and especially to design state-of-the-art PID services.
+  content:  As an experienced Product Design Manager and Application Developer, I merge extensive knowledge of technology with a passion for design and service delivery. I hold a PhD in Computer Science and an MSc in Spacecraft Technology, providing me with a robust technical foundation. I have a proven track record in establishing DesignOps processes, leading teams, and developing applications, demonstrating proficiency in a broad range of tools and methodologies. Beyond my professional endeavours, I actively engage with the academic community, exploring the application of Large Language Models (LLMs) for academic metadata schema mapping. I am deeply passionate about open science, data management, and the intersection of technology, design, and academia.
   cta:
     enabled: true
     url: https://www.linkedin.com/in/kjgarza

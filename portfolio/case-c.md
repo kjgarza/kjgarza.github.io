@@ -7,21 +7,21 @@ page_sections:
 - template: content-feature
   block: hero-1
   slug: intro
-  heading: Designing a Dashboard for bibliometricians in scholarly communications
+  heading: Crafting an Open-Science Analytics Dashboard for Bibliometricians
 - template: content-feature
   block: one-column-1
   slug: intro
   content: |
     For this project, I worked as a senior Product Designer with a focus on UX research. The goal of the project was to design an analytics dashboard that would allow bibliometricians to perform open-science analysis.
+
+    Overall, the project highlighted my capacity to innovate in user feedback sourcing, adapt designs to technical limitations, and iterate based on user requirements.
 - template: content-feature
   block: feature-1
   media_alignment: Right
   slug: discovery
-  headline: Discovery
+  headline: Discovery Phase
   content: | 
-    I conducted interviews with bibliometricians and stakeholders; the main challenge was aligning the goals and finding consensus on dashboard objectives. 
-
-    A major challenge here was DataCite's infrastructure and data capabilities; I had to conciliate the infrastructure and data limitations with the user stories and goals we were aiming to address in the dashboard. 
+    The journey began with conducting interviews with bibliometricians and key stakeholders to identify goals and achieve consensus on the dashboard's objectives. Balancing the limitations of DataCite's infrastructure and data capabilities with user stories and desired goals presented a significant challenge.
 
 - template: content-feature
   block: feature-1
@@ -29,7 +29,7 @@ page_sections:
   slug: idea-validation
   headline: Idea Validation
   content: | 
-    Since it was difficult to find users to validate, I posted a conceptual idea of the dashboard in <a class="kglink" href="https://datacite.org/roadmap.html">DataCite Roadmap</a> (using ProductBoard). I requested visitors to provide feedback regarding their interest in the service and use cases. Nine organizations provided use cases during this idea validation.
+    Finding users for validation proved difficult, so I took an innovative approach. I posted a conceptual dashboard design on <a class="kglink" href="https://datacite.org/roadmap.html">DataCite Roadmap</a>  via ProductBoard, requesting feedback on its potential utility and use-case scenarios. This yielded valuable input from nine organisations.
 
 - template: content-feature
   block: feature-1
@@ -37,8 +37,7 @@ page_sections:
   slug: design
   headline: Design
   content: | 
-    FIGMA
-    Since it was difficult to find users to validate, I posted a conceptual idea of the dashboard in <a class="kglink" href="https://datacite.org/roadmap.html">DataCite Roadmap</a> (using ProductBoard). I requested visitors to provide feedback regarding their interest in the service and use cases. Nine organizations provided use cases during this idea validation.
+    Guided by the feedback, I commenced the design phase using Figma. This was an iterative process involving continual refining based on the insights obtained from the idea validation phase.
   media:
     image: "/uploads/2022/02/19/figma-dashboard Medium.png"
     alt_text: Design
@@ -48,9 +47,9 @@ page_sections:
   slug: solution-validation
   headline: Solution Validation
   content: | 
-    A technical walkthrough with experts was carried out to validate the prototype design. Here I used the same subject that provided use cases and support during the idea validation stage. 
+    Once the prototype was ready, I organised a technical walkthrough with subject matter experts, which included those who contributed use cases in the idea validation stage. The feedback was generally positive, but there was a demand for enhanced visualisation.
 
-    Overall the comments on the features were positive, but requests for additional visualization were made. To address this new input, I made the second round of interviews—this time laser-focused on visualization design. My questionary examined aspects such as dimensions, aggregations, filters, and measures to be included in the visualizations. 
+    In response, I conducted a second round of targeted interviews focusing on visualisation design, exploring aspects such as dimensions, filters, aggregations, and measures to be included in the visualisations.
   media:
     image: "/uploads/2022/02/19/validation-dashboard Medium.png"
     alt_text: Solution Validation
@@ -65,10 +64,10 @@ page_sections:
   col_2:
     headline: 5
     content: 
-      Interviewees
+      interviewees provided valuable insight for design
   col_3:
     headline: 10
-    content: Technical walkthrough participants
+    content:  experts participated in the technical walkthrough
 
 
 ---

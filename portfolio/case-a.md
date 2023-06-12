@@ -7,32 +7,26 @@ page_sections:
 - template: content-feature
   block: hero-1
   slug: intro
-  heading: Re-framing DataCite's Harvesting Services through a Design Sprint
+  heading: Redesigning DataCite's Harvesting Services Through a Design Sprint
 - template: content-feature
   block: one-column-1
   slug: intro
   content: |
-    For this project, I worked as a senior Product Designer with experience in UX research methodologies, including design sprints. The goal of the project was to re-frame DataCite's harvesting services to better meet the needs of users.
+    In my capacity as a Senior Product Designer specialising in UX research, I led the task of re-imagining DataCite's harvesting services using a design sprint methodology. This approach was chosen due to its effectiveness in stimulating creativity, collaboration, and fast problem-solving.
 - template: content-feature
   block: feature-1
   media_alignment: Right
   slug: preparation
   headline: Preparation
   content: | 
-    In preparation for the design sprint, I ran a focus group with potential users whose goal was to explore preferred ways of accessing harvesting services.
-
-    After the Focus Group, I prepared a design sprint for the service. I chose a design sprint as the re-framing of the service was large enough to require a complete rethinking of the service from different perspectives. 
-
-    For the Design Sprint agenda, I  chose to swap the order of the Map and long-term goal activities to help the team to picture the long before drawing the Map. I also ran the full Design Sprint remotely, as this was done during the pandemic.
+    The project initiated with the formation of a focus group consisting of potential users of the harvesting services. The objective was to explore their perspectives and preferences, which served as crucial input for the design process. As part of this preparatory phase, a design sprint was planned, tailored to address the complexity of re-framing the service. The order of the activities was intentionally altered to foster a long-term vision, with the mapping activity conducted afterwards. This remote design sprint was also a response to the logistical restrictions imposed by the pandemic.
 - template: content-feature
   block: feature-1
   media_alignment: Left
   slug: day-1
   headline: Day 1 - Defining the challenge
   content: | 
-    The interviews involved members of staff (n=7) that provided expert information in strategy and member support and the development team who gave feedback about the current state of harvesting services. 
-
-    I defined a questionnaire I used during the interviews, and all the participants took How-Might-We notes. And I led the participants through the "Long-Term goal" and sprint questions activities. As well as introduce them to dot voting.
+    The first day of the sprint was dedicated to defining the challenge through interviews with seven internal stakeholders, each providing their unique viewpoints on the current harvesting services. The interviews were conducted using a bespoke questionnaire, and participants were guided to take 'How-Might-We' notes, fostering a problem-solving mindset.
   media:
     image: "/uploads/2022/02/19/hmw-harvester Medium.png"
     alt_text: Day 1 - Defining the challenge
@@ -42,7 +36,7 @@ page_sections:
   slug: day-2
   headline: Day 2  - Map & Lighting demos 
   content: | 
-    Since it was difficult to find users to validate, I posted a conceptual idea of the dashboard in <a class="kglink" href="https://datacite.org/roadmap.html">DataCite Roadmap</a>  (using ProductBoard). I requested visitors to provide feedback regarding their interest in the service and use cases. Nine organizations provided use cases during this idea validation.
+    Ideas for the new service were posted on the DataCite Roadmap using ProductBoard to facilitate user feedback. The platform enabled us to solicit use cases and gauge potential interest in the revamped service.
   media:
     image: "/uploads/2022/02/19/map-harvester Medium.png"
     alt_text: Day 2  - Map & Lighting demos 
@@ -52,9 +46,7 @@ page_sections:
   slug: day-3
   headline: Day 3 - Vote on solutions 
   content: | 
-    Allowed the participants to work on the sketch individually and bring them together to do the heatmap voting and solution presentation. Some sketches were quite abstract, and I allowed time for questioning and further explanation. 
-    
-    Two sketches gather a significant amount of votes; hence rather than choosing only one, we consent to use both to generate a prototype.
+    The third day revolved around collaborative sketching and subsequent 'heatmap voting' to decide on the solutions to progress. Some sketches needed further clarification, fostering an open dialogue to ensure a shared understanding. The voting process led to the selection of two top-voted sketches for further prototyping.
   media:
     image: "/uploads/2022/02/19/sketch-harvester Medium.png"
     alt_text:  Day 3 - Vote on solutions 
@@ -64,9 +56,7 @@ page_sections:
   slug: day-4
   headline: Day 4 - The StoryBoard and Prototype
   content: | 
-    To clarify the pieces, you need to prototype, I helped the team through a user test flow exercise. That helped me to explain the required pieces to prototype.
-
-    Then I prepared the prototype, which consisted of **low-fidelity wireframes**.
+    The team engaged in a user test flow exercise to clarify the prototype's requirements. Following this, I created a set of low-fidelity wireframes to visualise the revamped harvesting service.
   media:
     image: "/uploads/2022/02/19/testflow-harvester Medium.png"
     alt_text: Day 4 - The StoryBoard and Prototype
@@ -76,9 +66,7 @@ page_sections:
   slug: day-5
   headline: Day 5 - Validation
   content: | 
-    For the Validation, I facilitated a secondary session inviting the Focus group participants to validate a wireframe prototype of the service and provided feedback. 
-
-    Overall the design prototype got excellent comments and addressed the large majority of the needs of the users.
+    The week culminated in a validation session, where the focus group participants were invited to evaluate and provide feedback on the wireframe prototype. The prototype was well-received, fulfilling most user needs identified earlier.
   media:
     image: "/uploads/2022/02/19/figma-harvester Medium.png"
     alt_text: Day 5 - Validation
@@ -89,14 +77,14 @@ page_sections:
   col_1:
     headline: 7
     content: 
-          Sprint participants
+          participants actively engaged in the design sprint
   col_2:
     headline: 83
     content: 
       How-Might-We's
   col_3:
     headline: 8
-    content: User Testing participants
+    content:  users involved in the prototype validation phase
 
 
 - template: content-feature

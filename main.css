@@ -21,8 +21,8 @@ a.kglink[href^="https://"]::after {
 
 h1 {
   font-family: 'Raleway', sans-serif;
-  font-size: 48px;
-  font-size: 3rem;
+  font-size: 50.52px;
+  font-size: 3.157rem;
   font-weight: 700;
   letter-spacing: -1.6px;
   letter-spacing: -0.1rem;
@@ -36,8 +36,7 @@ h1 span.light {
 
 h2 {
   font-family: 'Raleway', sans-serif;
-  font-size: 32px;
-  font-size: 2rem;
+  font-size: 37.90px;
   font-weight: 700;
 }
 
@@ -49,6 +48,8 @@ h2 span.light {
 h3 {
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
+  font-size: 28.43px;
+  font-size: 1.777rem;
   letter-spacing: 0;
 }
 

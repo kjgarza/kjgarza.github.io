@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+  <identifier identifierType="DOI">10.1002/EJIC.201900339</identifier>
+  <creators>
+    <creator>
+      <creatorName nameType="Personal">Fujimoto, Tomohiro</creatorName>
+      <givenName>Tomohiro</givenName>
+      <familyName>Fujimoto</familyName>
+    </creator>
+    <creator>
+      <creatorName nameType="Personal">Sugimoto, Hideki</creatorName>
+      <givenName>Hideki</givenName>
+      <familyName>Sugimoto</familyName>
+      <nameIdentifier nameIdentifierScheme="ORCID" schemeURI="https://orcid.org">https://orcid.org/0000-0002-4887-1740</nameIdentifier>
+    </creator>
+    <creator>
+      <creatorName nameType="Personal">Kai, Kenichiro</creatorName>
+      <givenName>Kenichiro</givenName>
+      <familyName>Kai</familyName>
+    </creator>
+    <creator>
+      <creatorName nameType="Personal">Maeda, Kazuki</creatorName>
+      <givenName>Kazuki</givenName>
+      <familyName>Maeda</familyName>
+    </creator>
+    <creator>
+      <creatorName nameType="Personal">Itoh, Shinobu</creatorName>
+      <givenName>Shinobu</givenName>
+      <familyName>Itoh</familyName>
+    </creator>
+  </creators>
+  <titles>
+    <title>Oxido-Hydroxido- and Oxido-Aminato-Osmium(V) Complexes with a Cyclohexanediamine-Based Tetradentate Ligand as Active Oxidants for Dihydroxylation and Aminohydroxylation of Alkenes</title>
+  </titles>
+  <publisher>Wiley</publisher>
+  <publicationYear>2019</publicationYear>
+  <resourceType resourceTypeGeneral="Text">JournalArticle</resourceType>
+  <dates>
+    <date dateType="Issued">2019-06-30</date>
+    <date dateType="Updated">2019-06-28T08:49:39Z</date>
+  </dates>
+  <relatedIdentifiers>
+    <relatedIdentifier relatedIdentifierType="ISSN" relationType="IsPartOf" resourceTypeGeneral="Collection">14341948</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1039/c5cs00566c</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1002/ejic.201701072</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1021/acs.chemrev.7b00373</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1021/jacs.8b13100</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1021/acscentsci.8b00698</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1126/science.1093087</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1074/jbc.m314288200</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1021/cr400415k</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1021/acs.chemrev.6b00478</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1021/acs.chemrev.8b00031</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1021/cr00032a009</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1021/ja960536d</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1021/ja961464t</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1021/jo060301c</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1021/ja309566c</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1002/asia.201300329</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1039/b307102m</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1021/jo00863a052</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1039/dt9900002465</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1021/acs.inorgchem.5b01083</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1021/jacs.8b10211</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1002/anie.201507933</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1002/ange.201507933</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1021/ic961228j</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1021/ic00042a015</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1038/nchem.2918</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.1021/ic001185d</relatedIdentifier>
+  </relatedIdentifiers>
+  <version/>
+  <rightsList>
+    <rights rightsURI="http://doi.wiley.com/10.1002/tdm_license_1.1"/>
+    <rights rightsURI="http://onlinelibrary.wiley.com/termsAndConditions"/>
+  </rightsList>
+  <descriptions>
+    <description descriptionType="SeriesInformation">European Journal of Inorganic Chemistry, 2019(24), 2891-2898</description>
+  </descriptions>
+  <fundingReferences>
+    <fundingReference>
+      <funderName>JSPS KAKENHI</funderName>
+    </fundingReference>
+    <fundingReference>
+      <funderName>Japan Science and Technology Agency</funderName>
+      <funderIdentifier funderIdentifierType="Crossref Funder ID">https://doi.org/10.13039/501100002241</funderIdentifier>
+    </fundingReference>
+  </fundingReferences>
+</resource>

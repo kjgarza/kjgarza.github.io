@@ -1,0 +1,37 @@
+<resource>
+  <identifier identifierType="DOI">10.1002/ejic.v2019.24</identifier>
+  <creators>
+    <creator>
+      <creatorName>Tomohiro Fujimoto</creatorName>
+      <affiliation>Department of Material and Life Science Division of Advanced Science and Biotechnology Graduate School of Engineering Osaka University 2‐1 Yamadaoka 565‐0871 Suita, Osaka Japan</affiliation>
+    </creator>
+  </creators>
+  <titles>
+    <title>Oxido‐Hydroxido‐ and Oxido‐Aminato‐Osmium(V) Complexes with a Cyclohexanediamine‐Based Tetradentate Ligand as Active Oxidants for Dihydroxylation and Aminohydroxylation of Alkenes</title>
+  </titles>
+  <publisher>Wiley</publisher>
+  <publicationYear>2019</publicationYear>
+  <dates>
+    <date dateType="Issued">2019-06-12</date>
+    <date dateType="Accepted">2019-03-27</date>
+  </dates>
+  <resourceType resourceTypeGeneral="Text">Journal article</resourceType>
+  <relatedIdentifiers>
+    <relatedIdentifier relatedIdentifierType="ISSN" relationType="IsPartOf" resourceTypeGeneral="Text">1434-1948</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="ISSN" relationType="IsPartOf" resourceTypeGeneral="Text">1099-0682</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsPartOf" resourceTypeGeneral="Text">10.1002/ejic.201900339</relatedIdentifier>
+  </relatedIdentifiers>
+  <subjects>
+    <subject>Osmium</subject>
+    <subject>Complexes</subject>
+    <subject>Ligands</subject>
+    <subject>Oxidants</subject>
+  </subjects>
+  <rightsList>
+    <rights rightsURI="http://onlinelibrary.wiley.com/termsAndConditions#am">Open Access</rights>
+    <rights rightsURI="http://onlinelibrary.wiley.com/termsAndConditions#vor">Free access to readers</rights>
+  </rightsList>
+  <descriptions>
+    <description descriptionType="Abstract">Oxido-hydroxido- and oxido-amino-osmium(V) complexes with a cyclohexanediamine-based tetradentate ligand as active oxidants for dihydroxylation and aminohydroxylation of alkenes</description>
+  </descriptions>
+</resource>

@@ -135,11 +135,13 @@ So, there you have it. The potential of large language models to transform metad
 
 "Are metadata schema crosswalks a thing of the past? Discover how large language models are revolutionizing academic data management in our latest essay. #metadata #LLMs #datamanagement"
 "Tired of manual metadata schema mapping? Check out Parrot-GPT, the python package that leverages large language models for efficient and automated mapping. #ParrotGPT #LLMs #datamanagement"
-"Looking for a better way to map academic metadata schemas? Our latest essay breaks down the advantages of using large language models over traditional crosswalks. #metadata #LLMs #datamanagement"
+"Looking for a better way to map academic metadata? Our latest essay breaks down the advantages of using large language models over traditional crosswalks. #metadata #LLMs #datamanagement"
 "Metadata schema mapping made easy with the power of large language models. Discover the advantages in our latest essay. #metadata #LLMs #datamanagement"
 "Metadata schema generation may not be the most exciting topic, but it's essential for data management. Find out how large language models are changing the game in our latest essay. #metadata #LLMs #datamanagement"
 
 
+
+Looking for a better way to map academic metadata from fast evolving evolving ? Check out Parrot-GPT, a #python package that leverages #LLMs for efficient and automated mapping. #RDALLM #chatGPT https://medium.com/@kj.garza/parrotgpt-on-the-advantages-of-large-language-models-tools-for-academic-metadata-schema-mapping-434cceabc68b
 
 ## suggest 5 reddit titles to promote this essay in reddit
 "How to map metadata without Schema Crosswalks using LLMs with Parrot_GPT?"

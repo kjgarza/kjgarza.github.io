@@ -1,0 +1,42 @@
+<section class="block block-three-column-1">
+  <div class="container">
+    <div class="row">
+      <div class="col text">
+        <h2><span class="light">{{ section.headline }}</span></h2>
+        <p>{{ section.content | newline_to_br }}</p>
+      </div>
+    </div>
+
+    <div class="swiper">
+
+      <div class="swiper-wrapper">
+        {% for item in site.data.references.nodes %}
+        <div class="swiper-slide">
+          <a href="{{ item.id }}" target="_blank"><b>{{ item.title }}</b></a>
+          <p>Published in {{ item.publicationYear }}</p>
+
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    
+      <!-- If we need scrollbar -->
+      <div class="swiper-scrollbar"></div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+

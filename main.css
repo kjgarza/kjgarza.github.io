@@ -53,9 +53,9 @@ h3 {
   letter-spacing: 0;
 }
 
-body {
+p {
   font-family: -apple-system, Lato, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
-  font-size: 16px;
+  font-size: 24px;
 }
 
 .carousel-inner-item {
@@ -81,6 +81,21 @@ body {
 .carousel-inner .carousel-item-end,
 .carousel-inner .carousel-item-start { 
 transform: translateX(0);
+}
+
+img {
+  border-radius: 10px;
+}
+
+.image-container {
+  background-color: #ffedbc;  /* Replace with your desired color */
+  border-radius: 20px;  /* Adjust as needed */
+  display: inline-block;  /* This will make the div size to fit the image */
+  overflow: hidden;  /* This will apply the border radius to the image */
+}
+
+.image-container img {
+  display: block;  /* Removes bottom space under the image */
 }
 
 .icon-grid img {

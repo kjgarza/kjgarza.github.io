@@ -19,7 +19,7 @@ page_sections:
   #   alt_text: Product Shot
   background_image: "/uploads/2018/06/21/hero-2-bg Medium.png"
 - template: content-feature
-  block: feature-1
+  block: feature-no-image
   # media_alignment: right
   slug: research-methodology
   headline: Research Methodology
@@ -29,8 +29,8 @@ page_sections:
   #   image: "/uploads/2022/02/19/survey-web-tracker Medium.png"
   #   alt_text: Discovery
 - template: content-feature
-  block: feature-1
-  media_alignment: Left
+  block: feature-no-image
+  media_alignment: Right
   slug: research-methodology-2
   headline: Research Methodology (2)
   content: |
@@ -48,7 +48,7 @@ page_sections:
 - template: content-feature
   block: media-1
   slug: survey-results
-  image: "/uploads/2022/02/19/survey-web-tracker Medium.png"
+  image: "https://i.imgur.com/VdEpClk.png"
   caption: Survey Results
 - template: content-feature
   block: stats-column-1
@@ -68,7 +68,7 @@ page_sections:
 
 
 - template: content-feature
-  block: feature-1
+  block: feature-no-image
   media_alignment: Right
   slug: insights-recommendations
   headline:  Insights and Recommendations 
@@ -86,8 +86,8 @@ page_sections:
 #   image: "/uploads/2022/02/19/gherkin-web-tracker Medium.png"
 #   caption: Design
 - template: content-feature
-  block: feature-1
-  media_alignment: Left
+  block: feature-no-image
+  media_alignment: Right
   slug:  ideation-implementation
   headline:  Ideation and Implementation
   content: | 
@@ -99,13 +99,8 @@ page_sections:
   #   alt_text: Solution Validation
 - template: content-feature
   block: media-1
-  slug: figma
-  image: "/uploads/2022/02/19/figma-web-tracker Medium.png"
-  caption: Figma
-- template: content-feature
-  block: media-1
   slug: code
-  image: "/uploads/2022/02/19/gherkin-web-tracker Medium.png"
+  image: "https://i.imgur.com/3J83ius.png"
   caption: code
 - template: content-feature
   block: stats-column-1
@@ -121,8 +116,8 @@ page_sections:
     headline: 3x sign-ins
     content: The refined process resulted in a threefold increase in user sign-ups for the new services.
 - template: content-feature
-  block: feature-1
-  media_alignment: Left
+  block: feature-no-image
+  media_alignment: Right
   slug:  reflections
   headline:  Reflections
   content: | 

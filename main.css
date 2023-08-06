@@ -88,15 +88,52 @@ img {
 }
 
 .image-container {
-  background-color: #ffedbc;  /* Replace with your desired color */
-  border-radius: 20px;  /* Adjust as needed */
-  display: inline-block;  /* This will make the div size to fit the image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;  /* This will apply the border radius to the image */
 }
 
 .image-container img {
+  margin: 0; /* Reset default margin */
+  text-align: center; /* Center the figcaption if exists */
+
   display: block;  /* Removes bottom space under the image */
 }
+
+
+.columns-portfolio {
+  /* Make the container a flexbox */
+  display: flex;
+  /* Cause the columns to stack on top of each other on small screens */
+  flex-direction: column;
+  /* Add some space between the columns */
+  gap: 20px;
+}
+
+.column-portfolio {
+  /* Allow the columns to shrink and grow as needed, and take up equal space when side by side */
+  flex: 1 1 auto;
+}
+
+.columns-portfolio .column-portfolio img {
+  max-width: 100%;
+  height: auto;
+}
+
+.image-container .media img{
+  max-width: 80%;
+  height: auto;
+}
+
+
+/* On screens that are 600px wide or more, make the columns display side by side */
+@media (min-width: 800px) {
+  .columns-portfolio {
+    flex-direction: row;
+  }
+}
+
 
 .icon-grid img {
   width: 100%;

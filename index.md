@@ -25,10 +25,10 @@ page_sections:
   slug: portfolio
   headline: Portfolio
   col_1:
-    headline: Bibliometrics Dashboard
-    content: Interviews and design process
-    case: "portfolio/case-ux-c.html"
-    image: "https://i.imgur.com/OLmsAWU.png"
+    headline: Design System
+    content: Survey and design process
+    case: "portfolio/case-pd-design-system.html"
+    image: "https://i.imgur.com/uN47knx.png"
   col_2:
     headline: Metadata Harvesting Services
     content: Design Sprint
@@ -40,10 +40,10 @@ page_sections:
     case: "portfolio/case-ux-b.html"
     image: "https://i.imgur.com/AEbbo6E.png"
   col_4:
-    headline: Design System
-    content: Survey and design process
-    case: "portfolio/case-pd-design-system.html"
-    image: "https://i.imgur.com/uN47knx.png"
+    headline: Bibliometrics Dashboard
+    content: Interviews and design process
+    case: "portfolio/case-ux-c.html"
+    image: "https://i.imgur.com/OLmsAWU.png"
 - template: content-feature
   block: tech-stack
   headline: "My Tech Stack"

@@ -28,17 +28,22 @@ page_sections:
     headline: Bibliometrics Dashboard
     content: Interviews and design process
     case: "portfolio/case-c.html"
-    image: "/uploads/2022/02/19/figma-dashboard Medium.png"
+    image: "https://i.imgur.com/uN47knx.png"
   col_2:
     headline: Metadata Harvesting Services
     content: Design Sprint
     case: "portfolio/case-a.html"
-    image: "/uploads/2022/02/19/hmw-harvester Medium.png"
+    image: "https://i.imgur.com/uN47knx.png"
   col_3:
     headline: Web Tracker for analytics
     content: Survey and design process
     case: "portfolio/case-b.html"
-    image: "/uploads/2022/02/19/survey-web-tracker Medium.png"
+    image: "https://i.imgur.com/uN47knx.png"
+  col_4:
+    headline: Design System
+    content: Survey and design process
+    case: "portfolio/case-pd-design-system.html"
+    image: "https://i.imgur.com/uN47knx.png"
 - template: content-feature
   block: tech-stack
   headline: "My Tech Stack"

@@ -1,43 +1,57 @@
 <section class="block block-three-column-1">
   <div class="container">
     <div class="row">
-        <div class="col text">
-          <h2><span class="light">{{ section.headline }}</span></h2>
-          <p>{{ section.content | newline_to_br  }}</p>
+      <div class="col text">
+        <h2><span class="light">{{ section.headline }}</span></h2>
+        <p>{{ section.content | newline_to_br }}</p>
       </div>
     </div>
 
-    <div class="columns">
-      <div class="column">
-        <div class="card" style="width: 20rem;">
-          <img src="{{ section.col_1.image }}" class="card-img-top" alt="{{ section.col_1.content }}">
+    <div class="columns-portfolio">
+      <div class="row">
+        <div class="column-portfolio">
+          <figure>
+            <img src="{{ section.col_1.image | relative_url }}" alt="{{ section.col_1.content }}" loading="lazy">
+          </figure>
           <div class="card-body">
             <h5 class="card-title">{{ section.col_1.headline }}</h5>
             <p class="card-text">{{ section.col_1.content }}</p>
-            <a href="{{ section.col_1.case | relative_url }}" class="button primary">Go to case</a>
+            <a href="{{ section.col_1.case | relative_url }}">➔</a>
           </div>
         </div>
-      </div>
-      <div class="column">
-        <div class="card" style="width: 20rem;">
-          <img src="{{ section.col_2.image }}" class="card-img-top" alt="{{ section.col_2.content }}">
+        <div class="column-portfolio">
+          <figure>
+            <img src="{{ section.col_2.image | relative_url }}" alt="{{ section.col_2.content }}" loading="lazy">
+          </figure>
           <div class="card-body">
             <h5 class="card-title">{{ section.col_2.headline }}</h5>
             <p class="card-text">{{ section.col_2.content }}</p>
-            <a href="{{ section.col_2.case | relative_url }}" class="button primary">Go to case</a>
+            <a href="{{ section.col_2.case | relative_url }}">➔</a>
           </div>
         </div>
       </div>
-      <div class="column">
-        <div class="card" style="width: 20rem;">
-          <img src="{{ section.col_3.image }}" class="card-img-top" alt="{{ section.col_3.content }}">
+      <div class="row">
+        <div class="column-portfolio">
+          <figure>
+            <img src="{{ section.col_3.image | relative_url }}" alt="{{ section.col_3.content }}" loading="lazy">
+          </figure>
           <div class="card-body">
             <h5 class="card-title">{{ section.col_3.headline }}</h5>
             <p class="card-text">{{ section.col_3.content }}</p>
-            <a href="{{ section.col_3.case | relative_url }}" class="button primary">Go to case</a>
+            <a href="{{ section.col_3.case | relative_url }}">➔</a>
           </div>
         </div>
-      </div>            
+        <div class="column-portfolio">
+          <figure>
+            <img src="{{ section.col_4.image | relative_url }}" alt="{{ section.col_4.content }}" loading="lazy">
+          </figure>
+          <div class="card-body">
+            <h5 class="card-title">{{ section.col_4.headline }}</h5>
+            <p class="card-text">{{ section.col_4.content }}</p>
+            <a href="{{ section.col_4.case | relative_url }}">➔</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

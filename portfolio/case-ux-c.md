@@ -18,7 +18,7 @@ page_sections:
   block: feature-no-image
   media_alignment: Right
   slug: research-methodology-1
-  headline: Research Methodlogy (1)
+  headline: Research Methodlogy 
   content: | 
     To understand the needs and capabilities of our users, I conducted in-depth interviews with bibliometricians from different organizations. My questionnaire explored their technical capabilities and the data dimensions required for their work.
     I then analyzed the collected data using a strategic framework that categorized insights into dimensions, indicators, aggregations, computations, and filters. This methodology greatly informed my design of the visualizations.
@@ -34,7 +34,7 @@ page_sections:
   block: feature-no-image
   media_alignment: Right
   slug: research-methodology-2
-  headline:  Research Methodology (2)
+  headline:  Research Methodology
   content: | 
     To capture a holistic view of the project, I also interviewed community stakeholders, funders, and the engineering team at DataCite. These interviews were pivotal in identifying the community's needs, defining the dashboard's success criteria, and understanding the feasibility in the context of DataCite's infrastructure.
     Subsequently, I created a medium-fidelity prototype in Figma, which was presented to ten experts during expert walkthroughs. This interactive approach allowed me to gain detailed insights and feedback to
@@ -56,7 +56,7 @@ page_sections:
     content: 
       The existing visualization tools at DataCite could address user needs, but significant backend development would be required for data processing.
   col_3:
-    headline: 03 SUCCESS CRITERIA
+    headline: 03 Success criteria
     content:  The dashboard's success would be gauged based on its ability to address at least one of the user stories within the stipulated time frame.
 - template: content-feature
   block: feature-no-image

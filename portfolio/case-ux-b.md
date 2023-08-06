@@ -32,7 +32,7 @@ page_sections:
   block: feature-no-image
   media_alignment: Right
   slug: research-methodology-2
-  headline: Research Methodology (2)
+  headline: 
   content: |
     Based on the survey results, I drafted a potential design solution addressing the issues revealed by the survey. I then used a Request for Comments (RFC) feedback collection method via Productboard to gain feedback on the initial solution from DataCite's community members.
     Analysis of both the survey results and RFC feedback enabled us to generate an MVP. An Expert Walkthrough was later conducted to validate the interaction design of the web tracker, with participation from 10 experts.

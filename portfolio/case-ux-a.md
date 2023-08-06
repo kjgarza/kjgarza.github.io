@@ -25,7 +25,7 @@ page_sections:
   block: feature-no-image
   media_alignment: Right
   slug: design-print-1
-  headline: Design Sprint 1
+  headline: Research Methodology Design Sprint
   content: | 
     A design sprint was subsequently conducted to generate a comprehensive initial prototype for the new harvesting service. This sprint involved around 7 internal collaborators from different departments and was facilitated virtually using Miro due to the pandemic. The aim was to ensure that the service redesign would meet the needs of all organizational corners. To foster a long-term vision, we slightly altered the design sprint's activity order, positioning the mapping activity as a secondary step.
   media:
@@ -43,7 +43,7 @@ page_sections:
   block: feature-no-image
   media_alignment: Right
   slug: design-print-2
-  headline: Design Sprint 1 
+  headline: Design Sprint 
   content: | 
     I prepared a bespoke questionnaire to guide participants during the "expert interviews" activity of the design sprint, which led to 83 "how might we" notes. Over the next three days, I guided the participants through each stage of the design sprint, focusing significant effort on the mapping exercise and sketching day preparation.
     Two top-voted sketches were selected for further prototyping in Figma, followed by an Expert Walkthrough validation with eight users to collect further feedback.

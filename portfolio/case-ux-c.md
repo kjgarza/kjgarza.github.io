@@ -40,6 +40,10 @@ page_sections:
     Subsequently, I created a medium-fidelity prototype in Figma, which was presented to ten experts during expert walkthroughs. This interactive approach allowed me to gain detailed insights and feedback to
     refine my design iteratively.
 - template: content-feature
+  block: media-1
+  slug: websites
+  image: "https://i.imgur.com/9OxXUoo.png"
+- template: content-feature
   block: stats-column-1
   slug: findings
   headline: Findings
@@ -67,11 +71,6 @@ page_sections:
   media:
     image: "/uploads/2022/02/19/figma-dashboard Medium.png"
     alt_text: Design
-- template: content-feature
-  block: media-1
-  slug: websites
-  image: "https://i.imgur.com/9OxXUoo.png"
-
 - template: content-feature
   block: feature-no-image
   media_alignment: Right

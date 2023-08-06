@@ -51,17 +51,28 @@ page_sections:
     image: "/uploads/2022/02/19/map-harvester Medium.png"
     alt_text: Day 2  - Map & Lighting demos 
 - template: content-feature
-  block: feature-no-image
-  media_alignment: Right
+  block: list-1
   slug: findings
   headline: Findings
-  content: | 
-    01 FORMAT Both XML and JSON need to be provided for different use cases
-    02 FREQUENCY Monthly and daily harvesting are of the essence
-    03 METADATA Most cases will need only metadata but citation data could packaged separately
-    04 FREEMIUM A tiered business model is possible with a Premium service for for-profits
-    05 CRM Tight integration with the DataCite CRM will be needed
-    06 SNAPSHOTS For-profits would prefer snapshots due to the high demands on frequency 
+  items: 
+    - item: 
+      - headline:  01 FORMAT 
+      - content: Both XML and JSON need to be provided for different use cases
+    - item: 
+      - headline: 02 FREQUENCY
+      - content: Monthly and daily harvesting are of the essence
+    - item: 
+      - headline: 03 METADATA 
+      - content: Most cases will need only metadata but citation data could packaged separately
+    - item: 
+      - headline:  04 FREEMIUM 
+      - content:  A tiered business model is possible with a Premium service for for-profits
+    - item: 
+      - headline: 05 CRM 
+      - content: Tight integration with the DataCite CRM will be needed
+    - item: 
+      - headline: 06 SNAPSHOTS
+      - content: For-profits would prefer snapshots due to the high demands on frequency 
 - template: content-feature
   block: feature-no-image
   media_alignment: Right
@@ -87,7 +98,7 @@ page_sections:
     headline: 12 new users
     content:  The introduction of the snapshot feature allowed dozens of users to take advantage of the service right away.
 - template: content-feature
-  block: feature-no-image
+  block: feature-1
   media_alignment: Right
   slug: testimony
   headline: Testimony
@@ -110,4 +121,3 @@ page_sections:
   content: "Web Tracker ➔"
   link: "/portfolio/case-ux-b.html"
 ---
-

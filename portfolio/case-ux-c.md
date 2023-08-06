@@ -104,6 +104,11 @@ page_sections:
     headline: 72.7 NPS
     content:  The feedback from users was positive and encouraging, which indicated a high level of user satisfaction.
 - template: content-feature
+  block: cta-1
+  slug: next
+  content: "Go to blogpost"
+  link: "https://doi.org/10.5438/vwp0-vz05"
+- template: content-feature
   block: next-1
   slug: next
   headline: "Next Case Study"

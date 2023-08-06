@@ -103,6 +103,11 @@ page_sections:
   slug: websites
   image: "https://i.imgur.com/htzskD7.png"
 - template: content-feature
+  block: cta-1
+  slug: next
+  content: "Go to Blogpost"
+  link: "https://doi.org/10.5438/tpah-aj25"
+- template: content-feature
   block: next-1
   slug: next
   headline: "Next Case Study"

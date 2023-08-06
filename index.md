@@ -27,17 +27,17 @@ page_sections:
   col_1:
     headline: Bibliometrics Dashboard
     content: Interviews and design process
-    case: "portfolio/case-c.html"
+    case: "portfolio/case-ux-c.html"
     image: "https://i.imgur.com/OLmsAWU.png"
   col_2:
     headline: Metadata Harvesting Services
     content: Design Sprint
-    case: "portfolio/case-a.html"
+    case: "portfolio/case-ux-a.html"
     image: "https://i.imgur.com/Kc2Ccti.png"
   col_3:
     headline: Web Tracker for analytics
     content: Survey and design process
-    case: "portfolio/case-b.html"
+    case: "portfolio/case-ux-b.html"
     image: "https://i.imgur.com/AEbbo6E.png"
   col_4:
     headline: Design System
@@ -53,4 +53,3 @@ page_sections:
   headline: "Published articles"
   content: "Some of my more recent published work on the web"
 ---
-

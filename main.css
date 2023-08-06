@@ -6,6 +6,11 @@ a.kglink {
   text-decoration: none;
 }
 
+a:link {
+  color: #000;
+  text-decoration: none;
+}
+
 a.kglink[href^="http"]::after,
 a.kglink[href^="https://"]::after {
   content: "";
@@ -114,6 +119,7 @@ img {
 .column-portfolio {
   /* Allow the columns to shrink and grow as needed, and take up equal space when side by side */
   flex: 1 1 auto;
+  margin-bottom: 20px;
 }
 
 .columns-portfolio .column-portfolio img {

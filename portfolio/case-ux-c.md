@@ -9,7 +9,7 @@ page_sections:
   slug: intro
   heading: Crafting an Open-Science Analytics Dashboard for Bibliometricians
 - template: content-feature
-  block: one-column-1
+  block: feature-no-image
   slug: intro
   content: |
     Bibliometricians working in academic institutions often face challenges when needing to conduct quick analyses due to a lack of streamlined tools. The conventional method involving APIs and backend workflows can be time-consuming and requires specific technical know-how. This project aimed to develop a dashboard for bibliometricians, which would not only save them time but also provide a platform where their analyses could be hosted, thus promoting open science.
@@ -23,13 +23,18 @@ page_sections:
     To understand the needs and capabilities of our users, I conducted in-depth interviews with bibliometricians from different organizations. My questionnaire explored their technical capabilities and the data dimensions required for their work.
     I then analyzed the collected data using a strategic framework that categorized insights into dimensions, indicators, aggregations, computations, and filters. This methodology greatly informed my design of the visualizations.
 - template: content-feature
-  block: media-1
+  block: media-group-1
   slug: websites
-  image: "https://i.imgur.com/obqvFnZ.png"
-- template: content-feature
-  block: media-1
-  slug: websites
-  image: "https://i.imgur.com/UbCA8xX.png"
+  image_1: "https://i.imgur.com/obqvFnZ.png"
+  image_2: "https://i.imgur.com/UbCA8xX.png"
+# - template: content-feature
+#   block: media-1
+#   slug: websites
+#   image: "https://i.imgur.com/obqvFnZ.png"
+# - template: content-feature
+#   block: media-1
+#   slug: websites
+#   image: "https://i.imgur.com/UbCA8xX.png"
 - template: content-feature
   block: feature-no-image
   media_alignment: Right

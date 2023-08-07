@@ -9,7 +9,7 @@ page_sections:
   slug: desing-system
   heading:  Implementing a Design System at DataCite
 - template: content-feature
-  block: one-column-1
+  block: feature-no-image
   slug: intro
   content: |
     I recognized the need to bring a unified aesthetic to our suite of services. Our suite consisted of various websites. Each had a distinct look and feel, and it was becoming clear that this lack of visual consistency was making it harder for our membership to convey a cohesive narrative about our offerings.
@@ -48,13 +48,10 @@ page_sections:
     With Atomic Design principles guiding us, we ventured into the design phase. First, we conducted an inventory of components and pages to define the scope of our design system. This was followed by two rounds of UX evaluations using grayscale wireframes in Figma, which proved challenging as it was hard to communicate the essence of design change without color.
     In the UI design stage, finding the perfect balance between innovation and brand adherence proved to be another hurdle. After much deliberation, we struck a balance that retained our brand's identity while ensuring innovation and aesthetic appeal.
 - template: content-feature
-  block: media-1
+  block: media-group-1
   slug: websites
-  image: "https://i.imgur.com/wTx0lye.png"
-- template: content-feature
-  block: media-1
-  slug: websites
-  image: "https://i.imgur.com/jM7U6ae.png"
+  image_1: "https://i.imgur.com/wTx0lye.png"
+  image_2: "https://i.imgur.com/jM7U6ae.png"
 - template: content-feature
   block: feature-no-image
   media_alignment: Right
@@ -63,21 +60,34 @@ page_sections:
   content: | 
     The design system website was the first to receive the design system overhaul, and our homepage followed suit. But the implementation wasn't without its challenges, especially in securing stakeholder buy-in. For this, we turned to our design system website and a forthcoming JavaScript package that includes all components, which we believe will expedite adoption.
 - template: content-feature
-  block: media-1
+  block: media-group-1
   slug: websites
-  image: "https://i.imgur.com/rE0TQnE.png"
+  image_1: "https://i.imgur.com/rE0TQnE.png"
+  image_2: "https://i.imgur.com/CJ8tUNX.png"
 - template: content-feature
-  block: media-1
+  block: media-group-1
   slug: websites
-  image: "https://i.imgur.com/CJ8tUNX.png"
-- template: content-feature
-  block: media-1
-  slug: websites
-  image: "https://i.imgur.com/Snc880N.png"
-- template: content-feature
-  block: media-1
-  slug: websites
-  image: "https://i.imgur.com/xWMDvE5.png"
+  image_1: "https://i.imgur.com/Snc880N.png"
+  image_2: "https://i.imgur.com/xWMDvE5.png"
+
+
+
+# - template: content-feature
+#   block: media-1
+#   slug: websites
+#   image: "https://i.imgur.com/rE0TQnE.png"
+# - template: content-feature
+#   block: media-1
+#   slug: websites
+#   image: "https://i.imgur.com/CJ8tUNX.png"
+# - template: content-feature
+#   block: media-1
+#   slug: websites
+#   image: "https://i.imgur.com/Snc880N.png"
+# - template: content-feature
+#   block: media-1
+#   slug: websites
+#   image: "https://i.imgur.com/xWMDvE5.png"
 - template: content-feature
   block: feature-no-image
   media_alignment: Right
@@ -95,13 +105,18 @@ page_sections:
     image: "/uploads/2022/02/19/testflow-harvester Medium.png"
     alt_text: Day 4 - The StoryBoard and Prototype
 - template: content-feature
-  block: media-1
+  block: media-group-1
   slug: websites
-  image: "https://i.imgur.com/1u3gqM0.png"
-- template: content-feature
-  block: media-1
-  slug: websites
-  image: "https://i.imgur.com/htzskD7.png"
+  image_1: "https://i.imgur.com/1u3gqM0.png"
+  image_2: "https://i.imgur.com/htzskD7.png"
+# - template: content-feature
+#   block: media-1
+#   slug: websites
+#   image: "https://i.imgur.com/1u3gqM0.png"
+# - template: content-feature
+#   block: media-1
+#   slug: websites
+#   image: "https://i.imgur.com/htzskD7.png"
 - template: content-feature
   block: cta-1
   slug: next

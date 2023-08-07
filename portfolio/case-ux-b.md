@@ -9,7 +9,7 @@ page_sections:
   slug: intro
   heading: Innovating Data Usage Processing Services
 - template: content-feature
-  block: one-column-1
+  block: feature-no-image
   slug: context
   content:  |
     We identified a problem where the usage processing metrics were seeing very low adoption by repository administrators, who use this service to capture metrics according to the COUNTER Code of Practice.

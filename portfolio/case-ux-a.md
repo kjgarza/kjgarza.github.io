@@ -9,7 +9,7 @@ page_sections:
   slug: intro
   heading: Redesigning DataCite's Harvesting Services Through a Design Sprint
 - template: content-feature
-  block: one-column-1
+  block: feature-no-image
   slug: intro
   content: |
     DataCite existing Harvester Services are currently underutilized. Given the fact that users of such services are typically willing to pay for them, we recognized an untapped revenue opportunity if we could boost service utilization.
@@ -32,13 +32,18 @@ page_sections:
     image: "/uploads/2022/02/19/hmw-harvester Medium.png"
     alt_text: Day 1 - Defining the challenge
 - template: content-feature
-  block: media-1
+  block: media-group-1
   slug: websites
-  image: "https://i.imgur.com/Y8Jn1lP.png"
-- template: content-feature
-  block: media-1
-  slug: websites
-  image: "https://i.imgur.com/nzSRTi9.png"
+  image_1: "https://i.imgur.com/Y8Jn1lP.png"
+  image_2: "https://i.imgur.com/nzSRTi9.png"
+# - template: content-feature
+#   block: media-1
+#   slug: websites
+#   image: "https://i.imgur.com/Y8Jn1lP.png"
+# - template: content-feature
+#   block: media-1
+#   slug: websites
+#   image: "https://i.imgur.com/nzSRTi9.png"
 - template: content-feature
   block: feature-no-image
   media_alignment: Right

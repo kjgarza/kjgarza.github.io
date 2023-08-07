@@ -98,15 +98,16 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 10px; 
   overflow: hidden;  /* This will apply the border radius to the image */
 }
 
 .image-container img {
-  max-width: 1024px;
+  max-width: 1600px;
   margin: auto;
-  padding: 0 15px;
+  /* margin: 0; */
+  /* padding: 0 15px; */
   text-align: center; /* Center the figcaption if exists */
-
   display: block;  /* Removes bottom space under the image */
 }
 
@@ -226,6 +227,7 @@ img {
 
   .image-container img {
     max-width: 85vw;
+    border-radius: 10px; 
   }
 }
 

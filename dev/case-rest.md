@@ -12,6 +12,7 @@ page_sections:
   block: one-column-1
   slug: intro
   content: |
+
 - template: content-feature
   block: feature-no-image
   media_alignment: Right
@@ -21,7 +22,7 @@ page_sections:
 - template: content-feature
   block: media-1
   slug: websites
-  image: "https://i.imgur.com/hHVezza.png"
+  image: "https://i.imgur.com/N1YN691.png"
 - template: content-feature
   block: cta-1
   slug: next
@@ -31,8 +32,8 @@ page_sections:
   block: next-1
   slug: next
   headline: "Next Case Study"
-  content: "ReactJS App ➔"
-  link: "/portfolio/case-react.html"
+  content: "GraphQL API ➔"
+  link: "/portfolio/case-graphql.html"
 ---
 
 

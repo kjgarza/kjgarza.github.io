@@ -7,11 +7,12 @@ page_sections:
 - template: content-feature
   block: hero-1
   slug: desing-system
-  heading:  Implementing a GraphQL API for scholarly metadata
+  heading:  Implementing a Python package for metadata transofmration using OpenaAI's LLM
 - template: content-feature
   block: one-column-1
   slug: intro
   content: |
+
 # - template: content-feature
 #   block: feature-no-image
 #   media_alignment: Right
@@ -25,14 +26,14 @@ page_sections:
 - template: content-feature
   block: cta-1
   slug: next
-  content: "Go to documentation"
-  link: "https://support.datacite.org/docs/datacite-graphql-api-guide"
+  content: "Go to blogpost"
+  link: "https://medium.com/@kj.garza/parrotgpt-on-the-advantages-of-large-language-models-tools-for-academic-metadata-schema-mapping-434cceabc68b"
 - template: content-feature
   block: next-1
   slug: next
   headline: "Next Case Study"
-  content: "ReactJS App ➔"
-  link: "/dev/case-react.html"
+  content: "REST API ➔"
+  link: "/dev/case-rest.html"
 ---
 
 

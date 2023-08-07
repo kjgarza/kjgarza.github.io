@@ -27,22 +27,22 @@ page_sections:
   col_1:
     headline: Design System
     content: Survey and design process
-    case: "portfolio/case-pd-design-system.html"
+    case: "dev/case-pd-design-system.html"
     image: "https://i.imgur.com/uN47knx.png"
   col_2:
     headline: Metadata Harvesting Services
     content: Design Sprint
-    case: "portfolio/case-ux-a.html"
+    case: "dev/case-ux-a.html"
     image: "https://i.imgur.com/Kc2Ccti.png"
   col_3:
     headline: Web Tracker for analytics
     content: Survey and design process
-    case: "portfolio/case-ux-b.html"
+    case: "dev/case-ux-b.html"
     image: "https://i.imgur.com/AEbbo6E.png"
   col_4:
     headline: Bibliometrics Dashboard
     content: Interviews and design process
-    case: "portfolio/case-ux-c.html"
+    case: "dev/case-ux-c.html"
     image: "https://i.imgur.com/OLmsAWU.png"
 - template: content-feature
   block: tech-stack

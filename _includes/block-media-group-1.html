@@ -1,0 +1,18 @@
+<section id="{{ section.slug | slugify }}" class="block block-media-1">
+  <div class="image-container media">
+    <figure>
+      <img src="{{ section.image_1 | relative_url }}" alt="{{ section.caption_1 }}" loading="lazy">
+      {% if section.caption_1 %}
+      <figcaption>{{ section.caption_1 }}</figcaption>
+      {% endif %}
+    </figure>
+  </div>
+  <div class="image-container media">
+    <figure>
+      <img src="{{ section.image_2 | relative_url }}" alt="{{ section.caption_2 }}" loading="lazy">
+      {% if section.caption_2 %}
+      <figcaption>{{ section.caption_2 }}</figcaption>
+      {% endif %}
+    </figure>
+  </div>
+</section>

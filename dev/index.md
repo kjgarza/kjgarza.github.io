@@ -8,7 +8,7 @@ page_sections:
   block: hero-2
   slug: features
   headline: Kristian <br><strong>Garza Gutierrez</strong>
-  content: 
+  # content: 
   cta:
     enabled: true
     url: https://www.linkedin.com/in/kjgarza
@@ -24,7 +24,7 @@ page_sections:
     headline: GraphQL API
     content: Survey and design process
     case: "dev/case-graphql.html"
-    image: "https://i.imgur.com/txPm0Y7.png"
+    image: "https://i.imgur.com/25F6V4J.png"
   col_2:
     headline: ReactJS App
     content: Design Sprint

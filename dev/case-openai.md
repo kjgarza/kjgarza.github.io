@@ -22,7 +22,7 @@ page_sections:
 - template: content-feature
   block: media-1
   slug: websites
-  image: "https://i.imgur.com/hHVezza.png"
+  image: "https://i.imgur.com/N1YN691.png"
 - template: content-feature
   block: cta-1
   slug: next

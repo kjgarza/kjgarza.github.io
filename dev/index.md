@@ -38,7 +38,7 @@ page_sections:
   col_4:
     headline: OpenAI python package
     content: Interviews and design process
-    case: "dev/case-ux-c.html"
+    case: "dev/case-openai.html"
     image: "https://i.imgur.com/qZR5vez.png"
 - template: content-feature
   block: tech-stack

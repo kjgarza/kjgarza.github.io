@@ -10,6 +10,7 @@ page_sections:
   heading:  Implementing a Design System at DataCite
 - template: content-feature
   block: feature-no-image
+  headline: Overview
   slug: intro
   content: |
     I recognized the need to bring a unified aesthetic to our suite of services. Our suite consisted of various websites. Each had a distinct look and feel, and it was becoming clear that this lack of visual consistency was making it harder for our membership to convey a cohesive narrative about our offerings.

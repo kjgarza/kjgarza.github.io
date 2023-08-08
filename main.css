@@ -89,8 +89,8 @@ p {
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+  /* max-width: 100%;
+  height: auto; */
   border-radius: 10px;
 }
 
@@ -103,9 +103,9 @@ img {
 }
 
 .image-container img {
-  max-width: 1600px;
-  margin: auto;
-  /* margin: 0; */
+  /* max-width: 1600px; */
+  /* margin: auto; */
+  margin: 0;
   /* padding: 0 15px; */
   text-align: center; /* Center the figcaption if exists */
   display: block;  /* Removes bottom space under the image */
@@ -116,6 +116,12 @@ img {
   max-width: 800px;
   margin: auto;
   padding: 0 15px;
+}
+
+.next-bar {
+  border-top: .125rem solid #000;
+  align-self: stretch;
+  padding-top: 1.5rem
 }
 
 

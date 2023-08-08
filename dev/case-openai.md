@@ -7,7 +7,7 @@ page_sections:
 - template: content-feature
   block: hero-1
   slug: desing-system
-  heading:  Implementing a Python package for metadata transofmration using OpenaAI's LLM
+  heading:  Implementing a Python package for metadata translation using OpenaAI's LLM
 - template: content-feature
   block: one-column-1
   slug: intro

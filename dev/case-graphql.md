@@ -1,6 +1,6 @@
 ---
 layout: blocks
-title: Kristian Garza - Design system
+title: Kristian Garza - GraphQL
 date: 2022-01-22T23:00:00.000+00:00
 type: "design"
 page_sections:

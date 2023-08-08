@@ -1,6 +1,6 @@
 ---
 layout: blocks
-title: Kristian Garza - Design system
+title: Kristian Garza - Python
 date: 2022-01-22T23:00:00.000+00:00
 type: "design"
 page_sections:
@@ -11,14 +11,18 @@ page_sections:
 - template: content-feature
   block: one-column-1
   slug: intro
-  content: |
+  content: ""
+- template: content-feature
+  block: feature-no-image
+  media_alignment: Right
+  slug: background
+  headline: Background
+  content: | 
+    Metadata is the backbone of research dissemination, discovery, and accessibility in academia. However, the proliferation of digital systems has led to fragmentation of metadata standards, as each platform uses its own schema. Traditionally, metadata crosswalks were used to map between schemas for conversion. But this manual method is labor-intensive for large-scale metadata transformation. 
 
-# - template: content-feature
-#   block: feature-no-image
-#   media_alignment: Right
-#   slug: background
-#   headline: Background
-#   content: | 
+    To enable more efficient, automated metadata transliteration, OpenAI's Large Language Model (LLM) was explored. The LLM's natural language capabilities make it well-suited to understand and process metadata. Use of the LLM represents a transformative approach to academic metadata management, promising to overcome the inefficiencies of manual crosswalking.
+
+    In summary, academic metadata fragmentation across systems has created challenges that traditional crosswalking methods struggle to address efficiently. Exploration of OpenAI's LLM presents a more automated, scalable solution for metadata transliteration, aiming to transform scholarly metadata management.
 - template: content-feature
   block: media-1
   slug: websites

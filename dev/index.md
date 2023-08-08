@@ -8,7 +8,7 @@ page_sections:
   block: hero-2
   slug: features
   headline: Kristian <br><strong>Garza Gutierrez</strong>
-  # content: 
+  content: "" 
   cta:
     enabled: true
     url: https://www.linkedin.com/in/kjgarza

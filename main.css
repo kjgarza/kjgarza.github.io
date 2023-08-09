@@ -20,6 +20,11 @@ a:visited {
   color: black;
 }
 
+ul {
+  list-style-type: none;
+  padding-left: 0rem;
+}
+
 a.kglink[href^="http"]::after,
 a.kglink[href^="https://"]::after {
   content: "";
@@ -248,9 +253,3 @@ img {
   }
 }
 
-
-ul {
-  list-style-type: none;
-  padding-left: 0rem;
-
-}

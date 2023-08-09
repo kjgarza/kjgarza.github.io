@@ -1,0 +1,20 @@
+
+<section class="block">
+  <div class="container">
+  <div class="column">
+    <div class="row">
+      <!-- //inspect the section object -->
+      {% for col in section.columns %}
+        <div class="col-sm text-left">
+          <h4>{{ col.headline }}</h4>
+          <ul>
+            {% for item in col.content %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  </div>
+</section>

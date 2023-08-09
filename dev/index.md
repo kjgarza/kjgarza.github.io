@@ -14,7 +14,7 @@ page_sections:
     url: https://www.linkedin.com/in/kjgarza
     button_text: 'See on LinkedIn '
   image:
-    image: "../uploads/2018/06/21/blob.svg"
+    image: "/uploads/2018/06/21/blob.svg"
     alt_text: Product Shot
 - template: content-feature
   block: three-column-cards-1

@@ -8,7 +8,7 @@ page_sections:
   block: hero-2
   slug: features
   headline: Kristian <br><strong>Garza Gutierrez</strong>
-  # content:  As an experienced Product Design Manager and Application Developer, I merge extensive knowledge of technology with a passion for design and service delivery. I have a proven track record in establishing DesignOps processes, leading teams, and developing applications, demonstrating proficiency in a broad range of tools and methodologies. Beyond my professional endeavours, I actively engage with the academic community, exploring the application of Large Language Models (LLMs) for academic metadata schema mapping. I am deeply passionate about open science, data management, and the intersection of technology, design, and academia.
+  content:  I'm a UX researcher with deep technical expertise in creating intuitive digital tools that help researchers easily share their work.
   cta:
     enabled: true
     url: https://www.linkedin.com/in/kjgarza
@@ -44,10 +44,10 @@ page_sections:
     content: Interviews and design process
     case: "portfolio/case-ux-c.html"
     image: "https://i.imgur.com/OLmsAWU.png"
-- template: content-feature
-  block: tech-stack
-  headline: "My Tech Stack"
-  content: "Below are some of the technologies I have experience on. This is not an exhaustive list."
+# - template: content-feature
+#   block: tech-stack
+#   headline: "My Tech Stack"
+#   content: "Below are some of the technologies I have experience on. This is not an exhaustive list."
 - template: content-feature
   block: carousel
   headline: "Published articles"

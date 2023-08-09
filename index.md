@@ -49,7 +49,7 @@ page_sections:
 #   headline: "My Tech Stack"
 #   content: "Below are some of the technologies I have experience on. This is not an exhaustive list."
 - template: content-feature
-  block: carousel
+  block: references-1
   headline: "Published articles"
   content: "Some of my more recent published work on the web"
 ---

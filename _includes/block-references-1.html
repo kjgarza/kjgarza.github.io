@@ -6,8 +6,8 @@
       </div>
       <div class="column text">
         <ol>
-          {% for reference_item in section.references %}
-          <li><p>{{ reference_item }}</p></li>
+          {% for reference_item in site.data.references.nodes %}
+          <li><p><a href="{{ reference_item.id }}">{{ reference_item.title }} {{ reference_item.publicationYear }}</a></p></li>
           {% endfor %}
         </ol>
       </div>

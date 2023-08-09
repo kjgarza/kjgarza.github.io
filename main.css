@@ -11,6 +11,15 @@ a:link {
   text-decoration: none;
 }
 
+a:hover {
+  background: #ffedbc;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+}
+
 a.kglink[href^="http"]::after,
 a.kglink[href^="https://"]::after {
   content: "";
@@ -103,12 +112,14 @@ img {
 }
 
 .image-container img {
+  max-width: 1024px;
+  height: auto;
   /* max-width: 1600px; */
   /* margin: auto; */
   margin: 0;
   /* padding: 0 15px; */
   text-align: center; /* Center the figcaption if exists */
-  display: block;  /* Removes bottom space under the image */
+ /* display: block;    /* Removes bottom space under the image */
 }
 
 

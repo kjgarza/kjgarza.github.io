@@ -24,22 +24,22 @@ page_sections:
     headline: GraphQL API
     content: Survey and design process
     case: "dev/case-graphql.html"
-    image: "https://i.imgur.com/25F6V4J.png"
+    image: "https://i.imgur.com/25F6V4Jl.png"
   col_2:
     headline: ReactJS App
     content: Design Sprint
     case: "dev/case-react.html"
-    image: "https://i.imgur.com/u3Y0nY5.png"
+    image: "https://i.imgur.com/u3Y0nY5l.png"
   col_3:
     headline: REST API
     content: Survey and design process
     case: "dev/case-rest.html"
-    image: "https://i.imgur.com/XFS3O8z.png"
+    image: "https://i.imgur.com/XFS3O8zl.png"
   col_4:
     headline: OpenAI python package
     content: Interviews and design process
     case: "dev/case-openai.html"
-    image: "https://i.imgur.com/qZR5vez.png"
+    image: "https://i.imgur.com/qZR5vezl.png"
 - template: content-feature
   block: tech-stack
   headline: "My Tech Stack"

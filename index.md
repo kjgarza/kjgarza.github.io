@@ -28,22 +28,22 @@ page_sections:
     headline: Creating a Design System
     content: Survey and design process
     case: "portfolio/case-pd-design-system.html"
-    image: "https://i.imgur.com/uN47knx.png"
+    image: "https://i.imgur.com/uN47knxl.png"
   col_2:
     headline: Redesigning a Metadata Harvesting Service
     content: Design Sprint
     case: "portfolio/case-ux-a.html"
-    image: "https://i.imgur.com/Kc2Ccti.png"
+    image: "https://i.imgur.com/Kc2Cctil.png"
   col_3:
     headline: Designing a Web Tracker for analytics
     content: Survey and design process
     case: "portfolio/case-ux-b.html"
-    image: "https://i.imgur.com/AEbbo6E.png"
+    image: "https://i.imgur.com/AEbbo6El.png"
   col_4:
     headline: Creating a Bibliometrics Dashboard
     content: Interviews and design process
     case: "portfolio/case-ux-c.html"
-    image: "https://i.imgur.com/OLmsAWU.png"
+    image: "https://i.imgur.com/OLmsAWUl.png"
 # - template: content-feature
 #   block: tech-stack
 #   headline: "My Tech Stack"

@@ -18,6 +18,23 @@ page_sections:
     In addition, we needed our suite of products to align with The Web Content Accessibility Guidelines (WCAG) standards for accessibility.
     The challenge was to create a design system that would provide a unified aesthetic across all services while adhering to our branding guidelines and being implementable using standard libraries such as Bootstrap.
 - template: content-feature
+  block: role
+  slug: role
+  columns: 
+  - headline: My Contribution
+    content:
+    - Product Design  
+    - Product Management
+  - headline: The Team
+    content: 
+    - 1 x Product Design Manager  
+    - 1 x Project Manager  
+    - 1 x Designer  
+    - 1 x Developer  
+  - headline: Year
+    content: 
+     - 2023
+- template: content-feature
   block: feature-no-image
   media_alignment: Right
   slug: background

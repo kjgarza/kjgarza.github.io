@@ -13,11 +13,26 @@ page_sections:
   slug: context
   content:  |
     We identified a problem where the usage processing metrics were seeing very low adoption by repository administrators, who use this service to capture metrics according to the COUNTER Code of Practice.
-     My Role: UX Researcher and Product Designer
   # image:
   #   image: "/uploads/2022/02/19/designsprint-eosc Medium.png"
   #   alt_text: Product Shot
   background_image: "/uploads/2018/06/21/hero-2-bg Medium.png"
+- template: content-feature
+  block: role
+  slug: role
+  columns: 
+  - headline: My Contribution
+    content:
+    - UX research  
+    - Product Design
+  - headline: The Team
+    content: 
+    - 1 x Product Designer  
+    - 1 x Project Manager  
+    - 2 x Developers  
+  - headline: Year
+    content: 
+     - 2023
 - template: content-feature
   block: feature-no-image
   # media_alignment: right

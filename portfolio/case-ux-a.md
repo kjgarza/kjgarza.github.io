@@ -13,7 +13,22 @@ page_sections:
   slug: intro
   content: |
     DataCite existing Harvester Services are currently underutilized. Given the fact that users of such services are typically willing to pay for them, we recognized an untapped revenue opportunity if we could boost service utilization.
-    My Role: UX Researcher and Workshop Facilitator
+- template: content-feature
+  block: role
+  slug: role
+  columns: 
+  - headline: My Contribution
+    content:
+    - UX research  
+    - Workshop Facilitation
+  - headline: The Team
+    content: 
+    - 1 x Product Designer  
+    - 1 x Project Manager  
+    - 2 x Developer  
+  - headline: Year
+    content: 
+     - 2022
 - template: content-feature
   block: feature-no-image
   media_alignment: Right

@@ -7,7 +7,7 @@ page_sections:
 - template: content-feature
   block: hero-1
   slug: intro
-  heading: Innovating Data Usage Processing Services
+  heading: Creating a Bibliometrics Dashboard
 - template: content-feature
   block: feature-no-image
   slug: context

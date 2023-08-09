@@ -7,7 +7,7 @@ page_sections:
 - template: content-feature
   block: hero-1
   slug: intro
-  heading: Crafting an Open-Science Analytics Dashboard for Bibliometricians
+  heading: Designing a Web Tracker for analytics
 - template: content-feature
   block: feature-no-image
   slug: intro

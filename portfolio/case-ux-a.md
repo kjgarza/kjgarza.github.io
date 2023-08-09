@@ -7,7 +7,7 @@ page_sections:
 - template: content-feature
   block: hero-1
   slug: intro
-  heading: Redesigning DataCite's Harvesting Services Through a Design Sprint
+  heading: Redesigning DataCite's Harvesting Services
 - template: content-feature
   block: feature-no-image
   slug: intro

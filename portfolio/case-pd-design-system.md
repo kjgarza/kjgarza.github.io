@@ -7,7 +7,7 @@ page_sections:
 - template: content-feature
   block: hero-1
   slug: desing-system
-  heading:  Implementing a Design System at DataCite
+  heading:  Creating a Design System
 - template: content-feature
   block: feature-no-image
   headline: Overview

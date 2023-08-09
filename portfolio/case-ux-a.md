@@ -21,6 +21,7 @@ page_sections:
     content:
     - UX research  
     - Workshop Facilitation
+    - Product Design
   - headline: The Team
     content: 
     - 1 x Product Designer  

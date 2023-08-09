@@ -13,7 +13,22 @@ page_sections:
   slug: intro
   content: |
     Bibliometricians working in academic institutions often face challenges when needing to conduct quick analyses due to a lack of streamlined tools. The conventional method involving APIs and backend workflows can be time-consuming and requires specific technical know-how. This project aimed to develop a dashboard for bibliometricians, which would not only save them time but also provide a platform where their analyses could be hosted, thus promoting open science.
-    My Role: UX Researcher and Product Designer
+- template: content-feature
+  block: role
+  slug: role
+  columns: 
+  - headline: My Contribution
+    content:
+    - UX research  
+    - Product Design
+  - headline: The Team
+    content: 
+    - 1 x Product Designer  
+    - 1 x Project Manager  
+    - 2 x Developers  
+  - headline: Year
+    content: 
+     - 2022
 - template: content-feature
   block: feature-no-image
   media_alignment: Right

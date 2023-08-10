@@ -8,7 +8,8 @@ page_sections:
   block: hero-2
   slug: features
   headline: Kristian <br><strong>Garza Gutierrez</strong>
-  content:  Kristian is a UX researcher based in Berlin, making digital research tools more intuitive and empowering. He spends his time researching, coding, prototyping, and tweeting about leveraging AI and inclusive design. Kristian is passionate about creating seamless user experiences by directly connecting with end users.
+  content:  |
+    I am a UX researcher based in Berlin, making digital research tools more intuitive and empowering. I spend my time researching, coding, prototyping, and tweeting about leveraging AI and inclusive design. I am passionate about creating seamless user experiences by directly connecting with end users.
   cta:
     enabled: true
     url: https://www.linkedin.com/in/kjgarza

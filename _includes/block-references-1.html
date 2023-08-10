@@ -1,16 +1,32 @@
-<section class="block block-text-1">
+<section class="block">
   <div class="container">
     <div class="columns">
-      <div class="column headline">
+      <div class="row">
         <h2 id="{{section.slug}}"><span class="light">{{ section.headline }}</span></h2>
       </div>
-      <div class="column text">
+      <!-- <div class="column text">
         <ol>
           {% for reference_item in site.data.references.nodes %}
           <li><p><a href="{{ reference_item.id }}">{{ reference_item.title }} {{ reference_item.publicationYear }}</a></p></li>
           {% endfor %}
         </ol>
-      </div>
+      </div> -->
+      <div class="column text">
+        {% for reference_item in site.data.references.nodes %}
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-8">
+            <h5 class="font-weight-bold"><a href="{{ reference_item.id }}">{{ reference_item.title }} </a></h5>
+            <body>{{ reference_item.publicationYear  }}</body>
+            <hr>
+          </div>
+          
+        </div>
+     
+        {% endfor %}
+
     </div>
   </div>
 </section>
+
+

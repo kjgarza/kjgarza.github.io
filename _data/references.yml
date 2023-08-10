@@ -3,6 +3,9 @@ nodes:
   - id: "https://doi.org/10.5438/tpah-aj25"
     title: "DataCite Design System is ready to be worn."
     publicationYear: 2023
+  - id: "https://doi.org/10.5438/vwp0-vz05"
+    title: "Breaking a Metadata Barrier: Improving discoverability with automatic subject classification"
+    publicationYear: 2023
   - id: "https://medium.com/@kj.garza/parrotgpt-on-the-advantages-of-large-language-models-tools-for-academic-metadata-schema-mapping-434cceabc68b"
     title: "ParrotGPT: On the Advantages of Large Language Models Tools for Academic Metadata Schema Mapping"
     publicationYear: 2023

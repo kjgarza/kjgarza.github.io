@@ -253,3 +253,7 @@ img {
   }
 }
 
+.columns-portfolio .column-portfolio:hover {
+  opacity: .72;
+  transform: skew(1deg,1deg)
+}

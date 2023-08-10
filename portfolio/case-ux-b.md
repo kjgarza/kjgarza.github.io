@@ -150,6 +150,6 @@ page_sections:
   block: next-1
   slug: next
   headline: "Next Case Study"
-  content: "Dashboard ➔"
+  content: "Web Tracker ➔"
   link: "/portfolio/case-ux-c.html"
 ---

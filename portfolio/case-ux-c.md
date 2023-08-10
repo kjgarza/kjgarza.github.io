@@ -33,7 +33,7 @@ page_sections:
   block: feature-no-image
   media_alignment: Right
   slug: research-methodology-1
-  headline: Research Methodlogy 
+  headline: Research Methodology 
   content: | 
     To understand the needs and capabilities of our users, I conducted in-depth interviews with bibliometricians from different organizations. My questionnaire explored their technical capabilities and the data dimensions required for their work.
     I then analyzed the collected data using a strategic framework that categorized insights into dimensions, indicators, aggregations, computations, and filters. This methodology greatly informed my design of the visualizations.

@@ -1,6 +1,6 @@
 ---
 layout: blocks
-title: Kristian Garza - Case UX Harvesting Service
+title: Kristian Garza - Case Harvesting Service
 date: 2022-01-22T23:00:00.000+00:00
 type: "design"
 page_sections:
@@ -139,6 +139,6 @@ page_sections:
   block: next-1
   slug: next
   headline: "Next Case Study"
-  content: "Dashboard ➔"
+  content: "Web tracker ➔"
   link: "/portfolio/case-ux-b.html"
 ---

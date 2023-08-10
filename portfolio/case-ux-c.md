@@ -1,13 +1,13 @@
 ---
 layout: blocks
-title: Kristian Garza - Case C
+title: Kristian Garza - Dashbaord
 date: 2022-01-22T23:00:00.000+00:00
 type: "design"
 page_sections:
 - template: content-feature
   block: hero-1
   slug: intro
-  heading: Designing a Web Tracker for analytics
+  heading: Crafting a Dashboard
 - template: content-feature
   block: feature-no-image
   slug: intro

@@ -1,13 +1,13 @@
 ---
 layout: blocks
-title: Kristian Garza - Case B
+title: Kristian Garza - Web Tracker
 date: 2022-01-22T23:00:00.000+00:00
 type: "design"
 page_sections:
 - template: content-feature
   block: hero-1
   slug: intro
-  heading: Creating a Bibliometrics Dashboard
+  heading: Creating a Web tracker
 - template: content-feature
   block: feature-no-image
   slug: context
@@ -150,6 +150,6 @@ page_sections:
   block: next-1
   slug: next
   headline: "Next Case Study"
-  content: "Web Tracker ➔"
+  content: "Dashboard ➔"
   link: "/portfolio/case-ux-c.html"
 ---

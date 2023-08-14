@@ -12,6 +12,8 @@ page_sections:
   block: feature-no-image
   slug: context
   content:  |
+    Designed a Usage Web Tracker for collecting analytics.
+
     We identified a problem where the usage processing metrics were seeing very low adoption by repository administrators, who use this service to capture metrics according to the COUNTER Code of Practice.
   # image:
   #   image: "/uploads/2022/02/19/designsprint-eosc Medium.png"
@@ -34,6 +36,10 @@ page_sections:
     content: 
      - 2023
 - template: content-feature
+  block: media-3
+  slug: design-sys
+  image: "https://i.imgur.com/3J83ius.png"
+- template: content-feature
   block: feature-no-image
   # media_alignment: right
   slug: research-methodology
@@ -50,6 +56,7 @@ page_sections:
   headline: 
   content: |
     Based on the survey results, I drafted a potential design solution addressing the issues revealed by the survey. I then used a Request for Comments (RFC) feedback collection method via Productboard to gain feedback on the initial solution from DataCite's community members.
+
     Analysis of both the survey results and RFC feedback enabled us to generate an MVP. An Expert Walkthrough was later conducted to validate the interaction design of the web tracker, with participation from 10 experts.
 
   # media:
@@ -88,6 +95,7 @@ page_sections:
   slug: insights-recommendations
   headline:  Insights and Recommendations 
   content: | 
+
     1. Development of a JavaScript web tracker, offering ease of implementation through a simple copy-paste mechanism.
     2. Inclusion of a series of validation checks to discourage misuse and enhance the system's robustness.
     3. Integration of the new solution with DataCite's existing user management system, Fabrica, to expedite user adoption.
@@ -106,6 +114,7 @@ page_sections:
   slug:  ideation-implementation
   headline:  Ideation and Implementation
   content: | 
+
     1. I crafted a collection of wireframes in Figma for the prototype. Since the service is primarily developer-centric, I outlined a series of operational flows for the web tracker.
     2. I also conceived JavaScript interface snippets to provide a frictionless Developer Experience.
     3. The final deliverable comprised a Figma file and product specifications in Gherkin syntax, seamlessly transferred to the development team..
@@ -137,6 +146,7 @@ page_sections:
   headline:  Reflections
   content: | 
     Employing Gherkin for standardizing specifications proved immensely advantageous for our ongoing collaboration with the development team.
+
     Furthermore, the RFC methodology yielded valuable insights from community members, despite them not being direct users of the service, thus enriching our understanding of our broader user community.
   # media:
   #   image: "/uploads/2022/02/19/figma-web-tracker Medium.png"

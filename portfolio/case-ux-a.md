@@ -12,6 +12,8 @@ page_sections:
   block: feature-no-image
   slug: intro
   content: |
+    Redesigned DataCite's Harvesting Services from the ground up.
+
     DataCite existing Harvester Services are currently underutilized. Given the fact that users of such services are typically willing to pay for them, we recognized an untapped revenue opportunity if we could boost service utilization.
 - template: content-feature
   block: role
@@ -67,6 +69,7 @@ page_sections:
   headline: Design Sprint 
   content: | 
     I prepared a bespoke questionnaire to guide participants during the "expert interviews" activity of the design sprint, which led to 83 "how might we" notes. Over the next three days, I guided the participants through each stage of the design sprint, focusing significant effort on the mapping exercise and sketching day preparation.
+
     Two top-voted sketches were selected for further prototyping in Figma, followed by an Expert Walkthrough validation with eight users to collect further feedback.
   media:
     image: "/uploads/2022/02/19/map-harvester Medium.png"

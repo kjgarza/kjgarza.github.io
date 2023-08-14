@@ -13,9 +13,13 @@ page_sections:
   headline: Overview
   slug: intro
   content: |
+    Crafted a Design System for all DataCite frontend services.
+
     I recognized the need to bring a unified aesthetic to our suite of services. Our suite consisted of various websites. Each had a distinct look and feel, and it was becoming clear that this lack of visual consistency was making it harder for our membership to convey a cohesive narrative about our offerings.
+
     Further, the situation left new developers at a loss as to which style to apply where.
     In addition, we needed our suite of products to align with The Web Content Accessibility Guidelines (WCAG) standards for accessibility.
+
     The challenge was to create a design system that would provide a unified aesthetic across all services while adhering to our branding guidelines and being implementable using standard libraries such as Bootstrap.
 - template: content-feature
   block: role
@@ -35,16 +39,22 @@ page_sections:
     content: 
      - 2023
 - template: content-feature
+  block: media-3
+  slug: design-sys
+  image: "https://i.imgur.com/htzskD7.png"
+- template: content-feature
   block: feature-no-image
   media_alignment: Right
   slug: background
   headline: Background
   content: | 
     DataCite's digital ecosystem is extensive. It comprises:
+
     - The DataCite Commons app
     - The Fabrica web app
     - A homepage website
     - Various JavaScript widgets
+    
     The absence of a cohesive visual identity across these platforms was beginning to affect the perception of our membership and potentially hamper user experience.
 - template: content-feature
   block: media-1
@@ -64,6 +74,7 @@ page_sections:
   headline:  Ideation & Design
   content: | 
     With Atomic Design principles guiding us, we ventured into the design phase. First, we conducted an inventory of components and pages to define the scope of our design system. This was followed by two rounds of UX evaluations using grayscale wireframes in Figma, which proved challenging as it was hard to communicate the essence of design change without color.
+
     In the UI design stage, finding the perfect balance between innovation and brand adherence proved to be another hurdle. After much deliberation, we struck a balance that retained our brand's identity while ensuring innovation and aesthetic appeal.
 - template: content-feature
   block: media-group-1
@@ -114,9 +125,11 @@ page_sections:
   content: | 
     Throughout this journey, we ensured regular interaction with our stakeholders.
     Their feedback ranged from expressing preferences for design elements to raising potential technical implementation issues.
+
     In addition, they offered valuable input about aligning with DataCite's overarching branding.
 
     While we are still in the implementation phase, our vision for the future is clear.
+
     - We plan to create a full set of components for all of DataCite's websites and web apps.
     - Moreover, we aim to use Storybook to host these components, thus enabling developers to utilize them easily.
   media:

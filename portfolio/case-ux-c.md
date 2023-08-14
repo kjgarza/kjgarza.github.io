@@ -12,6 +12,8 @@ page_sections:
   block: feature-no-image
   slug: intro
   content: |
+    Designed an analytical Dashboard for Researchers.
+
     Bibliometricians working in academic institutions often face challenges when needing to conduct quick analyses due to a lack of streamlined tools. The conventional method involving APIs and backend workflows can be time-consuming and requires specific technical know-how. This project aimed to develop a dashboard for bibliometricians, which would not only save them time but also provide a platform where their analyses could be hosted, thus promoting open science.
 - template: content-feature
   block: role
@@ -36,6 +38,7 @@ page_sections:
   headline: Research Methodology 
   content: | 
     To understand the needs and capabilities of our users, I conducted in-depth interviews with bibliometricians from different organizations. My questionnaire explored their technical capabilities and the data dimensions required for their work.
+
     I then analyzed the collected data using a strategic framework that categorized insights into dimensions, indicators, aggregations, computations, and filters. This methodology greatly informed my design of the visualizations.
 - template: content-feature
   block: media-group-1
@@ -57,6 +60,7 @@ page_sections:
   headline:  Research Methodology
   content: | 
     To capture a holistic view of the project, I also interviewed community stakeholders, funders, and the engineering team at DataCite. These interviews were pivotal in identifying the community's needs, defining the dashboard's success criteria, and understanding the feasibility in the context of DataCite's infrastructure.
+
     Subsequently, I created a medium-fidelity prototype in Figma, which was presented to ten experts during expert walkthroughs. This interactive approach allowed me to gain detailed insights and feedback to
     refine my design iteratively.
 - template: content-feature
@@ -85,6 +89,7 @@ page_sections:
   headline:   Insights and Recommendations 
   content: | 
     My research and findings led me to recommend the following actions:
+    
       1. Develop a workflow to enrich metadata with subject classification using client information as a proxy.
       2. Construct the dashboard using the current tech stack, but anticipate heavy backend alterations.
       3. Focus initially on user story 2, as the current system has ample data for useful visualizations.

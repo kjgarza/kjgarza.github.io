@@ -25,7 +25,7 @@ page_sections:
   block: three-column-cards-1
   slug: portfolio
   headline: Portfolio
-  col_1:
+  col_4:
     headline: Creating a Design System
     content: Survey and design process
     case: "portfolio/case-pd-design-system.html"
@@ -40,7 +40,7 @@ page_sections:
     content: Survey and design process
     case: "portfolio/case-ux-b.html"
     image: "https://i.imgur.com/AEbbo6El.png"
-  col_4:
+  col_1:
     headline: Creating a Bibliometrics Dashboard
     content: Interviews and design process
     case: "portfolio/case-ux-c.html"

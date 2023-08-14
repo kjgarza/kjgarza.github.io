@@ -166,6 +166,13 @@ img {
   height: auto;
 }
 
+.bleed img{
+  width: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  max-height: 600px;
+}
+
 /* On screens that are 600px wide or more, make the columns display side by side */
 @media (min-width: 800px) {
   .columns-portfolio {

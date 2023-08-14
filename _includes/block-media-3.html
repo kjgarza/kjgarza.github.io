@@ -1,0 +1,10 @@
+<section id="{{ section.slug | slugify }}">
+  <div class="bleed">
+    <figure>
+      <img src="{{ section.image | relative_url }}" alt="{{ section.caption }}" loading="lazy">
+      {% if section.caption %}
+      <figcaption>{{ section.caption }}</figcaption>
+      {% endif %}
+    </figure>
+  </div>
+</section>

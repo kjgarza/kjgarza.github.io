@@ -7,9 +7,10 @@ page_sections:
 - template: hero-banner-w-image
   block: hero-2
   slug: features
-  headline: Kristian <br><strong>Garza Gutierrez</strong>
+  headline: Kristian Garza 
   content:  |
-    I am a UX researcher based in Berlin, making digital research tools more intuitive and empowering. I spend my time researching, coding, prototyping, and tweeting about leveraging AI and inclusive design. I am passionate about creating seamless user experiences by directly connecting with end users.
+    <strong>I'm a Product designer, based in Berlin, keen to transition into UX Research in AI organisation.</strong>
+    Passionate about understanding users to create empowering, intuitive experiences. Strong research, prototyping, and coding skills. Experienced in leveraging design and AI to solve real-world problems.
   cta:
     enabled: true
     url: https://www.linkedin.com/in/kjgarza

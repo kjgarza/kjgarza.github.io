@@ -1,0 +1,18 @@
+<section class="block">
+  <div class="container">
+    <div class="columns">
+      <div class="row">
+        <h2><span class="light">{{ section.headline }}</span></h2>
+        <ul>
+        {% for item in section.items %}
+          <li>
+            <h2>{{ item.headline }}</h2>
+            <p>{{ item.content }}</p>
+            <hr>
+          </li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

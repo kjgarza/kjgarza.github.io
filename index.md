@@ -51,6 +51,18 @@ page_sections:
 #   headline: "My Tech Stack"
 #   content: "Below are some of the technologies I have experience on. This is not an exhaustive list."
 - template: content-feature
+  block: list-2
+  headline: "Skills"
+  items:
+  - headline: End-to-end product design
+  - headline: Wireframing
+    content: Figma
+  - headline: Workshop faciliation
+    content: Miro, Design Sprints, LDJ, Restrospectives, Lean Canvas
+  - headline: Technical walkthroughs
+  - headline: Prototyping and Prototyping in Code
+    content: VueJS, ReactJS, HTML, CSS  
+- template: content-feature
   block: references-1
   headline: "Published work"
   content: "Some of my more recent published work on the web"

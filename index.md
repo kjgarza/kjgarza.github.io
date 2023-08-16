@@ -45,7 +45,7 @@ page_sections:
     headline: Creating a Bibliometrics Dashboard
     content: Interviews and design process
     case: "portfolio/case-ux-c.html"
-    image: "https://i.imgur.com/OLmsAWUl.png"
+    image: "https://i.imgur.com/oPPfFDYl.png"
 # - template: content-feature
 #   block: tech-stack
 #   headline: "My Tech Stack"

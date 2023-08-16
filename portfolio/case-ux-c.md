@@ -43,8 +43,8 @@ page_sections:
 - template: content-feature
   block: media-group-1
   slug: websites
-  image_1: "https://i.imgur.com/obqvFnZ.png"
-  image_2: "https://i.imgur.com/UbCA8xX.png"
+  image_1: "https://i.imgur.com/i9xCCPT.png"
+  image_2: "https://i.imgur.com/EhaZvmT.png"
 # - template: content-feature
 #   block: media-1
 #   slug: websites
@@ -66,7 +66,7 @@ page_sections:
 - template: content-feature
   block: media-1
   slug: websites
-  image: "https://i.imgur.com/9OxXUoo.png"
+  image: "https://i.imgur.com/jv8GQir.png"
 - template: content-feature
   block: stats-column-1
   slug: findings
@@ -110,7 +110,7 @@ page_sections:
 - template: content-feature
   block: media-1
   slug: websites
-  image: "https://i.imgur.com/y7g0mE9.png"
+  image: "https://i.imgur.com/oPPfFDY.png"
 
 - template: content-feature
   block: stats-column-1

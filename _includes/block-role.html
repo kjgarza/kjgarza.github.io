@@ -2,7 +2,7 @@
 <section class="block">
   <div class="container">
   <div class="column next-bar">
-    <div class="row">
+    <div id="{{ section.slug | slugify }}" class="row">
       <!-- //inspect the section object -->
       {% for col in section.columns %}
         <div class="col-sm text-left">

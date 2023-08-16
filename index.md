@@ -1,6 +1,6 @@
 ---
 layout: blocks
-title: Kristian Garza - Portfolio
+title: Kristian Garza 
 date: 2022-01-22T23:00:00.000+00:00
 type: "design"
 page_sections:

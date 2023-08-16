@@ -173,6 +173,15 @@ img {
   max-height: 600px;
 }
 
+.magnify-on-hover {
+  transition: transform 0.3s;  /* Smooth transition for the magnify effect */
+}
+
+.magnify-on-hover:hover {
+  transform: scale(1.05);  /* Increase the size to 120% of original when hovered */
+}
+
+
 /* On screens that are 600px wide or more, make the columns display side by side */
 @media (min-width: 800px) {
   .columns-portfolio {
@@ -260,7 +269,7 @@ img {
   }
 }
 
-.columns-portfolio .column-portfolio:hover {
+/* .columns-portfolio .column-portfolio:hover {
   opacity: .72;
   transform: skew(1deg,1deg)
-}
+} */

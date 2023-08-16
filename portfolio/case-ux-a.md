@@ -79,24 +79,18 @@ page_sections:
   slug: findings
   headline: Findings
   items: 
-    - item: 
-      - headline:  01 FORMAT 
-      - content: Both XML and JSON need to be provided for different use cases
-    - item: 
-      - headline: 02 FREQUENCY
-      - content: Monthly and daily harvesting are of the essence
-    - item: 
-      - headline: 03 METADATA 
-      - content: Most cases will need only metadata but citation data could packaged separately
-    - item: 
-      - headline:  04 FREEMIUM 
-      - content:  A tiered business model is possible with a Premium service for for-profits
-    - item: 
-      - headline: 05 CRM 
-      - content: Tight integration with the DataCite CRM will be needed
-    - item: 
-      - headline: 06 SNAPSHOTS
-      - content: For-profits would prefer snapshots due to the high demands on frequency 
+    - headline:  FORMAT 
+      content: Both XML and JSON need to be provided for different use cases
+    - headline: FREQUENCY
+      content: Monthly and daily harvesting are of the essence
+    - headline: METADATA 
+      content: Most cases will need only metadata but citation data could packaged separately
+    - headline:  FREEMIUM 
+      content:  A tiered business model is possible with a Premium service for for-profits
+    - headline: CRM 
+      content: Tight integration with the DataCite CRM will be needed
+    - headline: SNAPSHOTS
+      content: For-profits would prefer snapshots due to the high demands on frequency 
 - template: content-feature
   block: feature-no-image
   media_alignment: Right

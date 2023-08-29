@@ -52,17 +52,20 @@ h1 {
 h1 span.light {
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
+  line-height: 2;
 }
 
 h2 {
   font-family: 'Raleway', sans-serif;
   font-size: 37.90px;
   font-weight: 700;
+  line-height: 2;
 }
 
 h2 span.light {
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
+  line-height: 2;
 }
 
 h3 {
@@ -71,6 +74,7 @@ h3 {
   font-size: 28.43px;
   font-size: 1.777rem;
   letter-spacing: 0;
+  line-height: 2;
 }
 
 p {

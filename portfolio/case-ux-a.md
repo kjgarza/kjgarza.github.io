@@ -98,7 +98,9 @@ page_sections:
   headline: Insights and Recommendations
   content: | 
     1. Define a tiered approach for the harvesting service, including a basic service for users requiring only citation metadata and a premium service for others.
+
     2. Modify the tech stack and the user profile service to accommodate the new premium tier users.
+    
     3. Scale the infrastructure to address the increased needs for higher frequency harvesting.
 - template: content-feature
   block: stats-column-1

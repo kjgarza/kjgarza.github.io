@@ -59,7 +59,7 @@ page_sections:
     content: Figma
   - headline: Workshop faciliation
     content: Miro, Design Sprints, LDJ, Restrospectives, Lean Canvas
-  - headline: Technical walkthroughs
+  - headline: Group Expert Walkthrough
   - headline: Prototyping and Prototyping in Code
     content: VueJS, ReactJS, HTML, CSS  
 - template: content-feature

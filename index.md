@@ -9,7 +9,7 @@ page_sections:
   slug: features
   headline: Kristian Garza 
   content:  |
-    <strong>I'm a Product designer, based in Berlin, keen to transition into UX Research in AI organisation.</strong>
+    <strong>I'm a Product designer, based in Berlin, passionated about AI.</strong>
     Passionate about understanding users to create empowering, intuitive experiences. Strong research, prototyping, and coding skills. Experienced in leveraging design and AI to solve real-world problems.
   cta:
     enabled: true

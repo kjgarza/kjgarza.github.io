@@ -56,7 +56,7 @@ page_sections:
   - headline: End-to-end product design
   - headline: Wireframing
     content: Figma
-  - headline: Workshop faciliation
+  - headline: Workshop facilitation
     content: Miro, Design Sprints, LDJ, Restrospectives, Lean Canvas
   - headline: Group Expert Walkthrough
   - headline: Prototyping and Prototyping in Code

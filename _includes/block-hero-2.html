@@ -5,7 +5,7 @@ style="background-image: url('{{ section.background_image | relative_url }}')"
   <div class="container">
     <div class="columns">
       <div class="column text">
-        <h1><span class="light">{{ section.headline }}</span></h1>
+        <h1><span>{{ section.headline }}</span></h1>
         <p class="dark">{{ section.content  | newline_to_br }}</p>
         {% if section.cta and section.cta.enabled == true %}
         <a class="button primary inverted" href="{{ section.cta.url }}">{{ section.cta.button_text }}</a>

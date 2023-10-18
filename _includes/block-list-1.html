@@ -2,12 +2,21 @@
   <div class="container">
     <div class="columns">
       <div class="column">
-        <h2 id="{{ section.slug | slugify }}"><span class="light">{{ section.headline }}</span></h2>
+        <h2 id="{{ section.slug | slugify }}"><span>{{ section.headline }}</span></h2>
         <ul>
         {% for item in section.items %}
           <li>
             <h2>{{ item.headline }}</h2>
             <p>{{ item.content }}</p>
+            {% if item.items %}
+            <ul>
+              {% for subitem in item.items %}
+                <li>
+                  <p>{{ subitem }}</p>
+                </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
           </li>
         {% endfor %}
         </ul>

@@ -9,7 +9,7 @@ page_sections:
   slug: features
   headline: Kristian Garza 
   content:  |
-    I'm a Berlin-based Product Designer with a fervor for AI and a keen focus on user-centric design. My skill set includes robust research capabilities, prototyping, and coding, all aimed at crafting empowering and intuitive user experiences. I specialize in leveraging the intersection of design and AI to address real-world challenges.
+    I'm a Berlin-based Product Designer with AI smarts. My skill set includes robust research capabilities, prototyping, and coding, all aimed at crafting empowering and intuitive user experiences. I specialize in leveraging the intersection of design and AI to address real-world challenges.
   cta:
     enabled: true
     url: https://www.linkedin.com/in/kjgarza

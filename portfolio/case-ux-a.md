@@ -3,6 +3,8 @@ layout: blocks
 title: Kristian Garza - Case Harvesting Service
 date: 2022-01-22T23:00:00.000+00:00
 type: "design"
+redirect_from:
+  - /harvesting
 page_sections:
 - template: content-feature
   block: hero-1
@@ -29,6 +31,12 @@ page_sections:
     - 1 x Product Designer  
     - 1 x Project Manager  
     - 2 x Developer  
+  - headline: Methods
+    content: 
+     - Focus Group (56)
+     - Design Sprint (8)
+     - Cognetive Walktroughs (5)
+     - Concept Testing (5)
   - headline: Year
     content: 
      - 2022
@@ -100,7 +108,7 @@ page_sections:
     1. Define a tiered approach for the harvesting service, including a basic service for users requiring only citation metadata and a premium service for others.
 
     2. Modify the tech stack and the user profile service to accommodate the new premium tier users.
-    
+
     3. Scale the infrastructure to address the increased needs for higher frequency harvesting.
 - template: content-feature
   block: stats-column-1

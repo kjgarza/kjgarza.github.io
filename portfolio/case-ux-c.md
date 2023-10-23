@@ -1,8 +1,10 @@
 ---
 layout: blocks
-title: Kristian Garza - Dashbaord
+title: Kristian Garza - Dashboard
 date: 2022-01-22T23:00:00.000+00:00
 type: "design"
+redirect_from:
+  - /dashboard
 page_sections:
 - template: content-feature
   block: hero-1

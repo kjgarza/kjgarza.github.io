@@ -3,6 +3,8 @@ layout: blocks
 title: Kristian Garza - Web Tracker
 date: 2022-01-22T23:00:00.000+00:00
 type: "design"
+redirect_from:
+  - /web-tracker
 page_sections:
 - template: content-feature
   block: hero-1
@@ -32,6 +34,11 @@ page_sections:
     - 1 x Product Designer  
     - 1 x Project Manager  
     - 2 x Developers  
+  - headline: Methods
+    content: 
+     - Survey (85)
+     - Cognetive Walktroughs (5)
+     - Concept Testing (5)
   - headline: Year
     content: 
      - 2023

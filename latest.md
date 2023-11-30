@@ -1,5 +1,5 @@
 ---
 title: latest
-redirect_to: https://medium.com/@kj.garza/parrotgpt-on-the-advantages-of-large-language-models-tools-for-academic-metadata-schema-mapping-434cceabc68b
+redirect_to: https://doi.org/10.59350/skna9-1pb77
 
 ---

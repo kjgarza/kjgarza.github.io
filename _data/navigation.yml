@@ -17,5 +17,8 @@ navigation-design:
     link_text: Portfolio
 
 cta:
-  url: "https://mega.nz/file/yEs2gZjT#_TuUDmVyx_haiIN3AC3Z3yqpg_lwzxyRPfJgZyTtPGc"
-  button_text: Download
+  url: "https://kjgarza.substack.com/"
+  button_text: Newsletter
+# cta:
+#   url: "https://mega.nz/file/yEs2gZjT#_TuUDmVyx_haiIN3AC3Z3yqpg_lwzxyRPfJgZyTtPGc"
+#   button_text: Download

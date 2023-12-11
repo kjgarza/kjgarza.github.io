@@ -20,6 +20,10 @@ a:visited {
   color: black;
 }
 
+pre.mermaid {
+  min-width: 800px;
+}
+
 ul {
   list-style-type: none;
   padding-left: 0rem;
@@ -277,3 +281,21 @@ img {
   opacity: .72;
   transform: skew(1deg,1deg)
 } */
+
+#navbar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 40%;
+  margin: auto;
+  background-color: white; /* or any color of your choice */
+  z-index: 10;
+}
+
+#navbar a.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* generate a style to show only the 80% of the screen for a navbar an centered */
+

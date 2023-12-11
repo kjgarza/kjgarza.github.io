@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="navbar">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#{{ section.discovery }}">Discovery</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#{{ section.define }}">Define</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#{{ section.develop }}">Develop</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#{{ section.deliver }}">Deliver</a>
+            </li>
+            <!-- ... other nav items ... -->
+        </ul>
+    </div>
+</nav>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('#navbar .nav-link');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,  // Adjust this threshold value based on your needs.
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                document.querySelector(`#navbar a[href="#${id}"]`).classList.add('active');
+            } else {
+                const id = entry.target.getAttribute('id');
+                document.querySelector(`#navbar a[href="#${id}"]`).classList.remove('active');
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
+
+</script>

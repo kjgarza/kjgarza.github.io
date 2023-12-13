@@ -12,6 +12,7 @@ page_sections:
   heading: Redesigning DataCite's Harvesting Services
 - template: content-feature
   block: feature-no-image
+  headline: Overview
   slug: intro
   content: |
     Redesigned DataCite's Harvesting Services from the ground up.

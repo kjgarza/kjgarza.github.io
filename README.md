@@ -1,22 +1,17 @@
-![uBuild Blocks](uploads/2018/06/21/theme.png)
+# Style Dictionary Complete Example
 
-# uBuild Jekyll Theme
+This starter project has everything you need to get started. 
 
-[View the announcement post on Forestry.io](https://forestry.io/blog/ubuild-a-new-theme-for-static-sites-using-blocks/#/)
+## How it works
 
-`ubuild-jekyll` is a Jekyll theme designed to work with [Forestry](https://forestry.io/)'s [Blocks](https://forestry.io/blog/blocks-give-your-editors-the-power-to-build-pages/) feature.  This theme provides a set of page-level components and a pre-configured Forestry Blocks UI that will empower content editors to construct their own webpages.
+All of the design tokens and assets are in this package. Make any changes to suit your needs. This package has iOS, Android, and web code.
 
-## Quick Start
+To get started, run
+```
+$ npm install
+$ npm run build
+```
 
-[![Import this project into Forestry](https://assets.forestry.io/import-to-forestry.svg)](https://app.forestry.io/quick-start?repo=forestryio/ubuild-jekyll&provider=github&engine=jekyll)
+The npm build task is what performs the style dictionary build steps to generate the files for each platform. Every time you change something in the style dictionary, like changing colors or adding design tokens, you will have to run this command again to generate the files.
 
-*This option is available for Github and Gitlab users only. If you use Bitbucket please use the Alternative Setup*
-
-## Alternative Setup
-
-1. Fork this repo
-2. [Sign up for a free Forestry account](https://app.forestry.io/signup)
-3. [Import your repo](https://forestry.io/docs/quickstart/setup-site/#import-site-from-repo) as a new Jekyll project
-
-To use the page builder, select the **Page Builder** template when creating a new page.
-
+## iOS

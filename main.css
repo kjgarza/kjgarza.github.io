@@ -22,6 +22,11 @@ ul {
   padding-left: 0rem;
 }
 
+.references{
+  padding: var(--size-padding-xl) 0 var(--size-padding-large) 0;
+  border-bottom: solid 1px var(--color-border-base);
+}
+
 footer{
   background-color: var( --color-background-dark);
   color: var( --color-font-inverse-base);
@@ -257,7 +262,7 @@ img {
 }
 
 /* Mobile devices */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 799px) {
     h1 {
         font-size: 2.5rem;
     }
@@ -272,6 +277,11 @@ img {
 
     p {
         font-size: 18px;
+    }
+
+    .block-hero-2 {
+      min-height: 22vh;
+      background-color: var(--color-brand-accent-base);
     }
 }
 

@@ -4,23 +4,24 @@
       <div class="row">
         <h2 id="{{ section.slug | slugify }}"><span>{{ section.headline }}</span></h2>
       </div>
-        <div class="row">
+      <div class="row">
 
         {% for reference_item in site.data.references.nodes %}
-        
-          <div class="col-lg-6 offset-lg-4 col-10 magnify-on-hover">
-            <a href="{{ reference_item.id }}">
+
+        <div class="col-lg-6 offset-lg-4 col-10 magnify-on-hover references">
+          <a href="{{ reference_item.id }}">
             <div>
-            <h4 >{{ reference_item.title }} </h4>
-            <body>{{ reference_item.publicationYear  }}</body>
-            <hr>
-          </div>
-        </a>
-          </div>
-       
+              <h4>{{ reference_item.title }} </h4>
+
+              <body>{{ reference_item.publicationYear }}</body>
+
+            </div>
+          </a>
+
+        </div>
+
+
         {% endfor %}
       </div>
-  </div>
+    </div>
 </section>
-
-

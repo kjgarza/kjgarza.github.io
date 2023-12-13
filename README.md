@@ -1,22 +1,32 @@
-![uBuild Blocks](uploads/2018/06/21/theme.png)
+# Kristian Homepage
 
-# uBuild Jekyll Theme
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-[View the announcement post on Forestry.io](https://forestry.io/blog/ubuild-a-new-theme-for-static-sites-using-blocks/#/)
+## Description
 
-`ubuild-jekyll` is a Jekyll theme designed to work with [Forestry](https://forestry.io/)'s [Blocks](https://forestry.io/blog/blocks-give-your-editors-the-power-to-build-pages/) feature.  This theme provides a set of page-level components and a pre-configured Forestry Blocks UI that will empower content editors to construct their own webpages.
+My homepage is a static website built with Jekyll and hosted on GitHub Pages. It is a simple, lightweight, and responsive website that showcases my portfolio and blog posts.
 
-## Quick Start
 
-[![Import this project into Forestry](https://assets.forestry.io/import-to-forestry.svg)](https://app.forestry.io/quick-start?repo=forestryio/ubuild-jekyll&provider=github&engine=jekyll)
+## Installation
 
-*This option is available for Github and Gitlab users only. If you use Bitbucket please use the Alternative Setup*
+1. Clone the repository: `git clone https://github.com/kjgarza/repo.git`
+2. Install Jekyll: `gem install jekyll`
+3. Install project dependencies: `bundle install`
 
-## Alternative Setup
+## Usage
 
-1. Fork this repo
-2. [Sign up for a free Forestry account](https://app.forestry.io/signup)
-3. [Import your repo](https://forestry.io/docs/quickstart/setup-site/#import-site-from-repo) as a new Jekyll project
+1. Build the site: `jekyll build`
+2. Serve the site locally: `jekyll serve`
+3. Open your browser and visit: `http://localhost:4000`
 
-To use the page builder, select the **Page Builder** template when creating a new page.
+## Contributing
 
+1. Fork the repository
+2. Create a new branch: `git checkout -b feature/your-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin feature/your-feature`
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

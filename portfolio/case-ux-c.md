@@ -13,6 +13,7 @@ page_sections:
 - template: content-feature
   block: feature-no-image
   slug: intro
+  headline: Overview
   content: |
     Designed an analytical Dashboard for Researchers.
 
@@ -94,7 +95,7 @@ page_sections:
 
 - template: content-feature
   block: media-1
-  slug: websites
+  slug: figma
   image: "https://i.imgur.com/jv8GQir.png"
 - template: content-feature
   block: feature-no-image
@@ -149,7 +150,7 @@ page_sections:
     alt_text: Solution Validation
 - template: content-feature
   block: media-1
-  slug: websites
+  slug: summary
   image: "https://i.imgur.com/oPPfFDY.png"
 
 - template: content-feature

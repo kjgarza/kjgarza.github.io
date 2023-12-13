@@ -5,10 +5,9 @@
         <h2 id="{{ section.slug | slugify }}"><span>{{ section.headline }}</span></h2>
         <ul>
         {% for item in section.items %}
-          <li class="magnify-on-hover">
+          <li class="magnify-on-hover references">
             <h3>{{ item.headline }}</h3>
             <p>{{ item.content }}</p>
-            <hr>
           </li>
         {% endfor %}
         </ul>

@@ -12,6 +12,7 @@ page_sections:
   heading: Creating a Web tracker
 - template: content-feature
   block: feature-no-image
+  headline: Overview
   slug: context
   content:  |
     Designed a Usage Web Tracker for collecting analytics.
@@ -60,7 +61,7 @@ page_sections:
   block: feature-no-image
   media_alignment: Right
   slug: research-methodology-2
-  headline: 
+  headline: Survey
   content: |
     Based on the survey results, I drafted a potential design solution addressing the issues revealed by the survey. I then used a Request for Comments (RFC) feedback collection method via Productboard to gain feedback on the initial solution from DataCite's community members.
 

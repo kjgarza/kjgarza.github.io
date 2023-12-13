@@ -149,6 +149,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: var(--size-padding-large);
   border-radius: 10px; 
   overflow: hidden;  /* This will apply the border radius to the image */
 }

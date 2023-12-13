@@ -183,7 +183,7 @@
         "200"  : { "value": "#6b5162", "attributes": {"font": "base"}},
         "300"  : { "value": "#55384b", "attributes": {"font": "base"}},
         "400"  : { "value": "#401f35", "attributes": {"font": "base"}},
-        "500"  : { "value": "#CDDC39", "attributes": {"font": "base"}},
+        "500"  : { "value": "#2B061E", "attributes": {"font": "base"}},
         "600"  : { "value": "#C0CA33", "attributes": {"font": "base"}},
         "700"  : { "value": "#27051b", "attributes": {"font": "base"}},
         "800"  : { "value": "#9E9D24", "attributes": {"font": "base"}},

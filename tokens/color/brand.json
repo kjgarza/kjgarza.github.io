@@ -10,6 +10,13 @@
       },
 
       "secondary": {
+        "lighter": { "value": "{color.base.umber.100.value}" },
+        "light":   { "value": "{color.base.umber.300.value}" },
+        "base":    { "value": "{color.base.umber.500.value}" },
+        "dark":    { "value": "{color.base.umber.700.value}" },
+        "darker":  { "value": "{color.base.umber.900.value}" }
+      },
+      "accent": {
         "lighter": { "value": "{color.base.sunglow.100.value}" },
         "light":   { "value": "{color.base.sunglow.300.value}" },
         "base":    { "value": "{color.base.sunglow.500.value}" },

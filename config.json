@@ -8,6 +8,22 @@
         "destination": "_variables.scss",
         "format": "scss/variables"
       }]
+    },
+    "css": {
+      "transformGroup": "css",
+      "buildPath": "build/css/",
+      "files": [{
+        "destination": "variables.css",
+        "format": "css/variables"
+      }]
+    },
+    "html": {
+      "transformGroup": "web",
+      "buildPath": "build/html/",
+      "files": [{
+        "destination": "index.html",
+        "format": "staticStyleGuide"
+      }]
     }
   }
 }

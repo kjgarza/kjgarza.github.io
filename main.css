@@ -1,28 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@100;800&display=swap');
 
-a.kglink {
-  background: #ffedbc;
-  color: #333;
-  text-decoration: none;
-}
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-grid.min.css');
+
 
 a:link {
-  color: #000;
+  color: var( --color-background-link-base);
   text-decoration: none;
 }
 
 a:hover {
-  background: #ffedbc;
+  /* background: var( --color-background-link-hover); */
   text-decoration: none;
 }
 
 a:visited {
-  color: black;
+  color: var( --color-background-link-base);
 }
 
 ul {
   list-style-type: none;
   padding-left: 0rem;
+}
+
+footer{
+  background-color: var( --color-background-dark);
+  color: var( --color-font-inverse-base);
+  padding: 2rem 0;
 }
 
 a.kglink[href^="http"]::after,
@@ -40,9 +43,9 @@ a.kglink[href^="https://"]::after {
 
 
 h1 {
-  font-family: 'Raleway', sans-serif;
-  font-size: 50.52px;
-  font-size: 3.157rem;
+  font-family: var( --asset-font-heading-name);
+  /* font-size: 50.52px; */
+  font-size: var( --size-font-xxxl);
   font-weight: 700;
   letter-spacing: -1.6px;
   letter-spacing: -0.1rem;
@@ -50,36 +53,61 @@ h1 {
 }
 
 h1 span.light {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 300;
+  font-family: var( --asset-font-heading-name);
+  /* font-weight: 300; */
+  font-size: var( --size-font-xxxl);
   line-height: 2;
 }
 
 h2 {
-  font-family: 'Raleway', sans-serif;
-  font-size: 37.90px;
-  font-weight: 700;
+  font-family: var( --asset-font-heading-name);
+  /* font-size: 37.90px; */
+  font-size: var( --size-font-xxl);
+  /* font-weight: 700; */
   line-height: 2;
 }
 
 h2 span.light {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 300;
+  font-family: var( --asset-font-heading-name);
+  /* font-weight: 300; */
+  font-size: var( --size-font-xxl);
   line-height: 2;
 }
 
 h3 {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-  font-size: 28.43px;
-  font-size: 1.777rem;
+  font-family: var( --asset-font-heading-name);
+  /* font-weight: 700; */
+  /* font-size: 28.43px; */
+  font-size: var( --size-font-xl);
+  /* font-size: 1.777rem; */
+  letter-spacing: 0;
+  line-height: 2;
+}
+
+h4 {
+  font-family: var( --asset-font-body-name);
+  /* font-weight: 700; */
+  /* font-size: 28.43px; */
+  font-size: var( --size-font-large);
+  /* font-size: 1.777rem; */
+  letter-spacing: 0;
+  line-height: 2;
+}
+
+h5 {
+  font-family: var( --asset-font-body-name);
+  /* font-weight: 700; */
+  /* font-size: 28.43px; */
+  font-size: var( --size-font-medium);
+  /* font-size: 1.777rem; */
   letter-spacing: 0;
   line-height: 2;
 }
 
 p {
-  font-family: -apple-system, Lato, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
-  font-size: 24px;
+  font-family: var( --asset-font-body-name), BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 20px;
+  color: var( --color-font-tertiary);
 }
 
 .carousel-inner-item {

@@ -4,7 +4,7 @@
   padding: 0
 }
 
-h1 {
+/* h1 {
   font-size: 48px;
   font-size: 3rem;
   font-weight: 700;
@@ -41,7 +41,7 @@ h3,p {
 p {
   font-weight: 400;
   color: #666
-}
+} */
 
 @media screen and (min-width: 700px) {
   h1 {
@@ -95,18 +95,19 @@ p {
 }
 
 .button.primary {
-  background-color: #ffcb3c;
+  background-color: var(--color-background-button-primary-base);
   color: #fff
 }
 
 .button.primary.inverted {
-  background-color: #fff;
-  color: #000
+  background-color: var(--color-background-button-secondary-base);
+  color: var(--color-base-white);
 }
 
 .button.secondary {
   background-color: transparent;
-  border: 1.5px solid #ffcb3c
+  border: 1.5px solid var(--color-border-button-secondary-base);
+  color: var(--color-base-white);
 }
 
 .button.small {
@@ -184,7 +185,7 @@ input.inverted::placeholder {
 }
 
 .block-header-1 .nav-item.active a {
-  color: #ffcb3c
+  color: var(--color-brand-accent-base);
 }
 
 .block-header-1 .nav-item a {
@@ -197,7 +198,7 @@ input.inverted::placeholder {
 }
 
 .block-header-1 .nav-item.active a:hover {
-  color: #ffcb3c
+  color: var(--color-brand-accent-base);
 }
 
 .block-header-1 .nav-item:last-of-type {
@@ -303,7 +304,7 @@ input.inverted::placeholder {
 }
 
 .block-hero-2 {
-  --bg: #ffcb3c;
+  --bg: var(--color-brand-accent-base);
   --text: #fff;
   -ms-flex-direction: column;
   flex-direction: column;

@@ -7,12 +7,17 @@
         <div class="row">
 
         {% for reference_item in site.data.references.nodes %}
+        
           <div class="col-lg-6 offset-lg-4 col-10 magnify-on-hover">
-            <h5 class="font-weight-bold"><a href="{{ reference_item.id }}">{{ reference_item.title }} </a></h5>
+            <a href="{{ reference_item.id }}">
+            <div>
+            <h4 >{{ reference_item.title }} </h4>
             <body>{{ reference_item.publicationYear  }}</body>
             <hr>
           </div>
-          
+        </a>
+          </div>
+       
         {% endfor %}
       </div>
   </div>

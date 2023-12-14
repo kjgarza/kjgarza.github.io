@@ -146,7 +146,7 @@ input.inverted::placeholder {
 }
 
 .block-header-1 .nav-item.active a {
-  color: var(--color-brand-accent-base);
+  color: var(--color-brand-primary-base);
 }
 
 .block-header-1 .nav-item a {
@@ -159,7 +159,7 @@ input.inverted::placeholder {
 }
 
 .block-header-1 .nav-item.active a:hover {
-  color: var(--color-brand-accent-base);
+  color: var(--color-brand-primary-base);
 }
 
 .block-header-1 .nav-item:last-of-type {
@@ -176,6 +176,7 @@ input.inverted::placeholder {
   padding: 16px 32px;
   padding: 1rem 2rem;
   transition: all var(--time-transition-base) ease;
+  background-color: var(--color-brand-accent-base);
 }
 
 .block-header-2--logo img {
@@ -200,7 +201,7 @@ input.inverted::placeholder {
 }
 
 .block-header-2 .nav-item.active a {
-  color: var(--color-brand-accent-base);
+  color: var(--color-brand-primary-base);
 }
 
 .block-header-2 .nav-item a {
@@ -213,7 +214,7 @@ input.inverted::placeholder {
 }
 
 .block-header-2 .nav-item.active a:hover {
-  color: var(--color-brand-accent-base);
+  color: var(--color-brand-primary-base);
 }
 
 .block-header-2 .nav-item:last-of-type {

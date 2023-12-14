@@ -2,26 +2,26 @@
   "color": {
     "brand": {
       "primary": {
-        "lighter": { "value": "{color.base.dark_purple.100.value}" },
-        "light":   { "value": "{color.base.dark_purple.300.value}" },
-        "base":    { "value": "{color.base.dark_purple.500.value}" },
-        "dark":    { "value": "{color.base.dark_purple.700.value}" },
-        "darker":  { "value": "{color.base.dark_purple.900.value}" }
+        "lighter": { "value": "{color.base.dark_purple.100.value}", "type": "color" },
+        "light":   { "value": "{color.base.dark_purple.300.value}", "type": "color" },
+        "base":    { "value": "{color.base.dark_purple.500.value}", "type": "color" },
+        "dark":    { "value": "{color.base.dark_purple.700.value}", "type": "color" },
+        "darker":  { "value": "{color.base.dark_purple.900.value}", "type": "color" }
       },
 
       "secondary": {
-        "lighter": { "value": "{color.base.umber.100.value}" },
-        "light":   { "value": "{color.base.umber.300.value}" },
-        "base":    { "value": "{color.base.umber.500.value}" },
-        "dark":    { "value": "{color.base.umber.700.value}" },
-        "darker":  { "value": "{color.base.umber.900.value}" }
+        "lighter": { "value": "{color.base.umber.100.value}", "type": "color" },
+        "light":   { "value": "{color.base.umber.300.value}", "type": "color" },
+        "base":    { "value": "{color.base.umber.500.value}", "type": "color" },
+        "dark":    { "value": "{color.base.umber.700.value}", "type": "color" },
+        "darker":  { "value": "{color.base.umber.900.value}", "type": "color" }
       },
       "accent": {
-        "lighter": { "value": "{color.base.sunglow.100.value}" },
-        "light":   { "value": "{color.base.sunglow.300.value}" },
-        "base":    { "value": "{color.base.sunglow.500.value}" },
-        "dark":    { "value": "{color.base.sunglow.700.value}" },
-        "darker":  { "value": "{color.base.sunglow.900.value}" }
+        "lighter": { "value": "{color.base.sunglow.100.value}", "type": "color" },
+        "light":   { "value": "{color.base.sunglow.300.value}", "type": "color" },
+        "base":    { "value": "{color.base.sunglow.500.value}", "type": "color" },
+        "dark":    { "value": "{color.base.sunglow.700.value}", "type": "color" },
+        "darker":  { "value": "{color.base.sunglow.900.value}", "type": "color" }
       }
     }
   }

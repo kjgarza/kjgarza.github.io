@@ -2,10 +2,10 @@
   "font": {
     "family": {
       "base": {
-        "value": "{asset.font.body.name.value}"
+        "value": "{asset.font.body.name.value}", "type": "typography"
       },
       "icons": {
-        "value": "{asset.font.icon.name.value}"
+        "value": "{asset.font.icon.name.value}", "type": "asset"
       }
     }
   }

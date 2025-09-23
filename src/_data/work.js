@@ -5,7 +5,7 @@ module.exports = [
     title: "Query Translation API - Natural Language to Database Queries",
     description:
       "Architected and launched a FastAPI microservice that turns natural-language requests into optimized Dimensions searches.",
-    tags: ["API Development", "Large Language Models", "Python"],
+    tags: ["APIs", "LLMs", "Python"],
     status: "published",
     image: "/assets/images/nl2query-hero.png",
     link: "/work/query-translation-api",

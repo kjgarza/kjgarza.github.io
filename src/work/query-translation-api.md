@@ -5,7 +5,7 @@ description: Architected and launched a FastAPI microservice that turns natural-
 company: Digital Science
 tags: 
   - API Development
-  - Large Language Models
+  - LLMs
   - Python
 heroImage: /assets/images/nl2query-hero.png
 permalink: /work/query-translation-api/

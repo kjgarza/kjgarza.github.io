@@ -1,0 +1,129 @@
+{
+  "title": "Kristian Garza",
+  "description":
+    "I'm a Berlin-based AI engineer. My skill set includes robust research capabilities, prototyping, and coding, all aimed at crafting empowering and intuitive user experiences. I specialize in leveraging the intersection of design and AI to address real-world challenges.",
+  "url": "https://kjgarza.github.io/",
+  "author": {
+    "name": "Kristian Garza",
+    "email": "kj.garza+kjgarza@gmail.com",
+    "figma": "https://www.figma.com/@kristiangarza",
+    "github": "https://github.com/kristiangarza",
+    "linkedin": "https://www.linkedin.com/in/kjgarza",
+    "portfolio": "https://kjgarza.github.io/"
+  },
+  "bio": {
+    "currently":
+      "Building and prototyping AI-driven microservices and agents at Digital Science, from LLM-powered APIs to Rust-based clustering engines.",
+    "past": "Developed core infrastructure at DataCite, including Commons, Fabrica, and Sashimi, while leading metadata and design system initiatives.",
+    "findMe":
+      "Hosting DS’s AI Technology Radar sessions and experimenting with personal AI projects like a Dataset Discovery & Evaluation Agent."
+  },
+  "ga_code": "G-X7KFRJYWBL",
+  "schema_org": {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "sameAs": [
+      "https://www.linkedin.com/in/kjgarza",
+      "https://commons.datacite.org/orcid.org/0000-0003-3484-6875",
+      "https://orcid.org/0000-0003-3484-6875",
+      "https://twitter.com/kriztean",
+      "https://github.com/kjgarza",
+      "https://gitlab.com/kjgarza",
+      "https://github.com/kristiangarza",
+      "https://linktr.ee/kristiangarza"
+    ],
+    "email": "mailto:kj.garza+kjgarza@gmail.com",
+    "image": "/uploads/2022/02/18/photo.jpeg",
+    "jobTitle": "Senior AI Engineer",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Digital Science",
+      "url": "https://ror.org/02ktfc112"
+    },
+    "name": "Kristian Garza",
+    "url": "https://kjgarza.github.io/",
+    "knowsLanguage": [
+      {
+        "@type": "Language",
+        "name": "English"
+      },
+      {
+        "@type": "Language",
+        "name": "German"
+      },
+      {
+        "@type": "Language",
+        "name": "Spanish"
+      }
+    ],
+    "knowsAbout": [
+      "Web Development",
+      "scrum",
+      "agile",
+      "software development",
+      "software engineering",
+      "data science",
+      "data visualization",
+      "data analysis",
+      "data engineering",
+      "usability testing",
+      "user experience",
+      "UX Researcher",
+      "DevOps",
+      "DesingOps",
+      "Figma",
+      "Miro",
+      "Lego Serious Play",
+      "Complex applications design",
+      "contextual interviews",
+      "contextual inquiry",
+      "schema.org",
+      "google analytics",
+      "google tag manager",
+      "react",
+      "vue",
+      "elasticsearch",
+      "mysql",
+      "Design sprints",
+      "graphql",
+      "event driven architecture",
+      "microservices",
+      "docker",
+      "aws",
+      "terraform",
+      "javascript",
+      "node",
+      "python",
+      "typescript",
+      "Ruby",
+      "Sagemaker",
+      "huggingface transformers",
+      "Ruby on Rails",
+      "langchain",
+      "llamaIndex",
+      "pydantic",
+      "Large Language Models",
+      "apisix",
+      "Product Design",
+      "User Experience",
+      "User Interface",
+      "User Interface Design",
+      "User Interface Development",
+      "design thinking",
+      "design process",
+      "double diamond method",
+      "double diamond pattern",
+      "open science",
+      "open data",
+      "open source software",
+      "logstash",
+      "Persistent Identifiers",
+      "Persistent Identifier Systems",
+      "DOI",
+      "ORCID Identifiers",
+      "ROR ID",
+      "AI SDK",
+      "MCP"
+    ]
+  }
+}

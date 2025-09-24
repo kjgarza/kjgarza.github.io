@@ -4,7 +4,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/drawings");
   eleventyConfig.addPassthroughCopy("src/_next");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
-  
+  eleventyConfig.addPassthroughCopy({ "src/static/api": "api" });
+
   // Watch for changes in CSS/JS files
   eleventyConfig.addWatchTarget("src/assets/");
   

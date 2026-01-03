@@ -17,16 +17,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: "18"
+          bun-version: latest
 
-      - name: Persist npm cache
+      - name: Persist Bun cache
         uses: actions/cache@v3
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
 
       - name: Persist Eleventy .cache
         uses: actions/cache@v3
@@ -34,8 +34,8 @@ jobs:
           path: ./.cache
           key: ${{ runner.os }}-eleventy-fetch-cache
 
-      - run: npm install
-      - run: npm run build-ghpages
+      - run: bun install
+      - run: bun run build-ghpages
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

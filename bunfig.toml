@@ -1,0 +1,10 @@
+# Bun configuration for better performance
+# See: https://bun.sh/docs/runtime/bunfig
+
+[install]
+# Use a global lockfile for faster installs
+# lockfile = "bun.lockb"
+
+[run]
+# Silence install output during bun run
+silent = false

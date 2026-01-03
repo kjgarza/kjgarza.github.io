@@ -4,11 +4,13 @@
   "description": "Kristian Garza Portfolio - Built with 11ty",
   "main": "index.js",
   "scripts": {
-    "build": "eleventy",
-    "dev": "eleventy --serve",
-    "watch": "eleventy --watch",
+    "build": "bun run eleventy",
+    "dev": "bun run eleventy --serve",
+    "watch": "bun run eleventy --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-ghpages": "npx @11ty/eleventy"
+    "build-ghpages": "bun x @11ty/eleventy",
+    "clean": "rm -rf _site node_modules",
+    "reinstall": "bun run clean && bun install"
   },
   "keywords": ["eleventy", "portfolio", "design", "static-site"],
   "author": "Kristian Garza",

@@ -41,6 +41,13 @@ build/Release
 node_modules/
 jspm_packages/
 
+# Bun lockfile (binary format - keep in git for reproducible builds)
+# Uncomment the next line if you prefer not to commit the lockfile
+# bun.lockb
+
+# NPM lockfile (replaced by bun.lockb)
+package-lock.json
+
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 

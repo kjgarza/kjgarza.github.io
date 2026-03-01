@@ -9,6 +9,24 @@ module.exports = [
     rotation: "rotate-2",
   },
   {
+    name: "SnowyOwl",
+    description:
+      "An asynchronous AI development tool where you write task specifications and receive completed pull requests overnight — delegation without presence.",
+    type: "Claude SDK",
+    image: "/assets/images/anthropic-icon.svg",
+    link: "https://github.com/kjgarza/snowyowl",
+    rotation: "rotate-3",
+  },
+  {
+    name: "Technology Radar",
+    description:
+      "A personal technology radar that categorizes tools, frameworks, and techniques into Adopt, Trial, and other tiers — separating what's genuinely useful from what's just hype.",
+    type: "Open Source",
+    image: "/assets/images/github-icon.svg",
+    link: "https://kjgarza.github.io/radar",
+    rotation: "rotate-1",
+  },
+  {
     name: "Parrot GPT",
     description:
       "A Python toolkit that uses GPT-3/3.5 to translate, enrich, and cross-walk bibliographic metadata across schemas, with CLI and CI/CD support.",
@@ -34,5 +52,14 @@ module.exports = [
     image: "/assets/images/crossfit-icon.jpg",
     link: "https://kjgarza.github.io/oxypogon/",
     rotation: "rotate-4",
+  },
+  {
+    name: "Kitchen Timer",
+    description:
+      "A mobile-optimized cooking app that uses GPT vision to extract structured data from recipe photos, with an action-first UI designed to reduce cognitive load in the kitchen.",
+    type: "Claude",
+    image: "/assets/images/anthropic-icon.svg",
+    link: "https://kjgarza.github.io/chickadee/",
+    rotation: "rotate-2",
   },
 ];

@@ -43,6 +43,30 @@
    {{ site.schema_org | dump | safe }}
   </script>
 
+  <style>
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle, var(--dot-color, rgba(0,0,0,0.07)) 1px, transparent 1px),
+        linear-gradient(160deg, var(--grad-start, rgba(0,0,0,0)) 0%, var(--grad-mid, rgba(120,120,140,0.04)) 50%, var(--grad-end, rgba(0,0,0,0)) 100%);
+      background-size: 20px 20px, 100% 100%;
+    }
+
+    :root[data-theme=dark] body::before {
+      --dot-color: rgba(255,255,255,0.04);
+      --grad-mid: rgba(200,200,220,0.03);
+    }
+
+    body > * {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+
 </head>
 <body class="bg-default scrollbar-hide flex min-h-screen flex-col items-center justify-center font-sans">
   {% include "components/nav.njk" %}

@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kristian Garza — CV</title>
+  <meta name="description" content="CV of Kristian Garza, AI Software Engineer">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --color-text: #2d2d2d;
+      --color-text-muted: #6b6b6b;
+      --color-text-light: #999;
+      --color-border: #d4d4d4;
+      --color-dot-filled: #4a4a4a;
+      --color-dot-hollow: #bbb;
+      --color-bg: #fff;
+      --color-sidebar-heading: #3a3a3a;
+
+      --font-main: 'Source Sans 3', 'Source Sans Pro', -apple-system, sans-serif;
+      --sidebar-width: 180px;
+      --main-gap: 32px;
+
+      /* Timeline geometry — all dots/lines derive from these */
+      --tl-line-x: 6px;        /* center of vertical line from left edge of timeline container */
+      --tl-dot-size: 8px;      /* diameter of timeline dots */
+      --tl-dot-small: 6px;     /* diameter of sidebar dots */
+      --tl-line-w: 1.5px;      /* line thickness */
+      --tl-pad: 22px;          /* left padding for content (must be > tl-line-x + tl-dot-size/2) */
+    }
+
+    html { font-size: 14px; }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--color-text);
+      background: #f0f0f0;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--color-text); }
+    a:hover { color: #000; }
+
+    /* ── Back link (screen only) ── */
+    .cv-back-link {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      font-size: 13px;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      background: #e8e8e8;
+    }
+    .cv-back-link:hover { color: var(--color-text); }
+
+    /* ── Page container ── */
+    .cv-page {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--color-bg);
+      box-shadow: 0 1px 12px rgba(0,0,0,0.08);
+    }
+
+    .cv-sheet {
+      padding: 44px 40px 36px;
+    }
+
+    /* ── Header ── */
+    .cv-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .cv-name {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      color: var(--color-text);
+    }
+    .cv-subtitle {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .cv-subtitle .sep {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background: var(--color-dot-filled);
+      border-radius: 50%;
+    }
+
+    /* ── Two-column body ── */
+    .cv-body {
+      display: flex;
+      gap: var(--main-gap);
+    }
+
+    /* ══════════════════════════════════════
+       SIDEBAR
+       ══════════════════════════════════════ */
+    .cv-sidebar {
+      flex: 0 0 var(--sidebar-width);
+      min-width: 0;
+    }
+
+    .cv-sidebar-section {
+      margin-bottom: 28px;
+    }
+
+    .cv-sidebar-heading {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-sidebar-heading);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .cv-sidebar-heading .cv-heading-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      border: 1.5px solid var(--color-dot-hollow);
+      flex-shrink: 0;
+    }
+
+    /* Sidebar list */
+    .cv-sidebar-list {
+      list-style: none;
+      position: relative;
+      padding-left: 0;
+    }
+    .cv-sidebar-list li {
+      position: relative;
+      font-size: 13px;
+      color: var(--color-text);
+      padding: 3.5px 0;
+      text-align: center;
+    }
+    /* Skill bars */
+    .cv-skills-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .cv-skill-item {
+      margin-bottom: 8px;
+      width: 80%;
+      text-align: center;
+    }
+    .cv-skill-item:last-child { margin-bottom: 0; }
+    .cv-skill-name {
+      font-size: 12px;
+      color: var(--color-text);
+      margin-bottom: 3px;
+    }
+    .cv-skill-bar {
+      height: 6px;
+      background: #e5e5e5;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .cv-skill-bar-fill {
+      height: 100%;
+      background: var(--color-dot-filled);
+      border-radius: 3px;
+    }
+
+    .cv-sidebar-list a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ══════════════════════════════════════
+       MAIN CONTENT
+       ══════════════════════════════════════ */
+    .cv-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* Section heading */
+    .cv-section {
+      margin-bottom: 24px;
+    }
+    .cv-section-heading {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    /* Lucide icon in section heading */
+    .cv-section-heading .lucide {
+      width: 18px;
+      height: 18px;
+      color: var(--color-text);
+      flex-shrink: 0;
+      stroke-width: 2;
+    }
+
+    /* ── Profile ── */
+    .cv-profile-text {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--color-text);
+    }
+
+    /* ══════════════════════════════════════
+       TIMELINE (main content)
+       ══════════════════════════════════════ */
+    .cv-timeline {
+      position: relative;
+      padding-left: var(--tl-pad);
+    }
+    /* Vertical line — centered at tl-line-x */
+    .cv-timeline::before {
+      content: '';
+      position: absolute;
+      left: calc(var(--tl-line-x) - var(--tl-line-w) / 2);
+      top: 4px;
+      bottom: 4px;
+      width: var(--tl-line-w);
+      background: var(--color-border);
+    }
+
+    .cv-entry {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .cv-entry:last-child { margin-bottom: 0; }
+
+    /* Dot — centered at tl-line-x */
+    .cv-entry::before {
+      content: '';
+      position: absolute;
+      left: calc(-1 * var(--tl-pad) + var(--tl-line-x) - var(--tl-dot-size) / 2);
+      top: 5px;
+      width: var(--tl-dot-size);
+      height: var(--tl-dot-size);
+      border-radius: 50%;
+      background: var(--color-dot-filled);
+      border: 2px solid var(--color-dot-filled);
+    }
+    .cv-entry.hollow::before {
+      background: var(--color-bg);
+      border-color: var(--color-dot-hollow);
+    }
+
+    .cv-entry-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.35;
+    }
+    .cv-entry-title span {
+      font-weight: 400;
+    }
+
+    .cv-entry-period {
+      font-size: 12.5px;
+      color: var(--color-text-muted);
+      margin: 2px 0 6px;
+    }
+
+    .cv-entry-desc {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--color-text);
+    }
+
+    .cv-entry-bullets {
+      list-style: disc;
+      padding-left: 18px;
+      margin-top: 4px;
+    }
+    .cv-entry-bullets li {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--color-text);
+      margin-bottom: 6px;
+    }
+    .cv-entry-bullets li:last-child { margin-bottom: 0; }
+
+    /* ── Footer notes ── */
+    .cv-footer-note {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-text);
+      margin: 28px 0;
+    }
+    .cv-footer-note a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .cv-projects-note {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text);
+      margin: 24px 0;
+    }
+    .cv-projects-note a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ── Published work / courses url ── */
+    .cv-entry-url {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      word-break: break-all;
+    }
+    .cv-entry-url a {
+      color: var(--color-text-muted);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .cv-sheet { padding: 28px 20px 24px; }
+      .cv-body { flex-direction: column; gap: 24px; }
+      .cv-sidebar { flex: none; }
+      .cv-name { font-size: 22px; }
+    }
+
+    /* ── Print ── */
+    @media print {
+      @page {
+        size: A4;
+        margin: 18mm 14mm 14mm 14mm;
+      }
+
+      html { font-size: 10pt; }
+
+      body {
+        background: #fff;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .cv-back-link { display: none !important; }
+
+      .cv-page {
+        max-width: none;
+        box-shadow: none;
+        margin: 0;
+      }
+
+      .cv-sheet { padding: 0; }
+      .cv-name { font-size: 22pt; }
+
+      /* Force background printing for timeline elements */
+      .cv-sidebar-heading .cv-heading-dot,
+      .cv-entry::before,
+      .cv-timeline::before {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .cv-entry { page-break-inside: avoid; }
+      .cv-section { page-break-inside: avoid; }
+
+      .cv-section.cv-page-break-before {
+        page-break-before: always;
+      }
+
+      .cv-profile-text { font-size: 10pt; }
+      .cv-entry-title { font-size: 10pt; }
+      .cv-entry-period { font-size: 9.5pt; }
+      .cv-entry-desc { font-size: 9.5pt; }
+      .cv-entry-bullets li { font-size: 9.5pt; }
+      .cv-sidebar-list li { font-size: 9.5pt; }
+      .cv-section-heading { font-size: 10.5pt; }
+      .cv-sidebar-heading { font-size: 9pt; }
+      .cv-subtitle { font-size: 9.5pt; }
+      .cv-footer-note { font-size: 9.5pt; }
+    }
+  </style>
+</head>
+<body>
+  
+<a href="/" class="cv-back-link">&larr; Back to site</a>
+
+<div class="cv-page">
+  <div class="cv-sheet">
+
+    
+    <header class="cv-header">
+      <h1 class="cv-name">Kristian Garza</h1>
+      <div class="cv-subtitle">
+        <span>AI SOFTWARE ENGINEER</span>
+        <span class="sep"></span>
+        <span>BERLIN, GERMANY</span>
+        <span class="sep"></span>
+        <span>kj.garza@gmail.com</span>
+      </div>
+    </header>
+
+    
+    <div class="cv-body">
+
+      
+      <aside class="cv-sidebar">
+
+        
+        <div class="cv-sidebar-section">
+          <h2 class="cv-sidebar-heading">
+            <span class="cv-heading-dot"></span>
+            Links
+            <span class="cv-heading-dot"></span>
+          </h2>
+          <ul class="cv-sidebar-list">
+            
+            <li><a href="https://www.linkedin.com/in/kjgarza" target="_blank" rel="noopener">LinkedIn</a></li>
+            
+            <li><a href="https://github.com/kristiangarza" target="_blank" rel="noopener">Github</a></li>
+            
+            <li><a href="https://kjgarza.github.io/" target="_blank" rel="noopener">Portfolio</a></li>
+            
+          </ul>
+        </div>
+
+        
+        <div class="cv-sidebar-section">
+          <h2 class="cv-sidebar-heading">
+            <span class="cv-heading-dot"></span>
+            Skills
+            <span class="cv-heading-dot"></span>
+          </h2>
+          <div class="cv-skills-list">
+            
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">OpenAI APIs</div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-bar-fill" style="width: 95%"></div>
+              </div>
+            </div>
+            
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">Claude SDK</div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-bar-fill" style="width: 90%"></div>
+              </div>
+            </div>
+            
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">Python (FastAPI)</div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-bar-fill" style="width: 95%"></div>
+              </div>
+            </div>
+            
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">Langchain</div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-bar-fill" style="width: 85%"></div>
+              </div>
+            </div>
+            
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">LlamaIndex</div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-bar-fill" style="width: 80%"></div>
+              </div>
+            </div>
+            
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">AWS Sagemaker</div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-bar-fill" style="width: 75%"></div>
+              </div>
+            </div>
+            
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">Rust</div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-bar-fill" style="width: 70%"></div>
+              </div>
+            </div>
+            
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">NextJs + TypeScript</div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-bar-fill" style="width: 85%"></div>
+              </div>
+            </div>
+            
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">Ruby (RoR)</div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-bar-fill" style="width: 90%"></div>
+              </div>
+            </div>
+            
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">PGVector</div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-bar-fill" style="width: 80%"></div>
+              </div>
+            </div>
+            
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">VueJs</div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-bar-fill" style="width: 70%"></div>
+              </div>
+            </div>
+            
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">Design Sprints</div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-bar-fill" style="width: 85%"></div>
+              </div>
+            </div>
+            
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">Design Thinking</div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-bar-fill" style="width: 85%"></div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        
+        <div class="cv-sidebar-section">
+          <h2 class="cv-sidebar-heading">
+            <span class="cv-heading-dot"></span>
+            Languages
+            <span class="cv-heading-dot"></span>
+          </h2>
+          <div class="cv-skills-list">
+            
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">English</div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-bar-fill" style="width: 100%"></div>
+              </div>
+            </div>
+            
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">Spanish</div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-bar-fill" style="width: 100%"></div>
+              </div>
+            </div>
+            
+            <div class="cv-skill-item">
+              <div class="cv-skill-name">German</div>
+              <div class="cv-skill-bar">
+                <div class="cv-skill-bar-fill" style="width: 70%"></div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+      </aside>
+
+      
+      <div class="cv-main">
+
+        
+        <section class="cv-section">
+          <h2 class="cv-section-heading">
+            <i data-lucide="user"></i>
+            Profile
+          </h2>
+          <p class="cv-profile-text">Curiosity-driven AI engineer who rapidly prototypes and ships: built open-source LLM metadata translators, scalable Embeddings & RAG pipelines, and a Rust API clustering millions of vectors in seconds. Skilled in LangChain, Hugging Face, and pgvector, I design experiments, build evaluation pipelines, and turn new research into practical PoCs—communicating results clearly to guide product strategy.</p>
+        </section>
+
+        
+        <section class="cv-section">
+          <h2 class="cv-section-heading">
+            <i data-lucide="briefcase"></i>
+            Employment History
+          </h2>
+          <div class="cv-timeline">
+            
+            <div class="cv-entry">
+              <div class="cv-entry-title">
+                AI SENIOR SOFTWARE ENGINEER <span>at Digital Science, Berlin</span>
+              </div>
+              <div class="cv-entry-period">2024— Present</div>
+              
+              <ul class="cv-entry-bullets">
+                
+                <li>Launched a FastAPI microservice that converts natural-language queries into optimized Dimensions searches using LLM entity extraction and pgvector, deployed on Docker/Kubernetes with automated CI.</li>
+                
+                <li>Delivered a Rust-based Embeddings API that clusters research-document embeddings in seconds with parallel K-means and LLM summarization, deployed as a scalable Kubernetes microservice.</li>
+                
+                <li>Built a FastAPI service using OpenAI LLMs and Redis caching to generate instant TL;DRs and key points from research articles, deployed at scale with CI/CD and monitoring.</li>
+                
+              </ul>
+              
+            </div>
+            
+            <div class="cv-entry hollow">
+              <div class="cv-entry-title">
+                PRODUCT DESIGNER <span>at DataCite, Berlin</span>
+              </div>
+              <div class="cv-entry-period">2020 — 2023</div>
+              
+              <ul class="cv-entry-bullets">
+                
+                <li>Created and open-sourced Parrot GPT—a GPT-powered Python toolkit that auto-converts and enriches publishing metadata across 20+ schemas through an extensible interface, chunk-safe processing, and CI-backed test coverage—slashing manual conversion time for libraries and research institutions.</li>
+                
+                <li>Spearheaded DataCite’s first unified Design System, shipping a Bootstrap-driven, WCAG-compliant component library and Storybook docs that standardize UX across all web products and accelerate developer adoption.</li>
+                
+              </ul>
+              
+            </div>
+            
+            <div class="cv-entry hollow">
+              <div class="cv-entry-title">
+                FULL STACK DEVELOPER <span>at DataCite, Berlin</span>
+              </div>
+              <div class="cv-entry-period">2016 — 2020</div>
+              
+              <ul class="cv-entry-bullets">
+                
+                <li>Developed and deployed a React / Next.js frontend featuring GraphQL-powered multi-entity search, interactive relationship graphs, and high-performance SSR—complete with TypeScript, Cypress test suites, and GitHub Actions CI, elevating DataCite Commons’ research-output discovery experience.</li>
+                
+                <li>Designed and delivered a Rails API that ingests, validates, and stores large SUSHI usage reports in S3/MySQL at 50K-dataset scale with JWT security and on-the-fly compression—establishing a standards-compliant, performant backbone for DataCite research-metrics tracking.</li>
+                
+              </ul>
+              
+            </div>
+            
+            <div class="cv-entry hollow">
+              <div class="cv-entry-title">
+                PHP DEVELOPER <span>at DataMine</span>
+              </div>
+              <div class="cv-entry-period">2011 — 2012</div>
+              
+              <ul class="cv-entry-bullets">
+                
+                <li>Devised features for an ERP system using a Symfony-like framework in PHP, increasing system efficiency and significantly enhancing maintainability due to the implementation of modern programming practices. Tools: PHP, MySQL.</li>
+                
+              </ul>
+              
+            </div>
+            
+          </div>
+        </section>
+
+        <div class="cv-footer-note">
+          Visit <a href="https://www.linkedin.com/in/kjgarza" target="_blank" rel="noopener">linkedin.com/in/kjgarza</a> for full EMPLOYMENT HISTORY
+        </div>
+
+        
+        <section class="cv-section cv-page-break-before">
+          <h2 class="cv-section-heading">
+            <i data-lucide="graduation-cap"></i>
+            Education
+          </h2>
+          <div class="cv-timeline">
+            
+            <div class="cv-entry">
+              <div class="cv-entry-title">
+                PHD COMPUTER SCIENCE, <span>University of Manchester, Manchester</span>
+              </div>
+              <div class="cv-entry-period">2012 — 2016</div>
+              
+              <p class="cv-entry-desc">Led the investigation of the employment of a novel choice architecture approach to integrate the captured context into the data repository design, developing features that resonated with the user base.</p>
+              
+            </div>
+            
+            <div class="cv-entry hollow">
+              <div class="cv-entry-title">
+                MSC SPACECRAFT TECHNOLOGY, <span>University College London, London</span>
+              </div>
+              <div class="cv-entry-period">2007 — 2008</div>
+              
+              <p class="cv-entry-desc">Defined design improvements of electron detectors.</p>
+              
+            </div>
+            
+          </div>
+        </section>
+
+        
+        <section class="cv-section">
+          <h2 class="cv-section-heading">
+            <i data-lucide="sparkles"></i>
+            Recent Hacks
+          </h2>
+          <div class="cv-timeline">
+            
+            <div class="cv-entry">
+              <div class="cv-entry-title">
+                Converting Publications into Interactive Podcasts, <span>Holtzbrinck Hackathon 2024</span>
+              </div>
+              <div class="cv-entry-period">2024</div>
+              <p class="cv-entry-desc">Co-led a 48-hour sprint to ship a Next.js app that transforms academic PDFs into multi-speaker, podcast-style episodes with live Q&A, marrying custom LLM condensation and speech-synthesis pipelines (TTS) with an accessible, mobile-first UI.</p>
+            </div>
+            
+            <div class="cv-entry hollow">
+              <div class="cv-entry-title">
+                Workflow Automation for Research Communities, <span>Holtzbrinck Hackathon 2025</span>
+              </div>
+              <div class="cv-entry-period">2025</div>
+              <p class="cv-entry-desc">Build a no-code workflow-automation platform in a Next.js app that connects research staples such as Dimensions, Overleaf, and ReadCube, letting scholars stitch together cross-tool integrations in minutes and eliminating brittle, ad-hoc scripts. services through a no-code interface.</p>
+            </div>
+            
+          </div>
+        </section>
+
+        <div class="cv-projects-note">
+          Visit <a href="/" rel="noopener">website</a> for OTHER PROJECTs
+        </div>
+
+        
+        <section class="cv-section">
+          <h2 class="cv-section-heading">
+            <i data-lucide="star"></i>
+            Published Work
+          </h2>
+          <div class="cv-timeline">
+            
+            <div class="cv-entry">
+              <div class="cv-entry-title">Revolutionizing Metadata Schema Mapping with ChatGPT and AI. <span>, Substack</span></div>
+              <div class="cv-entry-period">2023 &mdash; <span class="cv-entry-url"><a href="https://doi.org/10.59350/b9na4-hq881" target="_blank" rel="noopener">https://doi.org/10.59350/b9na4-hq881</a></span></div>
+            </div>
+            
+            <div class="cv-entry hollow">
+              <div class="cv-entry-title">ParrotGPT: On the Advantages of Large Language Models Tools (AI) for Academic Metadata Schema Mapping. <span>, EOSC</span></div>
+              <div class="cv-entry-period">2023 &mdash; <span class="cv-entry-url"><a href="https://doi.org/10.59350/hs9k1-wn031" target="_blank" rel="noopener">https://doi.org/10.59350/hs9k1-wn031</a></span></div>
+            </div>
+            
+          </div>
+        </section>
+
+        
+        <section class="cv-section">
+          <h2 class="cv-section-heading">
+            <i data-lucide="settings"></i>
+            Courses
+          </h2>
+          <div class="cv-timeline">
+            
+            <div class="cv-entry">
+              <div class="cv-entry-title">Designing AI Experiences, <span>NN/Group</span></div>
+              <div class="cv-entry-period">2025 &mdash; <span class="cv-entry-url"><a href="https://www.nngroup.com/courses/designing-ai-experiences/" target="_blank" rel="noopener">https://www.nngroup.com/courses/designing-ai-experiences/</a></span></div>
+            </div>
+            
+            <div class="cv-entry hollow">
+              <div class="cv-entry-title">Designing Complex Apps for Specialised Domains, <span>NN/Group</span></div>
+              <div class="cv-entry-period">2022 &mdash; <span class="cv-entry-url"><a href="https://www.nngroup.com/courses/complex-apps-specialized-domains/" target="_blank" rel="noopener">https://www.nngroup.com/courses/complex-apps-specialized-domains/</a></span></div>
+            </div>
+            
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -27,7 +27,7 @@
   </div>
   <div class="flex items-center gap-1">
     {% for item in navigation %}
-    <a class="text-secondary hover:text-primary rounded-lg p-2 transition-colors duration-200 ease-in-out {% if page.url == item.href %}text-primary{% endif %}" href="{{ item.href }}">
+    <a class="text-secondary hover:text-primary rounded-lg p-2 transition-colors duration-200 ease-in-out {% if page.url == item.href %}text-primary{% endif %}" href="{{ item.href }}"{% if item.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
       {{ item.name }}
     </a>
     {% endfor %}

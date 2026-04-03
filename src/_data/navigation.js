@@ -23,5 +23,11 @@ module.exports = [
     name: "Publications",
     href: "/publications",
     current: false
+  },
+  {
+    name: "Tech Radar",
+    href: "https://kjgarza.github.io/radar/",
+    current: false,
+    external: true
   }
 ];

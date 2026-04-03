@@ -3,202 +3,274 @@ layout: layouts/cv.njk
 permalink: /cv/
 ---
 
-<a href="/" class="cv-back-link">&larr; Back to site</a>
+{% macro renderCV(cv) %}
+<div class="cv-sheet">
+
+  {# ── HEADER ── #}
+  <header class="cv-header">
+    <h1 class="cv-name">{{ cv.name }}</h1>
+    <div class="cv-subtitle">
+      <span>{{ cv.title | upper }}</span>
+      <span class="sep"></span>
+      <span>{{ cv.location | upper }}</span>
+      <span class="sep"></span>
+      <span>{{ cv.email }}</span>
+    </div>
+  </header>
+
+  {# ── BODY: SIDEBAR + MAIN ── #}
+  <div class="cv-body">
+
+    {# ── SIDEBAR ── #}
+    <aside class="cv-sidebar">
+
+      {# Links #}
+      <div class="cv-sidebar-section">
+        <h2 class="cv-sidebar-heading">
+          <span class="cv-heading-dot"></span>
+          Links
+          <span class="cv-heading-dot"></span>
+        </h2>
+        <ul class="cv-sidebar-list">
+          {% for link in cv.links %}
+          <li><a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      {# Skills #}
+      <div class="cv-sidebar-section">
+        <h2 class="cv-sidebar-heading">
+          <span class="cv-heading-dot"></span>
+          Skills
+          <span class="cv-heading-dot"></span>
+        </h2>
+        <div class="cv-skills-list">
+          {% for skill in cv.skills %}
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">{{ skill.name }}</div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: {{ skill.level }}%"></div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      {# Languages #}
+      <div class="cv-sidebar-section">
+        <h2 class="cv-sidebar-heading">
+          <span class="cv-heading-dot"></span>
+          Languages
+          <span class="cv-heading-dot"></span>
+        </h2>
+        <div class="cv-skills-list">
+          {% for lang in cv.languages %}
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">{{ lang.name }}</div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: {{ lang.level }}%"></div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </aside>
+
+    {# ── MAIN CONTENT ── #}
+    <div class="cv-main">
+
+      {# ── PROFILE ── #}
+      <section class="cv-section">
+        <h2 class="cv-section-heading">
+          <i data-lucide="user"></i>
+          Profile
+        </h2>
+        <p class="cv-profile-text">{{ cv.profile }}</p>
+      </section>
+
+      {# ── EMPLOYMENT HISTORY ── #}
+      <section class="cv-section">
+        <h2 class="cv-section-heading">
+          <i data-lucide="briefcase"></i>
+          Employment History
+        </h2>
+        <div class="cv-timeline">
+          {% for job in cv.employment %}
+          <div class="cv-entry{% if not loop.first %} hollow{% endif %}">
+            <div class="cv-entry-title">
+              {{ job.role | upper }} <span>at {{ job.company }}{% if job.location %}, {{ job.location }}{% endif %}</span>
+            </div>
+            <div class="cv-entry-period">{{ job.period }}</div>
+            {% if job.bullets.length > 0 %}
+            <ul class="cv-entry-bullets">
+              {% for bullet in job.bullets %}
+              <li>{{ bullet }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      <div class="cv-footer-note">
+        Visit <a href="https://www.linkedin.com/in/kjgarza" target="_blank" rel="noopener">linkedin.com/in/kjgarza</a> for full EMPLOYMENT HISTORY
+      </div>
+
+      {# ── EDUCATION ── #}
+      <section class="cv-section cv-page-break-before">
+        <h2 class="cv-section-heading">
+          <i data-lucide="graduation-cap"></i>
+          Education
+        </h2>
+        <div class="cv-timeline">
+          {% for edu in cv.education %}
+          <div class="cv-entry{% if not loop.first %} hollow{% endif %}">
+            <div class="cv-entry-title">
+              {{ edu.degree | upper }}, <span>{{ edu.institution }}, {{ edu.location }}</span>
+            </div>
+            <div class="cv-entry-period">{{ edu.period }}</div>
+            {% if edu.description %}
+            <p class="cv-entry-desc">{{ edu.description }}</p>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      {# ── RECENT HACKS ── #}
+      <section class="cv-section">
+        <h2 class="cv-section-heading">
+          <i data-lucide="sparkles"></i>
+          Recent Hacks
+        </h2>
+        <div class="cv-timeline">
+          {% for hack in cv.hacks %}
+          <div class="cv-entry{% if not loop.first %} hollow{% endif %}">
+            <div class="cv-entry-title">
+              {{ hack.title }}, <span>{{ hack.event }}</span>
+            </div>
+            <div class="cv-entry-period">{{ hack.year }}</div>
+            <p class="cv-entry-desc">{{ hack.description }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      <div class="cv-projects-note">
+        Visit <a href="https://kjgarza.github.io/work" rel="noopener">website</a> for OTHER PROJECTs
+      </div>
+
+      {# ── PUBLISHED WORK ── #}
+      <section class="cv-section">
+        <h2 class="cv-section-heading">
+          <i data-lucide="star"></i>
+          Published Work
+        </h2>
+        <div class="cv-timeline">
+          {% for pub in cv.publishedWork %}
+          <div class="cv-entry{% if not loop.first %} hollow{% endif %}">
+            <div class="cv-entry-title">{{ pub.title }} <span>, {{ pub.publisher }}</span></div>
+            <div class="cv-entry-period">{{ pub.year }} &mdash; <span class="cv-entry-url"><a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.url }}</a></span></div>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      {# ── COURSES ── #}
+      <section class="cv-section">
+        <h2 class="cv-section-heading">
+          <i data-lucide="settings"></i>
+          Courses
+        </h2>
+        <div class="cv-timeline">
+          {% for course in cv.courses %}
+          <div class="cv-entry{% if not loop.first %} hollow{% endif %}">
+            <div class="cv-entry-title">{{ course.title }}, <span>{{ course.provider }}</span></div>
+            <div class="cv-entry-period">{{ course.year }} &mdash; <span class="cv-entry-url"><a href="{{ course.url }}" target="_blank" rel="noopener">{{ course.url }}</a></span></div>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+</div>
+{% endmacro %}
+
+{# ── VARIANT SELECTOR (screen only) ── #}
+<style>
+  .cv-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #e8e8e8;
+    font-size: 12px;
+    color: #6b6b6b;
+  }
+  .cv-selector-label { font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  .cv-selector-btn {
+    padding: 4px 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    color: #2d2d2d;
+    font-family: inherit;
+    transition: background 0.15s;
+  }
+  .cv-selector-btn.active {
+    background: #2d2d2d;
+    color: #fff;
+    border-color: #2d2d2d;
+  }
+  .cv-selector-btn:hover:not(.active) { background: #f0f0f0; }
+  .cv-variant { display: none; }
+  .cv-variant.active { display: block; }
+  @media print {
+    .cv-selector { display: none !important; }
+    .cv-variant { display: none !important; }
+    .cv-variant.active { display: block !important; }
+  }
+</style>
+
+<a href="/" class="cv-back-link" style="display:block">&larr; Back to site</a>
+
+<div class="cv-selector" id="cv-selector">
+  <span class="cv-selector-label">CV Version:</span>
+  <button class="cv-selector-btn active" data-variant="default" onclick="selectVariant('default')">General</button>
+  <button class="cv-selector-btn" data-variant="iris" onclick="selectVariant('iris')">Iris AI – Tech Lead</button>
+</div>
 
 <div class="cv-page">
-  <div class="cv-sheet">
-
-    {# ── HEADER ── #}
-    <header class="cv-header">
-      <h1 class="cv-name">{{ cv.name }}</h1>
-      <div class="cv-subtitle">
-        <span>{{ cv.title | upper }}</span>
-        <span class="sep"></span>
-        <span>{{ cv.location | upper }}</span>
-        <span class="sep"></span>
-        <span>{{ cv.email }}</span>
-      </div>
-    </header>
-
-    {# ── BODY: SIDEBAR + MAIN ── #}
-    <div class="cv-body">
-
-      {# ── SIDEBAR ── #}
-      <aside class="cv-sidebar">
-
-        {# Links #}
-        <div class="cv-sidebar-section">
-          <h2 class="cv-sidebar-heading">
-            <span class="cv-heading-dot"></span>
-            Links
-            <span class="cv-heading-dot"></span>
-          </h2>
-          <ul class="cv-sidebar-list">
-            {% for link in cv.links %}
-            <li><a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.name }}</a></li>
-            {% endfor %}
-          </ul>
-        </div>
-
-        {# Skills #}
-        <div class="cv-sidebar-section">
-          <h2 class="cv-sidebar-heading">
-            <span class="cv-heading-dot"></span>
-            Skills
-            <span class="cv-heading-dot"></span>
-          </h2>
-          <div class="cv-skills-list">
-            {% for skill in cv.skills %}
-            <div class="cv-skill-item">
-              <div class="cv-skill-name">{{ skill.name }}</div>
-              <div class="cv-skill-bar">
-                <div class="cv-skill-bar-fill" style="width: {{ skill.level }}%"></div>
-              </div>
-            </div>
-            {% endfor %}
-          </div>
-        </div>
-
-        {# Languages #}
-        <div class="cv-sidebar-section">
-          <h2 class="cv-sidebar-heading">
-            <span class="cv-heading-dot"></span>
-            Languages
-            <span class="cv-heading-dot"></span>
-          </h2>
-          <div class="cv-skills-list">
-            {% for lang in cv.languages %}
-            <div class="cv-skill-item">
-              <div class="cv-skill-name">{{ lang.name }}</div>
-              <div class="cv-skill-bar">
-                <div class="cv-skill-bar-fill" style="width: {{ lang.level }}%"></div>
-              </div>
-            </div>
-            {% endfor %}
-          </div>
-        </div>
-
-      </aside>
-
-      {# ── MAIN CONTENT ── #}
-      <div class="cv-main">
-
-        {# ── PROFILE ── #}
-        <section class="cv-section">
-          <h2 class="cv-section-heading">
-            <i data-lucide="user"></i>
-            Profile
-          </h2>
-          <p class="cv-profile-text">{{ cv.profile }}</p>
-        </section>
-
-        {# ── EMPLOYMENT HISTORY ── #}
-        <section class="cv-section">
-          <h2 class="cv-section-heading">
-            <i data-lucide="briefcase"></i>
-            Employment History
-          </h2>
-          <div class="cv-timeline">
-            {% for job in cv.employment %}
-            <div class="cv-entry{% if not loop.first %} hollow{% endif %}">
-              <div class="cv-entry-title">
-                {{ job.role | upper }} <span>at {{ job.company }}{% if job.location %}, {{ job.location }}{% endif %}</span>
-              </div>
-              <div class="cv-entry-period">{{ job.period }}</div>
-              {% if job.bullets.length > 0 %}
-              <ul class="cv-entry-bullets">
-                {% for bullet in job.bullets %}
-                <li>{{ bullet }}</li>
-                {% endfor %}
-              </ul>
-              {% endif %}
-            </div>
-            {% endfor %}
-          </div>
-        </section>
-
-        <div class="cv-footer-note">
-          Visit <a href="https://www.linkedin.com/in/kjgarza" target="_blank" rel="noopener">linkedin.com/in/kjgarza</a> for full EMPLOYMENT HISTORY
-        </div>
-
-        {# ── EDUCATION ── #}
-        <section class="cv-section cv-page-break-before">
-          <h2 class="cv-section-heading">
-            <i data-lucide="graduation-cap"></i>
-            Education
-          </h2>
-          <div class="cv-timeline">
-            {% for edu in cv.education %}
-            <div class="cv-entry{% if not loop.first %} hollow{% endif %}">
-              <div class="cv-entry-title">
-                {{ edu.degree | upper }}, <span>{{ edu.institution }}, {{ edu.location }}</span>
-              </div>
-              <div class="cv-entry-period">{{ edu.period }}</div>
-              {% if edu.description %}
-              <p class="cv-entry-desc">{{ edu.description }}</p>
-              {% endif %}
-            </div>
-            {% endfor %}
-          </div>
-        </section>
-
-        {# ── RECENT HACKS ── #}
-        <section class="cv-section">
-          <h2 class="cv-section-heading">
-            <i data-lucide="sparkles"></i>
-            Recent Hacks
-          </h2>
-          <div class="cv-timeline">
-            {% for hack in cv.hacks %}
-            <div class="cv-entry{% if not loop.first %} hollow{% endif %}">
-              <div class="cv-entry-title">
-                {{ hack.title }}, <span>{{ hack.event }}</span>
-              </div>
-              <div class="cv-entry-period">{{ hack.year }}</div>
-              <p class="cv-entry-desc">{{ hack.description }}</p>
-            </div>
-            {% endfor %}
-          </div>
-        </section>
-
-        <div class="cv-projects-note">
-          Visit <a href="/" rel="noopener">website</a> for OTHER PROJECTs
-        </div>
-
-        {# ── PUBLISHED WORK ── #}
-        <section class="cv-section">
-          <h2 class="cv-section-heading">
-            <i data-lucide="star"></i>
-            Published Work
-          </h2>
-          <div class="cv-timeline">
-            {% for pub in cv.publishedWork %}
-            <div class="cv-entry{% if not loop.first %} hollow{% endif %}">
-              <div class="cv-entry-title">{{ pub.title }} <span>, {{ pub.publisher }}</span></div>
-              <div class="cv-entry-period">{{ pub.year }} &mdash; <span class="cv-entry-url"><a href="{{ pub.url }}" target="_blank" rel="noopener">{{ pub.url }}</a></span></div>
-            </div>
-            {% endfor %}
-          </div>
-        </section>
-
-        {# ── COURSES ── #}
-        <section class="cv-section">
-          <h2 class="cv-section-heading">
-            <i data-lucide="settings"></i>
-            Courses
-          </h2>
-          <div class="cv-timeline">
-            {% for course in cv.courses %}
-            <div class="cv-entry{% if not loop.first %} hollow{% endif %}">
-              <div class="cv-entry-title">{{ course.title }}, <span>{{ course.provider }}</span></div>
-              <div class="cv-entry-period">{{ course.year }} &mdash; <span class="cv-entry-url"><a href="{{ course.url }}" target="_blank" rel="noopener">{{ course.url }}</a></span></div>
-            </div>
-            {% endfor %}
-          </div>
-        </section>
-
-      </div>
-    </div>
-
+  <div class="cv-variant active" id="cv-variant-default">
+    {{ renderCV(cv) }}
+  </div>
+  <div class="cv-variant" id="cv-variant-iris">
+    {{ renderCV(cvIris) }}
   </div>
 </div>
+
+<script>
+  function selectVariant(id) {
+    document.querySelectorAll('.cv-variant').forEach(function(el) {
+      el.classList.toggle('active', el.id === 'cv-variant-' + id);
+    });
+    document.querySelectorAll('.cv-selector-btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.variant === id);
+    });
+    history.replaceState(null, '', '/cv/?v=' + id);
+  }
+  // Restore variant from URL param on load
+  (function() {
+    var params = new URLSearchParams(location.search);
+    var v = params.get('v');
+    if (v) selectVariant(v);
+  })();
+</script>

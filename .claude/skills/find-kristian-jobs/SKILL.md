@@ -52,14 +52,33 @@ When parsing a posting with Jina Reader, always look for: `Posted`, `Date posted
 
 ## Output
 
-Always save results to a markdown file in addition to displaying them in the conversation:
+Always save results to a markdown file under `leads/` at the repository root, in addition to displaying them in the conversation.
 
-- **Full Search**: `.claude/skills/find-kristian-jobs/results/YYYY-MM-DD-search.md`
-- **Company Search**: `.claude/skills/find-kristian-jobs/results/YYYY-MM-DD-[company].md`
-- **Deep Analysis**: `.claude/skills/find-kristian-jobs/results/YYYY-MM-DD-analysis-[company]-[role-slug].md`
-- **Application Package**: `.claude/skills/find-kristian-jobs/results/YYYY-MM-DD-application-[company]-[role-slug].md`
+### Directory Structure
 
-Create the `results/` directory if it doesn't exist. After writing the file, tell the user where it was saved.
+```
+leads/
+  YYYY-MM-DD-search.md             # Full Search results
+  [company-slug]/                  # One folder per company (kebab-case, e.g. "chan-zuckerberg")
+    YYYY-MM-DD-search.md           # Company Search results
+    YYYY-MM-DD-[role-slug]-analysis.md      # Deep Analysis output
+    YYYY-MM-DD-[role-slug]-application.md   # Application Package output
+    YYYY-MM-DD-[role-slug]-contacts.md      # find-linkedin-contacts output (written by that skill)
+```
+
+### Path Rules
+
+| Mode | Output Path |
+|------|-------------|
+| **Full Search** | `leads/YYYY-MM-DD-search.md` |
+| **Company Search** | `leads/[company-slug]/YYYY-MM-DD-search.md` |
+| **Deep Analysis** | `leads/[company-slug]/YYYY-MM-DD-[role-slug]-analysis.md` |
+| **Application Package** | `leads/[company-slug]/YYYY-MM-DD-[role-slug]-application.md` |
+
+- `[company-slug]` = company name in kebab-case (e.g. `digital-science`, `chan-zuckerberg`)
+- `[role-slug]` = job title in kebab-case (e.g. `staff-ai-engineer`, `head-of-platform`)
+- Create parent directories as needed (`mkdir -p`).
+- After writing the file, tell the user the exact path.
 
 ## Command Routing
 

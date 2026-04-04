@@ -148,3 +148,5 @@ vite.config.ts.timestamp-*
 .vite/
 _site/*/**
 _site/
+applications/*/**
+leads/*/**

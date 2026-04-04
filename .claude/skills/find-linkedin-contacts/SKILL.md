@@ -159,6 +159,26 @@ Example: `curl -H "Authorization: Bearer $JINA_API_KEY" "https://r.jina.ai/https
 - "Write me a LinkedIn message for [person/title]" → Draft single message only
 - "Build outreach plan for [company]" → Strategy + ranked list
 
+## Output
+
+Always save results to a markdown file under `leads/` at the repository root, in addition to displaying them in the conversation.
+
+### Path
+
+```
+leads/[company-slug]/YYYY-MM-DD-[role-slug]-contacts.md
+```
+
+- `[company-slug]` = company name in kebab-case (e.g. `digital-science`, `chan-zuckerberg`)
+- `[role-slug]` = job title in kebab-case (e.g. `staff-ai-engineer`, `head-of-platform`); use `general` if no specific role
+- Create parent directories as needed (`mkdir -p`).
+- After writing the file, tell the user the exact path.
+
+The file should contain:
+1. The full contact table (Step 6 output)
+2. All drafted LinkedIn messages (Step 7 output)
+3. The outreach strategy (Step 8 output)
+
 ## Resources
 
 See `references/outreach-templates.md` for connection request templates, follow-up messages, referral ask messages, and personalization patterns by contact type.

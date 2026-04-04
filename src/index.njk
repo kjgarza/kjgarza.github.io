@@ -131,9 +131,11 @@ openForOportunities: false
           
           {% if workItem.image %}
           <div class="{% if workItem.imageContainer %}{{ workItem.imageContainer }}{% else %}w-full px-6{% endif %}">
-            <img alt="{{ workItem.title }}" loading="lazy" width="1280" height="1280" 
-                 class="-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform"
-                 src="{{ workItem.image }}">
+            {% if loop.first %}
+              {% image workItem.image, workItem.title, "-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform", "eager", "high" %}
+            {% else %}
+              {% image workItem.image, workItem.title, "-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform" %}
+            {% endif %}
           </div>
           {% endif %}
         </div>
@@ -152,7 +154,7 @@ openForOportunities: false
         <div class="bg-surface border-card flex h-fit w-fit {{ tool.rotation }} flex-row gap-2 rounded-2xl border-2 p-4">
           <div class="bg-surface border-card h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
             <div class="bg-surface flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-              <img alt="{{ tool.name }}" loading="lazy" width="44" height="44" class="rounded-md" src="{{ tool.image }}">
+              {% image tool.image, tool.name, "rounded-md", "lazy", "", "44px", [44, 88] %}
             </div>
           </div>
           <div class="flex w-full flex-col gap-1">

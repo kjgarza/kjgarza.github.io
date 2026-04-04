@@ -26,9 +26,7 @@
   
   {% if work.image %}
   <div class="{% if work.imageContainer %}{{ work.imageContainer }}{% else %}w-full px-6{% endif %}">
-    <img alt="{{ work.title }}" loading="lazy" width="1280" height="1280" 
-         class="-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform"
-         src="{{ work.image }}">
+    {% image work.image, work.title, "-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform" %}
   </div>
   {% endif %}
 </div>

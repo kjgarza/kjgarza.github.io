@@ -28,16 +28,27 @@
   <meta name="twitter:image:alt" content="{{ site.title }}">
   
   <link rel="icon" href="{{ '/favicon.ico' | url }}" type="image/x-icon" sizes="16x16">
+
+  <!-- Resource hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://tally.so">
+
+  <!-- Web fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="{{ '/_next/static/css/b79f6ce842955dc5.css' | url }}">
   <script async src="https://tally.so/widgets/embed.js"></script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.ga_code }}"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', '{{ site.ga_code }}');
+    window.addEventListener('load', function() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ site.ga_code }}');
+    });
   </script>
   <script type="application/ld+json">
    {{ site.schema_org | dump | safe }}

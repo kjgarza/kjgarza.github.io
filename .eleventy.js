@@ -1,6 +1,6 @@
 const EleventyImage = require("@11ty/eleventy-img");
 
-async function imageShortcode(src, alt, cls = "", loading = "lazy", fetchpriority = "", sizes = "(max-width: 640px) 100vw, 1280px", widths = [320, 640, 1280]) {
+async function imageShortcode(src, alt, cls = "", loading = "lazy", fetchpriority = "", sizes = "(max-width: 640px) 100vw, 896px", widths = [320, 640, 1280]) {
   try {
     let imageSrc = src.startsWith("/") ? `./src${src}` : src;
     let parsedWidths = Array.isArray(widths) ? widths : [320, 640, 1280];

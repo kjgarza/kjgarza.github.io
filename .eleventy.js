@@ -1,4 +1,42 @@
+const EleventyImage = require("@11ty/eleventy-img");
+
+async function imageShortcode(src, alt, cls = "", loading = "lazy", fetchpriority = "", sizes = "(max-width: 640px) 100vw, 896px", widths = [320, 640, 1280]) {
+  try {
+    let imageSrc = src.startsWith("/") ? `./src${src}` : src;
+    let parsedWidths = Array.isArray(widths) ? widths : [320, 640, 1280];
+    let metadata = await EleventyImage(imageSrc, {
+      widths: parsedWidths,
+      formats: ["webp", "jpeg"],
+      outputDir: "./_site/img/",
+      urlPath: "/img/",
+      cacheOptions: {
+        duration: "1d",
+        directory: ".cache",
+      },
+    });
+    let attrs = {
+      alt,
+      class: cls,
+      loading,
+      decoding: "async",
+      sizes,
+    };
+    if (fetchpriority) attrs.fetchpriority = fetchpriority;
+    return EleventyImage.generateHTML(metadata, attrs);
+  } catch(e) {
+    // Fallback to plain img when optimization fails (e.g. unreachable external URLs)
+    const parts = [`src="${src}"`, `alt="${alt}"`];
+    if (cls) parts.push(`class="${cls}"`);
+    parts.push(`loading="${loading}"`, `decoding="async"`);
+    if (fetchpriority) parts.push(`fetchpriority="${fetchpriority}"`);
+    return `<img ${parts.join(" ")}>`;
+  }
+}
+
 module.exports = function(eleventyConfig) {
+  // Image optimization shortcode
+  eleventyConfig.addAsyncShortcode("image", imageShortcode);
+
   // Copy static assets
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/drawings");

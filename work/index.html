@@ -28,16 +28,27 @@
   <meta name="twitter:image:alt" content="Kristian Garza">
   
   <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16">
+
+  <!-- Resource hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://tally.so">
+
+  <!-- Web fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="/_next/static/css/b79f6ce842955dc5.css">
   <script async src="https://tally.so/widgets/embed.js"></script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X7KFRJYWBL"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-X7KFRJYWBL');
+    window.addEventListener('load', function() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-X7KFRJYWBL');
+    });
   </script>
   <script type="application/ld+json">
    {"@context":"https://schema.org","@type":"Person","sameAs":["https://www.linkedin.com/in/kjgarza","https://commons.datacite.org/orcid.org/0000-0003-3484-6875","https://orcid.org/0000-0003-3484-6875","https://twitter.com/kriztean","https://github.com/kjgarza","https://gitlab.com/kjgarza","https://github.com/kristiangarza","https://linktr.ee/kristiangarza"],"email":"mailto:kj.garza+kjgarza@gmail.com","image":"/uploads/2022/02/18/photo.jpeg","jobTitle":"Senior AI Engineer","affiliation":{"@type":"Organization","name":"Digital Science","url":"https://ror.org/02ktfc112"},"name":"Kristian Garza","url":"https://kjgarza.github.io/","knowsLanguage":[{"@type":"Language","name":"English"},{"@type":"Language","name":"German"},{"@type":"Language","name":"Spanish"}],"knowsAbout":["Web Development","scrum","agile","software development","software engineering","data science","data visualization","data analysis","data engineering","usability testing","user experience","UX Researcher","DevOps","DesingOps","Figma","Miro","Lego Serious Play","Complex applications design","contextual interviews","contextual inquiry","schema.org","google analytics","google tag manager","react","vue","elasticsearch","mysql","Design sprints","graphql","event driven architecture","microservices","docker","aws","terraform","javascript","node","python","typescript","Ruby","Sagemaker","huggingface transformers","Ruby on Rails","langchain","llamaIndex","pydantic","Large Language Models","apisix","Product Design","User Experience","User Interface","User Interface Design","User Interface Development","design thinking","design process","double diamond method","double diamond pattern","open science","open data","open source software","logstash","Persistent Identifiers","Persistent Identifier Systems","DOI","ORCID Identifiers","ROR ID","AI SDK","MCP"]}
@@ -120,212 +131,23 @@
     
       
         
-        <div class="bg-surface hover:border-card-hover border-card col-span-2 row-span-1 flex flex-col overflow-hidden rounded-lg border-2">
-  <div class="flex flex-col gap-2 p-6">
-    <div class="flex flex-row items-center justify-between">
-      <p class="font-mono">Digital Science</p>
-      <div class="flex flex-row gap-1">
         
-        <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-          APIs
-        </div>
-        
-        <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-          LLMs
-        </div>
-        
-        <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-          Python
-        </div>
-        
-      </div>
-    </div>
-    <div class="flex flex-col gap-2">
-      <h3 class="text-2xl font-bold">Query Translation API - Natural Language to Database Queries</h3>
-      <p class="text-secondary text-base font-medium">Architected and launched a FastAPI microservice that turns natural-language requests into optimized Dimensions searches.</p>
-      
-      
-        <a class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer w-fit hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 mt-2" href="/work/query-translation-api">
-          Read case study
-        </a>
-      
-    </div>
-  </div>
-  
-  
-  <div class="w-full px-6">
-    <img alt="Query Translation API - Natural Language to Database Queries" loading="lazy" width="1280" height="1280" 
-         class="-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform"
-         src="/assets/images/nl2query-hero.png">
-  </div>
-  
-</div>
-
-      
     
       
         
-        <div class="bg-surface hover:border-card-hover border-card col-span-1 row-span-2 flex flex-col overflow-hidden rounded-lg border-2">
-  <div class="flex flex-col gap-2 p-6">
-    <div class="flex flex-row items-center justify-between">
-      <p class="font-mono">DataCite</p>
-      <div class="flex flex-row gap-1">
         
-        <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-          Design systems
-        </div>
-        
-        <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-          UX Design
-        </div>
-        
-      </div>
-    </div>
-    <div class="flex flex-col gap-2">
-      <h3 class="text-2xl font-bold">Harmonizing with a Design System</h3>
-      <p class="text-secondary text-base font-medium">Crafted a Design System for all DataCite frontend services.</p>
-      
-      
-        <a class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer w-fit hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 mt-2" href="/work/creating-a-design-system">
-          Read case study
-        </a>
-      
-    </div>
-  </div>
-  
-  
-  <div class="h-full rounded-tl-2xl px-6 pt-6">
-    <img alt="Harmonizing with a Design System" loading="lazy" width="1280" height="1280" 
-         class="-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform"
-         src="/assets/images/design-system-hero.png">
-  </div>
-  
-</div>
-
-      
     
       
         
-        <div class="bg-surface hover:border-card-hover border-card col-span-1 row-span-1 flex flex-col overflow-hidden rounded-lg border-2">
-  <div class="flex flex-col gap-2 p-6">
-    <div class="flex flex-row items-center justify-between">
-      <p class="font-mono">DataCite</p>
-      <div class="flex flex-row gap-1">
         
-        <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-          Product Design
-        </div>
-        
-        <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-          UX Research
-        </div>
-        
-      </div>
-    </div>
-    <div class="flex flex-col gap-2">
-      <h3 class="text-2xl font-bold">Innovating Data Usage Processing Services</h3>
-      <p class="text-secondary text-base font-medium">Pioneering an alternative to existing data usage processing services through web tracker development.</p>
-      
-      
-        <a class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer w-fit hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 mt-2" href="/work/innovating-data-usage-processing-services">
-          Read case study
-        </a>
-      
-    </div>
-  </div>
-  
-  
-  <div class="w-full px-6">
-    <img alt="Innovating Data Usage Processing Services" loading="lazy" width="1280" height="1280" 
-         class="-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform"
-         src="/assets/images/designsprint-eosc-Medium.png">
-  </div>
-  
-</div>
-
-      
     
       
         
-        <div class="bg-surface hover:border-card-hover border-card col-span-1 row-span-1 flex flex-col overflow-hidden rounded-lg border-2">
-  <div class="flex flex-col gap-2 p-6">
-    <div class="flex flex-row items-center justify-between">
-      <p class="font-mono">DataCite</p>
-      <div class="flex flex-row gap-1">
         
-        <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-          Serverless
-        </div>
-        
-        <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-          Ruby on Rails
-        </div>
-        
-      </div>
-    </div>
-    <div class="flex flex-col gap-2">
-      <h3 class="text-2xl font-bold">Usage Reports API - Research Data Metrics at Scale</h3>
-      <p class="text-secondary text-base font-medium">Designed and delivered Sashimi—a Rails API that ingests, validates, and stores large SUSHI usage reports at 50,000-dataset scale.</p>
-      
-      
-        <a class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer w-fit hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 mt-2" href="/work/datacite-usage-reports-api">
-          Read case study
-        </a>
-      
-    </div>
-  </div>
-  
-  
-  <div class="w-full px-6">
-    <img alt="Usage Reports API - Research Data Metrics at Scale" loading="lazy" width="1280" height="1280" 
-         class="-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform"
-         src="/assets/images/mdc-hero.png">
-  </div>
-  
-</div>
-
-      
     
       
         
-        <div class="bg-surface hover:border-card-hover border-card col-span-2 row-span-1 flex flex-col overflow-hidden rounded-lg border-2">
-  <div class="flex flex-col gap-2 p-6">
-    <div class="flex flex-row items-center justify-between">
-      <p class="font-mono">DataCite</p>
-      <div class="flex flex-row gap-1">
         
-        <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-          UX Research
-        </div>
-        
-        <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-          Service Design
-        </div>
-        
-      </div>
-    </div>
-    <div class="flex flex-col gap-2">
-      <h3 class="text-2xl font-bold">Redesigning DataCite's Harvesting Services</h3>
-      <p class="text-secondary text-base font-medium">Redesigned DataCite's Harvesting Services from the ground up to boost service utilization and unlock new revenue opportunities.</p>
-      
-      
-        <a class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer w-fit hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 mt-2" href="/work/redesigning-datacite-harvesting-services">
-          Read case study
-        </a>
-      
-    </div>
-  </div>
-  
-  
-  <div class="w-full px-6">
-    <img alt="Redesigning DataCite's Harvesting Services" loading="lazy" width="1280" height="1280" 
-         class="-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform"
-         src="https://i.imgur.com/Y8Jn1lP.png">
-  </div>
-  
-</div>
-
-      
     
   </section>
 </div>

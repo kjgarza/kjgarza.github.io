@@ -80,7 +80,7 @@
 
 </head>
 <body class="bg-default scrollbar-hide flex min-h-screen flex-col items-center justify-center font-sans">
-  <nav class="align-center top-0 z-1 flex min-h-[88px] w-full max-w-4xl flex-row items-center justify-between gap-4 bg-linear-to-t from-white/0 from-0% to-white to-10% px-4 pt-4 pb-8 text-sm font-medium sm:sticky sm:to-25% md:px-12 xl:px-8">
+  <nav id="main-nav" class="align-center top-0 z-50 flex min-h-[88px] w-full max-w-4xl flex-row items-center justify-between gap-4 bg-linear-to-t from-white/0 from-0% to-white to-10% px-4 pt-4 pb-4 sm:pb-8 text-sm font-medium sm:sticky sm:to-25% md:px-12 xl:px-8">
   <div class="flex min-h-[40px] items-center gap-4">
     
     
@@ -97,7 +97,9 @@
       
     </div>
   </div>
-  <div class="flex items-center gap-1">
+  
+  <!-- Desktop nav links -->
+  <div class="hidden items-center gap-1 sm:flex">
     
     <a class="text-secondary hover:text-primary rounded-lg p-2 transition-colors duration-200 ease-in-out " href="/">
       About
@@ -120,7 +122,129 @@
     </a>
     
   </div>
+  
+  <!-- Mobile burger button -->
+  <button id="burger-btn" aria-label="Toggle menu" aria-expanded="false" class="sm:hidden flex h-10 w-10 items-center justify-center rounded-lg text-neutral-700 hover:bg-neutral-100 transition-colors duration-200">
+    <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
+      <line x1="4" x2="20" y1="6" y2="6"/>
+      <line x1="4" x2="20" y1="12" y2="12"/>
+      <line x1="4" x2="20" y1="18" y2="18"/>
+    </svg>
+    <svg id="icon-x" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x hidden">
+      <path d="M18 6 6 18"/>
+      <path d="m6 6 12 12"/>
+    </svg>
+  </button>
 </nav>
+
+<!-- Mobile dropdown — fixed, positioned by JS to sit just below the nav -->
+<div id="mobile-menu" aria-hidden="true" style="display:none;position:fixed;top:0;left:12px;right:12px;z-index:9999;" class="sm:hidden">
+  <div class="overflow-hidden rounded-2xl border border-neutral-100 bg-white shadow-xl shadow-neutral-900/10">
+    <div class="flex flex-col p-2">
+      
+      <a
+        class="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-all duration-150 ease-in-out text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
+        href="/"
+        
+      >
+        About
+        
+      </a>
+      
+      <a
+        class="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-all duration-150 ease-in-out text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
+        href="/work"
+        
+      >
+        Work
+        
+      </a>
+      
+      <a
+        class="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-all duration-150 ease-in-out text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
+        href="/tools"
+        
+      >
+        Tools
+        
+      </a>
+      
+      <a
+        class="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-all duration-150 ease-in-out text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
+        href="/publications"
+        
+      >
+        Publications
+        
+      </a>
+      
+      <a
+        class="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-all duration-150 ease-in-out text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
+        href="https://kjgarza.github.io/radar/"
+         target="_blank" rel="noopener noreferrer"
+      >
+        Tech Radar
+        
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right opacity-40 group-hover:opacity-100 transition-opacity">
+          <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+        </svg>
+        
+      </a>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var btn = document.getElementById('burger-btn');
+    var menu = document.getElementById('mobile-menu');
+    var iconMenu = document.getElementById('icon-menu');
+    var iconX = document.getElementById('icon-x');
+    var nav = document.getElementById('main-nav');
+
+    function positionMenu() {
+      var rect = nav.getBoundingClientRect();
+      menu.style.top = rect.bottom + 4 + 'px';
+    }
+
+    function openMenu() {
+      positionMenu();
+      menu.style.display = 'block';
+      btn.setAttribute('aria-expanded', 'true');
+      menu.setAttribute('aria-hidden', 'false');
+      iconMenu.classList.add('hidden');
+      iconX.classList.remove('hidden');
+    }
+
+    function closeMenu() {
+      menu.style.display = 'none';
+      btn.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+      iconMenu.classList.remove('hidden');
+      iconX.classList.add('hidden');
+    }
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      menu.style.display === 'none' ? openMenu() : closeMenu();
+    });
+
+    document.addEventListener('click', function (e) {
+      if (menu.style.display !== 'none' && !menu.contains(e.target) && !btn.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', function () {
+      if (menu.style.display !== 'none') positionMenu();
+    });
+  })();
+</script>
 
   
   <main class="mx-auto flex h-full w-full max-w-4xl grow flex-col justify-center gap-16 p-4 font-sans md:p-12 xl:p-8">

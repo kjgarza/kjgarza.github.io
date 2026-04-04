@@ -9,8 +9,41 @@ permalink: /work/
   <section class="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:grid-rows-[480px_480px_480px_320px]">
     {% for workItem in work %}
       {% if workItem.featured %}
-        {% set work = workItem %}
-        {% include "components/work-card.njk" %}
+        <div class="bg-surface hover:border-card-hover border-card {{ workItem.gridClass }} flex flex-col overflow-hidden rounded-lg border-2">
+          <div class="flex flex-col gap-2 p-6">
+            <div class="flex flex-row items-center justify-between">
+              <p class="font-mono">{{ workItem.company }}</p>
+              <div class="flex flex-row gap-1">
+                {% for tag in workItem.tags %}
+                <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
+                  {{ tag }}
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <h3 class="text-2xl font-bold">{{ workItem.title }}</h3>
+              <p class="text-secondary text-base font-medium">{{ workItem.description }}</p>
+              {% if workItem.status == "published" %}
+                <a class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer w-fit hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 mt-2" href="{{ workItem.link }}">
+                  Read case study
+                </a>
+              {% else %}
+                <p class="text-base font-medium text-neutral-500">Case study coming soon...</p>
+              {% endif %}
+            </div>
+          </div>
+          {% if workItem.image %}
+          {% set imgCls = "-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform" %}
+          <div class="{% if workItem.imageContainer %}{{ workItem.imageContainer }}{% else %}w-full px-6{% endif %}">
+            {% if loop.first %}
+              {% image workItem.image, workItem.title, imgCls, "eager", "high" %}
+            {% else %}
+              {% image workItem.image, workItem.title, imgCls %}
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
       {% endif %}
     {% endfor %}
   </section>

@@ -1,6 +1,18 @@
 const EleventyImage = require("@11ty/eleventy-img");
 
+function escapeAttr(str) {
+  return String(str).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
 async function imageShortcode(src, alt, cls = "", loading = "lazy", fetchpriority = "", sizes = "(max-width: 640px) 100vw, 896px", widths = [320, 640, 1280]) {
+  if (/^https?:\/\//.test(src)) {
+    const parts = [`src="${escapeAttr(src)}"`, `alt="${escapeAttr(alt)}"`];
+    if (cls) parts.push(`class="${escapeAttr(cls)}"`);
+    parts.push(`loading="${escapeAttr(loading)}"`, `decoding="async"`);
+    if (fetchpriority) parts.push(`fetchpriority="${escapeAttr(fetchpriority)}"`);
+    return `<img ${parts.join(" ")}>`;
+  }
+
   try {
     let imageSrc = src.startsWith("/") ? `./src${src}` : src;
     let parsedWidths = Array.isArray(widths) ? widths : [320, 640, 1280];

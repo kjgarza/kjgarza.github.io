@@ -10,6 +10,7 @@ heroImage: https://i.imgur.com/htzskD7.png
 permalink: /work/creating-a-design-system/
 blogLink: https://doi.org/10.5438/tpah-aj25
 passwordProtected: false
+contentStyle: narrative
 ---
 
 ## Overview

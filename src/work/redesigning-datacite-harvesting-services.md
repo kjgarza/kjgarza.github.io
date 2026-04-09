@@ -11,6 +11,7 @@ heroImage: https://i.imgur.com/Y8Jn1lP.png
 permalink: /work/redesigning-datacite-harvesting-services/
 blogLink: https://doi.org/10.5438/f03x-vr69
 passwordProtected: false
+contentStyle: research
 ---
 
 ## Overview

@@ -50,7 +50,16 @@ layout: layouts/base.njk
   {% else %}
 
     <!-- Case Study Content -->
-    <div class="prose prose-h1:text-2xl prose-h2:text-xl prose-h2:mb-2 prose-h3:mb-3 prose-p:mt-0 prose-p:mb-3 prose-h3:text-lg prose-a:text-accent prose-a:underline prose-ul:mt-0 prose-ul:mb-3 prose-li:mt-0 prose-li:mb-3 prose-p:text-base prose-img:my-3 px-4 font-medium sm:px-6">
+    {% if contentStyle == "narrative" %}
+      {% set proseClasses = "prose prose-narrative prose-h1:text-2xl prose-h2:text-xl prose-h2:mb-2 prose-h3:text-lg prose-a:text-accent prose-a:underline prose-p:mb-3 prose-p:text-base prose-li:mb-3" %}
+    {% elif contentStyle == "research" %}
+      {% set proseClasses = "prose prose-research prose-h1:text-2xl prose-h2:text-xl prose-h2:mb-2 prose-h3:mb-3 prose-h3:text-lg prose-a:text-accent prose-a:underline prose-p:mb-3 prose-p:text-base prose-li:mb-3 prose-img:my-3" %}
+    {% elif contentStyle == "technical" %}
+      {% set proseClasses = "prose prose-technical prose-h1:text-2xl prose-h2:text-xl prose-h2:mb-2 prose-h3:mb-3 prose-p:mt-0 prose-p:mb-3 prose-h3:text-lg prose-a:text-accent prose-a:underline prose-ul:mt-0 prose-ul:mb-3 prose-li:mt-0 prose-li:mb-3 prose-p:text-base prose-img:my-3" %}
+    {% else %}
+      {% set proseClasses = "prose prose-h1:text-2xl prose-h2:text-xl prose-h2:mb-2 prose-h3:mb-3 prose-p:mt-0 prose-p:mb-3 prose-h3:text-lg prose-a:text-accent prose-a:underline prose-ul:mt-0 prose-ul:mb-3 prose-li:mt-0 prose-li:mb-3 prose-p:text-base prose-img:my-3" %}
+    {% endif %}
+    <div class="{{ proseClasses }} px-4 font-medium sm:px-6">
         {{ content | safe }}
     </div>
     {% endif %}

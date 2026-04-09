@@ -9,6 +9,7 @@ tags:
 heroImage: /assets/images/mdc-hero.png
 permalink: /work/datacite-usage-reports-api/
 passwordProtected: false
+contentStyle: technical
 ---
 
 ## Overview

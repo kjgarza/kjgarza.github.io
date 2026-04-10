@@ -2,57 +2,53 @@
 layout: layouts/base.njk
 ---
 
-<div class="flex w-full max-w-2xl flex-1 flex-col items-center gap-8 sm:p-4">
-  <!-- Case Study Header -->
-  <div class="bg-surface flex flex-col gap-2 p-4 sm:rounded-lg sm:p-6">
-    <!-- Company and Tags -->
-    <div class="flex flex-row items-center justify-between">
-      <p class="font-mono">{{ company }}</p>
-      <div class="flex flex-row gap-1">
+<link rel="stylesheet" href="{{ '/assets/css/case-study.css' | url }}">
+
+<article class="cs-article flex w-full max-w-2xl flex-1 flex-col">
+
+  <!-- ── Case Study Header ── -->
+  <header class="cs-header">
+    <div class="cs-eyebrow">
+      <span class="cs-company">{{ company }}</span>
+      <div class="cs-tags">
         {% for tag in tags %}
-        <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-          {{ tag }}
-        </div>
+        <span class="cs-tag">{{ tag }}</span>
         {% endfor %}
       </div>
     </div>
-    
-    <!-- Title and Description -->
-    <div class="flex w-full flex-col gap-1">
-      <h1 class="text-primary text-2xl font-bold">{{ title }}</h1>
-      <p class="text-secondary text-base font-medium">{{ description }}</p>
-    </div>
-    
-    <!-- Hero Image -->
-    {% if heroImage %}
-    <img alt="{{ title }}" width="640" height="400" decoding="async" data-nimg="1" 
-         class="mt-4 h-auto w-full rounded-sm" src="{{ heroImage }}" loading="lazy">
-    {% endif %}
+    <h1 class="cs-title">{{ title }}</h1>
+    <p class="cs-description">{{ description }}</p>
+  </header>
+
+  <!-- ── Hero Image ── -->
+  {% if heroImage %}
+  <div class="cs-hero">
+    <img alt="{{ title }}" width="640" height="400" decoding="async"
+         src="{{ heroImage }}" loading="lazy">
   </div>
-  
+  {% endif %}
 
   {% if passwordProtected %}
-  <div class="to-white-16 -mt-24 flex w-full items-center justify-center bg-linear-to-t from-white from-80% to-100% pt-20">
-    <div class="border-card rounded-lg border bg-white text-neutral-900 mx-4 max-w-[400px] shadow-sm">
-      <div class="flex flex-col p-6">
-        <h3 class="text-primary text-xl font-bold">This content requires a password</h3>
-        <p class="text-secondary text-base font-medium">Some things are meant to stay private. But if you're meant to see this, just reach out to me.</p>
-      </div>
-      <div class="p-6 pt-0">
-        <form class="flex flex-col">
-          <label class="text-sm font-medium text-primary leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 mb-2" for="Password">Password</label>
-          <input type="password" class="flex h-10 rounded-md border-2 border-neutral-300 bg-white px-3 py-2 font-sans text-base font-medium file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-neutral-500 focus:border-neutral-900 disabled:cursor-not-allowed disabled:opacity-50 w-full" id="Password" value="">
-          <button class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover-inverse bg-button-primary text-white shadow-button-primary-rest active:shadow-none h-10 px-3 min-w-9 mt-6 w-full" type="submit">Submit</button>
-        </form>
-      </div>
+  <!-- ── Password Gate ── -->
+  <div class="cs-prose">
+    <div class="cs-password-gate">
+      <h3>This content requires a password</h3>
+      <p>Some things are meant to stay private. But if you're meant to see this, just reach out.</p>
+      <form>
+        <label for="Password">Password</label>
+        <input type="password" id="Password">
+        <button type="submit">Submit</button>
+      </form>
     </div>
   </div>
+
   {% else %}
 
-    <!-- Case Study Content -->
-    <div class="prose prose-h1:text-2xl prose-h2:text-xl prose-h2:mb-2 prose-h3:mb-3 prose-p:mt-0 prose-p:mb-3 prose-h3:text-lg prose-a:text-accent prose-a:underline prose-ul:mt-0 prose-ul:mb-3 prose-li:mt-0 prose-li:mb-3 prose-p:text-base prose-img:my-3 px-4 font-medium sm:px-6">
-        {{ content | safe }}
-    </div>
-    {% endif %}
-</div>
+  <!-- ── Case Study Content ── -->
+  <div class="cs-prose prose font-medium">
+    {{ content | safe }}
+  </div>
 
+  {% endif %}
+
+</article>

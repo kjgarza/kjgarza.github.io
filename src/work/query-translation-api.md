@@ -10,6 +10,7 @@ tags:
 heroImage: /assets/images/nl2query-hero.png
 permalink: /work/query-translation-api/
 passwordProtected: true
+contentStyle: technical
 ---
 
 ## Overview

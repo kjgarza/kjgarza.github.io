@@ -9,6 +9,7 @@ tags:
 heroImage: /assets/images/designsprint-eosc-Medium.png
 permalink: /work/innovating-data-usage-processing-services/
 passwordProtected: false
+contentStyle: research
 ---
 
 ## Overview

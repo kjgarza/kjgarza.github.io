@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap');
+
+/* ── Case Study: Editorial Typography System ── */
+
+.cs-article {
+  --cs-accent: #FF0066;
+  --cs-display: 'Bricolage Grotesque', var(--default-font-family);
+  --cs-mono: 'DM Mono', ui-monospace, monospace;
+  --cs-text: #1a1a1a;
+  --cs-muted: #6b7280;
+  --cs-border: #e5e7eb;
+}
+
+/* ── Page Entry Animation ── */
+@keyframes cs-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.cs-header  { animation: cs-fade-up 0.45s ease-out both; }
+.cs-hero    { animation: cs-fade-up 0.45s 0.12s ease-out both; }
+.cs-prose   { animation: cs-fade-up 0.45s 0.22s ease-out both; }
+
+/* ── Header ── */
+.cs-header {
+  padding: 2.5rem 1.5rem 0;
+}
+
+.cs-eyebrow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cs-company {
+  font-family: var(--cs-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cs-accent);
+  padding-top: 0.15em;
+}
+
+.cs-tags {
+  display: flex;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.cs-tag {
+  font-family: var(--cs-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid #d1d5db;
+  padding: 0.25em 0.65em;
+  border-radius: 2px;
+  color: var(--cs-muted);
+  white-space: nowrap;
+}
+
+.cs-title {
+  font-family: var(--cs-display);
+  font-size: clamp(2.2rem, 5.5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-variation-settings: 'opsz' 72;
+  color: var(--cs-text);
+  margin-bottom: 1.25rem;
+}
+
+.cs-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4b5563;
+  font-weight: 400;
+  max-width: 58ch;
+  margin-bottom: 2rem;
+  border-left: 3px solid var(--cs-accent);
+  padding-left: 1rem;
+}
+
+/* ── Hero Image ── */
+.cs-hero {
+  padding: 0 1.5rem;
+  margin-top: 0.25rem;
+}
+
+.cs-hero img {
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+  display: block;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07), 0 8px 32px rgba(0,0,0,0.05);
+}
+
+/* ── Prose Content ── */
+.cs-prose {
+  padding: 2.5rem 1.5rem 3rem;
+}
+
+/* H2 — Section headings */
+.cs-prose :is(h2) {
+  font-family: var(--cs-display) !important;
+  font-size: 1.75rem !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+  font-variation-settings: 'opsz' 48 !important;
+  color: var(--cs-text) !important;
+  margin-top: 3rem !important;
+  margin-bottom: 1rem !important;
+  padding-bottom: 0.6rem !important;
+  border-bottom: 2px solid var(--cs-accent) !important;
+}
+
+/* H3 — Sub-section headings: small mono caps */
+.cs-prose :is(h3) {
+  font-family: var(--cs-mono) !important;
+  font-size: 0.72rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.13em !important;
+  text-transform: uppercase !important;
+  color: var(--cs-accent) !important;
+  margin-top: 1.75rem !important;
+  margin-bottom: 0.4rem !important;
+}
+
+/* H4 — Tertiary headings */
+.cs-prose :is(h4) {
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  color: var(--cs-text) !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 0.25rem !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* Paragraphs */
+.cs-prose :is(p) {
+  font-size: 1rem !important;
+  line-height: 1.8 !important;
+  color: #374151 !important;
+  margin-bottom: 1rem !important;
+  margin-top: 0 !important;
+}
+
+/* Strong */
+.cs-prose :is(strong) {
+  font-weight: 700 !important;
+  color: var(--cs-text) !important;
+}
+
+/* Blockquote — editorial pull quote */
+.cs-prose :is(blockquote) {
+  position: relative !important;
+  margin: 2.5rem 0 !important;
+  padding: 2rem 1.75rem 1.75rem 2rem !important;
+  background: #fff8f9 !important;
+  border-left: none !important;
+  border-top: 3px solid var(--cs-accent) !important;
+  border-radius: 0 0 3px 3px !important;
+  overflow: visible !important;
+}
+
+.cs-prose :is(blockquote)::before {
+  content: '\201C';
+  position: absolute;
+  top: -1.15rem;
+  left: 1.25rem;
+  font-family: var(--cs-display);
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--cs-accent);
+  opacity: 0.5;
+}
+
+.cs-prose :is(blockquote) p {
+  font-family: var(--cs-display) !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 1.18rem !important;
+  line-height: 1.65 !important;
+  color: #1f2937 !important;
+}
+
+.cs-prose :is(blockquote) strong {
+  font-style: normal !important;
+  color: var(--cs-text) !important;
+}
+
+/* Lists */
+.cs-prose :is(ul) {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-bottom: 1rem !important;
+  margin-top: 0 !important;
+}
+
+.cs-prose :is(ul > li) {
+  padding-left: 1.5rem !important;
+  position: relative !important;
+  margin-bottom: 0.6rem !important;
+  margin-top: 0 !important;
+  color: #374151 !important;
+  line-height: 1.7 !important;
+}
+
+.cs-prose :is(ul > li)::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--cs-accent);
+  font-weight: 700;
+  font-size: 0.9em;
+}
+
+.cs-prose :is(ol > li) {
+  padding-left: 0.25rem !important;
+  margin-bottom: 0.6rem !important;
+  color: #374151 !important;
+  line-height: 1.7 !important;
+}
+
+.cs-prose :is(ol > li)::marker {
+  color: var(--cs-accent) !important;
+  font-family: var(--cs-mono) !important;
+  font-size: 0.85em !important;
+  font-weight: 500 !important;
+}
+
+/* Images */
+.cs-prose :is(img) {
+  border-radius: 3px !important;
+  margin: 1.75rem 0 !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.06) !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Links */
+.cs-prose :is(a) {
+  color: var(--cs-accent) !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 3px !important;
+  font-weight: inherit !important;
+}
+
+/* ── Button — override heavy Tailwind utility classes from markdown ── */
+.cs-prose button {
+  appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 2px solid var(--cs-accent) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0.35rem 0 !important;
+  height: auto !important;
+  min-width: 0 !important;
+  width: auto !important;
+  font-family: var(--cs-mono) !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  font-weight: 500 !important;
+  color: var(--cs-text) !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  margin-top: 1rem !important;
+  transition: color 0.2s, border-color 0.2s !important;
+}
+
+.cs-prose button::after {
+  content: '→';
+  font-family: var(--cs-mono);
+  font-size: 1em;
+  transition: transform 0.2s;
+}
+
+.cs-prose button:hover {
+  color: var(--cs-accent) !important;
+}
+
+.cs-prose button:hover::after {
+  transform: translateX(4px);
+}
+
+.cs-prose button a {
+  color: inherit !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  font-size: inherit !important;
+  letter-spacing: inherit !important;
+}
+
+/* ── Password gate ── */
+.cs-password-gate {
+  border: 1.5px solid var(--cs-border);
+  border-radius: 6px;
+  padding: 2rem;
+  max-width: 380px;
+  margin: 2rem auto;
+}
+
+.cs-password-gate h3 {
+  font-family: var(--cs-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--cs-text);
+  margin-bottom: 0.5rem;
+}
+
+.cs-password-gate p {
+  color: var(--cs-muted);
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.cs-password-gate form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cs-password-gate label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #374151;
+  font-family: var(--cs-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cs-password-gate input[type="password"] {
+  border: 1.5px solid #d1d5db;
+  border-radius: 4px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.9rem;
+  width: 100%;
+  outline: none;
+}
+
+.cs-password-gate button[type="submit"] {
+  background: var(--cs-text);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.65rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .cs-header      { padding: 1.5rem 1rem 0; }
+  .cs-hero        { padding: 0 1rem; }
+  .cs-prose       { padding: 1.75rem 1rem 2rem; }
+  .cs-title       { font-size: clamp(1.85rem, 8vw, 2.5rem); }
+  .cs-description { font-size: 1rem; }
+}

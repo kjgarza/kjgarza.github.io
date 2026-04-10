@@ -252,44 +252,39 @@
   
   <main class="mx-auto flex h-full w-full max-w-4xl grow flex-col justify-center gap-16 p-4 font-sans md:p-12 xl:p-8">
     
-<div class="flex w-full max-w-2xl flex-1 flex-col items-center gap-8 sm:p-4">
-  <!-- Case Study Header -->
-  <div class="bg-surface flex flex-col gap-2 p-4 sm:rounded-lg sm:p-6">
-    <!-- Company and Tags -->
-    <div class="flex flex-row items-center justify-between">
-      <p class="font-mono">DataCite</p>
-      <div class="flex flex-row gap-1">
+<link rel="stylesheet" href="/assets/css/case-study.css">
+
+<article class="cs-article flex w-full max-w-2xl flex-1 flex-col">
+
+  <!-- ── Case Study Header ── -->
+  <header class="cs-header">
+    <div class="cs-eyebrow">
+      <span class="cs-company">DataCite</span>
+      <div class="cs-tags">
         
-        <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-          Design systems
-        </div>
+        <span class="cs-tag">Design systems</span>
         
-        <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-          UX Design
-        </div>
+        <span class="cs-tag">UX Design</span>
         
       </div>
     </div>
-    
-    <!-- Title and Description -->
-    <div class="flex w-full flex-col gap-1">
-      <h1 class="text-primary text-2xl font-bold">Harmonizing with a Design System</h1>
-      <p class="text-secondary text-base font-medium">Crafted a Design System for all DataCite frontend services.</p>
-    </div>
-    
-    <!-- Hero Image -->
-    
-    <img alt="Harmonizing with a Design System" width="640" height="400" decoding="async" data-nimg="1" 
-         class="mt-4 h-auto w-full rounded-sm" src="https://i.imgur.com/htzskD7.png" loading="lazy">
-    
+    <h1 class="cs-title">Harmonizing with a Design System</h1>
+    <p class="cs-description">Crafted a Design System for all DataCite frontend services.</p>
+  </header>
+
+  <!-- ── Hero Image ── -->
+  
+  <div class="cs-hero">
+    <img alt="Harmonizing with a Design System" width="640" height="400" decoding="async"
+         src="https://i.imgur.com/htzskD7.png" loading="lazy">
   </div>
   
 
   
 
-    <!-- Case Study Content -->
-    <div class="prose prose-h1:text-2xl prose-h2:text-xl prose-h2:mb-2 prose-h3:mb-3 prose-p:mt-0 prose-p:mb-3 prose-h3:text-lg prose-a:text-accent prose-a:underline prose-ul:mt-0 prose-ul:mb-3 prose-li:mt-0 prose-li:mb-3 prose-p:text-base prose-img:my-3 px-4 font-medium sm:px-6">
-        <h2>Overview</h2>
+  <!-- ── Case Study Content ── -->
+  <div class="cs-prose prose font-medium">
+    <h2>Overview</h2>
 <p>Crafted a Design System for all DataCite frontend services.</p>
 <p>I recognized the need to bring a unified aesthetic to our suite of services. Our suite consisted of various websites. Each had a distinct look and feel, and it was becoming clear that this lack of visual consistency was making it harder for our membership to convey a cohesive narrative about our offerings.</p>
 <p>Further, the situation left new developers at a loss as to which style to apply where. In addition, we needed our suite of products to align with The Web Content Accessibility Guidelines (WCAG) standards for accessibility.</p>
@@ -345,10 +340,11 @@
     <a class="relative z-10" href="https://doi.org/10.5438/tpah-aj25">Go to Blogpost</a>
 </button>
 
-    </div>
-    
-</div>
+  </div>
 
+  
+
+</article>
 
   </main>
   

@@ -2757,3 +2757,20 @@
     inherits: false;
     initial-value: ""
 }
+
+/* Case study content style variants */
+.prose-narrative {
+    --tw-prose-hr: rgba(255, 0, 102, 0.2);
+    --tw-prose-quote-borders: #FF0066;
+}
+
+.prose-research {
+    --tw-prose-quote-borders: #FF0066;
+    --tw-prose-quotes: #27272a;
+    --tw-prose-bold: #27272a;
+}
+
+.prose-technical {
+    --tw-prose-code: #FF0066;
+    --tw-prose-pre-bg: #1e1e2e;
+}

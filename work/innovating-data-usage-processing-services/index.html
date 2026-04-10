@@ -252,44 +252,39 @@
   
   <main class="mx-auto flex h-full w-full max-w-4xl grow flex-col justify-center gap-16 p-4 font-sans md:p-12 xl:p-8">
     
-<div class="flex w-full max-w-2xl flex-1 flex-col items-center gap-8 sm:p-4">
-  <!-- Case Study Header -->
-  <div class="bg-surface flex flex-col gap-2 p-4 sm:rounded-lg sm:p-6">
-    <!-- Company and Tags -->
-    <div class="flex flex-row items-center justify-between">
-      <p class="font-mono">DataCite</p>
-      <div class="flex flex-row gap-1">
+<link rel="stylesheet" href="/assets/css/case-study.css">
+
+<article class="cs-article flex w-full max-w-2xl flex-1 flex-col">
+
+  <!-- ── Case Study Header ── -->
+  <header class="cs-header">
+    <div class="cs-eyebrow">
+      <span class="cs-company">DataCite</span>
+      <div class="cs-tags">
         
-        <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-          Product Design
-        </div>
+        <span class="cs-tag">Product Design</span>
         
-        <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-          UX Research
-        </div>
+        <span class="cs-tag">UX Research</span>
         
       </div>
     </div>
-    
-    <!-- Title and Description -->
-    <div class="flex w-full flex-col gap-1">
-      <h1 class="text-primary text-2xl font-bold">Innovating Data Usage Processing Services</h1>
-      <p class="text-secondary text-base font-medium">Pioneering an alternative to existing data usage processing services through web tracker development.</p>
-    </div>
-    
-    <!-- Hero Image -->
-    
-    <img alt="Innovating Data Usage Processing Services" width="640" height="400" decoding="async" data-nimg="1" 
-         class="mt-4 h-auto w-full rounded-sm" src="/assets/images/designsprint-eosc-Medium.png" loading="lazy">
-    
+    <h1 class="cs-title">Innovating Data Usage Processing Services</h1>
+    <p class="cs-description">Pioneering an alternative to existing data usage processing services through web tracker development.</p>
+  </header>
+
+  <!-- ── Hero Image ── -->
+  
+  <div class="cs-hero">
+    <img alt="Innovating Data Usage Processing Services" width="640" height="400" decoding="async"
+         src="/assets/images/designsprint-eosc-Medium.png" loading="lazy">
   </div>
   
 
   
 
-    <!-- Case Study Content -->
-    <div class="prose prose-h1:text-2xl prose-h2:text-xl prose-h2:mb-2 prose-h3:mb-3 prose-p:mt-0 prose-p:mb-3 prose-h3:text-lg prose-a:text-accent prose-a:underline prose-ul:mt-0 prose-ul:mb-3 prose-li:mt-0 prose-li:mb-3 prose-p:text-base prose-img:my-3 px-4 font-medium sm:px-6">
-        <h2>Overview</h2>
+  <!-- ── Case Study Content ── -->
+  <div class="cs-prose prose font-medium">
+    <h2>Overview</h2>
 <p>In this project, I took on the role of a Senior Product Designer to pioneer an alternative to existing data usage processing services. These services were heavily dependent on weblogs, which posed challenges when sharing across distributed borders, thus the necessity for a novel solution was clear.</p>
 <h2>Discovery Phase</h2>
 <p>To kick off the project, we conducted a <a href="https://zenodo.org/record/3476545#.YwOYF-xBxqt">survey</a> with key stakeholders to ascertain the primary difficulties associated with current usage processing services, as well as to gauge the technical capabilities within the stakeholder groups. Informed by the survey insights, we made the strategic decision to focus on developing a web tracker, which promised to alleviate stakeholders' challenges, particularly the time-consuming process of handling and transferring logs.</p>
@@ -308,10 +303,11 @@
 <p><strong>10</strong> Group Expert Walkthrough participants</p>
 <p>The project successfully delivered a comprehensive solution that addressed the core challenges of distributed weblog handling, providing stakeholders with a more efficient and scalable approach to data usage processing.</p>
 
-    </div>
-    
-</div>
+  </div>
 
+  
+
+</article>
 
   </main>
   

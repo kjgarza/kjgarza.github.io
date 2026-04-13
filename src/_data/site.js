@@ -32,7 +32,7 @@ module.exports = {
       "https://linktr.ee/kristiangarza",
     ],
     email: "mailto:kj.garza+kjgarza@gmail.com",
-    image: "/uploads/2022/02/18/photo.jpeg",
+    image: "https://kjgarza.github.io/uploads/2022/02/18/photo.jpeg",
     jobTitle: "Senior AI Engineer",
     affiliation: {
       "@type": "Organization",
@@ -69,7 +69,7 @@ module.exports = {
       "user experience",
       "UX Researcher",
       "DevOps",
-      "DesingOps",
+      "DesignOps",
       "Figma",
       "Miro",
       "Lego Serious Play",

@@ -13,6 +13,15 @@ Before proceeding, read these reference files for full context:
 - `references/kristian-profile.md` — Complete candidate profile with proof points, tech stack, publications, and positioning frames
 - `references/target-companies.md` — Curated target company list across three tiers
 
+## Scripts
+
+Bundled helper scripts live in the `scripts/` subfolder of this skill:
+
+| Script | Purpose |
+|--------|---------|
+| `scripts/fetch-job.sh <url>` | Fetch a job posting and return `{url, posted_date, status, content}` JSON. Auto-selects: Greenhouse API → Lever API → Jina Reader → plain curl. |
+| `scripts/run-job-search.sh` | Run a full unattended search (cron/remote trigger). Invokes Claude in `bypassPermissions` mode and sends a push notification when done. |
+
 ## Search Budget (Hard Limits)
 
 **Stop and present results when any limit is hit — do not continue searching.**
@@ -45,10 +54,19 @@ When parsing a posting with Jina Reader, always look for: `Posted`, `Date posted
 | Search for jobs | `WebSearch` |
 | Fetch career pages (JS-heavy) | `mcp__claude-in-chrome__navigate` + `mcp__claude-in-chrome__get_page_text` |
 | Search LinkedIn Jobs (authenticated) | `mcp__claude-in-chrome__*` browser tools |
-| Parse job posting content | `Bash`: `curl -H "Authorization: Bearer $JINA_API_KEY" "https://r.jina.ai/[url]"` |
+| Parse job posting content | `Bash`: `bash .claude/skills/find-kristian-jobs/scripts/fetch-job.sh "[url]"` |
 | Fallback fetch | `WebFetch` |
 
-**Jina Reader pattern:** `curl -H "Authorization: Bearer $JINA_API_KEY" "https://r.jina.ai/[url]"` — use for every job posting URL to get clean markdown fast. Always preferred over raw WebFetch.
+**Job fetch pattern** — use for every job posting URL. Returns structured JSON with `posted_date` and `status` pre-extracted:
+
+```bash
+RESULT=$(bash .claude/skills/find-kristian-jobs/scripts/fetch-job.sh "$JOB_URL")
+POSTED_DATE=$(echo "$RESULT" | jq -r '.posted_date')   # YYYY-MM-DD or "unknown"
+STATUS=$(echo "$RESULT"     | jq -r '.status')          # "open", "closed", or "unknown"
+CONTENT=$(echo "$RESULT"    | jq -r '.content')
+```
+
+The script auto-selects the best source: **Greenhouse API → Lever API → Jina Reader → plain curl**. Always preferred over raw `curl` or `WebFetch`.
 
 ## Output
 
@@ -161,12 +179,15 @@ Collect all results from the 3 agents. Deduplicate by URL. If total > 20, keep t
 3. Discard postings explicitly marked closed/filled.
 4. If the date is unknown, proceed to parse — but flag `posted_date: unknown`.
 
-For each surviving posting, parse the full content using Jina Reader:
+For each surviving posting, fetch the full content:
 ```bash
-curl -H "Authorization: Bearer $JINA_API_KEY" "https://r.jina.ai/[job-url]"
+RESULT=$(bash .claude/skills/find-kristian-jobs/scripts/fetch-job.sh "$JOB_URL")
+POSTED_DATE=$(echo "$RESULT" | jq -r '.posted_date')
+STATUS=$(echo "$RESULT"     | jq -r '.status')
+CONTENT=$(echo "$RESULT"    | jq -r '.content')
 ```
 
-After parsing, re-apply the freshness filter on the full text:
+After fetching, re-apply the freshness filter using the returned `posted_date` and `status` fields:
 - Look for fields: `Posted`, `Date posted`, `Listed`, `Apply by`, `Closes`, `Deadline`.
 - If the extracted date is older than 5 months, **discard the posting** and do not score it.
 - If the posting content says "position filled", "no longer available", or "closed", **discard immediately**.
@@ -242,7 +263,7 @@ This runs the full contact workflow: scrape company site, search LinkedIn, class
 
 ## Mode 3: Deep Analysis
 
-1. Parse the full posting: `curl -H "Authorization: Bearer $JINA_API_KEY" "https://r.jina.ai/[url]"`
+1. Fetch the full posting: `bash .claude/skills/find-kristian-jobs/scripts/fetch-job.sh "[url]"` — returns `{url, posted_date, status, content}` JSON
 2. **Freshness check:** extract the posted date from the parsed content. If the role is closed or older than 5 months, **stop and report** — do not score. If date is unknown, note it and proceed with a warning.
 3. Score with dimension breakdown
 4. Determine positioning frame

@@ -36,8 +36,8 @@ module.exports = {
     jobTitle: "Senior AI Engineer",
     affiliation: {
       "@type": "Organization",
+      "@id": "https://ror.org/02ktfc112",
       name: "Digital Science",
-      url: "https://ror.org/02ktfc112",
     },
     name: "Kristian Garza",
     url: "https://kjgarza.github.io/",

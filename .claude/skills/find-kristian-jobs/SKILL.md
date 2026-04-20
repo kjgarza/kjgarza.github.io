@@ -48,6 +48,17 @@ When parsing a posting with Jina Reader, always look for: `Posted`, `Date posted
 | Parse job posting content | `Bash`: `curl -H "Authorization: Bearer $JINA_API_KEY" "https://r.jina.ai/[url]"` |
 | Fallback fetch | `WebFetch` |
 
+**URL Caching with qurl — check before every fetch:**
+```bash
+qurl get "<url>"   # exits 0 with content if cached; exits 1 if not found
+```
+- Exit 0: use returned content directly. Skip Jina/WebFetch.
+- Exit 1: proceed with Jina or WebFetch, then index the result:
+```bash
+echo "<fetched_content>" | qurl add "<url>"
+```
+Applies to: job posting URLs, career page URLs, company about/team pages.
+
 **Jina Reader pattern:** `curl -H "Authorization: Bearer $JINA_API_KEY" "https://r.jina.ai/[url]"` — use for every job posting URL to get clean markdown fast. Always preferred over raw WebFetch.
 
 ## Output

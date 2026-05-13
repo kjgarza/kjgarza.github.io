@@ -3,7 +3,7 @@
   "@type": "ItemList",
   "name": "Engineering Conferences Europe — May–September 2026",
   "description": "Curated list of engineering and AI conferences in Europe (primarily Germany) between May and September 2026, aligned with interests in LLMs, AI agents, open science, data engineering, DevOps, and Python.",
-  "numberOfItems": 10,
+  "numberOfItems": 16,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -360,6 +360,218 @@
           { "@type": "Thing", "name": "AI Agents" },
           { "@type": "Thing", "name": "Natural Language Processing" },
           { "@type": "Thing", "name": "Machine Learning" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "DevDays Europe 2026 & DevOps Pro Europe",
+        "description": "Developer conference combining software development, cloud-native architecture, AI prototyping, and DevOps. 700+ attendees with workshops on AI-assisted development and modern software delivery practices.",
+        "startDate": "2026-05-19",
+        "endDate": "2026-05-22",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Vilnius",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Vilnius",
+            "addressCountry": "LT"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "DevDays Europe"
+        },
+        "url": "https://devdays.lt/",
+        "keywords": "software development, cloud-native, AI prototyping, DevOps, microservices, engineering productivity",
+        "about": [
+          { "@type": "Thing", "name": "Software Engineering" },
+          { "@type": "Thing", "name": "Cloud Native" },
+          { "@type": "Thing", "name": "DevOps" },
+          { "@type": "Thing", "name": "Artificial Intelligence" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "NDC Copenhagen 2026",
+        "description": "Norwegian Developers Conference in Copenhagen. 55+ speakers across .NET, cloud, DevOps, frontend, AI, and software architecture. Known for high-quality deep-dive talks on software engineering fundamentals and modern cloud patterns.",
+        "startDate": "2026-06-01",
+        "endDate": "2026-06-04",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Copenhagen",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Copenhagen",
+            "addressCountry": "DK"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "NDC Conferences"
+        },
+        "url": "https://ndccopenhagen.com/",
+        "keywords": "software architecture, cloud, DevOps, AI, TypeScript, APIs, microservices, software engineering",
+        "about": [
+          { "@type": "Thing", "name": "Software Architecture" },
+          { "@type": "Thing", "name": "Cloud Computing" },
+          { "@type": "Thing", "name": "DevOps" },
+          { "@type": "Thing", "name": "Artificial Intelligence" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "The AI Summit London 2026",
+        "description": "Flagship enterprise AI event of London Tech Week — 10th anniversary edition with 4,500+ attendees. Covers generative AI, MLOps, responsible AI, and AI at scale. One of Europe's largest dedicated AI business and engineering summits.",
+        "startDate": "2026-06-10",
+        "endDate": "2026-06-11",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "London",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "London",
+            "addressCountry": "GB"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "The AI Summit"
+        },
+        "url": "https://london.theaisummit.com/",
+        "keywords": "generative AI, MLOps, responsible AI, enterprise AI, LLMs, AI strategy, AI at scale",
+        "about": [
+          { "@type": "Thing", "name": "Generative AI" },
+          { "@type": "Thing", "name": "Large Language Models" },
+          { "@type": "Thing", "name": "MLOps" },
+          { "@type": "Thing", "name": "Responsible AI" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "AI World Congress 2026",
+        "description": "High-level AI conference in London with speakers confirmed from Anthropic, Microsoft, and IBM. Covers AI, robotics, agentic systems, and enterprise AI strategy. Targeted at senior decision-makers and AI engineers.",
+        "startDate": "2026-06-23",
+        "endDate": "2026-06-24",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "London",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "London",
+            "addressCountry": "GB"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "AI World Congress"
+        },
+        "url": "https://aiconference.london/",
+        "keywords": "AI, agentic AI, robotics, enterprise AI, Anthropic, Microsoft, IBM, LLMs, AI strategy",
+        "about": [
+          { "@type": "Thing", "name": "Artificial Intelligence" },
+          { "@type": "Thing", "name": "AI Agents" },
+          { "@type": "Thing", "name": "Large Language Models" }
+        ],
+        "sponsor": [
+          { "@type": "Organization", "name": "Anthropic" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 15,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "RAISE Summit 2026",
+        "description": "Europe's largest ROI-focused AI summit with 9,000+ attendees in Paris. Focus on agentic AI systems, sovereign AI, and production AI deployments. C-suite and engineering leadership audience with strong practitioner tracks.",
+        "startDate": "2026-07-08",
+        "endDate": "2026-07-09",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Paris",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Paris",
+            "addressCountry": "FR"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "RAISE Summit"
+        },
+        "url": "https://www.raisesummit.com/",
+        "keywords": "agentic AI, sovereign AI, AI production, ROI of AI, LLMs, AI strategy, enterprise AI",
+        "about": [
+          { "@type": "Thing", "name": "AI Agents" },
+          { "@type": "Thing", "name": "Sovereign AI" },
+          { "@type": "Thing", "name": "Generative AI" },
+          { "@type": "Thing", "name": "Large Language Models" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "ECML PKDD 2026",
+        "description": "European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases. Premier European academic ML conference with workshops, tutorials, and research tracks on machine learning, data mining, and AI.",
+        "startDate": "2026-09-07",
+        "endDate": "2026-09-11",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Naples",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Naples",
+            "addressCountry": "IT"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "ECML PKDD Organizing Committee"
+        },
+        "url": "https://ecmlpkdd.org/2026/",
+        "keywords": "machine learning, knowledge discovery, data mining, AI research, deep learning, NLP",
+        "about": [
+          { "@type": "Thing", "name": "Machine Learning" },
+          { "@type": "Thing", "name": "Data Mining" },
+          { "@type": "Thing", "name": "Knowledge Discovery" },
+          { "@type": "Thing", "name": "Artificial Intelligence" }
         ]
       }
     }

@@ -3,7 +3,7 @@
   "@type": "ItemList",
   "name": "Engineering Conferences Europe — May–September 2026",
   "description": "Curated list of engineering and AI conferences in Europe (primarily Germany) between May and September 2026, aligned with interests in LLMs, AI agents, open science, data engineering, DevOps, and Python.",
-  "numberOfItems": 16,
+  "numberOfItems": 20,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -572,6 +572,148 @@
           { "@type": "Thing", "name": "Data Mining" },
           { "@type": "Thing", "name": "Knowledge Discovery" },
           { "@type": "Thing", "name": "Artificial Intelligence" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 17,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "DATA festival Munich 2026",
+        "description": "Munich's practitioner-focused data and AI conference covering data engineering, analytics, ML, GenAI adoption, and AI governance. Run by BARC (Business Application Research Center), with a strong German-speaking engineering audience.",
+        "startDate": "2026-06-16",
+        "endDate": "2026-06-17",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Munich",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Munich",
+            "addressCountry": "DE"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "BARC — Business Application Research Center",
+          "url": "https://barc.com"
+        },
+        "url": "https://barc.com/events/data-festival/",
+        "keywords": "data engineering, analytics, machine learning, AI governance, GenAI, data platforms, MLOps",
+        "about": [
+          { "@type": "Thing", "name": "Data Engineering" },
+          { "@type": "Thing", "name": "Machine Learning" },
+          { "@type": "Thing", "name": "Generative AI" },
+          { "@type": "Thing", "name": "Analytics" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 18,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "TDWI München 2026",
+        "description": "Germany's largest data & AI conference for the German-speaking region. Covers data platforms, analytics engineering, AI/ML integration, data governance, data architecture, and MLOps. Deep technical and management tracks in German and English.",
+        "startDate": "2026-06-23",
+        "endDate": "2026-06-25",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Munich",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Munich",
+            "addressCountry": "DE"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "TDWI (Transforming Data With Intelligence)"
+        },
+        "url": "https://www.tdwi-konferenz.de/de",
+        "keywords": "data platforms, analytics, AI/ML, data governance, data architecture, MLOps, data mesh, data engineering",
+        "about": [
+          { "@type": "Thing", "name": "Data Engineering" },
+          { "@type": "Thing", "name": "MLOps" },
+          { "@type": "Thing", "name": "Data Governance" },
+          { "@type": "Thing", "name": "Data Architecture" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 19,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "KI 2026 — 49th German Conference on Artificial Intelligence",
+        "description": "Germany's national AI research conference, hosted by DFKI and co-located with IJCAI-ECAI 2026 in Bremen. Covers all areas of AI: ML, NLP, robotics, knowledge representation, and multi-agent systems. Runs immediately before IJCAI-ECAI, making the two a natural pair to attend back-to-back.",
+        "startDate": "2026-08-11",
+        "endDate": "2026-08-14",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Bremen",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bremen",
+            "addressCountry": "DE"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "Gesellschaft für Informatik (GI) / DFKI"
+        },
+        "url": "https://ki2026.gi.de/",
+        "keywords": "artificial intelligence, machine learning, NLP, robotics, knowledge representation, multi-agent systems, AI research",
+        "about": [
+          { "@type": "Thing", "name": "Artificial Intelligence" },
+          { "@type": "Thing", "name": "Machine Learning" },
+          { "@type": "Thing", "name": "Natural Language Processing" },
+          { "@type": "Thing", "name": "AI Agents" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 20,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "AGNTCon + MCPCon Europe 2026",
+        "description": "Linux Foundation conference dedicated to agentic AI and the Model Context Protocol (MCP) — the open standard for connecting LLMs to tools and data sources. Directly aligned with MCP (Adopt tier in your technology radar) and Claude Agent SDK work. Slightly outside the May–September window at 4 days past Sept 13, but highly recommended.",
+        "startDate": "2026-09-17",
+        "endDate": "2026-09-18",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Amsterdam",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Amsterdam",
+            "addressCountry": "NL"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "Linux Foundation",
+          "url": "https://events.linuxfoundation.org"
+        },
+        "url": "https://events.linuxfoundation.org/agntcon-mcpcon-europe/",
+        "keywords": "MCP, Model Context Protocol, agentic AI, AI agents, LLM tooling, Claude Agent SDK, open source AI, agent frameworks",
+        "about": [
+          { "@type": "Thing", "name": "Model Context Protocol" },
+          { "@type": "Thing", "name": "AI Agents" },
+          { "@type": "Thing", "name": "Large Language Models" },
+          { "@type": "Thing", "name": "Open Source" }
         ]
       }
     }

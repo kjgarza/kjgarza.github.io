@@ -1,0 +1,721 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Engineering Conferences Europe — May–September 2026",
+  "description": "Curated list of engineering and AI conferences in Europe (primarily Germany) between May and September 2026, aligned with interests in LLMs, AI agents, open science, data engineering, DevOps, and Python.",
+  "numberOfItems": 20,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "OPERAS 2026 & SCIROS Conference",
+        "description": "Premier conference on open scholarly communication and research infrastructure. Covers open science infrastructure, research data management, and scholarly communication for the SSH community. Highly relevant for research data and persistent identifier work.",
+        "startDate": "2026-05-18",
+        "endDate": "2026-05-21",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Warsaw",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Warsaw",
+            "addressCountry": "PL"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "OPERAS Research Infrastructure"
+        },
+        "url": "https://operas-eu.org/news-and-events/calendar-2/operas-2026-sciros-conference/",
+        "keywords": "open science, research infrastructure, scholarly communication, research data management, open access",
+        "about": [
+          { "@type": "Thing", "name": "Open Science" },
+          { "@type": "Thing", "name": "Research Data Management" },
+          { "@type": "Thing", "name": "Persistent Identifiers" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "ICMLT 2026 — International Conference on Machine Learning Technologies",
+        "description": "Academic and industry conference covering machine learning technologies and AI applications. Covers practical ML engineering, model deployment, and emerging AI techniques.",
+        "startDate": "2026-05-20",
+        "endDate": "2026-05-22",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Berlin",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Berlin",
+            "addressCountry": "DE"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "ICMLT Organizing Committee"
+        },
+        "url": "https://www.icmlt.org/",
+        "keywords": "machine learning, deep learning, AI, neural networks, model deployment, LLMs",
+        "about": [
+          { "@type": "Thing", "name": "Machine Learning" },
+          { "@type": "Thing", "name": "Artificial Intelligence" },
+          { "@type": "Thing", "name": "Large Language Models" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "AWS Summit Amsterdam 2026",
+        "description": "Amazon Web Services' flagship European cloud summit. Covers cloud-native architecture, AI/ML services on AWS (Bedrock, SageMaker), serverless, and developer tooling. Free to attend.",
+        "startDate": "2026-05-27",
+        "endDate": "2026-05-27",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Amsterdam",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Amsterdam",
+            "addressCountry": "NL"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "Amazon Web Services",
+          "url": "https://aws.amazon.com"
+        },
+        "sponsor": {
+          "@type": "Organization",
+          "name": "Amazon Web Services"
+        },
+        "url": "https://aws.amazon.com/events/summits/amsterdam/",
+        "keywords": "AWS, cloud, SageMaker, Bedrock, serverless, microservices, AI, DevOps, Terraform",
+        "about": [
+          { "@type": "Thing", "name": "Cloud Computing" },
+          { "@type": "Thing", "name": "AWS" },
+          { "@type": "Thing", "name": "Generative AI" },
+          { "@type": "Thing", "name": "Microservices" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Data Mesh Live 2026",
+        "description": "Premier global conference for data mesh practitioners. Topics include data products, AI-ready data platforms, metadata management, data governance, and domain-driven data architectures. Co-located with DDD Europe 2026.",
+        "startDate": "2026-06-10",
+        "endDate": "2026-06-12",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Queen Elisabeth Hall, Antwerp",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Antwerp",
+            "addressCountry": "BE"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "Data Mesh Live"
+        },
+        "url": "https://2026.datameshlive.com/",
+        "keywords": "data mesh, data products, metadata, data governance, domain-driven design, data engineering",
+        "about": [
+          { "@type": "Thing", "name": "Data Engineering" },
+          { "@type": "Thing", "name": "Data Mesh" },
+          { "@type": "Thing", "name": "Metadata Management" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "DevOpsCon Berlin 2026",
+        "description": "Europe's leading DevOps conference, held in Berlin. Covers CI/CD pipelines, Kubernetes, platform engineering, DevSecOps, microservices architecture, and cloud-native development. Workshops and in-depth training available.",
+        "startDate": "2026-06-15",
+        "endDate": "2026-06-19",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Berlin",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Berlin",
+            "addressCountry": "DE"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "Software & Support Media"
+        },
+        "url": "https://devopscon.io/berlin/",
+        "keywords": "DevOps, CI/CD, Kubernetes, platform engineering, DevSecOps, microservices, Docker, GitHub Actions",
+        "about": [
+          { "@type": "Thing", "name": "DevOps" },
+          { "@type": "Thing", "name": "Platform Engineering" },
+          { "@type": "Thing", "name": "Kubernetes" },
+          { "@type": "Thing", "name": "Microservices" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "MLcon Munich 2026",
+        "description": "Practical machine learning conference in Munich with hands-on workshops, bootcamps, and talks from ML engineers. Focus on generative AI, LLM engineering, RAG architectures, and production ML. Hybrid format.",
+        "startDate": "2026-06-22",
+        "endDate": "2026-06-26",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Holiday Inn Munich City Centre",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Munich",
+            "addressCountry": "DE"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "MLcon"
+        },
+        "url": "https://mlconference.ai/munich/",
+        "keywords": "machine learning, generative AI, LLMs, RAG, AI engineering, MLOps, vector databases, LangChain, LlamaIndex",
+        "about": [
+          { "@type": "Thing", "name": "Large Language Models" },
+          { "@type": "Thing", "name": "Generative AI" },
+          { "@type": "Thing", "name": "RAG" },
+          { "@type": "Thing", "name": "MLOps" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "GITEX AI Europe 2026",
+        "description": "Major AI and tech expo in Berlin combining an exhibition with a high-level conference. Topics span enterprise AI, sovereign digital transformation, HealthTech, FinTech, cybersecurity, quantum computing, and AI startups. Draws 40,000+ attendees.",
+        "startDate": "2026-06-30",
+        "endDate": "2026-07-01",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Messe Berlin",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Berlin",
+            "addressCountry": "DE"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "GITEX Global"
+        },
+        "url": "https://www.gitexeurope.com/",
+        "keywords": "AI, enterprise AI, sovereign AI, FinTech, cybersecurity, quantum computing, startups, digital transformation",
+        "about": [
+          { "@type": "Thing", "name": "Artificial Intelligence" },
+          { "@type": "Thing", "name": "Digital Transformation" },
+          { "@type": "Thing", "name": "AI Startups" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "WeAreDevelopers World Congress 2026",
+        "description": "Europe's largest developer festival with 15,000+ attendees and 500+ speakers across AI, cloud, DevOps, software architecture, frontend, and cybersecurity. 40,000 m² tech expo. Held in Berlin.",
+        "startDate": "2026-07-08",
+        "endDate": "2026-07-10",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "CityCube Berlin",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Berlin",
+            "addressCountry": "DE"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "WeAreDevelopers",
+          "url": "https://www.wearedevelopers.com"
+        },
+        "url": "https://www.wearedevelopers.com/world-congress",
+        "keywords": "software engineering, AI, cloud, DevOps, TypeScript, architecture, frontend, cybersecurity, open source",
+        "about": [
+          { "@type": "Thing", "name": "Software Engineering" },
+          { "@type": "Thing", "name": "Artificial Intelligence" },
+          { "@type": "Thing", "name": "Cloud Computing" },
+          { "@type": "Thing", "name": "DevOps" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "EuroPython 2026",
+        "description": "Europe's largest Python conference — 25th anniversary edition. 1,500+ participants across talks, workshops, and sprints spanning Python, data science, AI/ML, web development, and scientific computing. Close to Germany.",
+        "startDate": "2026-07-13",
+        "endDate": "2026-07-19",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "ICE Krakow Congress Centre",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Krakow",
+            "addressCountry": "PL"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "EuroPython Society"
+        },
+        "url": "https://ep2026.europython.eu/",
+        "keywords": "Python, FastAPI, data science, AI, LangChain, LlamaIndex, pydantic, scientific computing, open source",
+        "about": [
+          { "@type": "Thing", "name": "Python" },
+          { "@type": "Thing", "name": "FastAPI" },
+          { "@type": "Thing", "name": "Data Science" },
+          { "@type": "Thing", "name": "Open Source" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "IJCAI-ECAI 2026",
+        "description": "The premier international joint conference on AI research, co-located with the European Conference on AI. ~3,500–4,000 attendees. Covers AI agents, NLP, ML, robotics, knowledge representation, and more. Hosted at the University of Bremen, Germany.",
+        "startDate": "2026-08-15",
+        "endDate": "2026-08-21",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "University of Bremen / Bremen Exhibition Center",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bremen",
+            "addressCountry": "DE"
+          }
+        },
+        "organizer": [
+          {
+            "@type": "Organization",
+            "name": "International Joint Conferences on AI (IJCAI)"
+          },
+          {
+            "@type": "Organization",
+            "name": "European Association for Artificial Intelligence (EurAI)"
+          }
+        ],
+        "url": "https://2026.ijcai.org/",
+        "keywords": "AI research, machine learning, AI agents, NLP, knowledge representation, robotics, LLMs",
+        "about": [
+          { "@type": "Thing", "name": "Artificial Intelligence" },
+          { "@type": "Thing", "name": "AI Agents" },
+          { "@type": "Thing", "name": "Natural Language Processing" },
+          { "@type": "Thing", "name": "Machine Learning" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "DevDays Europe 2026 & DevOps Pro Europe",
+        "description": "Developer conference combining software development, cloud-native architecture, AI prototyping, and DevOps. 700+ attendees with workshops on AI-assisted development and modern software delivery practices.",
+        "startDate": "2026-05-19",
+        "endDate": "2026-05-22",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Vilnius",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Vilnius",
+            "addressCountry": "LT"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "DevDays Europe"
+        },
+        "url": "https://devdays.lt/",
+        "keywords": "software development, cloud-native, AI prototyping, DevOps, microservices, engineering productivity",
+        "about": [
+          { "@type": "Thing", "name": "Software Engineering" },
+          { "@type": "Thing", "name": "Cloud Native" },
+          { "@type": "Thing", "name": "DevOps" },
+          { "@type": "Thing", "name": "Artificial Intelligence" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "NDC Copenhagen 2026",
+        "description": "Norwegian Developers Conference in Copenhagen. 55+ speakers across .NET, cloud, DevOps, frontend, AI, and software architecture. Known for high-quality deep-dive talks on software engineering fundamentals and modern cloud patterns.",
+        "startDate": "2026-06-01",
+        "endDate": "2026-06-04",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Copenhagen",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Copenhagen",
+            "addressCountry": "DK"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "NDC Conferences"
+        },
+        "url": "https://ndccopenhagen.com/",
+        "keywords": "software architecture, cloud, DevOps, AI, TypeScript, APIs, microservices, software engineering",
+        "about": [
+          { "@type": "Thing", "name": "Software Architecture" },
+          { "@type": "Thing", "name": "Cloud Computing" },
+          { "@type": "Thing", "name": "DevOps" },
+          { "@type": "Thing", "name": "Artificial Intelligence" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "The AI Summit London 2026",
+        "description": "Flagship enterprise AI event of London Tech Week — 10th anniversary edition with 4,500+ attendees. Covers generative AI, MLOps, responsible AI, and AI at scale. One of Europe's largest dedicated AI business and engineering summits.",
+        "startDate": "2026-06-10",
+        "endDate": "2026-06-11",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "London",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "London",
+            "addressCountry": "GB"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "The AI Summit"
+        },
+        "url": "https://london.theaisummit.com/",
+        "keywords": "generative AI, MLOps, responsible AI, enterprise AI, LLMs, AI strategy, AI at scale",
+        "about": [
+          { "@type": "Thing", "name": "Generative AI" },
+          { "@type": "Thing", "name": "Large Language Models" },
+          { "@type": "Thing", "name": "MLOps" },
+          { "@type": "Thing", "name": "Responsible AI" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "AI World Congress 2026",
+        "description": "High-level AI conference in London with speakers confirmed from Anthropic, Microsoft, and IBM. Covers AI, robotics, agentic systems, and enterprise AI strategy. Targeted at senior decision-makers and AI engineers.",
+        "startDate": "2026-06-23",
+        "endDate": "2026-06-24",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "London",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "London",
+            "addressCountry": "GB"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "AI World Congress"
+        },
+        "url": "https://aiconference.london/",
+        "keywords": "AI, agentic AI, robotics, enterprise AI, Anthropic, Microsoft, IBM, LLMs, AI strategy",
+        "about": [
+          { "@type": "Thing", "name": "Artificial Intelligence" },
+          { "@type": "Thing", "name": "AI Agents" },
+          { "@type": "Thing", "name": "Large Language Models" }
+        ],
+        "sponsor": [
+          { "@type": "Organization", "name": "Anthropic" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 15,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "RAISE Summit 2026",
+        "description": "Europe's largest ROI-focused AI summit with 9,000+ attendees in Paris. Focus on agentic AI systems, sovereign AI, and production AI deployments. C-suite and engineering leadership audience with strong practitioner tracks.",
+        "startDate": "2026-07-08",
+        "endDate": "2026-07-09",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Paris",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Paris",
+            "addressCountry": "FR"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "RAISE Summit"
+        },
+        "url": "https://www.raisesummit.com/",
+        "keywords": "agentic AI, sovereign AI, AI production, ROI of AI, LLMs, AI strategy, enterprise AI",
+        "about": [
+          { "@type": "Thing", "name": "AI Agents" },
+          { "@type": "Thing", "name": "Sovereign AI" },
+          { "@type": "Thing", "name": "Generative AI" },
+          { "@type": "Thing", "name": "Large Language Models" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "ECML PKDD 2026",
+        "description": "European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases. Premier European academic ML conference with workshops, tutorials, and research tracks on machine learning, data mining, and AI.",
+        "startDate": "2026-09-07",
+        "endDate": "2026-09-11",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Naples",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Naples",
+            "addressCountry": "IT"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "ECML PKDD Organizing Committee"
+        },
+        "url": "https://ecmlpkdd.org/2026/",
+        "keywords": "machine learning, knowledge discovery, data mining, AI research, deep learning, NLP",
+        "about": [
+          { "@type": "Thing", "name": "Machine Learning" },
+          { "@type": "Thing", "name": "Data Mining" },
+          { "@type": "Thing", "name": "Knowledge Discovery" },
+          { "@type": "Thing", "name": "Artificial Intelligence" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 17,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "DATA festival Munich 2026",
+        "description": "Munich's practitioner-focused data and AI conference covering data engineering, analytics, ML, GenAI adoption, and AI governance. Run by BARC (Business Application Research Center), with a strong German-speaking engineering audience.",
+        "startDate": "2026-06-16",
+        "endDate": "2026-06-17",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Munich",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Munich",
+            "addressCountry": "DE"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "BARC — Business Application Research Center",
+          "url": "https://barc.com"
+        },
+        "url": "https://barc.com/events/data-festival/",
+        "keywords": "data engineering, analytics, machine learning, AI governance, GenAI, data platforms, MLOps",
+        "about": [
+          { "@type": "Thing", "name": "Data Engineering" },
+          { "@type": "Thing", "name": "Machine Learning" },
+          { "@type": "Thing", "name": "Generative AI" },
+          { "@type": "Thing", "name": "Analytics" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 18,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "TDWI München 2026",
+        "description": "Germany's largest data & AI conference for the German-speaking region. Covers data platforms, analytics engineering, AI/ML integration, data governance, data architecture, and MLOps. Deep technical and management tracks in German and English.",
+        "startDate": "2026-06-23",
+        "endDate": "2026-06-25",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Munich",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Munich",
+            "addressCountry": "DE"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "TDWI (Transforming Data With Intelligence)"
+        },
+        "url": "https://www.tdwi-konferenz.de/de",
+        "keywords": "data platforms, analytics, AI/ML, data governance, data architecture, MLOps, data mesh, data engineering",
+        "about": [
+          { "@type": "Thing", "name": "Data Engineering" },
+          { "@type": "Thing", "name": "MLOps" },
+          { "@type": "Thing", "name": "Data Governance" },
+          { "@type": "Thing", "name": "Data Architecture" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 19,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "KI 2026 — 49th German Conference on Artificial Intelligence",
+        "description": "Germany's national AI research conference, hosted by DFKI and co-located with IJCAI-ECAI 2026 in Bremen. Covers all areas of AI: ML, NLP, robotics, knowledge representation, and multi-agent systems. Runs immediately before IJCAI-ECAI, making the two a natural pair to attend back-to-back.",
+        "startDate": "2026-08-11",
+        "endDate": "2026-08-14",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Bremen",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bremen",
+            "addressCountry": "DE"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "Gesellschaft für Informatik (GI) / DFKI"
+        },
+        "url": "https://ki2026.gi.de/",
+        "keywords": "artificial intelligence, machine learning, NLP, robotics, knowledge representation, multi-agent systems, AI research",
+        "about": [
+          { "@type": "Thing", "name": "Artificial Intelligence" },
+          { "@type": "Thing", "name": "Machine Learning" },
+          { "@type": "Thing", "name": "Natural Language Processing" },
+          { "@type": "Thing", "name": "AI Agents" }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 20,
+      "item": {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "AGNTCon + MCPCon Europe 2026",
+        "description": "Linux Foundation conference dedicated to agentic AI and the Model Context Protocol (MCP) — the open standard for connecting LLMs to tools and data sources. Directly aligned with MCP (Adopt tier in your technology radar) and Claude Agent SDK work. Slightly outside the May–September window at 4 days past Sept 13, but highly recommended.",
+        "startDate": "2026-09-17",
+        "endDate": "2026-09-18",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Amsterdam",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Amsterdam",
+            "addressCountry": "NL"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "Linux Foundation",
+          "url": "https://events.linuxfoundation.org"
+        },
+        "url": "https://events.linuxfoundation.org/agntcon-mcpcon-europe/",
+        "keywords": "MCP, Model Context Protocol, agentic AI, AI agents, LLM tooling, Claude Agent SDK, open source AI, agent frameworks",
+        "about": [
+          { "@type": "Thing", "name": "Model Context Protocol" },
+          { "@type": "Thing", "name": "AI Agents" },
+          { "@type": "Thing", "name": "Large Language Models" },
+          { "@type": "Thing", "name": "Open Source" }
+        ]
+      }
+    }
+  ]
+}

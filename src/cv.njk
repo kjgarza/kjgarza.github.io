@@ -48,7 +48,9 @@ permalink: /cv/
         <div class="cv-skills-list">
           {% for skill in cv.skills %}
           <div class="cv-skill-item">
-            <div class="cv-skill-name">{{ skill.name }}</div>
+            <div class="cv-skill-name">
+              {% if skill.radarUrl %}<a href="{{ skill.radarUrl }}" target="_blank" rel="noopener" title="View on Technology Radar">{{ skill.name }}</a>{% else %}{{ skill.name }}{% endif %}
+            </div>
             <div class="cv-skill-bar">
               <div class="cv-skill-bar-fill" style="width: {{ skill.level }}%"></div>
             </div>

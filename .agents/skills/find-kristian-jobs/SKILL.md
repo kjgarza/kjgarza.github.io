@@ -20,6 +20,7 @@ Bundled helper scripts live in the `scripts/` subfolder of this skill:
 | Script | Purpose |
 |--------|---------|
 | `scripts/fetch-job.sh <url>` | Fetch a job posting and return `{url, posted_date, status, content}` JSON. Auto-selects: Greenhouse API → Lever API → Jina Reader → plain curl. |
+| `scripts/fetch-application-form.sh <url>` | Find the **apply deep link** and extract the actual application form questions. Returns `{url, ats, apply_url, source, questions, form_text}` JSON. Structured questions via Greenhouse/Workable public APIs; apply-page scraping for Lever/generic; Jina for JS-rendered Ashby forms. |
 | `scripts/run-job-search.sh` | Run a full unattended search (cron/remote trigger). Invokes Codex in `bypassPermissions` mode and sends a push notification when done. |
 
 ## Search Budget (Hard Limits)
@@ -54,7 +55,9 @@ When parsing a posting with Jina Reader, always look for: `Posted`, `Date posted
 | Search for jobs | `WebSearch` |
 | Fetch career pages (JS-heavy) | `mcp__claude-in-chrome__navigate` + `mcp__claude-in-chrome__get_page_text` |
 | Search LinkedIn Jobs (authenticated) | `mcp__claude-in-chrome__*` browser tools |
-| Parse job posting content | `Bash`: `bash .Codex/skills/find-kristian-jobs/scripts/fetch-job.sh "[url]"` |
+| Parse job posting content | `Bash`: `bash .agents/skills/find-kristian-jobs/scripts/fetch-job.sh "[url]"` |
+| Fetch application form + questions | `Bash`: `bash .agents/skills/find-kristian-jobs/scripts/fetch-application-form.sh "[url]"` |
+| Read a JS-only or login-walled apply form | `mcp__claude-in-chrome__navigate` + `get_page_text` on the `apply_url` |
 | Fallback fetch | `WebFetch` |
 
 **URL Caching with qurl — check before every fetch:**
@@ -72,7 +75,7 @@ Applies to: job posting URLs, career page URLs, company about/team pages.
 **Job fetch pattern** — use for every job posting URL. Returns structured JSON with `posted_date` and `status` pre-extracted:
 
 ```bash
-RESULT=$(bash .Codex/skills/find-kristian-jobs/scripts/fetch-job.sh "$JOB_URL")
+RESULT=$(bash .agents/skills/find-kristian-jobs/scripts/fetch-job.sh "$JOB_URL")
 POSTED_DATE=$(echo "$RESULT" | jq -r '.posted_date')   # YYYY-MM-DD or "unknown"
 STATUS=$(echo "$RESULT"     | jq -r '.status')          # "open", "closed", or "unknown"
 CONTENT=$(echo "$RESULT"    | jq -r '.content')
@@ -193,7 +196,7 @@ Collect all results from the 3 agents. Deduplicate by URL. If total > 20, keep t
 
 For each surviving posting, fetch the full content:
 ```bash
-RESULT=$(bash .Codex/skills/find-kristian-jobs/scripts/fetch-job.sh "$JOB_URL")
+RESULT=$(bash .agents/skills/find-kristian-jobs/scripts/fetch-job.sh "$JOB_URL")
 POSTED_DATE=$(echo "$RESULT" | jq -r '.posted_date')
 STATUS=$(echo "$RESULT"     | jq -r '.status')
 CONTENT=$(echo "$RESULT"    | jq -r '.content')
@@ -275,19 +278,22 @@ This runs the full contact workflow: scrape company site, search LinkedIn, class
 
 ## Mode 3: Deep Analysis
 
-1. Fetch the full posting: `bash .Codex/skills/find-kristian-jobs/scripts/fetch-job.sh "[url]"` — returns `{url, posted_date, status, content}` JSON
+1. Fetch the full posting: `bash .agents/skills/find-kristian-jobs/scripts/fetch-job.sh "[url]"` — returns `{url, posted_date, status, content}` JSON
 2. **Freshness check:** extract the posted date from the parsed content. If the role is closed or older than 5 months, **stop and report** — do not score. If date is unknown, note it and proceed with a warning.
-3. Score with dimension breakdown
-4. Determine positioning frame
-5. Map every requirement to a proof point
-6. Identify gaps honestly
-7. Check for hidden fit signals
-8. Recommend GO / STRETCH / PASS
+3. Fetch the application form: `bash .agents/skills/find-kristian-jobs/scripts/fetch-application-form.sh "[url]"` — capture the `apply_url` and how many custom questions the form carries (this feeds the effort estimate and the Application Package)
+4. Score with dimension breakdown
+5. Determine positioning frame
+6. Map every requirement to a proof point
+7. Identify gaps honestly
+8. Check for hidden fit signals
+9. Recommend GO / STRETCH / PASS
 
 ```
 ## Deep Analysis: [Role] at [Company]
 
 **Job URL**: [link]
+**Apply URL**: [apply deep link or "not found — check manually"]
+**Application Form**: [N custom questions / standard fields only / unreadable (JS or login wall)]
 **Posted Date**: [date or "unknown"]
 **Status**: Open / Closed / Unknown
 **Overall Score**: XX%
@@ -311,9 +317,30 @@ This runs the full contact workflow: scrape company site, search LinkedIn, class
 
 ## Mode 4: Application Package
 
+**A job ad is not the application.** The real form — screening questions, essay prompts, salary/visa/notice fields, required attachments — lives on the apply deep link. The package is not complete without it.
+
 1. Run Deep Analysis (Mode 3)
-2. If score >= 60%, generate cover letter + resume talking points + approach angle
-3. Automatically invoke `find-linkedin-contacts` for this company+role
+2. If score >= 60%, fetch the application form:
+   ```bash
+   bash .agents/skills/find-kristian-jobs/scripts/fetch-application-form.sh "$JOB_URL"
+   ```
+   - `questions` non-empty → use them as the authoritative form
+   - `questions` empty but `form_text` present → extract the questions from `form_text` yourself
+   - `source: "none"` (JS-only or login wall) → open `apply_url` with `mcp__claude-in-chrome__navigate` + `get_page_text` and read the rendered form; if browser tools are unavailable, try `WebFetch` on `apply_url`
+   - Still unreadable → include the `apply_url` in the package with an explicit "check the form manually before submitting" note — never silently skip it
+3. Generate cover letter + resume talking points + approach angle + **application form answers** (see below)
+4. Automatically invoke `find-linkedin-contacts` for this company+role
+
+### Application Form Answers
+
+For every question found in step 2, include a section in the package:
+
+- **Essay/motivation questions** — full drafted answer per the cover letter rules (concrete metrics, honest, tone matched to culture; respect any stated word/character limit)
+- **Factual questions** (salary expectation, notice period, visa/work authorization, start date) — answer from the profile if present; otherwise insert a `[FILL ME: …]` placeholder and list it in the summary — never guess personal facts
+- **Yes/no screeners** — answer honestly from the profile; if an honest answer is a knockout risk, flag it prominently rather than fudging it
+- **Standard fields** (name, email, CV upload, LinkedIn) — list them so nothing is a surprise at submit time; no draft needed
+
+Record the `apply_url` and the form source (api / apply-page / browser / unreadable) at the top of the section.
 
 ### Cover Letter Structure
 1. Opening hook — the most relevant intersection, not generic interest
@@ -355,3 +382,4 @@ Rules: concrete outcomes only, ~350 words, tone matched to culture.
 - When in doubt about positioning, default to "production AI engineer with deep domain expertise in research infrastructure"
 - All searches should include current year to find active postings
 - If a career page is behind authentication or can't be fetched, note this and suggest the user check manually
+- **The job ad is not the application** — for Deep Analysis and Application Package, always resolve the apply deep link and its form questions via `fetch-application-form.sh`; a package without the form's questions (or an explicit unreadable-form note with the `apply_url`) is incomplete

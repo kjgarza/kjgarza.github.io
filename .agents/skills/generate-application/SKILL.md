@@ -37,12 +37,11 @@ Discover the apply deep link and pull the actual application questions:
 bash .agents/skills/generate-application/scripts/fetch-application-form.sh "[job-url]"
 ```
 
-Returns JSON: `{url, ats, apply_url, source, questions, form_text}`. The script uses the ATS's public API where one exists (Greenhouse `?questions=true`, Workable form API — both return labels, required flags, and dropdown options) and falls back to scraping the apply page.
+Returns JSON: `{url, ats, apply_url, source, needs_browser, questions, form_text}`. The script uses the ATS's public API where one exists (Greenhouse `?questions=true`, Workable form API, Ashby GraphQL posting API — all return labels, required flags, and dropdown options) and falls back to scraping the apply page.
 
 Interpret the result:
-- **`questions` non-empty** — use them directly; they are the authoritative form.
-- **`questions` empty but `form_text` has content** — read `form_text` and extract every question/field the form asks for yourself.
-- **Both empty** (`source: "none"` — JS-only page or login wall) — fetch `apply_url` with `WebFetch`; if browser tools are available (`mcp__claude-in-chrome__navigate` + `mcp__claude-in-chrome__get_page_text`), open `apply_url` and read the rendered form.
+- **`needs_browser: false`** — `questions` is authoritative; use it directly.
+- **`needs_browser: true`** — the form wasn't captured (empty `questions`; `form_text` is at best a thin JD blob). Open `apply_url` with browser tools (`mcp__claude-in-chrome__navigate` + `mcp__claude-in-chrome__get_page_text`) and read the rendered form. If browser tools are unavailable, extract whatever you can from `form_text`, then try `WebFetch` on `apply_url`.
 - **Still unreadable** — record this explicitly in `application-questions.md` with the `apply_url` so the user can open it manually. Never silently skip the form.
 
 Classify each question into three buckets (used in Step 9):
@@ -180,7 +179,7 @@ Tell the user:
 
 ## Scripts
 
-- **`scripts/fetch-application-form.sh <job-url>`** — Discover the apply deep link and extract application form questions (`{url, ats, apply_url, source, questions, form_text}` JSON). Handles Greenhouse, Lever, Ashby, Workable, SmartRecruiters, and generic career pages.
+- **`scripts/fetch-application-form.sh <job-url>`** — Discover the apply deep link and extract application form questions (`{url, ats, apply_url, source, needs_browser, questions, form_text}` JSON). Handles Greenhouse, Lever, Ashby, Workable, SmartRecruiters, Factorial, and generic career pages. `needs_browser: true` signals the form must be read with browser tools.
 
 ## Notes
 

@@ -13,24 +13,32 @@
 # Output: JSON to stdout
 #   {
 #     "url": "...",          input job posting URL
-#     "ats": "greenhouse|lever|ashby|workable|smartrecruiters|generic",
+#     "ats": "greenhouse|lever|ashby|workable|smartrecruiters|factorial|generic",
 #     "apply_url": "...",    deep link to the application form (falls back to the job URL if not found; check source)
 #     "source": "api|apply-page|none",
+#     "needs_browser": true|false,  true when the form wasn't captured (source apply-page/none AND questions empty)
 #     "questions": [ {"label": "...", "type": "...", "required": true|false|null, "options": [...]|null} ],
 #     "form_text": "..."     raw apply-page text when questions could not be fully structured
 #   }
+#
+# needs_browser is the handoff signal: when true, the returned questions are empty
+# and form_text is at best a thin JD blob, so the calling agent MUST open apply_url
+# with browser tools (mcp__claude-in-chrome__navigate + mcp__claude-in-chrome__get_page_text)
+# to read the real form instead of trusting this output. When false, questions[] is
+# authoritative and no browser step is needed.
 #
 # Strategy per ATS:
 #   greenhouse       → public boards API with ?questions=true (full structured form)
 #   workable         → public form API (v3, then v1)
 #   lever            → fetch {url}/apply HTML (server-rendered) and extract field labels
 #   smartrecruiters  → postings API for applyUrl, then Jina Reader on the apply page
-#   ashby            → {url}/application via Jina Reader (page is client-rendered JS)
+#   ashby            → public GraphQL posting API (full structured form); Jina Reader fallback
+#   factorial        → detect factorialhr.com, surface apply_url, hand off to browser
 #   generic          → scan job page HTML for an apply link, fetch it, extract labels
 #
 # The script never fails hard: each strategy degrades to the next, ending with an
-# empty questions list and source "none" so the calling agent knows to open
-# apply_url in a browser (mcp__claude-in-chrome__navigate + mcp__claude-in-chrome__get_page_text) instead.
+# empty questions list, source "none", and needs_browser true so the calling agent
+# knows to open apply_url in a browser instead.
 #
 # Requires: curl, jq. Optional: JINA_API_KEY (for JS-rendered apply pages).
 
@@ -107,7 +115,15 @@ emit() {
     --arg source "$source" \
     --argjson questions "$questions" \
     --arg form_text "$form_text" \
-    '{url: $url, ats: $ats, apply_url: $apply_url, source: $source, questions: $questions, form_text: $form_text}'
+    '{
+       url: $url,
+       ats: $ats,
+       apply_url: $apply_url,
+       source: $source,
+       needs_browser: (($source == "apply-page" or $source == "none") and ($questions | length) == 0),
+       questions: $questions,
+       form_text: $form_text
+     }'
 }
 
 # fetch an apply page and emit best-effort results for a known ATS
@@ -219,14 +235,52 @@ if grep -qE 'jobs\.(eu\.)?lever\.co/[^/]+/[a-f0-9-]+' <<<"$URL"; then
 fi
 
 # ── Ashby ────────────────────────────────────────────────────────────────────
-# Apply form at {posting-url}/application; the page is client-rendered, so only
-# Jina Reader (which executes JS) can read it non-interactively.
+# Ashby exposes a public GraphQL endpoint (non-user-graphql, ApiJobPosting) that
+# returns the FULL application form — sections → fieldEntries → field — structured
+# and unauthenticated, just like Greenhouse. The apply page itself is client-
+# rendered JS, so Jina Reader is only a text fallback when the API path fails.
+# URL: jobs.ashbyhq.com/{org}/{jobPostingId}[/application]
 
 if grep -qE 'jobs\.ashbyhq\.com/[^/]+/[A-Za-z0-9-]+' <<<"$URL"; then
   BASE="${URL%%\?*}"
   BASE="${BASE%/}"
   BASE="${BASE%/application}"
   APPLY_URL="${BASE}/application"
+  ORG=$(sed -E 's|.*jobs\.ashbyhq\.com/([^/]+)/.*|\1|' <<<"$BASE")
+  JOB_ID=$(sed -E 's|.*/([A-Za-z0-9-]+)$|\1|' <<<"$BASE")
+
+  GQL=$(jq -n --arg org "$ORG" --arg jid "$JOB_ID" '{
+    operationName: "ApiJobPosting",
+    variables: {organizationHostedJobsPageName: $org, jobPostingId: $jid},
+    query: "query ApiJobPosting($organizationHostedJobsPageName: String!, $jobPostingId: String!) { jobPosting(organizationHostedJobsPageName: $organizationHostedJobsPageName, jobPostingId: $jobPostingId) { applicationForm { sections { title fieldEntries { isRequired field } } } } }"
+  }')
+  RESPONSE=$(curl -sf --max-time "$TIMEOUT" -A "$UA" \
+    -H "Content-Type: application/json" \
+    -H "Origin: https://jobs.ashbyhq.com" \
+    --data-raw "$GQL" \
+    "https://jobs.ashbyhq.com/api/non-user-graphql?op=ApiJobPosting" 2>/dev/null || true)
+
+  if [[ -n "$RESPONSE" ]] && jq -e '.data.jobPosting.applicationForm.sections' <<<"$RESPONSE" >/dev/null 2>&1; then
+    # field is a JSON scalar carrying {title, type, selectableValues, ...}
+    QUESTIONS=$(jq '
+      [ (.data.jobPosting.applicationForm.sections // [])[]
+        | (.fieldEntries // [])[]
+        | {
+            label: (.field.title // ""),
+            type: (.field.type // "unknown"),
+            required: (.isRequired // null),
+            options: ((.field.selectableValues // [])
+                      | map(.label // .value // tostring)
+                      | if length == 0 then null else . end)
+          } ]
+      | map(select(.label != ""))' <<<"$RESPONSE" 2>/dev/null)
+    if [[ -n "${QUESTIONS:-}" && "$QUESTIONS" != "[]" ]]; then
+      emit "ashby" "$APPLY_URL" "api" "$QUESTIONS" ""
+      exit 0
+    fi
+  fi
+
+  # API path failed — degrade to Jina Reader text, then to a bare browser handoff.
   MD=$(jina_fetch "$APPLY_URL")
   if [[ -n "$MD" ]]; then
     emit "ashby" "$APPLY_URL" "apply-page" "[]" "$(head -c "$MAX_TEXT" <<<"$MD")"
@@ -253,6 +307,26 @@ if grep -qE 'jobs\.smartrecruiters\.com/' <<<"$URL"; then
     emit "smartrecruiters" "$APPLY_URL" "apply-page" "[]" "$(head -c "$MAX_TEXT" <<<"$MD")"
   else
     emit "smartrecruiters" "$APPLY_URL" "none" "[]" ""
+  fi
+  exit 0
+fi
+
+# ── Factorial ────────────────────────────────────────────────────────────────
+# Factorial self-hosts job boards on {company}.factorialhr.com. The apply form is
+# client-rendered with no known public form endpoint, so surface a sensible
+# apply_url plus the job-page text and hand the form off to a browser.
+# URL: {company}.factorialhr.com/job_posting/{slug}  (or /jobs/...)
+
+if grep -qE 'factorialhr\.com' <<<"$URL"; then
+  BASE="${URL%%\?*}"
+  BASE="${BASE%/}"
+  APPLY_URL="$BASE"
+  HTML=$(fetch "$URL")
+  if [[ -n "$HTML" ]]; then
+    emit "factorial" "$APPLY_URL" "none" "[]" "$(strip_html <<<"$HTML" | head -c "$MAX_TEXT")"
+  else
+    MD=$(jina_fetch "$URL")
+    emit "factorial" "$APPLY_URL" "none" "[]" "$(head -c "$MAX_TEXT" <<<"${MD:-}")"
   fi
   exit 0
 fi

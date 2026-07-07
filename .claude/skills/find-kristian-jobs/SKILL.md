@@ -20,7 +20,7 @@ Bundled helper scripts live in the `scripts/` subfolder of this skill:
 | Script | Purpose |
 |--------|---------|
 | `scripts/fetch-job.sh <url>` | Fetch a job posting and return `{url, posted_date, status, content}` JSON. Auto-selects: Greenhouse API → Lever API → Jina Reader → plain curl. |
-| `scripts/fetch-application-form.sh <url>` | Find the **apply deep link** and extract the actual application form questions. Returns `{url, ats, apply_url, source, questions, form_text}` JSON. Structured questions via Greenhouse/Workable public APIs; apply-page scraping for Lever/generic; Jina for JS-rendered Ashby forms. |
+| `scripts/fetch-application-form.sh <url>` | Find the **apply deep link** and extract the actual application form questions. Returns `{url, ats, apply_url, source, needs_browser, questions, form_text}` JSON. Structured questions via Greenhouse/Workable/Ashby public APIs; apply-page scraping for Lever/generic. When `needs_browser: true` the form wasn't captured — open `apply_url` with browser tools. |
 | `scripts/run-job-search.sh` | Run a full unattended search (cron/remote trigger). Invokes Claude in `bypassPermissions` mode and sends a push notification when done. |
 
 ## Search Budget (Hard Limits)
@@ -324,9 +324,8 @@ This runs the full contact workflow: scrape company site, search LinkedIn, class
    ```bash
    bash .claude/skills/find-kristian-jobs/scripts/fetch-application-form.sh "$JOB_URL"
    ```
-   - `questions` non-empty → use them as the authoritative form
-   - `questions` empty but `form_text` present → extract the questions from `form_text` yourself
-   - `source: "none"` (JS-only or login wall) → open `apply_url` with `mcp__claude-in-chrome__navigate` + `mcp__claude-in-chrome__get_page_text` and read the rendered form; if browser tools are unavailable, try `WebFetch` on `apply_url`
+   - `needs_browser: false` and `questions` non-empty → use them as the authoritative form
+   - `needs_browser: true` → the form wasn't captured; open `apply_url` with `mcp__claude-in-chrome__navigate` + `mcp__claude-in-chrome__get_page_text` and read the rendered form (if browser tools are unavailable, extract questions from `form_text`, then try `WebFetch` on `apply_url`)
    - Still unreadable → include the `apply_url` in the package with an explicit "check the form manually before submitting" note — never silently skip it
 3. Generate cover letter + resume talking points + approach angle + **application form answers** (see below)
 4. Automatically invoke `find-linkedin-contacts` for this company+role

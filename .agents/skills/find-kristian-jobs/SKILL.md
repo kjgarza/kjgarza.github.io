@@ -57,7 +57,7 @@ When parsing a posting with Jina Reader, always look for: `Posted`, `Date posted
 | Search LinkedIn Jobs (authenticated) | `mcp__claude-in-chrome__*` browser tools |
 | Parse job posting content | `Bash`: `bash .agents/skills/find-kristian-jobs/scripts/fetch-job.sh "[url]"` |
 | Fetch application form + questions | `Bash`: `bash .agents/skills/find-kristian-jobs/scripts/fetch-application-form.sh "[url]"` |
-| Read a JS-only or login-walled apply form | `mcp__claude-in-chrome__navigate` + `get_page_text` on the `apply_url` |
+| Read a JS-only or login-walled apply form | `mcp__claude-in-chrome__navigate` + `mcp__claude-in-chrome__get_page_text` on the `apply_url` |
 | Fallback fetch | `WebFetch` |
 
 **URL Caching with qurl — check before every fetch:**
@@ -136,14 +136,14 @@ leads/
 
 Budget: max 4 career page fetches + LinkedIn browser search.
 
-1. Use `mcp__claude-in-chrome__navigate` to open each career page, then `get_page_text` to extract roles:
+1. Use `mcp__claude-in-chrome__navigate` to open each career page, then `mcp__claude-in-chrome__get_page_text` to extract roles:
    - `https://openai.com/careers/search/`
    - `https://www.anthropic.com/careers/jobs`
    - `https://holtzbrinck.com/en/jobs`
    - On each career page, check for a "posted date" or "last updated" field; skip any role posted more than 5 months ago or marked closed.
 2. Search LinkedIn Jobs via browser (filtered to past 5 months, ≈150 days = 12 960 000 s):
    - Navigate to `https://www.linkedin.com/jobs/search/?keywords=AI+Engineer+research+infrastructure&location=Europe&f_TPR=r12960000`
-   - Use `get_page_text` to extract job titles, companies, URLs, **and posted dates**
+   - Use `mcp__claude-in-chrome__get_page_text` to extract job titles, companies, URLs, **and posted dates**
    - Run 1–2 additional LinkedIn searches varying keywords (Staff Engineer LLM, Head of AI open science) using the same `f_TPR=r12960000` filter
    - Discard any result where LinkedIn shows "Closed" or a posted date older than 5 months
 3. Return: list of `{title, company, url, posted_date}` objects — include `posted_date` whenever visible
@@ -267,7 +267,7 @@ This runs the full contact workflow: scrape company site, search LinkedIn, class
 ## Mode 2: Company Search
 
 1. Search `[company] careers engineering 2026` and `[company] jobs AI ML 2026`
-2. Fetch career page via browser (`mcp__claude-in-chrome__navigate` + `get_page_text`) or Jina Reader as fallback
+2. Fetch career page via browser (`mcp__claude-in-chrome__navigate` + `mcp__claude-in-chrome__get_page_text`) or Jina Reader as fallback
 3. **Apply freshness filter:** discard any role marked closed/filled or with a posted date older than 5 months. Flag roles with no visible date as `posted_date: unknown`.
 4. List only open, recent roles in a table with `URL` and `Posted` columns (clickable markdown links)
 5. Score each using the multi-dimensional matrix
@@ -326,7 +326,7 @@ This runs the full contact workflow: scrape company site, search LinkedIn, class
    ```
    - `questions` non-empty → use them as the authoritative form
    - `questions` empty but `form_text` present → extract the questions from `form_text` yourself
-   - `source: "none"` (JS-only or login wall) → open `apply_url` with `mcp__claude-in-chrome__navigate` + `get_page_text` and read the rendered form; if browser tools are unavailable, try `WebFetch` on `apply_url`
+   - `source: "none"` (JS-only or login wall) → open `apply_url` with `mcp__claude-in-chrome__navigate` + `mcp__claude-in-chrome__get_page_text` and read the rendered form; if browser tools are unavailable, try `WebFetch` on `apply_url`
    - Still unreadable → include the `apply_url` in the package with an explicit "check the form manually before submitting" note — never silently skip it
 3. Generate cover letter + resume talking points + approach angle + **application form answers** (see below)
 4. Automatically invoke `find-linkedin-contacts` for this company+role

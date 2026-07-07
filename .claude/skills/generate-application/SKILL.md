@@ -42,7 +42,7 @@ Returns JSON: `{url, ats, apply_url, source, questions, form_text}`. The script 
 Interpret the result:
 - **`questions` non-empty** — use them directly; they are the authoritative form.
 - **`questions` empty but `form_text` has content** — read `form_text` and extract every question/field the form asks for yourself.
-- **Both empty** (`source: "none"` — JS-only page or login wall) — fetch `apply_url` with `WebFetch`; if browser tools are available (`mcp__claude-in-chrome__navigate` + `get_page_text`), open `apply_url` and read the rendered form.
+- **Both empty** (`source: "none"` — JS-only page or login wall) — fetch `apply_url` with `WebFetch`; if browser tools are available (`mcp__claude-in-chrome__navigate` + `mcp__claude-in-chrome__get_page_text`), open `apply_url` and read the rendered form.
 - **Still unreadable** — record this explicitly in `application-questions.md` with the `apply_url` so the user can open it manually. Never silently skip the form.
 
 Classify each question into three buckets (used in Step 9):

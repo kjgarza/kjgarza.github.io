@@ -14,7 +14,7 @@
 #   {
 #     "url": "...",          input job posting URL
 #     "ats": "greenhouse|lever|ashby|workable|smartrecruiters|generic",
-#     "apply_url": "...",    deep link to the actual application form ("" if not found)
+#     "apply_url": "...",    deep link to the application form (falls back to the job URL if not found; check source)
 #     "source": "api|apply-page|none",
 #     "questions": [ {"label": "...", "type": "...", "required": true|false|null, "options": [...]|null} ],
 #     "form_text": "..."     raw apply-page text when questions could not be fully structured
@@ -30,7 +30,7 @@
 #
 # The script never fails hard: each strategy degrades to the next, ending with an
 # empty questions list and source "none" so the calling agent knows to open
-# apply_url in a browser (mcp__claude-in-chrome__navigate + get_page_text) instead.
+# apply_url in a browser (mcp__claude-in-chrome__navigate + mcp__claude-in-chrome__get_page_text) instead.
 #
 # Requires: curl, jq. Optional: JINA_API_KEY (for JS-rendered apply pages).
 
@@ -286,8 +286,8 @@ fi
 # No apply link found — return the job page text so the agent can look for
 # embedded questions, and signal that a browser is needed for the form.
 if [[ -n "$HTML" ]]; then
-  emit "generic" "" "none" "[]" "$(strip_html <<<"$HTML" | head -c "$MAX_TEXT")"
+  emit "generic" "$URL" "none" "[]" "$(strip_html <<<"$HTML" | head -c "$MAX_TEXT")"
 else
   MD=$(jina_fetch "$URL")
-  emit "generic" "" "none" "[]" "$(head -c "$MAX_TEXT" <<<"${MD:-}")"
+  emit "generic" "$URL" "none" "[]" "$(head -c "$MAX_TEXT" <<<"${MD:-}")"
 fi

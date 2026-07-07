@@ -63,7 +63,7 @@ jina_fetch() {
 }
 
 strip_html() {
-  sed -E 's/<script[^>]*>[^<]*<\/script>//g; s/<style[^>]*>[^<]*<\/style>//g; s/<[^>]*>/ /g' \
+  perl -0777 -pe 's{<script\b[^>]*>.*?</script>}{}gis; s{<style\b[^>]*>.*?</style>}{}gis; s{<[^>]*>}{ }g' \
     | sed -E 's/&amp;/\&/g; s/&#x27;/'\''/g; s/&#39;/'\''/g; s/&quot;/"/g; s/&nbsp;/ /g' \
     | sed -E 's/[[:space:]]+/ /g' \
     | sed '/^[[:space:]]*$/d'

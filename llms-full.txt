@@ -1,0 +1,536 @@
+# Kristian Garza — full site content
+
+> I'm a Berlin-based AI engineer. My skill set includes robust research capabilities, prototyping, and coding, all aimed at crafting empowering and intuitive user experiences. I specialize in leveraging the intersection of design and AI to address real-world challenges.
+
+Kristian Garza is a Senior AI Engineer at Digital Science (ORCID: 0000-0003-3484-6875).
+
+- Currently: Building and prototyping AI-driven microservices and agents at Digital Science, from LLM-powered APIs to Rust-based clustering engines.
+- Previously: Developed core infrastructure at DataCite, including Commons, Fabrica, and Sashimi, while leading metadata and design system initiatives.
+- Find me: Hosting DS’s AI Technology Radar sessions and experimenting with personal AI projects like a Dataset Discovery & Evaluation Agent.
+- Contact: kj.garza+kjgarza@gmail.com | GitHub: https://github.com/kristiangarza | LinkedIn: https://www.linkedin.com/in/kjgarza
+
+Password-protected case studies are listed with metadata only; contact the author for access.
+
+---
+
+
+# Harmonizing with a Design System
+
+- Company: DataCite
+- Tags: Design systems, UX Design
+- URL: https://kjgarza.github.io/work/creating-a-design-system/
+
+## Overview
+
+Crafted a Design System for all DataCite frontend services.
+
+I recognized the need to bring a unified aesthetic to our suite of services. Our suite consisted of various websites. Each had a distinct look and feel, and it was becoming clear that this lack of visual consistency was making it harder for our membership to convey a cohesive narrative about our offerings.
+
+Further, the situation left new developers at a loss as to which style to apply where. In addition, we needed our suite of products to align with The Web Content Accessibility Guidelines (WCAG) standards for accessibility.
+
+The challenge was to create a design system that would provide a unified aesthetic across all services while adhering to our branding guidelines and being implementable using standard libraries such as Bootstrap.
+
+## My Role
+
+**My Contribution**
+- Product Design  
+- Product Management
+
+**The Team**
+- 1 x Product Design Manager  
+- 1 x Project Manager  
+- 1 x Designer  
+- 1 x Developer  
+
+**Year:** 2023
+
+
+## Background
+
+DataCite's digital ecosystem is extensive. It comprises:
+
+- The DataCite Commons app
+- The Fabrica web app
+- A homepage website
+- Various JavaScript widgets
+
+The absence of a cohesive visual identity across these platforms was beginning to affect the perception of our membership and potentially hamper user experience.
+
+![DataCite Websites Overview](https://i.imgur.com/mFacPB2.png)
+
+## Research & Discovery
+
+To determine a way forward, we embarked on a journey of exploration. We developed a mood board with input from our internal staff to get a sense of the visual direction we should take. The primary constraints were to adhere to Bootstrap primitives, our organization's branding colors, and fonts. This preliminary work laid the foundation for our design system.
+
+## Ideation & Design
+
+With Atomic Design principles guiding us, we ventured into the design phase. First, we conducted an inventory of components and pages to define the scope of our design system. This was followed by two rounds of UX evaluations using grayscale wireframes in Figma, which proved challenging as it was hard to communicate the essence of design change without color.
+
+In the UI design stage, finding the perfect balance between innovation and brand adherence proved to be another hurdle. After much deliberation, we struck a balance that retained our brand's identity while ensuring innovation and aesthetic appeal.
+
+![Wireframes and Design Process](https://i.imgur.com/wTx0lye.png)
+
+![Component Design](https://i.imgur.com/jM7U6ae.png)
+
+## Implementation & Adoption
+
+The design system website was the first to receive the design system overhaul, and our homepage followed suit. But the implementation wasn't without its challenges, especially in securing stakeholder buy-in. For this, we turned to our design system website and a forthcoming JavaScript package that includes all components, which we believe will expedite adoption.
+
+![Design System Website](https://i.imgur.com/rE0TQnE.png)
+
+![Homepage Implementation](https://i.imgur.com/CJ8tUNX.png)
+
+![Component Library](https://i.imgur.com/Snc880N.png)
+
+![Documentation](https://i.imgur.com/xWMDvE5.png)
+
+## Stakeholder Engagement
+
+Throughout this journey, we ensured regular interaction with our stakeholders. Their feedback ranged from expressing preferences for design elements to raising potential technical implementation issues.
+
+In addition, they offered valuable input about aligning with DataCite's overarching branding.
+
+While we are still in the implementation phase, our vision for the future is clear.
+
+- We plan to create a full set of components for all of DataCite's websites and web apps.
+- Moreover, we aim to use Storybook to host these components, thus enabling developers to utilize them easily.
+
+![Storybook Implementation](https://i.imgur.com/1u3gqM0.png)
+
+
+---
+
+
+<button class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:-z-10 disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer w-fit hover:before:bg-special-state-hover-inverse bg-button-primary text-white shadow-button-primary-rest active:shadow-none h-10 px-3 min-w-9">
+    <a class="relative z-10" href="{{blogLink}}">Go to Blogpost</a>
+</button>
+
+---
+
+# DataCite Usage Reports API - Research Data Metrics at Scale
+
+- Company: DataCite
+- Tags: Serverless, Ruby on Rails
+- URL: https://kjgarza.github.io/work/datacite-usage-reports-api/
+
+## Overview
+
+The Sashimi project represents a significant advancement in tracking and reporting research data usage metrics. This Rails-based API application implements the SUSHI (Standardized Usage Statistics Harvesting Initiative) protocol for handling usage reports, specifically tailored for research data repositories.
+
+Research institutions needed a standardized way to track and report usage metrics for research datasets, handle large volumes of usage data efficiently, process reports in a standardized format, and store and retrieve usage statistics reliably.
+
+## Problem Statement
+
+Research institutions faced several critical challenges in managing usage data:
+
+- **Lack of standardization** in tracking and reporting usage metrics for research datasets
+- **Scalability issues** when handling large volumes of usage data efficiently
+- **Processing complexity** for reports in standardized formats
+- **Storage limitations** for reliable statistics retrieval
+- **Performance bottlenecks** with reports exceeding 10MB causing memory issues
+
+## Solution Overview
+
+Sashimi provides a comprehensive RESTful API that addresses these challenges through:
+
+1. **SUSHI Protocol Implementation** - Accepts and validates SUSHI-formatted usage reports
+2. **Large Report Handling** - Processes both normal and compressed large reports efficiently
+3. **Scalable Storage** - Stores reports in Amazon S3 for unlimited scalability
+4. **Flexible Querying** - Provides robust querying capabilities for data retrieval
+5. **Secure Authentication** - Implements JWT-based authentication for data protection
+
+The system transforms complex usage data processing from a manual, error-prone process into an automated, scalable infrastructure component.
+
+## Technical Architecture
+
+### Technology Stack
+
+- **Framework**: Ruby on Rails 7.1
+- **Storage**: Amazon S3 via ActiveStorage
+- **Database**: MySQL for metadata
+- **Authentication**: JWT (JSON Web Tokens)
+- **Validation**: JSON Schema
+- **Compression**: Built-in Rails compression utilities
+
+### Key Technical Features
+
+#### Report Management System
+- Accepts SUSHI-standard usage reports up to 50,000 datasets
+- Validates incoming data with comprehensive JSON Schema validation
+- Processes both compressed and uncompressed report formats
+
+#### Large Report Handling
+- Implements on-the-fly compression for reports >10MB
+- Uses report subsetting to manage memory usage efficiently
+- Maintains fast processing speeds regardless of report size
+
+#### Hybrid Storage Architecture
+- **Amazon S3**: Large report payloads and compressed data
+- **MySQL**: Metadata, indexes, and query optimization
+- **ActiveStorage**: Seamless integration between Rails and S3
+
+### Notable Design Patterns
+
+#### Service Objects
+Clean separation of concerns through dedicated service classes for:
+- Report validation and processing
+- Compression and decompression logic
+- S3 upload and retrieval operations
+- JWT authentication and authorization
+
+#### Modular Report Processing
+- Pipeline-based processing architecture
+- Extensible validation framework
+- Pluggable compression strategies
+
+## Challenges and Solutions
+
+### Large Report Processing
+
+**Challenge**: Reports exceeding 10MB caused memory issues and system crashes.
+
+**Solution**: Implemented a sophisticated compression and report subsetting system that processes large reports in chunks, maintaining system stability while preserving data integrity.
+
+### Data Storage Optimization
+
+**Challenge**: MySQL limitations for storing large reports created performance bottlenecks and storage costs.
+
+**Solution**: Migrated to a hybrid architecture using S3 for payload storage while maintaining MySQL for metadata and fast querying capabilities. This reduced storage costs by 70% while improving query performance.
+
+### Performance at Scale
+
+**Challenge**: Maintaining fast query response times with increasing data volume.
+
+**Solution**: Implemented intelligent indexing strategies, query optimization, and caching mechanisms that maintain sub-second response times even with large datasets.
+
+## Impact and Results
+
+The Sashimi project achieved significant improvements across multiple metrics:
+
+### Performance Metrics
+- **Handles reports up to 50,000 datasets** without performance degradation
+- **Supports compressed reports >10MB** with efficient processing
+- **Maintains fast query response times** under high load conditions
+- **Processes complex reports** 10x faster than previous manual methods
+
+### Business Impact
+- **Standardized research data metrics collection** across the platform
+- **Improved scalability** for large dataset reports
+- **Reduced storage costs** by 70% through intelligent compression
+- **Enhanced data accessibility** through comprehensive REST API
+
+### Technical Innovations
+
+#### Report Subsetting
+Developed an intelligent subsetting algorithm that breaks large reports into manageable chunks while maintaining data relationships and integrity.
+
+#### Flexible Validation Framework
+Created an extensible JSON Schema validation system that can adapt to evolving SUSHI standards and custom institutional requirements.
+
+#### Hybrid Storage Strategy
+Pioneered an efficient hybrid storage approach that maximizes the strengths of both relational databases and object storage systems.
+
+## Key Achievements
+
+- **Led end-to-end architecture** from scaling strategy and storage design to service-object processing pipeline
+- **Designed sophisticated data handling** for reports up to 50,000 datasets
+- **Implemented intelligent compression** reducing storage costs by 70%
+- **Orchestrated CI/CD deployment** ensuring reliable production delivery
+- **Established standards-compliant backbone** for DataCite research-metrics tracking
+
+## Technical Innovations
+
+### Advanced Compression Algorithms
+Implemented custom compression strategies that reduce report sizes by up to 80% while maintaining query performance through intelligent indexing.
+
+### Dynamic Schema Validation
+Built a flexible validation system that automatically adapts to SUSHI protocol updates without requiring code changes.
+
+### Intelligent Caching Layer
+Developed a multi-tier caching strategy that significantly improves response times for frequently accessed reports and queries.
+
+## Future Directions
+
+The project roadmap includes several enhancement opportunities:
+
+- **Enhanced query capabilities** with advanced filtering and aggregation options
+- **Additional compression optimizations** for specialized data types
+- **Extended metadata validation** options for custom institutional requirements
+- **Multilingual support** for international research institutions
+- **Integration capabilities** with citation management systems
+
+## Lessons Learned
+
+### Technical Insights
+- **Early performance consideration** is crucial for systems handling large datasets
+- **Standardized protocols** like SUSHI provide significant value in complex domains
+- **Flexible storage solutions** enable better scalability and cost optimization
+
+### Best Practices Established
+- **Comprehensive testing** strategies for data-intensive applications
+- **Clear documentation** for API consumers and maintainers
+- **Modular design** principles that enable easy extension and maintenance
+
+## Conclusion
+
+The Sashimi project demonstrates the successful implementation of a complex data handling system that serves as critical infrastructure for research metrics tracking. By combining modern Rails development practices with intelligent architectural decisions, the project established a robust, scalable foundation for research data usage reporting.
+
+The system's ability to handle massive datasets while maintaining performance and cost efficiency makes it a cornerstone of DataCite's research metrics infrastructure. Future development could expand the service to include more specialized summarization types for different academic disciplines and enhanced integration capabilities.
+
+---
+
+# Innovating Data Usage Processing Services
+
+- Company: DataCite
+- Tags: Product Design, UX Research
+- URL: https://kjgarza.github.io/work/innovating-data-usage-processing-services/
+
+## Overview
+
+In this project, I took on the role of a Senior Product Designer to pioneer an alternative to existing data usage processing services. These services were heavily dependent on weblogs, which posed challenges when sharing across distributed borders, thus the necessity for a novel solution was clear.
+
+## Discovery Phase
+
+To kick off the project, we conducted a [survey](https://zenodo.org/record/3476545#.YwOYF-xBxqt) with key stakeholders to ascertain the primary difficulties associated with current usage processing services, as well as to gauge the technical capabilities within the stakeholder groups. Informed by the survey insights, we made the strategic decision to focus on developing a web tracker, which promised to alleviate stakeholders' challenges, particularly the time-consuming process of handling and transferring logs.
+
+![Survey and Web Tracker Research]({{ '/assets/images/survey-web-tracker-Medium.png' | url }})
+
+## Idea Validation
+
+The initial idea for the web tracker was presented on the [DataCite Roadmap](https://datacite.org/roadmap.html) via ProductBoard. This provided a platform for our member community to discuss and provide feedback on the proposed concept.
+
+![Design Sprint EOSC]({{ '/assets/images/designsprint-eosc-Medium.png' | url }})
+
+## Design
+
+In tandem with the idea validation, we gathered detailed use cases which informed the creation of a comprehensive product specification. I employed FIGMA for wireframing and Gherkin syntax for defining clear acceptance criteria, ensuring a smooth handover to the engineering team.
+
+![Gherkin Web Tracker Specifications]({{ '/assets/images/gherkin-web-tracker-Medium.png' | url }})
+
+## Solution Validation
+
+To ensure that our design solution effectively addressed user and stakeholder needs, I organised and facilitated a Group Expert Walkthrough on the FIGMA wireframes. This session yielded valuable insights into user requirements, further refining our approach.
+
+![Figma Web Tracker Wireframes]({{ '/assets/images/figma-web-tracker-Medium.png' | url }}) 
+
+## Design Sprint in Numbers
+
+**85** Survey responses
+
+**10** Group Expert Walkthrough participants
+
+The project successfully delivered a comprehensive solution that addressed the core challenges of distributed weblog handling, providing stakeholders with a more efficient and scalable approach to data usage processing.
+
+---
+
+# Query Translation API - Natural Language to Database Queries
+
+- Company: Digital Science
+- Tags: API Development, LLMs, Python
+- URL: https://kjgarza.github.io/work/query-translation-api/
+
+Architected and launched a FastAPI microservice that turns natural-language requests into optimized Dimensions searches via LLM entity extraction and pgvector semantic search.
+
+*Full content is password-protected. Contact kj.garza+kjgarza@gmail.com for access.*
+
+---
+
+# Redesigning DataCite's Harvesting Services
+
+- Company: DataCite
+- Tags: UX Research, Product Design, Service Design
+- URL: https://kjgarza.github.io/work/redesigning-datacite-harvesting-services/
+
+## Overview
+
+Redesigned DataCite's Harvesting Services from the ground up to address underutilization and unlock untapped revenue opportunities.
+
+DataCite's existing Harvester Services were significantly underutilized despite the fact that users of such services are typically willing to pay for them. We recognized an untapped revenue opportunity if we could boost service utilization through better understanding of user needs and improved service design.
+
+The challenge was to understand why the current services weren't meeting user needs and redesign them to be more valuable and accessible to our target audience.
+
+## My Role
+
+**My Contribution**
+- UX Research  
+- Workshop Facilitation
+- Product Design
+
+**The Team**
+- 1 x Product Designer  
+- 1 x Project Manager  
+- 2 x Developers  
+
+**Research Methods**
+- Focus Group (56 participants)
+- Design Sprint (8 participants)
+- Cognitive Walkthroughs (5 sessions)
+- Concept Testing (5 sessions)
+
+**Year:** 2022
+
+## Problem Statement
+
+DataCite's Harvesting Services faced several critical challenges:
+
+- **Low utilization rates** despite market demand for harvesting services
+- **Unclear value proposition** for potential paying customers
+- **Limited understanding** of user needs and preferences
+- **Technical constraints** that didn't align with user workflows
+- **Missed revenue opportunities** in a market willing to pay for quality services
+
+The existing service architecture and user experience weren't meeting the diverse needs of organizations looking to harvest research data and metadata.
+
+## Research Methodology
+
+### Focus Group Study
+
+We initiated the project with a comprehensive focus group study involving representatives from 10 major organizations. This exploratory approach allowed us to understand their needs in terms of harvesting services and their willingness to pay for such services.
+
+The focus group provided critical insights into:
+- Current pain points with existing harvesting solutions
+- Preferred data formats and delivery methods
+- Pricing expectations and budget constraints
+- Technical requirements and integration needs
+
+### Design Sprint Approach
+
+A design sprint was subsequently conducted to generate a comprehensive initial prototype for the new harvesting service. This sprint involved around 7 internal collaborators from different departments and was facilitated virtually using Miro due to the pandemic.
+
+The aim was to ensure that the service redesign would meet the needs of all organizational corners. To foster a long-term vision, we slightly altered the design sprint's activity order, positioning the mapping activity as a secondary step.
+
+![Design Sprint - Defining the Challenge](https://i.imgur.com/Y8Jn1lP.png)
+
+![Design Sprint - Mapping Process](https://i.imgur.com/nzSRTi9.png)
+
+## Design Sprint Process
+
+### Day 1: Expert Interviews & How Might We
+
+I prepared a bespoke questionnaire to guide participants during the "expert interviews" activity of the design sprint, which led to 83 "how might we" notes. This comprehensive collection of insights formed the foundation for our ideation process.
+
+### Days 2-4: Mapping, Sketching, and Prototyping
+
+Over the next three days, I guided the participants through each stage of the design sprint, focusing significant effort on the mapping exercise and sketching day preparation.
+
+Two top-voted sketches were selected for further prototyping in Figma, followed by an Expert Walkthrough validation with eight users to collect further feedback.
+
+![Design Sprint - Map & Lightning Demos](https://i.imgur.com/Y8Jn1lP.png)
+
+## Key Findings
+
+Through our research methodology, we identified six critical requirements for the redesigned harvesting service:
+
+### Format Requirements
+**Both XML and JSON** need to be provided for different use cases, as organizations have varying technical infrastructures and preferences.
+
+### Frequency Needs
+**Monthly and daily harvesting** are of the essence for most users, with some requiring even more frequent updates for time-sensitive applications.
+
+### Metadata Specifications
+**Most cases will need only metadata** but citation data could be packaged separately, allowing for more flexible and cost-effective service tiers.
+
+### Business Model
+**A tiered freemium approach** is possible with a Premium service specifically designed for for-profit organizations willing to pay for enhanced features.
+
+### Integration Requirements
+**Tight integration with the DataCite CRM** will be needed to provide seamless user management and billing capabilities.
+
+### Snapshot Services
+**For-profits would prefer snapshots** due to the high demands on frequency, providing complete datasets at specific points in time rather than incremental updates.
+
+## Solution Architecture
+
+Based on our research findings, we developed a comprehensive solution that addressed all identified user needs:
+
+### Tiered Service Model
+- **Basic Tier**: Free access to essential metadata harvesting
+- **Premium Tier**: Enhanced features for commercial users including higher frequency updates, priority support, and additional data formats
+
+### Technical Implementation
+- **Multi-format support** for both XML and JSON outputs
+- **Flexible frequency options** from daily to real-time updates
+- **Snapshot capabilities** for complete dataset downloads
+- **API-first architecture** for seamless integration
+
+### User Experience Improvements
+- **Simplified onboarding** process for new users
+- **Self-service portal** for managing harvesting preferences
+- **Clear documentation** and support resources
+- **Transparent pricing** and service level agreements
+
+## Impact and Results
+
+The implementation of our research-driven recommendations delivered significant business impact:
+
+### 42% Reduction in Lead Time
+The findings scoped the design work sufficiently to start working on the MVP earlier and faster, accelerating time-to-market for the improved service.
+
+### New Customer Relationships
+The implementation of these recommendations led to the establishment of relationships with **four potential paying users** of the harvesting service, representing significant revenue opportunities.
+
+### Immediate User Adoption
+The introduction of the snapshot feature allowed **12 new users** to take advantage of the service right away, demonstrating immediate market validation.
+
+## Stakeholder Testimonial
+
+> "When we were involved in the design sprint for the DataCite harvesting service, the 'How Might We' question technique supported creativity while focusing on the problem to solve for the user."
+> 
+> **Britta Dreyer**  
+> Head of PID and Metadata Services, Technische Informationsbibliothek (TIB)
+
+## Insights and Recommendations
+
+Our research led to three key strategic recommendations:
+
+1. **Define a tiered approach** for the harvesting service, including a basic service for users requiring only citation metadata and a premium service for others.
+
+2. **Modify the tech stack and user profile service** to accommodate the new premium tier users and their specific requirements.
+
+3. **Scale the infrastructure** to address the increased needs for higher frequency harvesting and larger data volumes.
+
+## Conclusion
+
+The DataCite Harvesting Services redesign project demonstrates the power of user-centered design research in identifying and addressing service utilization challenges. By conducting comprehensive focus groups and design sprints, we were able to uncover specific user needs that weren't being met by the existing service.
+
+The project successfully transformed an underutilized service into a viable revenue opportunity while better serving the research community's data harvesting needs. The tiered approach and technical improvements provide a sustainable foundation for future growth and service expansion.
+
+<button class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:-z-10 disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer w-fit hover:before:bg-special-state-hover-inverse bg-button-primary text-white shadow-button-primary-rest active:shadow-none h-10 px-3 min-w-9">
+    <a class="relative z-10" href="{{blogLink}}">Go to Blogpost</a>
+</button>
+
+---
+
+# Tools
+
+- [Dataset Discovery Agent](https://hawfinch.vercel.app/) (AI   SDK): An AI agent automating discovery, evaluation, and acquisition of open research datasets for scientists and data engineers.
+- [SnowyOwl](https://github.com/kjgarza/snowyowl) (Claude SDK): An asynchronous AI development tool where you write task specifications and receive completed pull requests overnight — delegation without presence.
+- [Technology Radar](https://kjgarza.github.io/radar) (Open Source): A personal technology radar that categorizes tools, frameworks, and techniques into Adopt, Trial, and other tiers — separating what's genuinely useful from what's just hype.
+- [Parrot GPT](https://github.com/kjgarza/parrot-gpt) (LLMs): A Python toolkit that uses GPT-3/3.5 to translate, enrich, and cross-walk bibliographic metadata across schemas, with CLI and CI/CD support.
+- [Election Program AI Analyser](https://chatgpt.com/g/g-678bbfd0f3388191b253ef5725e242e0-bundestags-wahlnavigator-2025) (OpenAI): An AI-powered tool that simplifies 2025 Bundestag election programs, giving clear answers to voters’ policy questions in natural language.
+- [CrossFit WOD Viewer](https://kjgarza.github.io/oxypogon/) (Git Scrape): A web app that scrapes CrossFit workout-of-the-day data and uses AI to provide explanations, scaling options, and beginner-friendly modifications.
+- [Kitchen Timer](https://kjgarza.github.io/chickadee/) (Claude): A mobile-optimized cooking app that uses GPT vision to extract structured data from recipe photos, with an action-first UI designed to reduce cognitive load in the kitchen.
+
+---
+
+# Publications
+
+- [The Impact of Language User Interfaces on Finding Scholarly Repositories.](https://doi.org/10.59350/skna9-1pb77) (2023)
+- [DataCite Design System is ready to be worn.](https://doi.org/10.5438/tpah-aj25) (2023)
+- [Breaking a Metadata Barrier: Improving discoverability with automatic subject classification](https://doi.org/10.5438/vwp0-vz05) (2023)
+- [ParrotGPT: On the Advantages of Large Language Models Tools for Academic Metadata Schema Mapping](https://medium.com/@kj.garza/parrotgpt-on-the-advantages-of-large-language-models-tools-for-academic-metadata-schema-mapping-434cceabc68b) (2023)
+- [Academic Publishing web forms meet your demise: The unstoppable rise of large language models (ChatGPT)](https://medium.com/@kj.garza/academic-publishing-web-forms-meet-your-demise-the-unstoppable-rise-of-large-language-models-dbb1bd6c2ee8) (2023)
+- [Revolutionizing Metadata Schema Mapping with ChatGPT](https://medium.com/@kj.garza/revolutionizing-metadata-schema-mapping-with-chatgpt-a8df54e41e24) (2022)
+- [Refining our Thinking: How we are improving DataCite design processes.](https://doi.org/10.5438/f03x-vr69) (2022)
+- [D4.7 Tools for finding and selecting certified repositories for researchers and other stakeholders](https://doi.org/10.5281/zenodo.6090418) (2022)
+- [2021 FAIR Island Annual Report](https://doi.org/10.5281/zenodo.6536701) (2022)
+- [The FAIR Island Project: Tracking the impact of field station research](https://doi.org/10.5281/zenodo.7308803) (2022)
+- [Open hours updates: Spring re-launch open hours for consortium leads](https://doi.org/10.5438/2nps-h961) (2021)
+- [You shoulda put a PID on it: Leveraging the PID Graph for DMPs](https://doi.org/10.5281/zenodo.4487522) (2021)
+- [Are You There, Metadata? It’s Me, the Bibliometrician](https://doi.org/10.5438/j4xv-y945) (2021)
+- [Frontend for the DataCite Commons service](https://doi.org/10.14454/qgk4-zs88) (2020)
+- [maDMPs Machine Actionable Data Management Plans (maDMPs) demonstration.](https://doi.org/10.14454/w67k-5373) (2020)
+- [New Research Work on COVID-19 as the pandemic develops](https://doi.org/10.5281/zenodo.3903381) (2020)
+- [The DataCite MDC Stack](https://doi.org/10.5438/v9pp-7a27) (2020)
+- [A tale of two regions: Using Vega-Lite Population Pyramid to explore PIDs populations](https://doi.org/10.5281/zenodo.3895557) (2020)
+- [Datacite Citation Display: Unlocking Data Citations](https://doi.org/10.5438/1843-k679) (2020)

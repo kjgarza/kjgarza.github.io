@@ -1,0 +1,60 @@
+# Kristian Garza
+
+> I'm a Berlin-based AI engineer. My skill set includes robust research capabilities, prototyping, and coding, all aimed at crafting empowering and intuitive user experiences. I specialize in leveraging the intersection of design and AI to address real-world challenges.
+
+Kristian Garza is a Senior AI Engineer at Digital Science (ORCID: 0000-0003-3484-6875).
+
+- Currently: Building and prototyping AI-driven microservices and agents at Digital Science, from LLM-powered APIs to Rust-based clustering engines.
+- Previously: Developed core infrastructure at DataCite, including Commons, Fabrica, and Sashimi, while leading metadata and design system initiatives.
+- Find me: Hosting DS’s AI Technology Radar sessions and experimenting with personal AI projects like a Dataset Discovery & Evaluation Agent.
+- Contact: kj.garza+kjgarza@gmail.com | GitHub: https://github.com/kristiangarza | LinkedIn: https://www.linkedin.com/in/kjgarza
+
+Case studies marked with a `.md` link have a plain-markdown mirror at `<page-url>index.md`. Pages without one are password-protected; contact the author for access. The complete public content of this site is concatenated in [llms-full.txt](https://kjgarza.github.io/llms-full.txt).
+
+## Work
+
+- [Harmonizing with a Design System](https://kjgarza.github.io/work/creating-a-design-system/index.md): DataCite — Crafted a Design System for all DataCite frontend services.
+- [DataCite Usage Reports API - Research Data Metrics at Scale](https://kjgarza.github.io/work/datacite-usage-reports-api/index.md): DataCite — Designed and delivered Sashimi—a Rails API that ingests, validates, and stores large SUSHI usage reports in S3/MySQL at 50,000-dataset scale with JWT security and on-the-fly compression.
+- [Innovating Data Usage Processing Services](https://kjgarza.github.io/work/innovating-data-usage-processing-services/index.md): DataCite — Pioneering an alternative to existing data usage processing services through web tracker development.
+- [Query Translation API - Natural Language to Database Queries](https://kjgarza.github.io/work/query-translation-api/): Digital Science — Architected and launched a FastAPI microservice that turns natural-language requests into optimized Dimensions searches via LLM entity extraction and pgvector semantic search. (password-protected)
+- [Redesigning DataCite's Harvesting Services](https://kjgarza.github.io/work/redesigning-datacite-harvesting-services/index.md): DataCite — Redesigned DataCite's Harvesting Services from the ground up to boost service utilization and unlock new revenue opportunities through user-centered design research.
+
+## Tools
+
+- [Dataset Discovery Agent](https://hawfinch.vercel.app/): An AI agent automating discovery, evaluation, and acquisition of open research datasets for scientists and data engineers.
+- [SnowyOwl](https://github.com/kjgarza/snowyowl): An asynchronous AI development tool where you write task specifications and receive completed pull requests overnight — delegation without presence.
+- [Technology Radar](https://kjgarza.github.io/radar): A personal technology radar that categorizes tools, frameworks, and techniques into Adopt, Trial, and other tiers — separating what's genuinely useful from what's just hype.
+- [Parrot GPT](https://github.com/kjgarza/parrot-gpt): A Python toolkit that uses GPT-3/3.5 to translate, enrich, and cross-walk bibliographic metadata across schemas, with CLI and CI/CD support.
+- [Election Program AI Analyser](https://chatgpt.com/g/g-678bbfd0f3388191b253ef5725e242e0-bundestags-wahlnavigator-2025): An AI-powered tool that simplifies 2025 Bundestag election programs, giving clear answers to voters’ policy questions in natural language.
+- [CrossFit WOD Viewer](https://kjgarza.github.io/oxypogon/): A web app that scrapes CrossFit workout-of-the-day data and uses AI to provide explanations, scaling options, and beginner-friendly modifications.
+- [Kitchen Timer](https://kjgarza.github.io/chickadee/): A mobile-optimized cooking app that uses GPT vision to extract structured data from recipe photos, with an action-first UI designed to reduce cognitive load in the kitchen.
+
+## Publications
+
+- [The Impact of Language User Interfaces on Finding Scholarly Repositories.](https://doi.org/10.59350/skna9-1pb77) (2023)
+- [DataCite Design System is ready to be worn.](https://doi.org/10.5438/tpah-aj25) (2023)
+- [Breaking a Metadata Barrier: Improving discoverability with automatic subject classification](https://doi.org/10.5438/vwp0-vz05) (2023)
+- [ParrotGPT: On the Advantages of Large Language Models Tools for Academic Metadata Schema Mapping](https://medium.com/@kj.garza/parrotgpt-on-the-advantages-of-large-language-models-tools-for-academic-metadata-schema-mapping-434cceabc68b) (2023)
+- [Academic Publishing web forms meet your demise: The unstoppable rise of large language models (ChatGPT)](https://medium.com/@kj.garza/academic-publishing-web-forms-meet-your-demise-the-unstoppable-rise-of-large-language-models-dbb1bd6c2ee8) (2023)
+- [Revolutionizing Metadata Schema Mapping with ChatGPT](https://medium.com/@kj.garza/revolutionizing-metadata-schema-mapping-with-chatgpt-a8df54e41e24) (2022)
+- [Refining our Thinking: How we are improving DataCite design processes.](https://doi.org/10.5438/f03x-vr69) (2022)
+- [D4.7 Tools for finding and selecting certified repositories for researchers and other stakeholders](https://doi.org/10.5281/zenodo.6090418) (2022)
+- [2021 FAIR Island Annual Report](https://doi.org/10.5281/zenodo.6536701) (2022)
+- [The FAIR Island Project: Tracking the impact of field station research](https://doi.org/10.5281/zenodo.7308803) (2022)
+- [Open hours updates: Spring re-launch open hours for consortium leads](https://doi.org/10.5438/2nps-h961) (2021)
+- [You shoulda put a PID on it: Leveraging the PID Graph for DMPs](https://doi.org/10.5281/zenodo.4487522) (2021)
+- [Are You There, Metadata? It’s Me, the Bibliometrician](https://doi.org/10.5438/j4xv-y945) (2021)
+- [Frontend for the DataCite Commons service](https://doi.org/10.14454/qgk4-zs88) (2020)
+- [maDMPs Machine Actionable Data Management Plans (maDMPs) demonstration.](https://doi.org/10.14454/w67k-5373) (2020)
+- [New Research Work on COVID-19 as the pandemic develops](https://doi.org/10.5281/zenodo.3903381) (2020)
+- [The DataCite MDC Stack](https://doi.org/10.5438/v9pp-7a27) (2020)
+- [A tale of two regions: Using Vega-Lite Population Pyramid to explore PIDs populations](https://doi.org/10.5281/zenodo.3895557) (2020)
+- [Datacite Citation Display: Unlocking Data Citations](https://doi.org/10.5438/1843-k679) (2020)
+
+## Optional
+
+- [CV](https://kjgarza.github.io/cv/): full curriculum vitae with skills and experience
+- [Work index](https://kjgarza.github.io/work/): HTML overview of all case studies
+- [Technology Radar](https://kjgarza.github.io/radar/): personal radar of tools, frameworks, and techniques
+- [Profile API](https://kjgarza.github.io/api/data.json): machine-readable profile data (JSON)
+- [Sitemap](https://kjgarza.github.io/sitemap.xml)

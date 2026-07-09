@@ -1,0 +1,8 @@
+# AI agents and crawlers are welcome.
+# Start here for an LLM-friendly overview: https://kjgarza.github.io/llms.txt
+# Full plain-text content: https://kjgarza.github.io/llms-full.txt
+
+User-agent: *
+Allow: /
+
+Sitemap: https://kjgarza.github.io/sitemap.xml

@@ -1,0 +1,39 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+# {{ site.title }}
+
+> {{ site.description }}
+
+{{ site.title }} is a {{ site.schema_org.jobTitle }} at {{ site.schema_org.affiliation.name }} (ORCID: 0000-0003-3484-6875).
+
+- Currently: {{ site.bio.currently }}
+- Previously: {{ site.bio.past }}
+- Find me: {{ site.bio.findMe }}
+- Contact: {{ site.author.email }} | GitHub: {{ site.author.github }} | LinkedIn: {{ site.author.linkedin }}
+
+Case studies marked with a `.md` link have a plain-markdown mirror at `<page-url>index.md`. Pages without one are password-protected; contact the author for access. The complete public content of this site is concatenated in [llms-full.txt]({{ "/llms-full.txt" | absoluteUrl }}).
+
+## Work
+
+{% for item in collections.caseStudies -%}
+- [{{ item.data.title }}]({% if item.data.passwordProtected %}{{ item.url | absoluteUrl }}{% else %}{{ item.url | mdMirrorUrl }}{% endif %}): {{ item.data.company }} — {{ item.data.description }}{% if item.data.passwordProtected %} (password-protected){% endif %}
+{% endfor %}
+## Tools
+
+{% for tool in tools -%}
+- [{{ tool.name }}]({{ tool.link }}): {{ tool.description }}
+{% endfor %}
+## Publications
+
+{% for pub in publications -%}
+- [{{ pub.title }}]({{ pub.id }}) ({{ pub.publicationYear }})
+{% endfor %}
+## Optional
+
+- [CV]({{ "/cv/" | absoluteUrl }}): full curriculum vitae with skills and experience
+- [Work index]({{ "/work/" | absoluteUrl }}): HTML overview of all case studies
+- [Technology Radar]({{ "/radar/" | absoluteUrl }}): personal radar of tools, frameworks, and techniques
+- [Profile API]({{ "/api/data.json" | absoluteUrl }}): machine-readable profile data (JSON)
+- [Sitemap]({{ "/sitemap.xml" | absoluteUrl }})

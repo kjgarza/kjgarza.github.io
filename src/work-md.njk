@@ -1,0 +1,25 @@
+---js
+{
+  pagination: {
+    data: "collections.caseStudies",
+    size: 1,
+    alias: "study",
+    // Password-protected case studies get no markdown mirror
+    before: (paginationData) =>
+      paginationData.filter((item) => !item.data.passwordProtected),
+  },
+  eleventyExcludeFromCollections: true,
+  eleventyComputed: {
+    permalink: (data) =>
+      `${data.study.url}${data.study.url.endsWith("/") ? "" : "/"}index.md`,
+  },
+}
+---
+# {{ study.data.title }}
+
+- Company: {{ study.data.company }}
+- Tags: {{ study.data.tags | join(", ") }}
+- Canonical URL: {{ study.url | absoluteUrl }}
+- Author: {{ site.title }} ({{ site.author.email }})
+
+{{ study.rawInput | trim }}

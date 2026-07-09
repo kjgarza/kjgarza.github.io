@@ -1,4 +1,5 @@
 const EleventyImage = require("@11ty/eleventy-img");
+const site = require("./src/_data/site.js");
 
 function escapeAttr(str) {
   return String(str).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -66,6 +67,20 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+
+  // Case study markdown sources, used to build /llms.txt, /llms-full.txt
+  // and the per-page markdown mirrors for AI agents
+  eleventyConfig.addCollection("caseStudies", (collectionApi) =>
+    collectionApi.getFilteredByGlob("src/work/*.md")
+  );
+
+  // Absolute URLs for agent-facing endpoints (llms.txt, sitemap, robots)
+  eleventyConfig.addFilter("absoluteUrl", (path) => new URL(path, site.url).href);
+  // URL of a page's markdown mirror (see work-md.njk)
+  eleventyConfig.addFilter(
+    "mdMirrorUrl",
+    (pageUrl) => new URL(`${pageUrl}${pageUrl.endsWith("/") ? "" : "/"}index.md`, site.url).href
+  );
 
   // Set directories
   return {

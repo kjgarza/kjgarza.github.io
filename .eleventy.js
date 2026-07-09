@@ -67,6 +67,12 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
+  // Case study markdown sources, used to build /llms.txt, /llms-full.txt
+  // and the per-page markdown mirrors for AI agents
+  eleventyConfig.addCollection("caseStudies", (collectionApi) =>
+    collectionApi.getFilteredByGlob("src/work/*.md")
+  );
+
   // Set directories
   return {
     dir: {

@@ -1,0 +1,48 @@
+---
+permalink: /llms-full.txt
+eleventyExcludeFromCollections: true
+---
+# {{ site.title }} — full site content
+
+> {{ site.description }}
+
+{{ site.title }} is a {{ site.schema_org.jobTitle }} at {{ site.schema_org.affiliation.name }} (ORCID: 0000-0003-3484-6875).
+
+- Currently: {{ site.bio.currently }}
+- Previously: {{ site.bio.past }}
+- Find me: {{ site.bio.findMe }}
+- Contact: {{ site.author.email }} | GitHub: {{ site.author.github }} | LinkedIn: {{ site.author.linkedin }}
+
+Password-protected case studies are listed with metadata only; contact the author for access.
+
+---
+
+{% for item in collections.caseStudies %}
+# {{ item.data.title }}
+
+- Company: {{ item.data.company }}
+- Tags: {{ item.data.tags | join(", ") }}
+- URL: https://kjgarza.github.io{{ item.url }}
+
+{% if item.data.passwordProtected -%}
+{{ item.data.description }}
+
+*Full content is password-protected. Contact {{ site.author.email }} for access.*
+{%- else -%}
+{{ item.rawInput | trim }}
+{%- endif %}
+
+---
+{% endfor %}
+# Tools
+
+{% for tool in tools -%}
+- [{{ tool.name }}]({{ tool.link }}) ({{ tool.type }}): {{ tool.description }}
+{% endfor %}
+---
+
+# Publications
+
+{% for pub in publications -%}
+- [{{ pub.title }}]({{ pub.id }}) ({{ pub.publicationYear }})
+{% endfor %}

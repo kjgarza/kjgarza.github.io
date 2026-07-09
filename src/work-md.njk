@@ -10,7 +10,8 @@
   },
   eleventyExcludeFromCollections: true,
   eleventyComputed: {
-    permalink: (data) => `${data.study.url}index.md`,
+    permalink: (data) =>
+      `${data.study.url}${data.study.url.endsWith("/") ? "" : "/"}index.md`,
   },
 }
 ---
@@ -18,7 +19,7 @@
 
 - Company: {{ study.data.company }}
 - Tags: {{ study.data.tags | join(", ") }}
-- Canonical URL: https://kjgarza.github.io{{ study.url }}
+- Canonical URL: {{ study.url | absoluteUrl }}
 - Author: {{ site.title }} ({{ site.author.email }})
 
 {{ study.rawInput | trim }}

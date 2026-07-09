@@ -22,7 +22,7 @@ Password-protected case studies are listed with metadata only; contact the autho
 
 - Company: {{ item.data.company }}
 - Tags: {{ item.data.tags | join(", ") }}
-- URL: https://kjgarza.github.io{{ item.url }}
+- URL: {{ item.url | absoluteUrl }}
 
 {% if item.data.passwordProtected -%}
 {{ item.data.description }}

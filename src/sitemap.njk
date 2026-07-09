@@ -7,7 +7,7 @@ eleventyExcludeFromCollections: true
 {% for item in collections.all -%}
 {% if "/work/case-studies/" not in item.url -%}
   <url>
-    <loc>https://kjgarza.github.io{{ item.url }}</loc>
+    <loc>{{ item.url | absoluteUrl | e }}</loc>
   </url>
 {% endif -%}
 {% endfor -%}

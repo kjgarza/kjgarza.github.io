@@ -13,12 +13,12 @@ eleventyExcludeFromCollections: true
 - Find me: {{ site.bio.findMe }}
 - Contact: {{ site.author.email }} | GitHub: {{ site.author.github }} | LinkedIn: {{ site.author.linkedin }}
 
-Case studies marked with a `.md` link have a plain-markdown mirror at `<page-url>index.md`. Pages without one are password-protected; contact the author for access. The complete public content of this site is concatenated in [llms-full.txt](https://kjgarza.github.io/llms-full.txt).
+Case studies marked with a `.md` link have a plain-markdown mirror at `<page-url>index.md`. Pages without one are password-protected; contact the author for access. The complete public content of this site is concatenated in [llms-full.txt]({{ "/llms-full.txt" | absoluteUrl }}).
 
 ## Work
 
 {% for item in collections.caseStudies -%}
-- [{{ item.data.title }}](https://kjgarza.github.io{{ item.url }}{% if not item.data.passwordProtected %}index.md{% endif %}): {{ item.data.company }} — {{ item.data.description }}{% if item.data.passwordProtected %} (password-protected){% endif %}
+- [{{ item.data.title }}]({% if item.data.passwordProtected %}{{ item.url | absoluteUrl }}{% else %}{{ item.url | mdMirrorUrl }}{% endif %}): {{ item.data.company }} — {{ item.data.description }}{% if item.data.passwordProtected %} (password-protected){% endif %}
 {% endfor %}
 ## Tools
 
@@ -32,8 +32,8 @@ Case studies marked with a `.md` link have a plain-markdown mirror at `<page-url
 {% endfor %}
 ## Optional
 
-- [CV](https://kjgarza.github.io/cv/): full curriculum vitae with skills and experience
-- [Work index](https://kjgarza.github.io/work/): HTML overview of all case studies
-- [Technology Radar](https://kjgarza.github.io/radar/): personal radar of tools, frameworks, and techniques
-- [Profile API](https://kjgarza.github.io/api/data.json): machine-readable profile data (JSON)
-- [Sitemap](https://kjgarza.github.io/sitemap.xml)
+- [CV]({{ "/cv/" | absoluteUrl }}): full curriculum vitae with skills and experience
+- [Work index]({{ "/work/" | absoluteUrl }}): HTML overview of all case studies
+- [Technology Radar]({{ "/radar/" | absoluteUrl }}): personal radar of tools, frameworks, and techniques
+- [Profile API]({{ "/api/data.json" | absoluteUrl }}): machine-readable profile data (JSON)
+- [Sitemap]({{ "/sitemap.xml" | absoluteUrl }})

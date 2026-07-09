@@ -3,10 +3,10 @@ permalink: /robots.txt
 eleventyExcludeFromCollections: true
 ---
 # AI agents and crawlers are welcome.
-# Start here for an LLM-friendly overview: https://kjgarza.github.io/llms.txt
-# Full plain-text content: https://kjgarza.github.io/llms-full.txt
+# Start here for an LLM-friendly overview: {{ "/llms.txt" | absoluteUrl }}
+# Full plain-text content: {{ "/llms-full.txt" | absoluteUrl }}
 
 User-agent: *
 Allow: /
 
-Sitemap: https://kjgarza.github.io/sitemap.xml
+Sitemap: {{ "/sitemap.xml" | absoluteUrl }}

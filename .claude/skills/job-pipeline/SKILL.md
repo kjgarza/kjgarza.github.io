@@ -12,6 +12,7 @@ End-to-end orchestrator. One invocation takes a job from *unknown* to *ready-to-
 
 `leads/pipeline.json` at the repo root is the single source of truth. **Read it before doing anything; write it after every state change.**
 
+- If `leads/` or `leads/pipeline.json` doesn't exist yet, create the directory and initialise the ledger to `{}` (then proceed).
 - Keyed by job URL. Statuses: `discovered → scored → preparing → prepared → notified → approved → submitted → interviewing → offer`, terminal: `rejected | passed | expired`.
 - Never re-fetch, re-score, or re-prepare a URL that's already in the ledger unless its status is `discovered` or the user explicitly asks. This is what stops every run from redoing old work.
 - When a posting turns out closed/older than 5 months, set status `expired` with a note — keep the entry so it stays deduplicated.

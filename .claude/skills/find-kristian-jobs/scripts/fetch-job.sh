@@ -6,10 +6,10 @@
 #
 # Output: JSON to stdout
 #   { "url": "...", "posted_date": "YYYY-MM-DD|unknown", "status": "open|closed|unknown",
-#     "content": "...", "questions": [{"label": "...", "required": true, "type": "..."}] }
+#     "content": "...",
+#     "questions": [{"label": "...", "required": true, "type": "...", "options": ["..."]}] }
 #
 # "questions" is the application form's fields when the ATS exposes them
-# (currently Greenhouse only); empty array otherwise.
 #
 # Fetch chain:
 #   1. Greenhouse public API (if URL matches greenhouse.io pattern) — best for dates

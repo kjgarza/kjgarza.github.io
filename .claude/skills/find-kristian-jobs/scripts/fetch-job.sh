@@ -87,7 +87,7 @@ if echo "$URL" | grep -qE 'greenhouse\.io/([^/]+)/jobs/([0-9]+)'; then
       label: .label,
       required: .required,
       type: (.fields[0].type // "unknown"),
-      options: ([.fields[0].values[]?.label] | if length > 0 then . else null end)
+      options: ([.fields[0].values[]?.label])
     }]' 2>/dev/null || echo "[]")
     emit_json "$URL" "$POSTED_DATE" "$STATUS" "$CONTENT" "$QUESTIONS"
     exit 0

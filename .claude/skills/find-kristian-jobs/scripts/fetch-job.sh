@@ -5,7 +5,11 @@
 #   ./scripts/fetch-job.sh <job-url>
 #
 # Output: JSON to stdout
-#   { "url": "...", "posted_date": "YYYY-MM-DD|unknown", "status": "open|closed|unknown", "content": "..." }
+#   { "url": "...", "posted_date": "YYYY-MM-DD|unknown", "status": "open|closed|unknown",
+#     "content": "...",
+#     "questions": [{"label": "...", "required": true, "type": "...", "options": ["..."]}] }
+#
+# "questions" is the application form's fields when the ATS exposes them
 #
 # Fetch chain:
 #   1. Greenhouse public API (if URL matches greenhouse.io pattern) — best for dates
@@ -48,13 +52,14 @@ detect_closed() {
 }
 
 emit_json() {
-  local url="$1" posted_date="$2" status="$3" content="$4"
+  local url="$1" posted_date="$2" status="$3" content="$4" questions="${5:-[]}"
   jq -n \
     --arg url "$url" \
     --arg posted_date "$posted_date" \
     --arg status "$status" \
     --arg content "$content" \
-    '{url: $url, posted_date: $posted_date, status: $status, content: $content}'
+    --argjson questions "$questions" \
+    '{url: $url, posted_date: $posted_date, status: $status, content: $content, questions: $questions}'
 }
 
 # ── Greenhouse public API ─────────────────────────────────────────────────────
@@ -66,7 +71,7 @@ if echo "$URL" | grep -qE 'greenhouse\.io/([^/]+)/jobs/([0-9]+)'; then
   BOARD=$(echo "$URL" | grep -oE 'greenhouse\.io/([^/]+)/jobs' | cut -d'/' -f2)
   JOB_ID=$(echo "$URL" | grep -oE '/jobs/([0-9]+)' | grep -oE '[0-9]+')
 
-  API_URL="https://api.greenhouse.io/v1/boards/${BOARD}/jobs/${JOB_ID}"
+  API_URL="https://api.greenhouse.io/v1/boards/${BOARD}/jobs/${JOB_ID}?questions=true"
   RESPONSE=$(curl -sf --max-time "$TIMEOUT" "$API_URL" 2>/dev/null || echo "")
 
   if [[ -n "$RESPONSE" ]] && echo "$RESPONSE" | jq -e '.id' >/dev/null 2>&1; then
@@ -77,7 +82,14 @@ if echo "$URL" | grep -qE 'greenhouse\.io/([^/]+)/jobs/([0-9]+)'; then
     POSTED_DATE=$(echo "$UPDATED" | grep -oE '20[0-9]{2}-[0-9]{2}-[0-9]{2}' | head -1 || echo "unknown")
     CONTENT="# ${TITLE}\nLocation: ${LOCATION}\nUpdated: ${UPDATED}\n\n$(echo "$RESPONSE" | jq -r '.content // ""' | sed 's/<[^>]*>//g')"
     STATUS="open"  # If the API returns a job, it's live
-    emit_json "$URL" "$POSTED_DATE" "$STATUS" "$CONTENT"
+    # Application form fields (label, required, type, select options if any)
+    QUESTIONS=$(echo "$RESPONSE" | jq -c '[.questions[]? | {
+      label: .label,
+      required: .required,
+      type: (.fields[0].type // "unknown"),
+      options: ([.fields[0].values[]?.label])
+    }]' 2>/dev/null || echo "[]")
+    emit_json "$URL" "$POSTED_DATE" "$STATUS" "$CONTENT" "$QUESTIONS"
     exit 0
   fi
 fi

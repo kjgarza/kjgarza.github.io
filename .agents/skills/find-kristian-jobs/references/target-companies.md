@@ -17,6 +17,7 @@
 |---------|-------------|--------------|-------|
 | **Holtzbrinck Digital / Holtzbrinck Group** | Parent of Springer Nature, Macmillan, Digital Science; major publishing/tech conglomerate | Digital, Technology, AI/ML | Career page: https://holtzbrinck.com/en/jobs — parent company perspective on Kristian's scholarly + AI skills |
 | **Springer Nature** | Academic publishing, AI transformation | Digital Technology, AI/ML | Deep scholarly domain knowledge + AI modernization angle. Part of Holtzbrinck Group |
+| **Merantix Momentum** | Berlin applied-AI company: builds production ML/LLM systems for enterprise and public-sector clients; part of the Merantix AI Campus venture studio | Engineering, Applied AI, ML Engineering | On-site Berlin (home city). Consulting-style delivery matches the Query Translation API / Dataset Discovery Agent work. Board: https://careers.merantix-aicampus.com/jobs?filter=eyJzZWFyY2hhYmxlX2xvY2F0aW9ucyI6WyJCZXJsaW4sIEdlcm1hbnkiXX0%3D — Getro ATS, needs browser fetch; the same board also lists other Merantix AI Campus portfolio companies |
 | **Chan Zuckerberg Initiative (CZI)** | Science infrastructure, open source values | Science Technology, Open Science | Direct overlap: scholarly infra + AI + open source |
 | **Crossref** | Core scholarly infrastructure, metadata | Engineering, Product | Deep DataCite collaboration history, PID expertise |
 | **ORCID** | Persistent identifiers, researcher identity | Engineering, Product | Direct domain expertise from DataCite PID Graph work |

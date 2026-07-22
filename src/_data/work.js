@@ -1,5 +1,31 @@
 module.exports = [
   {
+    id: "knowledge-graph-engine",
+    company: "Digital Science",
+    title: "Knowledge Graph Engine - Company Knowledge as a Graph for AI Agents",
+    description:
+      "Architected a hexagonal Effect-TS pipeline that extracts a Postgres-backed knowledge graph from company documents and serves it to AI agents over MCP.",
+    tags: ["Knowledge Graphs", "Effect-TS", "LLMs"],
+    status: "published",
+    image: "/assets/images/knowledge-graph-engine-hero.png",
+    link: "/work/knowledge-graph-engine",
+    featured: false,
+    gridClass: "col-span-2 row-span-1",
+  },
+  {
+    id: "repo-atlas-catalogue",
+    company: "Digital Science",
+    title: "Repo Atlas - Making 1,000+ Repos Discoverable with LLMs",
+    description:
+      "Built an LLM-powered catalogue that scans an entire GitHub org and answers \"does a repo already exist that does X?\" through an MCP server and web UI.",
+    tags: ["LLMs", "MCP", "TypeScript"],
+    status: "published",
+    image: "/assets/images/repo-atlas-hero.png",
+    link: "/work/repo-atlas-catalogue",
+    featured: false,
+    gridClass: "col-span-2 row-span-1",
+  },
+  {
     id: "query-translation-api",
     company: "Digital Science",
     title: "Query Translation API - Natural Language to Database Queries",

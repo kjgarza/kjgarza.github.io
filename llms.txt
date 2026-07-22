@@ -16,8 +16,10 @@ Case studies marked with a `.md` link have a plain-markdown mirror at `<page-url
 - [Harmonizing with a Design System](https://kjgarza.github.io/work/creating-a-design-system/index.md): DataCite — Crafted a Design System for all DataCite frontend services.
 - [DataCite Usage Reports API - Research Data Metrics at Scale](https://kjgarza.github.io/work/datacite-usage-reports-api/index.md): DataCite — Designed and delivered Sashimi—a Rails API that ingests, validates, and stores large SUSHI usage reports in S3/MySQL at 50,000-dataset scale with JWT security and on-the-fly compression.
 - [Innovating Data Usage Processing Services](https://kjgarza.github.io/work/innovating-data-usage-processing-services/index.md): DataCite — Pioneering an alternative to existing data usage processing services through web tracker development.
+- [Knowledge Graph Engine - Company Knowledge as a Graph for AI Agents](https://kjgarza.github.io/work/knowledge-graph-engine/): Digital Science — Architected a hexagonal Effect-TS pipeline that extracts a Postgres-backed knowledge graph from company documents and serves it to AI agents over MCP. (password-protected)
 - [Query Translation API - Natural Language to Database Queries](https://kjgarza.github.io/work/query-translation-api/): Digital Science — Architected and launched a FastAPI microservice that turns natural-language requests into optimized Dimensions searches via LLM entity extraction and pgvector semantic search. (password-protected)
 - [Redesigning DataCite's Harvesting Services](https://kjgarza.github.io/work/redesigning-datacite-harvesting-services/index.md): DataCite — Redesigned DataCite's Harvesting Services from the ground up to boost service utilization and unlock new revenue opportunities through user-centered design research.
+- [Repo Atlas - Making 1,000+ Repos Discoverable with LLMs](https://kjgarza.github.io/work/repo-atlas-catalogue/): Digital Science — Built an LLM-powered catalogue that scans an entire GitHub org and answers "does a repo already exist that does X?" through an MCP server and web UI. (password-protected)
 
 ## Tools
 

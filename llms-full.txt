@@ -323,6 +323,18 @@ The project successfully delivered a comprehensive solution that addressed the c
 
 ---
 
+# Knowledge Graph Engine - Company Knowledge as a Graph for AI Agents
+
+- Company: Digital Science
+- Tags: Knowledge Graphs, Effect-TS, LLMs
+- URL: https://kjgarza.github.io/work/knowledge-graph-engine/
+
+Architected a hexagonal Effect-TS pipeline that extracts a Postgres-backed knowledge graph from company documents and serves it to AI agents over MCP.
+
+*Full content is password-protected. Contact kj.garza+kjgarza@gmail.com for access.*
+
+---
+
 # Query Translation API - Natural Language to Database Queries
 
 - Company: Digital Science
@@ -498,6 +510,18 @@ The project successfully transformed an underutilized service into a viable reve
 <button class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:-z-10 disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer w-fit hover:before:bg-special-state-hover-inverse bg-button-primary text-white shadow-button-primary-rest active:shadow-none h-10 px-3 min-w-9">
     <a class="relative z-10" href="{{blogLink}}">Go to Blogpost</a>
 </button>
+
+---
+
+# Repo Atlas - Making 1,000+ Repos Discoverable with LLMs
+
+- Company: Digital Science
+- Tags: LLMs, MCP, TypeScript
+- URL: https://kjgarza.github.io/work/repo-atlas-catalogue/
+
+Built an LLM-powered catalogue that scans an entire GitHub org and answers "does a repo already exist that does X?" through an MCP server and web UI.
+
+*Full content is password-protected. Contact kj.garza+kjgarza@gmail.com for access.*
 
 ---
 

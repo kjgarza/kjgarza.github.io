@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Repo Atlas - Making 1,000+ Repos Discoverable with LLMs</title>
+  <meta name="description" content="Built an LLM-powered catalogue that scans an entire GitHub org and answers "does a repo already exist that does X?" through an MCP server and web UI.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Repo Atlas - Making 1,000+ Repos Discoverable with LLMs">
+  <meta property="og:description" content="Built an LLM-powered catalogue that scans an entire GitHub org and answers "does a repo already exist that does X?" through an MCP server and web UI.">
+  <meta property="og:url" content="https://kjgarza.github.io//work/repo-atlas-catalogue/">
+  <meta property="og:site_name" content="Kristian Garza">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://kjgarza.github.io/assets/images/og-homepage.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Kristian Garza">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Repo Atlas - Making 1,000+ Repos Discoverable with LLMs">
+  <meta name="twitter:description" content="Built an LLM-powered catalogue that scans an entire GitHub org and answers "does a repo already exist that does X?" through an MCP server and web UI.">
+  <meta name="twitter:image" content="https://kjgarza.github.io/assets/images/og-homepage.png">
+  <meta name="twitter:image:width" content="1200">
+  <meta name="twitter:image:height" content="630">
+  <meta name="twitter:image:alt" content="Kristian Garza">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly summary of this site">
+
+  <!-- Resource hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://tally.so">
+
+  <!-- Web fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/_next/static/css/b79f6ce842955dc5.css">
+  <script async src="https://tally.so/widgets/embed.js"></script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X7KFRJYWBL"></script>
+  <script>
+    window.addEventListener('load', function() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-X7KFRJYWBL');
+    });
+  </script>
+  <script type="application/ld+json">
+   {"@context":"https://schema.org","@type":"Person","sameAs":["https://www.linkedin.com/in/kjgarza","https://commons.datacite.org/orcid.org/0000-0003-3484-6875","https://orcid.org/0000-0003-3484-6875","https://twitter.com/kriztean","https://github.com/kjgarza","https://gitlab.com/kjgarza","https://github.com/kristiangarza","https://linktr.ee/kristiangarza"],"email":"mailto:kj.garza+kjgarza@gmail.com","image":"https://kjgarza.github.io/uploads/2022/02/18/photo.jpeg","jobTitle":"Senior AI Engineer","affiliation":{"@type":"Organization","@id":"https://ror.org/02ktfc112","name":"Digital Science"},"name":"Kristian Garza","url":"https://kjgarza.github.io/","knowsLanguage":[{"@type":"Language","name":"English"},{"@type":"Language","name":"German"},{"@type":"Language","name":"Spanish"}],"knowsAbout":["Web Development","scrum","agile","software development","software engineering","data science","data visualization","data analysis","data engineering","usability testing","user experience","UX Researcher","DevOps","DesignOps","Figma","Miro","Lego Serious Play","Complex applications design","contextual interviews","contextual inquiry","schema.org","google analytics","google tag manager","react","vue","elasticsearch","mysql","Design sprints","graphql","event driven architecture","microservices","docker","aws","terraform","javascript","node","python","typescript","Ruby","Sagemaker","huggingface transformers","Ruby on Rails","langchain","llamaIndex","pydantic","Large Language Models","apisix","Product Design","User Experience","User Interface","User Interface Design","User Interface Development","design thinking","design process","double diamond method","double diamond pattern","open science","open data","open source software","logstash","Persistent Identifiers","Persistent Identifier Systems","DOI","ORCID Identifiers","ROR ID","AI SDK","MCP"]}
+  </script>
+
+  <style>
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle, var(--dot-color, rgba(0,0,0,0.07)) 1px, transparent 1px),
+        linear-gradient(160deg, var(--grad-start, rgba(0,0,0,0)) 0%, var(--grad-mid, rgba(120,120,140,0.04)) 50%, var(--grad-end, rgba(0,0,0,0)) 100%);
+      background-size: 20px 20px, 100% 100%;
+    }
+
+    :root[data-theme=dark] body::before {
+      --dot-color: rgba(255,255,255,0.04);
+      --grad-mid: rgba(200,200,220,0.03);
+    }
+
+    body > * {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+
+</head>
+<body class="bg-default scrollbar-hide flex min-h-screen flex-col items-center justify-center font-sans">
+  <nav id="main-nav" class="align-center top-0 z-50 flex min-h-[88px] w-full max-w-4xl flex-row items-center justify-between gap-4 bg-linear-to-t from-white/0 from-0% to-white to-10% px-4 pt-4 pb-4 sm:pb-8 text-sm font-medium sm:sticky sm:to-25% md:px-12 xl:px-8">
+  <div class="flex min-h-[40px] items-center gap-4">
+    
+    <!-- Case Study Back Button -->
+    <button onclick="history.back()" class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer text-neutral-900 hover:before:bg-special-state-hover h-10 w-10">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left">
+        <path d="m12 19-7-7 7-7"></path>
+        <path d="M19 12H5"></path>
+      </svg>
+    </button>
+    
+    
+    <div class="flex flex-col font-mono lg:flex-row lg:gap-2">
+      <a class="text-secondary hover:text-primary" href="/">Kristian Garza</a>
+      <span class="text-secondary hidden lg:inline">—</span>
+      
+      <span class="text-primary">/ Case study</span>
+      
+    </div>
+  </div>
+  
+  <!-- Desktop nav links -->
+  <div class="hidden items-center gap-1 sm:flex">
+    
+    <a class="text-secondary hover:text-primary rounded-lg p-2 transition-colors duration-200 ease-in-out " href="/">
+      About
+    </a>
+    
+    <a class="text-secondary hover:text-primary rounded-lg p-2 transition-colors duration-200 ease-in-out " href="/work">
+      Work
+    </a>
+    
+    <a class="text-secondary hover:text-primary rounded-lg p-2 transition-colors duration-200 ease-in-out " href="/tools">
+      Tools
+    </a>
+    
+    <a class="text-secondary hover:text-primary rounded-lg p-2 transition-colors duration-200 ease-in-out " href="/publications">
+      Publications
+    </a>
+    
+    <a class="text-secondary hover:text-primary rounded-lg p-2 transition-colors duration-200 ease-in-out " href="https://kjgarza.github.io/radar/" target="_blank" rel="noopener noreferrer">
+      Tech Radar
+    </a>
+    
+  </div>
+  
+  <!-- Mobile burger button -->
+  <button id="burger-btn" aria-label="Toggle menu" aria-expanded="false" class="sm:hidden flex h-10 w-10 items-center justify-center rounded-lg text-neutral-700 hover:bg-neutral-100 transition-colors duration-200">
+    <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
+      <line x1="4" x2="20" y1="6" y2="6"/>
+      <line x1="4" x2="20" y1="12" y2="12"/>
+      <line x1="4" x2="20" y1="18" y2="18"/>
+    </svg>
+    <svg id="icon-x" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x hidden">
+      <path d="M18 6 6 18"/>
+      <path d="m6 6 12 12"/>
+    </svg>
+  </button>
+</nav>
+
+<!-- Mobile dropdown — fixed, positioned by JS to sit just below the nav -->
+<div id="mobile-menu" aria-hidden="true" style="display:none;position:fixed;top:0;left:12px;right:12px;z-index:9999;" class="sm:hidden">
+  <div class="overflow-hidden rounded-2xl border border-neutral-100 bg-white shadow-xl shadow-neutral-900/10">
+    <div class="flex flex-col p-2">
+      
+      <a
+        class="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-all duration-150 ease-in-out text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
+        href="/"
+        
+      >
+        About
+        
+      </a>
+      
+      <a
+        class="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-all duration-150 ease-in-out text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
+        href="/work"
+        
+      >
+        Work
+        
+      </a>
+      
+      <a
+        class="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-all duration-150 ease-in-out text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
+        href="/tools"
+        
+      >
+        Tools
+        
+      </a>
+      
+      <a
+        class="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-all duration-150 ease-in-out text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
+        href="/publications"
+        
+      >
+        Publications
+        
+      </a>
+      
+      <a
+        class="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-all duration-150 ease-in-out text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
+        href="https://kjgarza.github.io/radar/"
+         target="_blank" rel="noopener noreferrer"
+      >
+        Tech Radar
+        
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right opacity-40 group-hover:opacity-100 transition-opacity">
+          <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+        </svg>
+        
+      </a>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var btn = document.getElementById('burger-btn');
+    var menu = document.getElementById('mobile-menu');
+    var iconMenu = document.getElementById('icon-menu');
+    var iconX = document.getElementById('icon-x');
+    var nav = document.getElementById('main-nav');
+
+    function positionMenu() {
+      var rect = nav.getBoundingClientRect();
+      menu.style.top = rect.bottom + 4 + 'px';
+    }
+
+    function openMenu() {
+      positionMenu();
+      menu.style.display = 'block';
+      btn.setAttribute('aria-expanded', 'true');
+      menu.setAttribute('aria-hidden', 'false');
+      iconMenu.classList.add('hidden');
+      iconX.classList.remove('hidden');
+    }
+
+    function closeMenu() {
+      menu.style.display = 'none';
+      btn.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+      iconMenu.classList.remove('hidden');
+      iconX.classList.add('hidden');
+    }
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      menu.style.display === 'none' ? openMenu() : closeMenu();
+    });
+
+    document.addEventListener('click', function (e) {
+      if (menu.style.display !== 'none' && !menu.contains(e.target) && !btn.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', function () {
+      if (menu.style.display !== 'none') positionMenu();
+    });
+  })();
+</script>
+
+  
+  <main class="mx-auto flex h-full w-full max-w-4xl grow flex-col justify-center gap-16 p-4 font-sans md:p-12 xl:p-8">
+    
+<link rel="stylesheet" href="/assets/css/case-study.css">
+
+<article class="cs-article flex w-full max-w-2xl flex-1 flex-col">
+
+  <!-- ── Case Study Header ── -->
+  <header class="cs-header">
+    <div class="cs-eyebrow">
+      <span class="cs-company">Digital Science</span>
+      <div class="cs-tags">
+        
+        <span class="cs-tag">LLMs</span>
+        
+        <span class="cs-tag">MCP</span>
+        
+        <span class="cs-tag">TypeScript</span>
+        
+      </div>
+    </div>
+    <h1 class="cs-title">Repo Atlas - Making 1,000+ Repos Discoverable with LLMs</h1>
+    <p class="cs-description">Built an LLM-powered catalogue that scans an entire GitHub org and answers "does a repo already exist that does X?" through an MCP server and web UI.</p>
+  </header>
+
+  <!-- ── Hero Image ── -->
+  
+  <div class="cs-hero">
+    <img alt="Repo Atlas - Making 1,000+ Repos Discoverable with LLMs" width="640" height="400" decoding="async"
+         src="/assets/images/repo-atlas-hero.png" loading="lazy">
+  </div>
+  
+
+  
+  <!-- ── Password Gate ── -->
+  <div class="cs-prose">
+    <div class="cs-password-gate">
+      <h3>This content requires a password</h3>
+      <p>Some things are meant to stay private. But if you're meant to see this, just reach out.</p>
+      <form>
+        <label for="Password">Password</label>
+        <input type="password" id="Password">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  
+
+</article>
+
+  </main>
+  
+  <footer class="text-primary flex w-full max-w-4xl flex-col items-center justify-between gap-1 px-4 pt-8 pb-24 font-mono font-medium sm:pb-8 md:px-12 xl:px-8">
+  <div class="flex flex-wrap items-center gap-4">
+    <div class="flex items-center gap-4">
+      <a class="hover:text-accent hover:underline" target="_blank" href="https://www.figma.com/@kristiangarza">
+        Figma
+      </a>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="text-neutral-400">·</span>
+      <a class="hover:text-accent hover:underline" target="_blank" href="https://github.com/kristiangarza">
+        Github
+      </a>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="text-neutral-400">·</span>
+      <a class="hover:text-accent hover:underline" target="_blank" href="https://www.linkedin.com/in/kjgarza">
+        LinkedIn
+      </a>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="text-neutral-400">·</span>
+      <a class="hover:text-accent hover:underline" target="_blank" href="mailto:kj.garza+kjgarza@gmail.com">
+        Email
+      </a>
+    </div>
+  </div>
+  <p class="text-secondary text-sm">Copyright © 2026 Kristian Garza</p>
+</footer>
+
+</body>
+</html>

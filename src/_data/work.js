@@ -9,7 +9,7 @@ module.exports = [
     status: "published",
     image: "/assets/images/knowledge-graph-engine-hero.png",
     link: "/work/knowledge-graph-engine",
-    featured: true,
+    featured: false,
     gridClass: "col-span-2 row-span-1",
   },
   {
@@ -22,7 +22,7 @@ module.exports = [
     status: "published",
     image: "/assets/images/repo-atlas-hero.png",
     link: "/work/repo-atlas-catalogue",
-    featured: true,
+    featured: false,
     gridClass: "col-span-2 row-span-1",
   },
   {

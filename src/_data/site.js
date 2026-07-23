@@ -7,7 +7,7 @@ module.exports = {
     name: "Kristian Garza",
     email: "kj.garza+kjgarza@gmail.com",
     figma: "https://www.figma.com/@kristiangarza",
-    github: "https://github.com/kristiangarza",
+    github: "https://github.com/kjgarza",
     linkedin: "https://www.linkedin.com/in/kjgarza",
   },
   bio: {

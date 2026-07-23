@@ -233,6 +233,16 @@ permalink: /cv/
     border-color: #2d2d2d;
   }
   .cv-selector-btn:hover:not(.active) { background: #f0f0f0; }
+  .cv-export-btn {
+    margin-left: 20px;
+    background: #2d2d2d;
+    color: #fff;
+    border-color: #2d2d2d;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .cv-export-btn:hover { background: #111; border-color: #111; }
   .cv-variant { display: none; }
   .cv-variant.active { display: block; }
   @media print {
@@ -248,6 +258,13 @@ permalink: /cv/
   <span class="cv-selector-label">CV Version:</span>
   <button class="cv-selector-btn active" data-variant="default" onclick="selectVariant('default')">General</button>
   <button class="cv-selector-btn" data-variant="iris" onclick="selectVariant('iris')">Iris AI – Tech Lead</button>
+  <button class="cv-selector-btn" data-variant="anthro" onclick="selectVariant('anthro')">Anthropic – Research Engineer</button>
+  <button class="cv-selector-btn" data-variant="mistral" onclick="selectVariant('mistral')">Mistral – Applied AI Lead</button>
+  <button class="cv-selector-btn cv-export-btn" onclick="window.print()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Export PDF
+  </button>
+
 </div>
 
 <div class="cv-page">
@@ -256,6 +273,12 @@ permalink: /cv/
   </div>
   <div class="cv-variant" id="cv-variant-iris">
     {{ renderCV(cvIris) }}
+  </div>
+  <div class="cv-variant" id="cv-variant-anthro">
+    {{ renderCV(cvAnthro) }}
+  </div>
+  <div class="cv-variant" id="cv-variant-mistral">
+    {{ renderCV(cvMistral) }}
   </div>
 </div>
 

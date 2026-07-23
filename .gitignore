@@ -150,3 +150,5 @@ _site/*/**
 _site/
 applications/*/**
 leads/*
+# macOS
+.DS_Store

@@ -13,6 +13,7 @@ applications/
     application-questions.md  ← Every question from the actual apply form, with drafted answers
     cover-letter.md           ← Final cover letter (greeting + 2 body paragraphs + concise close)
     cv-data.js                ← CV data file ready to drop into src/_data/
+    [slug].pdf                ← Two-page CV PDF rendered from cv-data.js (filename = folder name)
 ```
 
 ## application-questions.md
@@ -34,6 +35,16 @@ bun run build
 ```
 
 The site will pick up the new CV data automatically.
+
+## [slug].pdf
+
+Rendered directly from `cv-data.js` — no site build needed:
+
+```bash
+node scripts/cv-to-pdf.js "applications/[slug]/cv-data.js"
+```
+
+Two A4 pages, Education starts page 2, content auto-shrinks to fit. This is the file uploaded to the apply form's resume field. If the script warns it exceeds two pages at the shrink floor, trim `cv-data.js` and re-run.
 
 ## Naming Convention
 

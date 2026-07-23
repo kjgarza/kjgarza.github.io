@@ -8,7 +8,7 @@ allowed-tools: ["Bash", "Read", "Write", "Edit", "Glob", "Grep", "Agent", "WebFe
 
 # generate-application
 
-Generate a complete, targeted application package for a job posting. The output lives at `applications/YYYY-MM-DD-[company]-[role-slug]/` in the project root and includes a deep analysis, a targeted CV data file, drafted answers to the actual application form questions, and a two-paragraph cover letter.
+Generate a complete, targeted application package for a job posting. The output lives at `applications/YYYY-MM-DD-[company]-[role-slug]/` in the project root and includes a deep analysis, a targeted CV data file, a rendered CV PDF, drafted answers to the actual application form questions, and a two-paragraph cover letter.
 
 **A job ad is not the application.** The real application lives on a separate apply deep link (Greenhouse `#app` form, Lever `/apply`, Ashby `/application`, Workable apply page, …) with screening questions, essay prompts, and factual fields the ad never mentions. A package that skips these is incomplete — Step 2 is mandatory, not optional.
 
@@ -114,6 +114,19 @@ Also print instructions for the user to integrate it:
 1. Copy `cv-data.js` → `src/_data/cv[Company].js` (camelCase, e.g. `cvDeepMind.js`, `cvCrossref.js`)
 2. Rebuild: `bun run build`
 
+## Step 8b — Render cv.pdf
+
+Render the targeted CV to a PDF straight from `cv-data.js` — no site build required. The script loads the same `cv.njk` layout/template, applies print styling, forces the Education section to start on page 2, and auto-shrinks the content to fit two A4 pages:
+
+```bash
+node scripts/cv-to-pdf.js "applications/[slug]/cv-data.js"
+```
+
+Output lands next to the data file as `applications/[slug]/[slug].pdf` (filename matches the folder). The script prints the fit scale and final page count.
+
+- If it warns `still N pages at the … floor`, the CV data is too long — trim bullets in `cv-data.js` and re-run rather than shipping 3+ pages.
+- Layout is tunable via flags (`--margin-top N` mm, `--section-gap N` px, `--pages N`, `--scale N`, `--no-fit`); run `node scripts/cv-to-pdf.js` with no args for the full list. Defaults produce the standard two-page layout — only pass flags when a specific CV needs it.
+
 ## Step 9 — Draft application-questions.md
 
 Write `applications/[slug]/application-questions.md` covering **every** question found in Step 2, grouped by bucket:
@@ -165,7 +178,7 @@ Write `applications/[slug]/README.md` using the template in `references/output-s
 Tell the user:
 - Score and recommendation
 - Folder path where files were saved
-- Which files were generated
+- Which files were generated (including `[slug].pdf` and its final page count)
 - The apply deep link, how many form questions were found, and any `[FILL ME]` placeholders that need their input before submitting
 - How to integrate `cv-data.js` into the site
 - One-line suggested email subject line for the application
@@ -180,6 +193,7 @@ Tell the user:
 ## Scripts
 
 - **`scripts/fetch-application-form.sh <job-url>`** — Discover the apply deep link and extract application form questions (`{url, ats, apply_url, source, needs_browser, questions, form_text}` JSON). Handles Greenhouse, Lever, Ashby, Workable, SmartRecruiters, Factorial, and generic career pages. `needs_browser: true` signals the form must be read with browser tools.
+- **`scripts/cv-to-pdf.js <cv-data.js> [out.pdf] [flags]`** — Render a `cv-data.js` to a two-page A4 PDF via the site's `cv.njk` template and puppeteer, no Eleventy build. Auto-fits to `--pages` (default 2). Lives in the project root `scripts/`, not the skill dir.
 
 ## Notes
 

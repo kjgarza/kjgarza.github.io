@@ -32,7 +32,7 @@ Bundled helper scripts live in the `scripts/` subfolder of this skill:
 | Total WebSearch queries (across all agents) | 15 |
 | Total job postings fetched & parsed | 20 |
 | Total subagents spawned (Mode 1) | 3 |
-| Career pages fetched per agent | 4 |
+| Career pages fetched per agent | 5 |
 
 If limits are reached before finding enough matches, report what was found and note the cap was hit.
 
@@ -134,13 +134,15 @@ leads/
 
 **Agent 1 — Direct Career Pages + LinkedIn Browser**
 
-Budget: max 4 career page fetches + LinkedIn browser search.
+Budget: max 5 career page fetches + LinkedIn browser search.
 
 1. Use `mcp__claude-in-chrome__navigate` to open each career page, then `mcp__claude-in-chrome__get_page_text` to extract roles:
    - `https://openai.com/careers/search/`
    - `https://www.anthropic.com/careers/jobs`
    - `https://holtzbrinck.com/en/jobs`
+   - `https://careers.merantix-aicampus.com/jobs?filter=eyJzZWFyY2hhYmxlX2xvY2F0aW9ucyI6WyJCZXJsaW4sIEdlcm1hbnkiXX0%3D` (Merantix AI Campus network, Berlin-filtered — covers Merantix Momentum and portfolio companies)
    - On each career page, check for a "posted date" or "last updated" field; skip any role posted more than 5 months ago or marked closed.
+   - The Merantix board runs on the Getro ATS, which `fetch-job.sh` does not handle and which 403s plain `curl` — always use the browser path for it.
 2. Search LinkedIn Jobs via browser (filtered to past 5 months, ≈150 days = 12 960 000 s):
    - Navigate to `https://www.linkedin.com/jobs/search/?keywords=AI+Engineer+research+infrastructure&location=Europe&f_TPR=r12960000`
    - Use `mcp__claude-in-chrome__get_page_text` to extract job titles, companies, URLs, **and posted dates**
@@ -160,6 +162,7 @@ Queries (pick the most relevant 5):
 - `"Head of AI" OR "Director of AI" open science remote Europe 2026`
 - `"Engineering Lead" developer tools research remote Europe 2026`
 - `Anthropic OR OpenAI OR "Google DeepMind" OR "Mistral AI" careers AI engineer Europe 2026`
+- `"Merantix Momentum" OR "Merantix AI Campus" careers machine learning engineer Berlin 2026`
 
 For each result, note the date shown in the search snippet. Discard any result whose snippet date is older than 5 months or whose title/snippet signals the role is closed.
 

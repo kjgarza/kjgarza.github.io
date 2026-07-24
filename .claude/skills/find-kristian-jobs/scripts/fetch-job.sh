@@ -35,6 +35,14 @@ JOBS=6
 if [[ "${1:-}" == "--jobs" ]]; then
   JOBS="${2:-6}"
   shift 2
+  # Validate before use: an unvalidated value reaches an arithmetic comparison
+  # below, where a non-numeric string is treated as a variable name and aborts
+  # the script under `set -u` ("abc: unbound variable"), and 0 would throttle on
+  # every iteration — silently turning the batch back into a serial loop.
+  if ! [[ "$JOBS" =~ ^[1-9][0-9]*$ ]]; then
+    echo "{\"error\": \"--jobs must be a positive integer, got: $JOBS\"}" >&2
+    exit 1
+  fi
 fi
 
 if [[ $# -eq 0 ]]; then

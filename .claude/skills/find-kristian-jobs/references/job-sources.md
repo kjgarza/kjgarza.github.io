@@ -18,7 +18,7 @@ Returns `{ats, board, count, jobs: [{title, location, posted_date, url, apply_ur
 |---------|------|-----|-----------|------|
 | **OpenAI** | 1 | ashby | `openai` | 741 |
 | **Anthropic** | 1 | greenhouse | `anthropic` | 407 |
-| **Google DeepMind** | 1 | greenhouse | `deepmind` | 10 |
+| **Google DeepMind** (US only — London is on Google Careers, see §2) | 1 | greenhouse | `deepmind` | 10 |
 | **Cohere** | 1 | ashby | `cohere` | 137 |
 | **Notion** | 3 | ashby | `notion` | 139 |
 | **Replit** | 3 | ashby | `replit` | 92 |

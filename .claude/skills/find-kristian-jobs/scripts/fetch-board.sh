@@ -23,7 +23,9 @@
 # (Greenhouse only exposes updated_at) and isListed distinguishes live roles from
 # zombie postings that are still reachable by URL.
 #
-# Requires: curl, jq. Optional: JINA_API_KEY (required for google mode).
+# Requires: curl, jq — plus grep, sed and awk, which the google mode uses to harvest
+# posting links out of the rendered page. Optional: JINA_API_KEY (required for google
+# mode; the other modes are pure curl + jq).
 
 set -uo pipefail
 
@@ -47,7 +49,10 @@ emit() {
 }
 
 fail() {
-  echo "{\"ats\": \"$1\", \"board\": \"$2\", \"count\": 0, \"jobs\": [], \"error\": \"$3\"}"
+  # Build with jq, not string interpolation: board can be a Google query string
+  # containing quotes or backslashes, which would emit invalid JSON.
+  jq -n --arg ats "$1" --arg board "$2" --arg error "$3" \
+    '{ats: $ats, board: $board, count: 0, jobs: [], error: $error}'
   exit 0
 }
 
@@ -118,7 +123,7 @@ case "$ATS" in
       title:       .text,
       location:    (.categories.location // ""),
       posted_date: ((.createdAt // 0) | if . == 0 then "unknown"
-                    else (. / 1000 | strftime("%Y-%m-%d")) end),
+                    else (. / 1000 | floor | strftime("%Y-%m-%d")) end),
       url:         .hostedUrl,
       apply_url:   (.applyUrl // .hostedUrl),
       remote:      null,

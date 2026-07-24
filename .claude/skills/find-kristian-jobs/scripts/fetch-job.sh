@@ -2,7 +2,9 @@
 # fetch-job.sh — Fetch a job posting and extract metadata (URL, content, posted_date, status)
 #
 # Usage:
-#   ./scripts/fetch-job.sh <job-url>
+#   ./scripts/fetch-job.sh <job-url>                  # one posting  → JSON object
+#   ./scripts/fetch-job.sh <url> <url> <url> ...      # many         → JSON array
+#   ./scripts/fetch-job.sh --jobs 8 <url> ...         # set parallelism (default 6)
 #
 # Output: JSON to stdout
 #   { "url": "...", "posted_date": "YYYY-MM-DD|unknown", "status": "open|closed|unknown",
@@ -11,20 +13,59 @@
 #
 # "questions" is the application form's fields when the ATS exposes them
 #
+# Passing several URLs fetches them CONCURRENTLY and emits a JSON array in the same
+# order as the arguments. Scoring a shortlist is the normal case, so prefer one batch
+# call over a shell loop: the loop is serial and pays every network round-trip end to
+# end, while a batch of 15 postings completes in roughly the time of the slowest one.
+#
 # Fetch chain:
 #   1. Greenhouse public API (if URL matches greenhouse.io pattern) — best for dates
-#   2. Jina Reader (r.jina.ai) — clean markdown for all other URLs
-#   3. WebFetch via curl — plain HTML fallback
+#   2. Lever public API
+#   3. Ashby single-posting GraphQL (one posting, ~12KB — never the whole board)
+#   4. Jina Reader (r.jina.ai) — clean markdown for all other URLs
+#   5. WebFetch via curl — plain HTML fallback
 #
-# Requires: curl, jq, JINA_API_KEY env var (for Jina Reader)
+# Requires: curl, jq, grep, sed. Optional: JINA_API_KEY (for Jina Reader).
 
 set -euo pipefail
 
-URL="${1:-}"
-if [[ -z "$URL" ]]; then
-  echo '{"error": "Usage: fetch-job.sh <job-url>"}' >&2
+JOBS=6
+if [[ "${1:-}" == "--jobs" ]]; then
+  JOBS="${2:-6}"
+  shift 2
+fi
+
+if [[ $# -eq 0 ]]; then
+  echo '{"error": "Usage: fetch-job.sh [--jobs N] <job-url> [<job-url> ...]"}' >&2
   exit 1
 fi
+
+# ── batch mode: re-enter this script once per URL, bounded concurrency ────────
+# Each child writes to its own temp file so partial writes can't interleave on
+# stdout; results are then concatenated in argument order.
+
+if [[ $# -gt 1 ]]; then
+  SELF="${BASH_SOURCE[0]}"
+  BATCH_DIR=$(mktemp -d "${TMPDIR:-/tmp}/fetch-job-batch.XXXXXX")
+  trap 'rm -rf "$BATCH_DIR"' EXIT
+
+  idx=0
+  for u in "$@"; do
+    idx=$((idx + 1))
+    # Throttle: wait whenever the number of running children reaches $JOBS
+    while [[ $(jobs -rp | wc -l) -ge $JOBS ]]; do wait -n 2>/dev/null || break; done
+    printf -v padded '%04d' "$idx"
+    ( bash "$SELF" "$u" > "$BATCH_DIR/$padded.json" 2>/dev/null \
+      || jq -n --arg url "$u" '{url:$url,posted_date:"unknown",status:"unknown",content:"",questions:[]}' \
+         > "$BATCH_DIR/$padded.json" ) &
+  done
+  wait
+
+  jq -s '.' "$BATCH_DIR"/*.json
+  exit 0
+fi
+
+URL="$1"
 
 JINA_KEY="${JINA_API_KEY:-}"
 TIMEOUT=20
@@ -121,43 +162,68 @@ if echo "$URL" | grep -qE 'jobs\.lever\.co/([^/]+)/([a-f0-9-]+)'; then
   fi
 fi
 
-# ── Ashby public posting API ──────────────────────────────────────────────────
+# ── Ashby single-posting API ──────────────────────────────────────────────────
 # URL pattern: https://jobs.ashbyhq.com/{board}/{uuid}[/application]
-# The job-board endpoint returns every posting for the board in one unauthenticated
-# call, including publishedAt (a true publish timestamp, unlike Greenhouse's
-# updated_at) and isListed — which is how a delisted-but-still-reachable posting is
-# detected. Preferred over Jina for any Ashby URL.
+#
+# Resolve ONE posting with the public non-user-graphql ApiJobPosting query. The
+# obvious alternative — GET posting-api/job-board/{board} and filter client-side —
+# downloads the entire board to answer a question about a single job: OpenAI's board
+# is 12.5 MB, so scoring a 15-role shortlist that way would pull ~190 MB and risk
+# timeouts. The GraphQL query returns ~12 KB regardless of board size.
+#
+# publishedDate is already YYYY-MM-DD (a true publish date, unlike Greenhouse's
+# updated_at) and isListed detects a delisted-but-still-reachable posting.
+# Board-wide listing still belongs in fetch-board.sh — that's when you want the board.
 
 if echo "$URL" | grep -qE 'jobs\.ashbyhq\.com/[^/]+/[A-Za-z0-9-]+'; then
-  BOARD=$(echo "$URL" | sed -E 's|.*jobs\.ashbyhq\.com/([^/]+)/.*|\1|')
-  JOB_ID=$(echo "$URL" | sed -E 's|.*jobs\.ashbyhq\.com/[^/]+/([A-Za-z0-9-]+).*|\1|')
+  BASE="${URL%%\?*}"; BASE="${BASE%/}"; BASE="${BASE%/application}"
+  BOARD=$(echo "$BASE" | sed -E 's|.*jobs\.ashbyhq\.com/([^/]+)/.*|\1|')
+  JOB_ID=$(echo "$BASE" | sed -E 's|.*/([A-Za-z0-9-]+)$|\1|')
 
-  API_URL="https://api.ashbyhq.com/posting-api/job-board/${BOARD}?includeCompensation=true"
-  RESPONSE=$(curl -sf --max-time "$TIMEOUT" "$API_URL" 2>/dev/null || echo "")
+  GQL=$(jq -n --arg org "$BOARD" --arg jid "$JOB_ID" '{
+    operationName: "ApiJobPosting",
+    variables: {organizationHostedJobsPageName: $org, jobPostingId: $jid},
+    query: "query ApiJobPosting($organizationHostedJobsPageName: String!, $jobPostingId: String!) { jobPosting(organizationHostedJobsPageName: $organizationHostedJobsPageName, jobPostingId: $jobPostingId) { id title departmentName locationName employmentType publishedDate isListed compensationTierSummary descriptionHtml } }"
+  }')
 
-  if [[ -n "$RESPONSE" ]] && echo "$RESPONSE" | jq -e '.jobs' >/dev/null 2>&1; then
-    POSTING=$(echo "$RESPONSE" | jq -c --arg id "$JOB_ID" '.jobs[] | select(.id == $id)')
+  RESPONSE=$(curl -sf --max-time "$TIMEOUT" \
+    -H "Content-Type: application/json" \
+    -H "Origin: https://jobs.ashbyhq.com" \
+    --data-raw "$GQL" \
+    "https://jobs.ashbyhq.com/api/non-user-graphql?op=ApiJobPosting" 2>/dev/null || echo "")
 
-    if [[ -n "$POSTING" ]]; then
-      TITLE=$(echo "$POSTING" | jq -r '.title // ""')
-      LOCATION=$(echo "$POSTING" | jq -r '.location // ""')
-      PUBLISHED=$(echo "$POSTING" | jq -r '.publishedAt // ""')
-      POSTED_DATE="${PUBLISHED:0:10}"
-      [[ -z "$POSTED_DATE" ]] && POSTED_DATE="unknown"
-      # isListed false = pulled from the board but the URL still resolves
-      LISTED=$(echo "$POSTING" | jq -r '.isListed // false')
-      if [[ "$LISTED" == "true" ]]; then STATUS="open"; else STATUS="closed"; fi
-      COMP=$(echo "$POSTING" | jq -r '.compensation.compensationTierSummary // ""')
-      BODY=$(echo "$POSTING" | jq -r '.descriptionPlain // ""')
-      CONTENT="# ${TITLE}
-Location: ${LOCATION}
+  if [[ -n "$RESPONSE" ]] && echo "$RESPONSE" | jq -e '.data.jobPosting.id' >/dev/null 2>&1; then
+    POSTING=$(echo "$RESPONSE" | jq -c '.data.jobPosting')
+    TITLE=$(echo "$POSTING"    | jq -r '.title // ""')
+    LOCATION=$(echo "$POSTING" | jq -r '.locationName // ""')
+    DEPT=$(echo "$POSTING"     | jq -r '.departmentName // ""')
+    PUBLISHED=$(echo "$POSTING" | jq -r '.publishedDate // ""')
+    POSTED_DATE="${PUBLISHED:0:10}"
+    [[ -z "$POSTED_DATE" ]] && POSTED_DATE="unknown"
+    # isListed false = pulled from the board but the URL still resolves
+    LISTED=$(echo "$POSTING" | jq -r '.isListed // false')
+    if [[ "$LISTED" == "true" ]]; then STATUS="open"; else STATUS="closed"; fi
+    COMP=$(echo "$POSTING" | jq -r '.compensationTierSummary // ""')
+    # perl, not sed: BSD sed lacks portable in-replacement newlines, and an
+    # alternation group collides with sed's s||| delimiter.
+    BODY=$(echo "$POSTING" | jq -r '.descriptionHtml // ""' \
+      | perl -0777 -pe '
+          s{<li[^>]*>}{\n- }gis;
+          s{<br[^>]*/?>}{\n}gis;
+          s{</(?:p|div|li|ul|ol|h[1-6])>}{\n}gis;
+          s{<[^>]*>}{}gs;
+          s/&amp;/&/g; s/&lt;/</g; s/&gt;/>/g; s/&quot;/"/g;
+          s/&#x27;/'"'"'/g; s/&#39;/'"'"'/g; s/&nbsp;/ /g;
+          s/\n{3,}/\n\n/g;')
+    CONTENT="# ${TITLE}
+Location: ${LOCATION}${DEPT:+
+Department: ${DEPT}}
 Published: ${PUBLISHED}${COMP:+
 Compensation: ${COMP}}
 
 ${BODY}"
-      emit_json "$URL" "$POSTED_DATE" "$STATUS" "$CONTENT"
-      exit 0
-    fi
+    emit_json "$URL" "$POSTED_DATE" "$STATUS" "$CONTENT"
+    exit 0
   fi
 fi
 

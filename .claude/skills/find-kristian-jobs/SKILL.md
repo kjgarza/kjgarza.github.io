@@ -21,7 +21,7 @@ Bundled helper scripts live in the `scripts/` subfolder of this skill:
 | Script | Purpose |
 |--------|---------|
 | `scripts/fetch-board.sh <ats> <board>` | List an **entire company job board** in one call: `{ats, board, count, jobs[]}` with `posted_date` per role. `ats` = `ashby` \| `greenhouse` \| `lever` \| `google`. Board slugs are in `references/job-sources.md`. Google mode takes a query + location instead of a slug. Free — not counted against the career-page budget. |
-| `scripts/fetch-job.sh <url>` | Fetch a job posting and return `{url, posted_date, status, content}` JSON. Auto-selects: Greenhouse API → Lever API → Ashby API → Jina Reader → plain curl. |
+| `scripts/fetch-job.sh <url> [<url> ...]` | Fetch job postings and return `{url, posted_date, status, content}` JSON — an object for one URL, an array (in argument order) for several. Auto-selects: Greenhouse API → Lever API → Ashby single-posting API → Jina Reader → plain curl. **Pass the whole shortlist in one call** — it fetches them concurrently (~4x faster than a shell loop); `--jobs N` tunes parallelism, default 6. |
 | `scripts/fetch-application-form.sh <url>` | Find the **apply deep link** and extract the actual application form questions. Returns `{url, ats, apply_url, source, needs_browser, questions, form_text}` JSON. Structured questions via Greenhouse/Workable/Ashby public APIs; apply-page scraping for Lever/generic. When `needs_browser: true` the form wasn't captured — open `apply_url` with browser tools. |
 | `scripts/run-job-search.sh` | Run a full unattended search (cron/remote trigger). Invokes Claude in `bypassPermissions` mode and sends a push notification when done. |
 
@@ -102,7 +102,12 @@ STATUS=$(echo "$RESULT"     | jq -r '.status')          # "open", "closed", or "
 CONTENT=$(echo "$RESULT"    | jq -r '.content')
 ```
 
-The script auto-selects the best source: **Greenhouse API → Lever API → Jina Reader → plain curl**. Always preferred over raw `curl` or `WebFetch`.
+The script auto-selects the best source: **Greenhouse API → Lever API → Ashby single-posting API → Jina Reader → plain curl**. Always preferred over raw `curl` or `WebFetch`.
+
+**Fetching more than one posting? Pass them all to a single call** — it fetches concurrently and returns an array in argument order, instead of paying each round-trip serially:
+```bash
+bash .claude/skills/find-kristian-jobs/scripts/fetch-job.sh "$URL_A" "$URL_B" "$URL_C" | jq -r '.[] | "\(.posted_date) \(.status) \(.url)"'
+```
 
 ## Output
 
@@ -175,8 +180,11 @@ Budget: max 5 **browser** career page fetches + LinkedIn browser search. Board A
    ```bash
    bash $S google "machine learning" "Berlin Germany"
    bash $S google "research infrastructure" "Germany"
+   bash $S google "DeepMind" "London UK"
    ```
-   Results carry `posted_date: unknown` by design (Google publishes none) and are ordered newest-first. Keep them; the freshness override in this skill exempts Google. Google DeepMind roles are on the `deepmind` Greenhouse board, not here.
+   Results carry `posted_date: unknown` by design (Google publishes none) and are ordered newest-first. Keep them; the freshness override in this skill exempts Google.
+
+   **Google DeepMind needs BOTH sources — sweep each:** the `deepmind` Greenhouse board carries only US roles (Mountain View / NYC / Seattle), and DeepMind's **London** roles are on Google Careers, reachable only via the `DeepMind` keyword query above. Skipping either one silently drops half of a Tier 1 company. See `references/job-sources.md` §2.
 
 1. Use `mcp__claude-in-chrome__navigate` to open each **remaining** career page (companies with no board API), then `mcp__claude-in-chrome__get_page_text` to extract roles:
    - `https://holtzbrinck.com/en/jobs`
@@ -238,13 +246,14 @@ Collect all results from the 3 agents. Deduplicate by URL. If total > 20, keep t
 4. If the date is unknown, proceed to parse — but flag `posted_date: unknown`. **Exception: Google roles keep full priority despite an unknown date** (see Source-specific overrides).
 5. Apply the **geography pre-filter** — drop US-only / US-timezone-remote roles before spending a fetch on them.
 
-For each surviving posting, fetch the full content:
+Fetch the full content of all surviving postings in **one batched call** — not a loop. The batch runs concurrently and returns an array in argument order:
 ```bash
-RESULT=$(bash .claude/skills/find-kristian-jobs/scripts/fetch-job.sh "$JOB_URL")
-POSTED_DATE=$(echo "$RESULT" | jq -r '.posted_date')
-STATUS=$(echo "$RESULT"     | jq -r '.status')
-CONTENT=$(echo "$RESULT"    | jq -r '.content')
+RESULTS=$(bash .claude/skills/find-kristian-jobs/scripts/fetch-job.sh "${JOB_URLS[@]}")
+echo "$RESULTS" | jq -r '.[] | "\(.posted_date) | \(.status) | \(.url)"'
+# one posting's body:
+echo "$RESULTS" | jq -r '.[0].content'
 ```
+A serial loop pays every network round-trip end to end; the batch finishes in about the time of its slowest posting (measured ~4x faster on a 6-URL shortlist).
 
 After fetching, re-apply the freshness filter using the returned `posted_date` and `status` fields:
 - Look for fields: `Posted`, `Date posted`, `Listed`, `Apply by`, `Closes`, `Deadline`.

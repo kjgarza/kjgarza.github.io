@@ -27,6 +27,38 @@ Returns `{ats, board, count, jobs: [{title, location, posted_date, url, apply_ur
 | **Elicit** | 3 | ashby | `elicit` | 11 |
 | **Chan Zuckerberg Initiative** | 2 | greenhouse | `chanzuckerberginitiative` | 11 |
 | **Elsevier / RELX** | 3 | greenhouse | `elsevier` | 9 |
+| **Perplexity** | 1 | ashby | `perplexity` | 85 |
+| **Faculty AI** (London) | 2 | ashby | `faculty` | 66 |
+| **DeepL** | 2 | ashby | `deepl` | 36 |
+| **Isomorphic Labs** | 2 | greenhouse | `isomorphiclabs` | 20 |
+| **Quantexa** | 3 | ashby | `quantexa` | 30 |
+| **Speechmatics** | 3 | greenhouse | `speechmatics` | 10 |
+| **PolyAI** | 3 | greenhouse | `polyai` | 15 |
+| **Wayve** | 3 | ashby *or* greenhouse | `wayve` | 118 / 120 |
+| **Graphcore** | 3 | greenhouse | `graphcore` | 217 |
+| **Helsing** (defence — values call) | 3 | greenhouse | `helsing` | 122 |
+| **Celonis** (Munich HQ) | 3 | greenhouse | `celonis` | 226 |
+| **Databricks** | 3 | greenhouse | `databricks` | 794 |
+| **Scale AI** | 3 | greenhouse | `scaleai` | 196 |
+| **Monzo** | 3 | greenhouse | `monzo` | 76 |
+| **ElevenLabs** | 3 | ashby | `elevenlabs` | 211 |
+| **Synthesia** | 3 | ashby | `synthesia` | 76 |
+| **Aleph Alpha** | 3 | ashby | `alephalpha` | 8 |
+| **Black Forest Labs** (Freiburg) | 3 | greenhouse | `blackforestlabs` | 13 |
+| **Stability AI** | 3 | greenhouse | `stabilityai` | 4 |
+| **Cursor / Anysphere** | 3 | ashby | `cursor` | 121 |
+| **Harvey** | 3 | ashby | `harvey` | 342 |
+| **Sierra** | 3 | ashby | `sierra` | 165 |
+| **Lovable** | 3 | ashby *or* greenhouse | `lovable` | 68 / 58 |
+| **Together AI** | 3 | greenhouse | `togetherai` | 58 |
+| **Fireworks AI** | 3 | ashby *or* greenhouse | `fireworksai` | 46 |
+| **n8n** (Berlin) | 3 | ashby | `n8n` | 40 |
+| **Langfuse** | 3 | ashby | `langfuse` | 9 |
+| **Improbable** | 3 | ashby | `improbable` | 9 |
+| **Tractable** | 3 | ashby | `tractable` | 4 |
+| **dunnhumby** | 3 | greenhouse | `dunnhumby` | 72 |
+
+All rows below Elsevier were discovered and verified on 2026-07-24 by the London/Munich run. Some boards resolve on the EU Greenhouse host (`job-boards.eu.greenhouse.io`) — `fetch-board.sh` handles this transparently.
 
 Data quality by ATS — matters for the freshness filter:
 
@@ -39,6 +71,8 @@ Data quality by ATS — matters for the freshness filter:
 Ashby boards carry **zombie postings**: `isListed: true` with a `publishedAt` from years back (Elicit still lists a 2021 ML Engineer role). Always apply the 5-month rule to `posted_date` even when `listed` is true.
 
 **No board API found** (browser or WebSearch only): Mistral AI, Hugging Face, Weights & Biases, Allen Institute / Semantic Scholar, Crossref, ORCID, OpenAlex, Springer Nature, Protocol Labs, Wellcome, EMBL-EBI, CERN, Holtzbrinck. Slug guesses were probed and all 404'd — don't burn budget re-probing; use a browser or WebSearch for these.
+
+Also probed and dead as of 2026-07-24 (do not re-probe): Personio, Snyk, Revolut, Thought Machine, Darktrace, Builder.ai, Glean, Contextual AI, Exscientia, BenevolentAI, Starling Bank, Checkout.com, Anthropic-adjacent slug variants of DeepMind. **Mistral AI**: `lever/mistral` still resolves but now returns `[]` — the board that seeded `leads/pipeline.json` has been emptied or moved, and no Ashby/Greenhouse equivalent exists. Merantix uses its own host, `careers.merantix-aicampus.com`.
 
 To test a new company cheaply, try the slug against all three ATSes before adding it here:
 ```bash
@@ -63,7 +97,13 @@ bash .claude/skills/find-kristian-jobs/scripts/fetch-board.sh google "machine le
 - `"research infrastructure"` + `Germany`
 - `"knowledge graph"` + `Germany`
 
-Google DeepMind roles are **not** in this feed — they live on the `deepmind` Greenhouse board above.
+**Google DeepMind London lives HERE, not on the `deepmind` Greenhouse board.** Verified 2026-07-24: the `deepmind` Greenhouse board carries only ~10 US roles (Mountain View / NYC / Seattle). DeepMind's London roles are on Google Careers and are retrieved by using `DeepMind` as the keyword:
+
+```bash
+bash .claude/skills/find-kristian-jobs/scripts/fetch-board.sh google "DeepMind" "London UK"
+```
+
+That query returns ~20 London roles, the DeepMind-branded ones being mostly Research Scientist / Research Engineer posts (agent post-training, AGI safety & alignment, tool use, RL, robotics, protein design) plus a fixed-term Production Engineer. Sweep both sources: Greenhouse `deepmind` for US, Google Careers keyword `DeepMind` for London. Munich returns almost nothing DeepMind-related.
 
 **Google publishes no posted date anywhere** — not on the results page, not on the posting. `fetch-board.sh google` always returns `posted_date: "unknown"` and requests `sort_by=date`, so the returned order is newest-first. See the freshness exemption in SKILL.md.
 

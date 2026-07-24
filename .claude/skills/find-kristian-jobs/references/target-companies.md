@@ -6,7 +6,8 @@
 |---------|-------------|--------------|-------|
 | **Anthropic** | Mission-driven AI safety, values research rigor | Applied AI, Developer Tools, Research Infrastructure | Kristian's scholarly infrastructure + LLM production experience is rare |
 | **OpenAI** | Frontier LLM development, massive scale | Applied Research, Platform/API, Developer Experience | Side projects (ParrotGPT, SnowyOwl) show deep engagement with OpenAI stack |
-| **Google DeepMind** | Research-to-production pipeline, knowledge systems | Knowledge & Reasoning, Scholar/Academic products, AI Infrastructure | Google Scholar + Dimensions overlap; PID/metadata expertise is unique |
+| **Google DeepMind** | Research-to-production pipeline, knowledge systems | Knowledge & Reasoning, Scholar/Academic products, AI Infrastructure | Google Scholar + Dimensions overlap; PID/metadata expertise is unique. Board: `fetch-board.sh greenhouse deepmind` |
+| **Google (non-DeepMind)** | Berlin office, AI infrastructure roles | AI Infrastructure, Research | No API and no posted dates — `fetch-board.sh google "<keyword>" "Berlin Germany"`. Berlin list is sales-heavy; always search by keyword |
 | **Meta AI (FAIR)** | Open research culture, large-scale systems | FAIR Research, AI Infrastructure, Developer Tools | Open science values alignment, publications record |
 | **Cohere** | Enterprise AI, retrieval-augmented generation | Applied AI, Search & Retrieval | RAG + semantic search maps directly to Query Translation API work |
 | **Mistral AI** | European frontier lab, growing fast | Engineering, Applied AI | Berlin-adjacent (Paris), European AI leadership |
@@ -32,7 +33,7 @@
 
 | Company | Why it fits | Target teams | Notes |
 |---------|-------------|--------------|-------|
-| **Elicit / Ought** | AI-powered research tools | Engineering | LLMs + scholarly domain = core product fit |
+| **Elicit / Ought** | AI-powered research tools | Engineering | LLMs + scholarly domain = core product fit. Board: `fetch-board.sh ashby elicit`. **Caveat:** every engineering role is "Oakland, CA (or remote within US timezones)" — geography knockout. Sweep anyway: they have posted EMEA-remote roles before |
 | **Consensus** | AI-powered academic search | Engineering | Direct overlap with Query Translation API work |
 | **Semantic Scholar (AI2)** | Academic knowledge graph + NLP | Engineering, ML | Publications + NLP pipeline experience |
 | **Weights & Biases** | ML developer tools | Engineering, Product | Developer tools + AI engineering background |

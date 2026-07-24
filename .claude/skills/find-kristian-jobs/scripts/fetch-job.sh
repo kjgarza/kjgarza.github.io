@@ -121,6 +121,46 @@ if echo "$URL" | grep -qE 'jobs\.lever\.co/([^/]+)/([a-f0-9-]+)'; then
   fi
 fi
 
+# ── Ashby public posting API ──────────────────────────────────────────────────
+# URL pattern: https://jobs.ashbyhq.com/{board}/{uuid}[/application]
+# The job-board endpoint returns every posting for the board in one unauthenticated
+# call, including publishedAt (a true publish timestamp, unlike Greenhouse's
+# updated_at) and isListed — which is how a delisted-but-still-reachable posting is
+# detected. Preferred over Jina for any Ashby URL.
+
+if echo "$URL" | grep -qE 'jobs\.ashbyhq\.com/[^/]+/[A-Za-z0-9-]+'; then
+  BOARD=$(echo "$URL" | sed -E 's|.*jobs\.ashbyhq\.com/([^/]+)/.*|\1|')
+  JOB_ID=$(echo "$URL" | sed -E 's|.*jobs\.ashbyhq\.com/[^/]+/([A-Za-z0-9-]+).*|\1|')
+
+  API_URL="https://api.ashbyhq.com/posting-api/job-board/${BOARD}?includeCompensation=true"
+  RESPONSE=$(curl -sf --max-time "$TIMEOUT" "$API_URL" 2>/dev/null || echo "")
+
+  if [[ -n "$RESPONSE" ]] && echo "$RESPONSE" | jq -e '.jobs' >/dev/null 2>&1; then
+    POSTING=$(echo "$RESPONSE" | jq -c --arg id "$JOB_ID" '.jobs[] | select(.id == $id)')
+
+    if [[ -n "$POSTING" ]]; then
+      TITLE=$(echo "$POSTING" | jq -r '.title // ""')
+      LOCATION=$(echo "$POSTING" | jq -r '.location // ""')
+      PUBLISHED=$(echo "$POSTING" | jq -r '.publishedAt // ""')
+      POSTED_DATE="${PUBLISHED:0:10}"
+      [[ -z "$POSTED_DATE" ]] && POSTED_DATE="unknown"
+      # isListed false = pulled from the board but the URL still resolves
+      LISTED=$(echo "$POSTING" | jq -r '.isListed // false')
+      if [[ "$LISTED" == "true" ]]; then STATUS="open"; else STATUS="closed"; fi
+      COMP=$(echo "$POSTING" | jq -r '.compensation.compensationTierSummary // ""')
+      BODY=$(echo "$POSTING" | jq -r '.descriptionPlain // ""')
+      CONTENT="# ${TITLE}
+Location: ${LOCATION}
+Published: ${PUBLISHED}${COMP:+
+Compensation: ${COMP}}
+
+${BODY}"
+      emit_json "$URL" "$POSTED_DATE" "$STATUS" "$CONTENT"
+      exit 0
+    fi
+  fi
+fi
+
 # ── Jina Reader ───────────────────────────────────────────────────────────────
 
 if [[ -n "$JINA_KEY" ]]; then

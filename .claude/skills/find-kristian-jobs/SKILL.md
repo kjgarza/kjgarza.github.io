@@ -12,6 +12,7 @@ You are a job search agent for **Kristian Garza**, a Senior AI Engineer at Digit
 Before proceeding, read these reference files for full context:
 - `references/kristian-profile.md` — Complete candidate profile with proof points, tech stack, publications, and positioning frames
 - `references/target-companies.md` — Curated target company list across three tiers
+- `references/job-sources.md` — Which sources to sweep and the cheapest correct way to read each (board API slugs, Google/Jina, browser, WebSearch)
 
 ## Scripts
 
@@ -19,7 +20,8 @@ Bundled helper scripts live in the `scripts/` subfolder of this skill:
 
 | Script | Purpose |
 |--------|---------|
-| `scripts/fetch-job.sh <url>` | Fetch a job posting and return `{url, posted_date, status, content}` JSON. Auto-selects: Greenhouse API → Lever API → Jina Reader → plain curl. |
+| `scripts/fetch-board.sh <ats> <board>` | List an **entire company job board** in one call: `{ats, board, count, jobs[]}` with `posted_date` per role. `ats` = `ashby` \| `greenhouse` \| `lever` \| `google`. Board slugs are in `references/job-sources.md`. Google mode takes a query + location instead of a slug. Free — not counted against the career-page budget. |
+| `scripts/fetch-job.sh <url>` | Fetch a job posting and return `{url, posted_date, status, content}` JSON. Auto-selects: Greenhouse API → Lever API → Ashby API → Jina Reader → plain curl. |
 | `scripts/fetch-application-form.sh <url>` | Find the **apply deep link** and extract the actual application form questions. Returns `{url, ats, apply_url, source, needs_browser, questions, form_text}` JSON. Structured questions via Greenhouse/Workable/Ashby public APIs; apply-page scraping for Lever/generic. When `needs_browser: true` the form wasn't captured — open `apply_url` with browser tools. |
 | `scripts/run-job-search.sh` | Run a full unattended search (cron/remote trigger). Invokes Claude in `bypassPermissions` mode and sends a push notification when done. |
 
@@ -32,7 +34,9 @@ Bundled helper scripts live in the `scripts/` subfolder of this skill:
 | Total WebSearch queries (across all agents) | 15 |
 | Total job postings fetched & parsed | 20 |
 | Total subagents spawned (Mode 1) | 3 |
-| Career pages fetched per agent | 5 |
+| Career pages fetched **in a browser** per agent | 5 |
+| Board API calls (`fetch-board.sh ashby\|greenhouse\|lever`) | **unlimited — one curl each; never skip one to save budget** |
+| Google Careers keyword queries (`fetch-board.sh google`) | 2 per run |
 
 If limits are reached before finding enough matches, report what was found and note the cap was hit.
 
@@ -48,12 +52,29 @@ If limits are reached before finding enough matches, report what was found and n
 
 When parsing a posting with Jina Reader, always look for: `Posted`, `Date posted`, `Listed`, `Apply by`, `Closes`, or any timestamp field. If the posting date cannot be determined, flag it as **date unknown** and deprioritize — do not include it in scored results unless it is the only option for a strong domain match.
 
+### Source-specific overrides
+
+| Source | Override |
+|--------|----------|
+| **Ashby** boards | `publishedAt` is a true publish date — apply the 5-month rule strictly. Also discard `isListed: false`. Ashby boards keep **zombie postings**: still listed, published years ago (Elicit lists a 2021 ML Engineer role). The date rule catches these; don't trust `listed` alone. |
+| **Greenhouse** boards | Only `updated_at` is exposed. Read it as "not older than" — a role can be older than its `updated_at` but never newer. Don't treat it as a publish date when reporting. |
+| **Google Careers** | **Google publishes no date anywhere** — not on the results page, not on the posting. The blanket "deprioritize unknown dates" rule would silently kill every Google role, so it does **not** apply here. Instead: `fetch-board.sh google` requests `sort_by=date`, so treat the returned order as the freshness proxy, take the top results, and score them normally with `posted_date: unknown (Google — no date published)`. |
+
+### Geography pre-filter
+
+Run this **before** fetching a posting's full content, so budget isn't spent on roles that can't score:
+
+- **Discard** US-only roles and US-timezone-locked remote roles (e.g. "Oakland, CA (or remote within US timezones)"). Work arrangement is 15% of the score and these cap out around 60%.
+- **Keep** anything mentioning EMEA, Europe, Germany, Berlin, "remote (global)", or a European secondary location.
+- Report what the filter dropped per company — never silently drop an entire employer.
+
 ## Tool Stack
 
 | Task | Tool |
 |------|------|
 | Search for jobs | `WebSearch` |
-| Fetch career pages (JS-heavy) | `mcp__claude-in-chrome__navigate` + `mcp__claude-in-chrome__get_page_text` |
+| **List a whole company board (preferred)** | `Bash`: `bash .claude/skills/find-kristian-jobs/scripts/fetch-board.sh <ats> <board>` — slugs in `references/job-sources.md` |
+| Fetch career pages (JS-heavy, **only when no board API exists**) | `mcp__claude-in-chrome__navigate` + `mcp__claude-in-chrome__get_page_text` |
 | Search LinkedIn Jobs (authenticated) | `mcp__claude-in-chrome__*` browser tools |
 | Parse job posting content | `Bash`: `bash .claude/skills/find-kristian-jobs/scripts/fetch-job.sh "[url]"` |
 | Fetch application form + questions | `Bash`: `bash .claude/skills/find-kristian-jobs/scripts/fetch-application-form.sh "[url]"` |
@@ -132,13 +153,32 @@ leads/
 
 ---
 
-**Agent 1 — Direct Career Pages + LinkedIn Browser**
+**Agent 1 — Board APIs + Google + Career Pages + LinkedIn Browser**
 
-Budget: max 5 career page fetches + LinkedIn browser search.
+Budget: max 5 **browser** career page fetches + LinkedIn browser search. Board API calls are free and don't count.
 
-1. Use `mcp__claude-in-chrome__navigate` to open each career page, then `mcp__claude-in-chrome__get_page_text` to extract roles:
-   - `https://openai.com/careers/search/`
-   - `https://www.anthropic.com/careers/jobs`
+0. **Sweep the board APIs first.** Read `references/job-sources.md` for the slug table, then run one call per company — these return every open role with a real posted date and cost nothing:
+   ```bash
+   S=.claude/skills/find-kristian-jobs/scripts/fetch-board.sh
+   bash $S ashby openai;      bash $S greenhouse anthropic
+   bash $S greenhouse deepmind; bash $S ashby cohere
+   bash $S ashby elicit;      bash $S greenhouse chanzuckerberginitiative
+   bash $S ashby langchain;   bash $S ashby notion
+   bash $S ashby replit;      bash $S greenhouse vercel
+   bash $S greenhouse elsevier
+   ```
+   Boards are large (OpenAI ~740, Anthropic ~400) — filter titles/locations in `jq` before returning anything. Apply the geography pre-filter and the 5-month rule to `posted_date` here, not later.
+
+   **Do not browser-scrape openai.com or anthropic.com career pages** — these boards supersede them.
+
+0b. **Google Careers** (max 2 keyword queries, never a bare location dump — it returns mostly Cloud sales):
+   ```bash
+   bash $S google "machine learning" "Berlin Germany"
+   bash $S google "research infrastructure" "Germany"
+   ```
+   Results carry `posted_date: unknown` by design (Google publishes none) and are ordered newest-first. Keep them; the freshness override in this skill exempts Google. Google DeepMind roles are on the `deepmind` Greenhouse board, not here.
+
+1. Use `mcp__claude-in-chrome__navigate` to open each **remaining** career page (companies with no board API), then `mcp__claude-in-chrome__get_page_text` to extract roles:
    - `https://holtzbrinck.com/en/jobs`
    - `https://careers.merantix-aicampus.com/jobs?filter=eyJzZWFyY2hhYmxlX2xvY2F0aW9ucyI6WyJCZXJsaW4sIEdlcm1hbnkiXX0%3D` (Merantix AI Campus network, Berlin-filtered — covers Merantix Momentum and portfolio companies)
    - On each career page, check for a "posted date" or "last updated" field; skip any role posted more than 5 months ago or marked closed.
@@ -194,8 +234,9 @@ Collect all results from the 3 agents. Deduplicate by URL. If total > 20, keep t
 **Freshness filter — run before parsing:**
 1. For each posting, check any date metadata already returned (LinkedIn `f_TPR` filter, search snippet dates, `posted_date` from agents).
 2. Discard postings with a known date older than **5 months** from today.
-3. Discard postings explicitly marked closed/filled.
-4. If the date is unknown, proceed to parse — but flag `posted_date: unknown`.
+3. Discard postings explicitly marked closed/filled, and Ashby postings with `listed: false`.
+4. If the date is unknown, proceed to parse — but flag `posted_date: unknown`. **Exception: Google roles keep full priority despite an unknown date** (see Source-specific overrides).
+5. Apply the **geography pre-filter** — drop US-only / US-timezone-remote roles before spending a fetch on them.
 
 For each surviving posting, fetch the full content:
 ```bash
@@ -269,8 +310,12 @@ This runs the full contact workflow: scrape company site, search LinkedIn, class
 
 ## Mode 2: Company Search
 
-1. Search `[company] careers engineering 2026` and `[company] jobs AI ML 2026`
-2. Fetch career page via browser (`mcp__claude-in-chrome__navigate` + `mcp__claude-in-chrome__get_page_text`) or Jina Reader as fallback
+1. **Check `references/job-sources.md` for a board slug first.** If the company is listed, `bash scripts/fetch-board.sh <ats> <board>` returns the whole board with dates — skip steps 1–2 entirely. If it isn't listed, probe the obvious slug against all three ATSes before falling back to a browser:
+   ```bash
+   for ats in ashby greenhouse lever; do bash $S $ats <slug> | jq -c '{ats,count,error}'; done
+   ```
+   Add any new working slug to `references/job-sources.md`.
+2. Otherwise: search `[company] careers engineering 2026`, then fetch the career page via browser (`mcp__claude-in-chrome__navigate` + `mcp__claude-in-chrome__get_page_text`) or Jina Reader as fallback
 3. **Apply freshness filter:** discard any role marked closed/filled or with a posted date older than 5 months. Flag roles with no visible date as `posted_date: unknown`.
 4. List only open, recent roles in a table with `URL` and `Posted` columns (clickable markdown links)
 5. Score each using the multi-dimensional matrix

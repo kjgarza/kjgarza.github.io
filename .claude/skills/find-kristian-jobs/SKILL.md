@@ -36,7 +36,7 @@ Bundled helper scripts live in the `scripts/` subfolder of this skill:
 | Total subagents spawned (Mode 1) | 3 |
 | Career pages fetched **in a browser** per agent | 5 |
 | Board API calls (`fetch-board.sh ashby\|greenhouse\|lever`) | **unlimited — one curl each; never skip one to save budget** |
-| Google Careers keyword queries (`fetch-board.sh google`) | 2 per run |
+| Google Careers keyword queries (`fetch-board.sh google`) | 3 per run — one of which is always the `DeepMind` London query |
 
 If limits are reached before finding enough matches, report what was found and note the cap was hit.
 
@@ -176,7 +176,7 @@ Budget: max 5 **browser** career page fetches + LinkedIn browser search. Board A
 
    **Do not browser-scrape openai.com or anthropic.com career pages** — these boards supersede them.
 
-0b. **Google Careers** (max 2 keyword queries, never a bare location dump — it returns mostly Cloud sales):
+0b. **Google Careers** (max 3 keyword queries — the two below plus the mandatory `DeepMind` one; never a bare location dump, it returns mostly Cloud sales):
    ```bash
    bash $S google "machine learning" "Berlin Germany"
    bash $S google "research infrastructure" "Germany"
@@ -319,8 +319,10 @@ This runs the full contact workflow: scrape company site, search LinkedIn, class
 
 ## Mode 2: Company Search
 
-1. **Check `references/job-sources.md` for a board slug first.** If the company is listed, `bash scripts/fetch-board.sh <ats> <board>` returns the whole board with dates — skip steps 1–2 entirely. If it isn't listed, probe the obvious slug against all three ATSes before falling back to a browser:
+1. **Check `references/job-sources.md` for a board slug first.** If the company is listed, one `fetch-board.sh` call returns the whole board with dates — skip steps 1–2 entirely. If it isn't listed, probe the obvious slug against all three ATSes before falling back to a browser:
    ```bash
+   S=.claude/skills/find-kristian-jobs/scripts/fetch-board.sh   # paths are relative to the repo root
+   bash $S <ats> <slug>                                          # if already listed
    for ats in ashby greenhouse lever; do bash $S $ats <slug> | jq -c '{ats,count,error}'; done
    ```
    Add any new working slug to `references/job-sources.md`.

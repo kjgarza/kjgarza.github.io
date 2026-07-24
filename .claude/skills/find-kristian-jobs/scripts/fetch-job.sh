@@ -25,7 +25,9 @@
 #   4. Jina Reader (r.jina.ai) — clean markdown for all other URLs
 #   5. WebFetch via curl — plain HTML fallback
 #
-# Requires: curl, jq, grep, sed. Optional: JINA_API_KEY (for Jina Reader).
+# Requires: curl, jq, grep, sed, and perl (used to convert Ashby descriptionHtml to
+# text). Optional: JINA_API_KEY (for Jina Reader).
+# Bash 3.2 compatible — batch mode avoids `wait -n` for macOS's default /bin/bash.
 
 set -euo pipefail
 
@@ -49,15 +51,23 @@ if [[ $# -gt 1 ]]; then
   BATCH_DIR=$(mktemp -d "${TMPDIR:-/tmp}/fetch-job-batch.XXXXXX")
   trap 'rm -rf "$BATCH_DIR"' EXIT
 
+  # Throttle by waiting on the OLDEST pid once $JOBS are in flight. `wait -n`
+  # would be the obvious choice but does not exist in Bash 3.2 — the default
+  # /bin/bash on macOS — where it fails silently and lets the batch fan out
+  # unbounded. This form works on 3.2 and up.
   idx=0
+  PIDS=()
   for u in "$@"; do
     idx=$((idx + 1))
-    # Throttle: wait whenever the number of running children reaches $JOBS
-    while [[ $(jobs -rp | wc -l) -ge $JOBS ]]; do wait -n 2>/dev/null || break; done
     printf -v padded '%04d' "$idx"
     ( bash "$SELF" "$u" > "$BATCH_DIR/$padded.json" 2>/dev/null \
       || jq -n --arg url "$u" '{url:$url,posted_date:"unknown",status:"unknown",content:"",questions:[]}' \
          > "$BATCH_DIR/$padded.json" ) &
+    PIDS+=($!)
+    if [[ ${#PIDS[@]} -ge $JOBS ]]; then
+      wait "${PIDS[0]}" 2>/dev/null || true
+      PIDS=("${PIDS[@]:1}")
+    fi
   done
   wait
 

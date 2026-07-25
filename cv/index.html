@@ -352,16 +352,18 @@
     @media print {
       @page {
         size: A4;
-        margin: 18mm 14mm 14mm 14mm;
+        margin: 22mm 20mm 20mm 20mm;
+      }
+
+      /* Ensure every element renders its background/fill colours accurately */
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
 
       html { font-size: 10pt; }
 
-      body {
-        background: #fff;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
+      body { background: #fff; }
 
       .cv-back-link { display: none !important; }
 
@@ -371,22 +373,18 @@
         margin: 0;
       }
 
-      .cv-sheet { padding: 0; }
+      .cv-sheet { padding: 6mm 6mm 8mm; }
       .cv-name { font-size: 22pt; }
 
-      /* Force background printing for timeline elements */
-      .cv-sidebar-heading .cv-heading-dot,
-      .cv-entry::before,
-      .cv-timeline::before {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-
-      .cv-entry { page-break-inside: avoid; }
-      .cv-section { page-break-inside: avoid; }
+      /* Page-break rules — modern + legacy syntax */
+      .cv-entry { page-break-inside: avoid; break-inside: avoid; }
+      .cv-section { page-break-inside: auto; break-inside: auto; }
+      .cv-section-heading { page-break-after: avoid; break-after: avoid; }
 
       .cv-section.cv-page-break-before {
         page-break-before: always;
+        break-before: page;
+        padding-top: 6mm;
       }
 
       .cv-profile-text { font-size: 10pt; }
@@ -436,6 +434,16 @@
     border-color: #2d2d2d;
   }
   .cv-selector-btn:hover:not(.active) { background: #f0f0f0; }
+  .cv-export-btn {
+    margin-left: 20px;
+    background: #2d2d2d;
+    color: #fff;
+    border-color: #2d2d2d;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .cv-export-btn:hover { background: #111; border-color: #111; }
   .cv-variant { display: none; }
   .cv-variant.active { display: block; }
   @media print {
@@ -451,6 +459,13 @@
   <span class="cv-selector-label">CV Version:</span>
   <button class="cv-selector-btn active" data-variant="default" onclick="selectVariant('default')">General</button>
   <button class="cv-selector-btn" data-variant="iris" onclick="selectVariant('iris')">Iris AI – Tech Lead</button>
+  <button class="cv-selector-btn" data-variant="anthro" onclick="selectVariant('anthro')">Anthropic – Research Engineer</button>
+  <button class="cv-selector-btn" data-variant="mistral" onclick="selectVariant('mistral')">Mistral – Applied AI Lead</button>
+  <button class="cv-selector-btn cv-export-btn" onclick="window.print()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Export PDF
+  </button>
+
 </div>
 
 <div class="cv-page">
@@ -1449,6 +1464,817 @@
             </div>
             <div class="cv-entry-period">2025</div>
             <p class="cv-entry-desc">Built a no-code workflow-automation platform connecting research tools (Dimensions, Overleaf, ReadCube) via a Next.js app—letting scholars stitch cross-tool integrations in minutes, eliminating brittle ad-hoc scripts.</p>
+          </div>
+          
+          <div class="cv-entry hollow">
+            <div class="cv-entry-title">
+              Converting Publications into Interactive Podcasts, <span>Holtzbrinck Hackathon 2024</span>
+            </div>
+            <div class="cv-entry-period">2024</div>
+            <p class="cv-entry-desc">Co-led a 48-hour sprint to ship a Next.js app transforming academic PDFs into multi-speaker podcast episodes with live Q&A, using custom LLM condensation and TTS synthesis pipelines.</p>
+          </div>
+          
+        </div>
+      </section>
+
+      <div class="cv-projects-note">
+        Visit <a href="https://kjgarza.github.io/work" rel="noopener">website</a> for OTHER PROJECTs
+      </div>
+
+      
+      <section class="cv-section">
+        <h2 class="cv-section-heading">
+          <i data-lucide="star"></i>
+          Published Work
+        </h2>
+        <div class="cv-timeline">
+          
+          <div class="cv-entry">
+            <div class="cv-entry-title">The Impact of Language User Interfaces on Finding Scholarly Repositories. <span>, iPRES 2023</span></div>
+            <div class="cv-entry-period">2023 &mdash; <span class="cv-entry-url"><a href="https://doi.org/10.59350/b9na4-hq881" target="_blank" rel="noopener">https://doi.org/10.59350/b9na4-hq881</a></span></div>
+          </div>
+          
+          <div class="cv-entry hollow">
+            <div class="cv-entry-title">ParrotGPT: On the Advantages of Large Language Models for Academic Metadata Schema Mapping. <span>, EOSC 2023</span></div>
+            <div class="cv-entry-period">2023 &mdash; <span class="cv-entry-url"><a href="https://doi.org/10.59350/hs9k1-wn031" target="_blank" rel="noopener">https://doi.org/10.59350/hs9k1-wn031</a></span></div>
+          </div>
+          
+          <div class="cv-entry hollow">
+            <div class="cv-entry-title">Academic Publishing Web Forms Meet Your Demise: The Unstoppable Rise of Large Language Models. <span>, Substack / Force11</span></div>
+            <div class="cv-entry-period">2023 &mdash; <span class="cv-entry-url"><a href="https://doi.org/10.59350/b9na4-hq881" target="_blank" rel="noopener">https://doi.org/10.59350/b9na4-hq881</a></span></div>
+          </div>
+          
+        </div>
+      </section>
+
+      
+      <section class="cv-section">
+        <h2 class="cv-section-heading">
+          <i data-lucide="settings"></i>
+          Courses
+        </h2>
+        <div class="cv-timeline">
+          
+          <div class="cv-entry">
+            <div class="cv-entry-title">Designing AI Experiences, <span>NN/Group</span></div>
+            <div class="cv-entry-period">2025 &mdash; <span class="cv-entry-url"><a href="https://www.nngroup.com/courses/designing-ai-experiences/" target="_blank" rel="noopener">https://www.nngroup.com/courses/designing-ai-experiences/</a></span></div>
+          </div>
+          
+          <div class="cv-entry hollow">
+            <div class="cv-entry-title">Designing Complex Apps for Specialised Domains, <span>NN/Group</span></div>
+            <div class="cv-entry-period">2022 &mdash; <span class="cv-entry-url"><a href="https://www.nngroup.com/courses/complex-apps-specialized-domains/" target="_blank" rel="noopener">https://www.nngroup.com/courses/complex-apps-specialized-domains/</a></span></div>
+          </div>
+          
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+</div>
+
+  </div>
+  <div class="cv-variant" id="cv-variant-anthro">
+    
+<div class="cv-sheet">
+
+  
+  <header class="cv-header">
+    <h1 class="cv-name">Kristian Garza</h1>
+    <div class="cv-subtitle">
+      <span>RESEARCH ENGINEER · AI/LLM SYSTEMS</span>
+      <span class="sep"></span>
+      <span>BERLIN, GERMANY</span>
+      <span class="sep"></span>
+      <span>kj.garza@gmail.com</span>
+    </div>
+  </header>
+
+  
+  <div class="cv-body">
+
+    
+    <aside class="cv-sidebar">
+
+      
+      <div class="cv-sidebar-section">
+        <h2 class="cv-sidebar-heading">
+          <span class="cv-heading-dot"></span>
+          Links
+          <span class="cv-heading-dot"></span>
+        </h2>
+        <ul class="cv-sidebar-list">
+          
+          <li><a href="https://www.linkedin.com/in/kjgarza" target="_blank" rel="noopener">LinkedIn</a></li>
+          
+          <li><a href="https://github.com/kristiangarza" target="_blank" rel="noopener">Github</a></li>
+          
+          <li><a href="https://kjgarza.github.io/" target="_blank" rel="noopener">Portfolio</a></li>
+          
+        </ul>
+      </div>
+
+      
+      <div class="cv-sidebar-section">
+        <h2 class="cv-sidebar-heading">
+          <span class="cv-heading-dot"></span>
+          Skills
+          <span class="cv-heading-dot"></span>
+        </h2>
+        <div class="cv-skills-list">
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              Python (FastAPI / scripting / ML tooling)
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 95%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              LLMs & Evaluation Pipelines
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 95%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              LangChain / LlamaIndex / Agentic Orchestration
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 90%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              OpenAI / Claude / Hugging Face APIs
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 95%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              LLM Pipeline Design
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 90%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              MCP Server Development
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 85%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              Knowledge Graph Engineering
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 85%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              Hybrid Search (BM25 + vector)
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 85%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              Vector DBs (pgvector, SQLite Embeddings)
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 88%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              Evaluation Tooling & Benchmarking (promptfoo)
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 88%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              PostgreSQL / Relational DBs
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 90%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              AWS + Cloud Infrastructure (SQS/Lambda/S3)
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 80%"></div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      
+      <div class="cv-sidebar-section">
+        <h2 class="cv-sidebar-heading">
+          <span class="cv-heading-dot"></span>
+          Languages
+          <span class="cv-heading-dot"></span>
+        </h2>
+        <div class="cv-skills-list">
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">English</div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 100%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">Spanish</div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 100%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">German</div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 70%"></div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+    </aside>
+
+    
+    <div class="cv-main">
+
+      
+      <section class="cv-section">
+        <h2 class="cv-section-heading">
+          <i data-lucide="user"></i>
+          Profile
+        </h2>
+        <p class="cv-profile-text">Senior engineer with 10+ years in production software and 4+ years shipping LLM systems at scale, including 18+ published research papers. At Digital Science I architected Python/FastAPI evaluation pipelines, RAG microservices, MCP servers, and knowledge graph extraction systems on Kubernetes. PhD in Computer Science; deep focus on how AI systems behave in practice.</p>
+      </section>
+
+      
+      <section class="cv-section">
+        <h2 class="cv-section-heading">
+          <i data-lucide="briefcase"></i>
+          Employment History
+        </h2>
+        <div class="cv-timeline">
+          
+          <div class="cv-entry">
+            <div class="cv-entry-title">
+              AI SENIOR SOFTWARE ENGINEER <span>at Digital Science, Berlin</span>
+            </div>
+            <div class="cv-entry-period">2024 — Present</div>
+            
+            <ul class="cv-entry-bullets">
+              
+              <li>Architected a Python/FastAPI RAG microservice translating natural-language researcher queries into structured Dimensions searches via LangChain entity extraction and pgvector semantic search — deployed on Kubernetes with Sentry/Prometheus observability across cross-domain corpora (publications, grants, patents, clinical trials).</li>
+              
+              <li>Designed and shipped two generations of a research knowledge graph system: a Graphology-based production pipeline and a hexagonal-architecture rewrite using Effect-TS, PostgreSQL+pgvector, and a 22-stage extraction pipeline with graph topology metrics.</li>
+              
+              <li>Built a GitHub org catalogue scanning 1,000+ repos via a single LLM call per repo, with semantic search exposed through an MCP server at ~$1 per full org scan.</li>
+              
+              <li>Built an AI-powered manuscript review environment in Next.js with Tiptap v3, real-time citation verification via MCP, and contradiction detection through the Dimensions API</li>
+              
+              <li>Delivered a Rust-based embeddings API clustering research-document vectors with parallel K-means and LLM summarization, designed as a scalable Kubernetes microservice serving live traffic.</li>
+              
+            </ul>
+            
+          </div>
+          
+          <div class="cv-entry hollow">
+            <div class="cv-entry-title">
+              PRODUCT DESIGNER & ENGINEERING LEAD <span>at DataCite, Berlin</span>
+            </div>
+            <div class="cv-entry-period">2020 — 2023</div>
+            
+            <ul class="cv-entry-bullets">
+              
+              <li>Created and open-sourced ParrotGPT — a Python toolkit using GPT-3/3.5 for automatic bibliographic metadata translation across 20+ schemas — an early empirical LLM tool that tested model behaviour on structured knowledge mapping tasks.</li>
+              
+              <li>Led product and research for a service relaunch: ran a 56-person focus group across 10 organisations and an 85-response survey, facilitating design sprints that cut delivery lead time by 42% and opened 4 new customer relationships.</li>
+              
+              <li>Led a 4-person cross-functional team to design and ship DataCite's unified Design System — WCAG-compliant, Atomic Design component library, Storybook docs, Bootstrap-compatible JS package — adopted across all web products.</li>
+              
+            </ul>
+            
+          </div>
+          
+          <div class="cv-entry hollow">
+            <div class="cv-entry-title">
+              FULL STACK DEVELOPER <span>at DataCite, Berlin</span>
+            </div>
+            <div class="cv-entry-period">2016 — 2020</div>
+            
+            <ul class="cv-entry-bullets">
+              
+              <li>Designed and delivered Sashimi, a Rails API implementing the SUSHI protocol for research usage metrics at 50,000-dataset scale — S3/MySQL hybrid storage, JWT auth, and on-the-fly compression reduced storage costs by 70%.</li>
+              
+              <li>Built DataCite Commons: a React/Next.js frontend with GraphQL-powered multi-entity search, interactive relationship graphs, and SSR — with TypeScript and Cypress test suites.</li>
+              
+            </ul>
+            
+          </div>
+          
+        </div>
+      </section>
+
+      <div class="cv-footer-note">
+        Visit <a href="https://www.linkedin.com/in/kjgarza" target="_blank" rel="noopener">linkedin.com/in/kjgarza</a> for full EMPLOYMENT HISTORY
+      </div>
+
+      
+      <section class="cv-section cv-page-break-before">
+        <h2 class="cv-section-heading">
+          <i data-lucide="graduation-cap"></i>
+          Education
+        </h2>
+        <div class="cv-timeline">
+          
+          <div class="cv-entry">
+            <div class="cv-entry-title">
+              PHD COMPUTER SCIENCE, <span>University of Manchester, Manchester</span>
+            </div>
+            <div class="cv-entry-period">2012 — 2016</div>
+            
+            <p class="cv-entry-desc">Investigated novel choice-architecture approaches for data-repository design, delivering user-centric features grounded in controlled experiments and contextual inquiry.</p>
+            
+          </div>
+          
+          <div class="cv-entry hollow">
+            <div class="cv-entry-title">
+              MSC SPACECRAFT TECHNOLOGY, <span>University College London, London</span>
+            </div>
+            <div class="cv-entry-period">2007 — 2008</div>
+            
+            <p class="cv-entry-desc">Defined design improvements for electron detectors.</p>
+            
+          </div>
+          
+        </div>
+      </section>
+
+      
+      <section class="cv-section">
+        <h2 class="cv-section-heading">
+          <i data-lucide="sparkles"></i>
+          Recent Hacks
+        </h2>
+        <div class="cv-timeline">
+          
+          <div class="cv-entry">
+            <div class="cv-entry-title">
+              Workflow Automation for Research Communities, <span>Holtzbrinck Hackathon 2025</span>
+            </div>
+            <div class="cv-entry-period">2025</div>
+            <p class="cv-entry-desc">Built a no-code workflow-automation platform connecting research tools (Dimensions, Overleaf, ReadCube) via a Next.js app — letting scholars stitch cross-tool integrations in minutes, eliminating brittle ad-hoc scripts.</p>
+          </div>
+          
+          <div class="cv-entry hollow">
+            <div class="cv-entry-title">
+              Converting Publications into Interactive Podcasts, <span>Holtzbrinck Hackathon 2024</span>
+            </div>
+            <div class="cv-entry-period">2024</div>
+            <p class="cv-entry-desc">Co-led a 48-hour sprint to ship a Next.js app transforming academic PDFs into multi-speaker podcast episodes with live Q&A, using custom LLM condensation and TTS synthesis pipelines.</p>
+          </div>
+          
+        </div>
+      </section>
+
+      <div class="cv-projects-note">
+        Visit <a href="https://kjgarza.github.io/work" rel="noopener">website</a> for OTHER PROJECTs
+      </div>
+
+      
+      <section class="cv-section">
+        <h2 class="cv-section-heading">
+          <i data-lucide="star"></i>
+          Published Work
+        </h2>
+        <div class="cv-timeline">
+          
+          <div class="cv-entry">
+            <div class="cv-entry-title">The Impact of Language User Interfaces on Finding Scholarly Repositories. <span>, iPRES 2023</span></div>
+            <div class="cv-entry-period">2023 &mdash; <span class="cv-entry-url"><a href="https://doi.org/10.59350/b9na4-hq881" target="_blank" rel="noopener">https://doi.org/10.59350/b9na4-hq881</a></span></div>
+          </div>
+          
+          <div class="cv-entry hollow">
+            <div class="cv-entry-title">ParrotGPT: On the Advantages of Large Language Models for Academic Metadata Schema Mapping. <span>, EOSC 2023</span></div>
+            <div class="cv-entry-period">2023 &mdash; <span class="cv-entry-url"><a href="https://doi.org/10.59350/hs9k1-wn031" target="_blank" rel="noopener">https://doi.org/10.59350/hs9k1-wn031</a></span></div>
+          </div>
+          
+          <div class="cv-entry hollow">
+            <div class="cv-entry-title">Academic Publishing Web Forms Meet Your Demise: The Unstoppable Rise of Large Language Models. <span>, Substack / Force11</span></div>
+            <div class="cv-entry-period">2023 &mdash; <span class="cv-entry-url"><a href="https://doi.org/10.59350/b9na4-hq881" target="_blank" rel="noopener">https://doi.org/10.59350/b9na4-hq881</a></span></div>
+          </div>
+          
+        </div>
+      </section>
+
+      
+      <section class="cv-section">
+        <h2 class="cv-section-heading">
+          <i data-lucide="settings"></i>
+          Courses
+        </h2>
+        <div class="cv-timeline">
+          
+          <div class="cv-entry">
+            <div class="cv-entry-title">Designing AI Experiences, <span>NN/Group</span></div>
+            <div class="cv-entry-period">2025 &mdash; <span class="cv-entry-url"><a href="https://www.nngroup.com/courses/designing-ai-experiences/" target="_blank" rel="noopener">https://www.nngroup.com/courses/designing-ai-experiences/</a></span></div>
+          </div>
+          
+          <div class="cv-entry hollow">
+            <div class="cv-entry-title">Designing Complex Apps for Specialised Domains, <span>NN/Group</span></div>
+            <div class="cv-entry-period">2022 &mdash; <span class="cv-entry-url"><a href="https://www.nngroup.com/courses/complex-apps-specialized-domains/" target="_blank" rel="noopener">https://www.nngroup.com/courses/complex-apps-specialized-domains/</a></span></div>
+          </div>
+          
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+</div>
+
+  </div>
+  <div class="cv-variant" id="cv-variant-mistral">
+    
+<div class="cv-sheet">
+
+  
+  <header class="cv-header">
+    <h1 class="cv-name">Kristian Garza</h1>
+    <div class="cv-subtitle">
+      <span>TECHNICAL LEAD · APPLIED AI ENGINEER</span>
+      <span class="sep"></span>
+      <span>BERLIN, GERMANY</span>
+      <span class="sep"></span>
+      <span>kj.garza@gmail.com</span>
+    </div>
+  </header>
+
+  
+  <div class="cv-body">
+
+    
+    <aside class="cv-sidebar">
+
+      
+      <div class="cv-sidebar-section">
+        <h2 class="cv-sidebar-heading">
+          <span class="cv-heading-dot"></span>
+          Links
+          <span class="cv-heading-dot"></span>
+        </h2>
+        <ul class="cv-sidebar-list">
+          
+          <li><a href="https://www.linkedin.com/in/kjgarza" target="_blank" rel="noopener">LinkedIn</a></li>
+          
+          <li><a href="https://github.com/kristiangarza" target="_blank" rel="noopener">Github</a></li>
+          
+          <li><a href="https://kjgarza.github.io/" target="_blank" rel="noopener">Portfolio</a></li>
+          
+        </ul>
+      </div>
+
+      
+      <div class="cv-sidebar-section">
+        <h2 class="cv-sidebar-heading">
+          <span class="cv-heading-dot"></span>
+          Skills
+          <span class="cv-heading-dot"></span>
+        </h2>
+        <div class="cv-skills-list">
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              Python (FastAPI)
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 95%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              LLM Pipeline Design
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 90%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              RAG Systems (LangChain + pgvector)
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 90%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              Agentic Workflows / MCP
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 88%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              OpenAI / Claude APIs
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 95%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              LangChain / LlamaIndex
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 88%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              Hybrid Search (BM25 + vector)
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 85%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              Knowledge Graph Engineering
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 85%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              AWS (SQS / Lambda / S3)
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 80%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              Kubernetes + Docker
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 85%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              PostgreSQL + pgvector
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 85%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              TypeScript / Next.js
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 85%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              Promptfoo (LLM Evaluation)
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 88%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              MCP Server Development
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 85%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">
+              Design Sprints / Stakeholder Research
+            </div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 85%"></div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      
+      <div class="cv-sidebar-section">
+        <h2 class="cv-sidebar-heading">
+          <span class="cv-heading-dot"></span>
+          Languages
+          <span class="cv-heading-dot"></span>
+        </h2>
+        <div class="cv-skills-list">
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">English</div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 100%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">Spanish</div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 100%"></div>
+            </div>
+          </div>
+          
+          <div class="cv-skill-item">
+            <div class="cv-skill-name">German</div>
+            <div class="cv-skill-bar">
+              <div class="cv-skill-bar-fill" style="width: 70%"></div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+    </aside>
+
+    
+    <div class="cv-main">
+
+      
+      <section class="cv-section">
+        <h2 class="cv-section-heading">
+          <i data-lucide="user"></i>
+          Profile
+        </h2>
+        <p class="cv-profile-text">AI-focused technical lead with 10+ years shipping production software and 4+ years scaling enterprise LLM systems. At Digital Science: architect Python/FastAPI RAG microservices and knowledge graphs on Kubernetes. At DataCite: led 4-person teams, researched stakeholder needs, shipped open-source LLM tools. PhD Computer Science, proven at translating research into production systems.</p>
+      </section>
+
+      
+      <section class="cv-section">
+        <h2 class="cv-section-heading">
+          <i data-lucide="briefcase"></i>
+          Employment History
+        </h2>
+        <div class="cv-timeline">
+          
+          <div class="cv-entry">
+            <div class="cv-entry-title">
+              AI SENIOR SOFTWARE ENGINEER <span>at Digital Science, Berlin</span>
+            </div>
+            <div class="cv-entry-period">2024 — Present</div>
+            
+            <ul class="cv-entry-bullets">
+              
+              <li>Architected and shipped a Python/FastAPI RAG microservice translating natural-language researcher queries into structured Dimensions searches via LangChain entity extraction and pgvector semantic search — deployed on Kubernetes with Sentry/Prometheus observability.</li>
+              
+              <li>Designed and shipped two generations of a research knowledge graph system: a Graphology-based production pipeline and a hexagonal-architecture rewrite using Effect-TS, PostgreSQL+pgvector, and a 22-stage extraction pipeline with graph topology metrics.</li>
+              
+              <li>Built an AI-powered manuscript review environment in Next.js with Tiptap v3, real-time citation verification via MCP, contradiction detection through the Dimensions API, and Overleaf sync — hands-on IC delivery of a complex agentic system.</li>
+              
+              <li>Built a GitHub org catalogue scanning 1,000+ repos via a single LLM call per repo, exposed through an MCP server at ~$1 per full org scan — demonstrating cost-efficient agentic pipeline design.</li>
+              
+            </ul>
+            
+          </div>
+          
+          <div class="cv-entry hollow">
+            <div class="cv-entry-title">
+              PRODUCT DESIGNER & ENGINEERING LEAD <span>at DataCite, Berlin</span>
+            </div>
+            <div class="cv-entry-period">2020 — 2023</div>
+            
+            <ul class="cv-entry-bullets">
+              
+              <li>Created and open-sourced Parrot GPT — a Python toolkit using GPT-3/3.5 for automatic bibliographic metadata translation across 20+ schemas — an early production LLM tool for knowledge management pipelines, demonstrating applied AI in the open-source space.</li>
+              
+              <li>Owned technical strategy and user research for a harvesting service relaunch: ran a 56-person focus group across 10 organisations and an 85-response survey, facilitating design sprints that cut delivery lead time by 42% and opened 4 new customer relationships.</li>
+              
+              <li>Led a 4-person cross-functional team (designer, developer, PM, design manager) to design and ship DataCite's unified Design System — WCAG-compliant component library, Storybook docs, Bootstrap-compatible JS package — used across all web products.</li>
+              
+            </ul>
+            
+          </div>
+          
+          <div class="cv-entry hollow">
+            <div class="cv-entry-title">
+              FULL STACK DEVELOPER <span>at DataCite, Berlin</span>
+            </div>
+            <div class="cv-entry-period">2016 — 2020</div>
+            
+            <ul class="cv-entry-bullets">
+              
+              <li>Designed and delivered Sashimi, a Rails API implementing the SUSHI protocol for research usage metrics at 50,000-dataset scale — S3/MySQL hybrid storage, JWT auth, and on-the-fly compression reduced storage costs by 70%.</li>
+              
+              <li>Built DataCite Commons: a React/Next.js frontend with GraphQL-powered multi-entity search, interactive relationship graphs, and SSR — with TypeScript and Cypress test suites and GitHub Actions CI.</li>
+              
+            </ul>
+            
+          </div>
+          
+        </div>
+      </section>
+
+      <div class="cv-footer-note">
+        Visit <a href="https://www.linkedin.com/in/kjgarza" target="_blank" rel="noopener">linkedin.com/in/kjgarza</a> for full EMPLOYMENT HISTORY
+      </div>
+
+      
+      <section class="cv-section cv-page-break-before">
+        <h2 class="cv-section-heading">
+          <i data-lucide="graduation-cap"></i>
+          Education
+        </h2>
+        <div class="cv-timeline">
+          
+          <div class="cv-entry">
+            <div class="cv-entry-title">
+              PHD COMPUTER SCIENCE, <span>University of Manchester, Manchester</span>
+            </div>
+            <div class="cv-entry-period">2012 — 2016</div>
+            
+            <p class="cv-entry-desc">Investigated novel choice-architecture approaches for data-repository design, delivering user-centric features grounded in controlled experiments and contextual inquiry.</p>
+            
+          </div>
+          
+          <div class="cv-entry hollow">
+            <div class="cv-entry-title">
+              MSC SPACECRAFT TECHNOLOGY, <span>University College London, London</span>
+            </div>
+            <div class="cv-entry-period">2007 — 2008</div>
+            
+            <p class="cv-entry-desc">Defined design improvements for electron detectors.</p>
+            
+          </div>
+          
+        </div>
+      </section>
+
+      
+      <section class="cv-section">
+        <h2 class="cv-section-heading">
+          <i data-lucide="sparkles"></i>
+          Recent Hacks
+        </h2>
+        <div class="cv-timeline">
+          
+          <div class="cv-entry">
+            <div class="cv-entry-title">
+              Workflow Automation for Research Communities, <span>Holtzbrinck Hackathon 2025</span>
+            </div>
+            <div class="cv-entry-period">2025</div>
+            <p class="cv-entry-desc">Built a no-code workflow-automation platform connecting research tools (Dimensions, Overleaf, ReadCube) via a Next.js app — letting scholars stitch cross-tool integrations in minutes, eliminating brittle ad-hoc scripts.</p>
           </div>
           
           <div class="cv-entry hollow">

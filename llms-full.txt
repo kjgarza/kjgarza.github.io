@@ -7,7 +7,7 @@ Kristian Garza is a Senior AI Engineer at Digital Science (ORCID: 0000-0003-3484
 - Currently: Building and prototyping AI-driven microservices and agents at Digital Science, from LLM-powered APIs to Rust-based clustering engines.
 - Previously: Developed core infrastructure at DataCite, including Commons, Fabrica, and Sashimi, while leading metadata and design system initiatives.
 - Find me: Hosting DS’s AI Technology Radar sessions and experimenting with personal AI projects like a Dataset Discovery & Evaluation Agent.
-- Contact: kj.garza+kjgarza@gmail.com | GitHub: https://github.com/kristiangarza | LinkedIn: https://www.linkedin.com/in/kjgarza
+- Contact: kj.garza+kjgarza@gmail.com | GitHub: https://github.com/kjgarza | LinkedIn: https://www.linkedin.com/in/kjgarza
 
 Password-protected case studies are listed with metadata only; contact the author for access.
 

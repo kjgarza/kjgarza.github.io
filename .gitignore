@@ -154,3 +154,7 @@ _site/
 
 # macOS
 .DS_Store
+
+# Job-search pipeline storage symlinks (machine-specific; run scripts/setup-storage.sh)
+/leads
+/applications

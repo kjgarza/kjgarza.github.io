@@ -10,6 +10,7 @@
 #
 # Idempotent. Run once per clone/worktree (the symlinks are untracked).
 set -euo pipefail
+umask 077
 
 STORAGE_DIR="${EMPLOYMENT_JOBS_DIR:-/Volumes/Verbatim-Vi560-Media/Development/employment-jobs}"
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"

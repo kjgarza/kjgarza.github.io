@@ -10,6 +10,7 @@
 - **Avoid AI-slop punctuation.** Do not use em dashes in cover letters. Prefer plain punctuation like commas and periods.
 - **Use a concise close.** End with a brief, professional closing line such as "Sincerely," without filler or long pleasantries.
 - **No buzzword padding.** Cut "passionate", "dynamic", "synergy", "leverage", "thought leader". Every adjective needs a fact behind it.
+- **Never volunteer a gap unprompted.** Gap honesty belongs in `analysis.md` (internal) and in factual screener answers when the form directly asks. The cover letter itself sells fit — do not write sentences like "my experience has been X rather than Y, so I'd be building on that muscle." ML6 rejected a 2026-07-17 application citing the exact gap ("external stakeholder management/client communication") the cover letter volunteered unprompted in paragraph 2. If a real gap exists, either omit it from the letter or reframe it as adjacent proof (nearest evidence you do have), never as a disclaimer.
 
 ## CV Profile Statement Tone
 

@@ -198,7 +198,7 @@ Tell the user:
 ## Notes
 
 - Always read the full posting before scoring — do not assume from job title alone
-- Be honest about gaps — authenticity over overselling
+- Be honest about gaps in `analysis.md` — authenticity over overselling. But keep gap admissions OUT of the cover letter itself; the letter sells fit, it does not disclaim it (see `references/tone-and-voice.md`)
 - The cover letter body must be exactly 2 paragraphs. The agent enforces this.
 - The package is not complete without `application-questions.md` — either with the form's questions answered, or with an explicit note that the form is behind a login/JS wall and must be checked manually
 - If the job URL redirects or is behind a wall, ask the user to paste the posting text directly

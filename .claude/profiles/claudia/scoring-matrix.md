@@ -28,17 +28,17 @@ Sr. Client Account Manager, DACH Retail at Pinterest, scored 2026-08-13:
 | Dimension | Weight | Score | Why |
 |-----------|--------|-------|-----|
 | Core function | 25% | 70 | Owns a book, but the motion is a media/ads book, not SaaS post-sales |
-| Requirement overlap | 20% | 60 | Digital ad sales and a Search/Shopping/Display/Social foundation are both unevidenced; the other 8 of 12 bullets are met |
+| Requirement overlap | 20% | 70 | 7 of 10 listed bullets evidenced; digital ad sales, a Search/Shopping/Display/Social foundation, and demonstrated AI-tool use are not |
 | Domain alignment | 15% | 30 | Adtech, no evidenced experience; retail customers are the adjacent part |
 | Seniority fit | 15% | 100 | Senior IC |
 | Commercial scope | 10% | 65 | Ads team implies a carried number; she has influenced revenue |
 | Language and location | 10% | 100 | German plus English, Berlin hybrid |
 | Growth signal | 5% | 100 | Named partner book with cross-sell and upsell remit |
-| **Total** | | **71%** | STRETCH |
+| **Total** | | **73%** | STRETCH |
 
 An earlier hand-scored pass on the same posting, before this matrix existed, produced 68% /
 STRETCH. Agreement within a few points is the point of the anchor. If a rescoring lands far
-from 71%, the matrix has drifted — check whether a dimension has started scoring the role
+from 73%, the matrix has drifted — check whether a dimension has started scoring the role
 instead of the fit.
 
 ## Recommendation Thresholds

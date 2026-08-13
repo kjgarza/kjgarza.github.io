@@ -1,0 +1,39 @@
+{
+  "id": "claudia",
+  "displayName": "Claudia Garcia",
+  "default": false,
+  "layout": "external-storage",
+  "references": {
+    "profile": "claudia/profile.md",
+    "searchProfile": "claudia/profile.md",
+    "targetCompanies": ".claude/profiles/claudia/target-companies.md",
+    "scoringMatrix": ".claude/profiles/claudia/scoring-matrix.md",
+    "toneAndVoice": ".claude/profiles/claudia/tone-and-voice.md",
+    "decisionPolicy": "claudia/decision-policy.md"
+  },
+  "storage": {
+    "leads": "claudia/leads",
+    "applications": "claudia/applications",
+    "cv": "claudia/cv"
+  },
+  "cv": {
+    "mode": "static-pdf",
+    "file": "claudia/cv/CV Q1. 2026.pdf",
+    "renderCommand": null,
+    "notes": "No data-driven CV template exists for this profile. generate-application skips Step 8 (cv-data.js) and Step 8b (PDF render); it writes cv-tailoring-notes.md instead and the existing PDF is uploaded as-is."
+  },
+  "search": {
+    "titles": [
+      "Senior Customer Success Manager",
+      "Customer Success Lead",
+      "Customer Success Director",
+      "Strategic Account Manager",
+      "Enterprise Account Manager",
+      "Client Account Manager",
+      "Client Success Manager",
+      "CRM Manager"
+    ],
+    "locations": ["Berlin", "Hamburg", "Munich", "Remote EU"]
+  },
+  "notes": "PII-bearing files (profile, decision policy, CV) live in external storage because this repository is public. Only non-PII reference files are tracked in .claude/profiles/claudia/."
+}

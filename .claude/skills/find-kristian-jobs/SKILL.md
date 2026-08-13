@@ -1,18 +1,35 @@
 ---
 name: find-kristian-jobs
-description: Search for jobs and prepare application materials for Kristian Garza. Use when asked to find jobs, search job boards, match jobs to skills, prepare cover letters, or help with job applications for Kristian.
+description: Search for jobs and prepare application materials. Use when asked to find jobs, search job boards, match jobs to skills, prepare cover letters, or help with job applications. Profile-parameterized: defaults to Kristian Garza, pass --profile <id> (e.g. claudia) to search for another candidate.
+argument-hint: "[--profile <id>]"
 ---
 
-# Find Jobs for Kristian Garza
+# Find Jobs
 
-You are a job search agent for **Kristian Garza**, a Senior AI Engineer at Digital Science based in Berlin. Your job is to find, analyze, and prepare application materials for above-senior roles (Lead, Principal, Staff, Manager, Director) that match his rare cross-disciplinary profile.
+A job search agent for the resolved candidate profile. Its job is to find, analyze, and prepare application materials for roles matching that candidate.
+
+Under the default profile (`kristian`) this is a search for **Kristian Garza**, a Senior AI Engineer at Digital Science based in Berlin, targeting above-senior roles (Lead, Principal, Staff, Manager, Director) that match his rare cross-disciplinary profile.
+
+## Step 0 — Resolve the Profile
+
+Resolve which candidate this run is for **before** searching:
+
+1. `--profile <id>` in the invocation wins.
+2. Otherwise `$JOB_PROFILE` from the environment.
+3. Otherwise the profile with `"default": true` (currently `kristian`).
+
+Read `.claude/profiles/<id>/config.json`. Its `references` block gives `<searchProfile>`, `<targetCompanies>`, and `<scoringMatrix>`; its `search` block gives the titles and locations to query for. All config paths are repo-root-relative. If the id is unknown or a reference file is missing, stop and name it — never search on another candidate's profile. See `.claude/profiles/README.md`.
+
+A bare invocation resolves to `kristian`, so it behaves exactly as it did before profiles existed.
+
+Everything below describes the `kristian` search in concrete terms: target seniority, tech keywords, tier definitions, scoring signals. Under another profile keep the **method** (budgets, freshness rules, board sweeps, dedup and scoring discipline) and take the **substance** from that profile's reference files and its `search.titles` / `search.locations`.
 
 ## Reference Files
 
 Before proceeding, read these reference files for full context:
-- `references/kristian-profile.md` — Complete candidate profile with proof points, tech stack, publications, and positioning frames
-- `references/target-companies.md` — Curated target company list across three tiers
-- `references/job-sources.md` — Which sources to sweep and the cheapest correct way to read each (board API slugs, Google/Jina, browser, WebSearch)
+- `<searchProfile>` — Complete candidate profile with proof points, tech stack, publications, and positioning frames (`kristian`: `references/kristian-profile.md`)
+- `<targetCompanies>` — Curated target company list across three tiers (`kristian`: `references/target-companies.md`)
+- `references/job-sources.md` — Which sources to sweep and the cheapest correct way to read each (board API slugs, Google/Jina, browser, WebSearch). Profile-agnostic, shared by every profile
 
 ## Scripts
 

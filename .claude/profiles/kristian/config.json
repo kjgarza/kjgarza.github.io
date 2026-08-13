@@ -1,0 +1,40 @@
+{
+  "id": "kristian",
+  "displayName": "Kristian Garza",
+  "default": true,
+  "layout": "in-repo",
+  "references": {
+    "profile": ".claude/skills/generate-application/references/kristian-profile.md",
+    "searchProfile": ".claude/skills/find-kristian-jobs/references/kristian-profile.md",
+    "targetCompanies": ".claude/skills/find-kristian-jobs/references/target-companies.md",
+    "scoringMatrix": ".claude/skills/generate-application/references/scoring-matrix.md",
+    "toneAndVoice": ".claude/skills/generate-application/references/tone-and-voice.md",
+    "decisionPolicy": ".claude/skills/job-pipeline/references/decision-policy.md"
+  },
+  "storage": {
+    "leads": "leads",
+    "applications": "applications"
+  },
+  "cv": {
+    "mode": "data-driven",
+    "schemaReference": "src/_data/cvIris.js",
+    "integrationTarget": "src/_data/cv[Company].js",
+    "renderCommand": "node scripts/cv-to-pdf.js \"{cvDataPath}\""
+  },
+  "search": {
+    "titles": [
+      "Lead Engineer",
+      "Principal Engineer",
+      "Staff Engineer",
+      "Engineering Manager",
+      "Head of AI",
+      "AI Engineer",
+      "Director of Engineering"
+    ],
+    "locations": [
+      "Berlin",
+      "Remote EU"
+    ]
+  },
+  "notes": "Reference files stay at their original skill paths. Moving them is a regression risk with no benefit: this repo is Kristian's own site, so his profile is already tracked here. scripts/validate-profiles.sh asserts these paths and their hashes are unchanged."
+}

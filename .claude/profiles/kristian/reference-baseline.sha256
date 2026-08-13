@@ -1,0 +1,13 @@
+131b37192619610de493febf35d4242abcf2c374d1e74f90e02e83887ebe9d8e  .claude/skills/generate-application/references/kristian-profile.md
+6add95c10fb775b670aa968b0a89f3bbb91cae598d0e77a371c15c322337112b  .claude/skills/find-kristian-jobs/references/kristian-profile.md
+6329242cdc4013f18c43079fe4c87003adad6569fbf9c5b2bc9015b8af329ced  .claude/skills/find-kristian-jobs/references/target-companies.md
+7453f89083f11818e1ec880abf066ff712fa72c9ee97ef3324af509768fa6d73  .claude/skills/generate-application/references/scoring-matrix.md
+23cbee6dda99171adc6b728c84304fae17d429847f6f37bb7ce965bbcf3cdd51  .claude/skills/generate-application/references/tone-and-voice.md
+a018cb5f35e1c48e5acb49125b3b6c0da2c7087c6297fd9c815e4e3aad93d1b8  .claude/skills/job-pipeline/references/decision-policy.md
+c5e9769f103792f181f914729a63024747c8d4bae947ef14f60e2da3c6a13144  .claude/skills/generate-application/references/output-structure.md
+b2ca4ad20e2b5c5a18c662964d7bf840dc41216b0aa982f5bd14bb3636f82ed8  .claude/skills/find-kristian-jobs/references/job-sources.md
+9b2ca6c57ae7b7179d9d28992b2d755ae0a6c65c64263869a3457acbf174dba9  .claude/skills/find-kristian-jobs/scripts/fetch-application-form.sh
+6ee08674ee3240624d76912eab9d6d3783fe5143af44561fc5bb1e423bcf4908  .claude/skills/find-kristian-jobs/scripts/fetch-board.sh
+6192f07248116873891f1c4c89f656bdb9e653598e57134ebb1402fd2d96ed75  .claude/skills/find-kristian-jobs/scripts/fetch-job.sh
+1456dd1ccd29bcfc88953ac70ce35476d06a9086abb2e1a5bb9ecc8934ca1999  .claude/skills/find-kristian-jobs/scripts/run-job-search.sh
+9b2ca6c57ae7b7179d9d28992b2d755ae0a6c65c64263869a3457acbf174dba9  .claude/skills/generate-application/scripts/fetch-application-form.sh

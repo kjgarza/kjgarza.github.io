@@ -155,6 +155,8 @@ _site/
 # macOS
 .DS_Store
 
-# Job-search pipeline storage symlinks (machine-specific; run scripts/setup-storage.sh)
+# Job-search pipeline storage symlinks (machine-specific; run scripts/setup-storage.sh).
+# One entry per profile storage root declared in .claude/profiles/*/config.json.
 /leads
 /applications
+/claudia

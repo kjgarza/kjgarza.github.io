@@ -161,12 +161,14 @@ Example: `curl -H "Authorization: Bearer $JINA_API_KEY" "https://r.jina.ai/https
 
 ## Output
 
-Always save results to a markdown file under `leads/` at the repository root, in addition to displaying them in the conversation.
+Always save results to a markdown file under the resolved profile's leads directory, in addition to displaying them in the conversation.
+
+Resolve the profile the way the other job skills do: `--profile <id>`, else `$JOB_PROFILE`, else the profile with `"default": true` (currently `kristian`). `<leads>` is `storage.leads` from `.claude/profiles/<id>/config.json` — `leads/` for `kristian`, `claudia/leads/` for `claudia`. When `job-pipeline` or `generate-application` invokes this skill they pass the profile through; use theirs rather than re-deriving it.
 
 ### Path
 
 ```
-leads/[company-slug]/YYYY-MM-DD-[role-slug]-contacts.md
+<leads>/[company-slug]/YYYY-MM-DD-[role-slug]-contacts.md
 ```
 
 - `[company-slug]` = company name in kebab-case (e.g. `digital-science`, `chan-zuckerberg`)

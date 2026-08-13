@@ -11,6 +11,8 @@ allowed-tools: ["Bash", "Read"]
 
 All paths below are relative to the project root (`kjgarza.github.io/`).
 
+**This skill is `kristian`-only, by construction.** It derives a profile from this site's own `src/_data/` modules, which describe Kristian. Other profiles (`.claude/profiles/<id>/`) maintain their profile documents by hand; there is nothing here to regenerate for them. Because the generated file is one of the baselined references, run `scripts/validate-profiles.sh --update-baseline` after a regeneration and commit the new baseline alongside it — otherwise the regression check will flag the legitimate change.
+
 ## Run (agent path)
 
 The driver is `.claude/skills/generate-kristian-profile/driver.mjs`. It reads the data modules, parses the case studies, and writes the profile.

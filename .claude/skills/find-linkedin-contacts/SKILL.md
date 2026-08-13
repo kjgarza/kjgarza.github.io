@@ -1,6 +1,7 @@
 ---
 name: find-linkedin-contacts
-description: "Find LinkedIn contacts at a target company for a specific job role. Use when helping with job applications and needing to identify people to reach out to — hiring managers, direct managers, and team members who are decision makers. Excludes C-suite, founders, and owners. Works alongside find-kristian-jobs and find-jobs skills. Triggers when asked to find contacts at a company, who should I reach out to for a job, find the hiring manager at a company, find people to reach out to on LinkedIn, build my outreach list for a job or company, or find decision makers at a company."
+version: 0.2.0
+description: "This skill should be used when the user asks to \"find contacts at [company]\", \"who should I reach out to for this job\", \"find the hiring manager at [company]\", \"find people to reach out to on LinkedIn\", \"build my outreach list\", or \"find decision makers at [company]\". Identifies hiring managers, direct managers, and team members who are decision makers for a specific role, excluding C-suite, founders, and owners. Works alongside find-kristian-jobs and generate-application, and follows the same profile resolution."
 ---
 
 # Find LinkedIn Contacts
@@ -161,12 +162,14 @@ Example: `curl -H "Authorization: Bearer $JINA_API_KEY" "https://r.jina.ai/https
 
 ## Output
 
-Always save results to a markdown file under `leads/` at the repository root, in addition to displaying them in the conversation.
+Always save results to a markdown file under the resolved profile's leads directory, in addition to displaying them in the conversation.
+
+Resolve the profile the way the other job skills do: `--profile <id>`, else `$JOB_PROFILE`, else the profile with `"default": true` (currently `kristian`). `<leads>` is `storage.leads` from `.claude/profiles/<id>/config.json` — `leads/` for `kristian`, `claudia/leads/` for `claudia`. When `job-pipeline` or `generate-application` invokes this skill they pass the profile through; use theirs rather than re-deriving it.
 
 ### Path
 
 ```
-leads/[company-slug]/YYYY-MM-DD-[role-slug]-contacts.md
+<leads>/[company-slug]/YYYY-MM-DD-[role-slug]-contacts.md
 ```
 
 - `[company-slug]` = company name in kebab-case (e.g. `digital-science`, `chan-zuckerberg`)

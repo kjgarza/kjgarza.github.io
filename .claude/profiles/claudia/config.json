@@ -1,0 +1,41 @@
+{
+  "id": "claudia",
+  "displayName": "Claudia Garcia",
+  "default": false,
+  "layout": "external-storage",
+  "references": {
+    "profile": "claudia/profile.md",
+    "searchProfile": "claudia/profile.md",
+    "targetCompanies": ".claude/profiles/claudia/target-companies.md",
+    "scoringMatrix": ".claude/profiles/claudia/scoring-matrix.md",
+    "toneAndVoice": ".claude/profiles/claudia/tone-and-voice.md",
+    "decisionPolicy": "claudia/decision-policy.md"
+  },
+  "storage": {
+    "leads": "claudia/leads",
+    "applications": "claudia/applications",
+    "cv": "claudia/cv"
+  },
+  "cv": {
+    "mode": "data-driven",
+    "schemaReference": "src/_data/cvIris.js",
+    "masterData": "claudia/cv/cv-data.js",
+    "sourcePdf": "claudia/cv/CV Q1. 2026.pdf",
+    "renderCommand": "node scripts/cv-to-pdf.js \"{cvDataPath}\"",
+    "notes": "masterData was transcribed from sourcePdf and is the untailored base; each application copies and reorders it. Renders through the shared src/cv.njk template, so the layout is the site's, not the visual design of sourcePdf. skills[].level and languages[].level drive progress bars the source PDF does not have; those numbers are editorial and Claudia should confirm them."
+  },
+  "search": {
+    "titles": [
+      "Senior Customer Success Manager",
+      "Customer Success Lead",
+      "Customer Success Director",
+      "Strategic Account Manager",
+      "Enterprise Account Manager",
+      "Client Account Manager",
+      "Client Success Manager",
+      "CRM Manager"
+    ],
+    "locations": ["Berlin", "Hamburg", "Munich", "Remote EU"]
+  },
+  "notes": "PII-bearing files (profile, decision policy, CV) live in external storage because this repository is public. Only non-PII reference files are tracked in .claude/profiles/claudia/."
+}

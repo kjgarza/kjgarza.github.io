@@ -25,6 +25,7 @@ permalink: /cv/
     <aside class="cv-sidebar">
 
       {# Links #}
+      {% if cv.links and cv.links.length %}
       <div class="cv-sidebar-section">
         <h2 class="cv-sidebar-heading">
           <span class="cv-heading-dot"></span>
@@ -37,6 +38,7 @@ permalink: /cv/
           {% endfor %}
         </ul>
       </div>
+      {% endif %}
 
       {# Skills #}
       <div class="cv-sidebar-section">
@@ -117,12 +119,23 @@ permalink: /cv/
         </div>
       </section>
 
+      {# Data-driven: an empty or missing employmentFooter renders nothing. Never
+         hardcode a candidate's handle here. This template is shared across
+         profiles, and a stale link is someone else's identity on their CV. #}
+      {% if cv.employmentFooter %}
       <div class="cv-footer-note">
-        Visit <a href="https://www.linkedin.com/in/kjgarza" target="_blank" rel="noopener">linkedin.com/in/kjgarza</a> for full EMPLOYMENT HISTORY
+        {% if cv.employmentFooterUrl %}<a href="{{ cv.employmentFooterUrl }}" target="_blank" rel="noopener">{{ cv.employmentFooter }}</a>{% else %}{{ cv.employmentFooter }}{% endif %}
       </div>
+      {% endif %}
 
       {# ── EDUCATION ── #}
-      <section class="cv-section cv-page-break-before">
+      {# Education opens page 2 only when there is enough after it to fill one. A
+         profile with no hacks, publications, or courses would otherwise ship a
+         second page holding two education lines and nothing else. An empty
+         education list drops the section entirely — some CVs carry the degree in
+         the subtitle instead. #}
+      {% if cv.education and cv.education.length %}
+      <section class="cv-section{% if (cv.hacks and cv.hacks.length) or (cv.publishedWork and cv.publishedWork.length) or (cv.courses and cv.courses.length) %} cv-page-break-before{% endif %}">
         <h2 class="cv-section-heading">
           <i data-lucide="graduation-cap"></i>
           Education
@@ -141,8 +154,10 @@ permalink: /cv/
           {% endfor %}
         </div>
       </section>
+      {% endif %}
 
       {# ── RECENT HACKS ── #}
+      {% if cv.hacks and cv.hacks.length %}
       <section class="cv-section">
         <h2 class="cv-section-heading">
           <i data-lucide="sparkles"></i>
@@ -160,12 +175,16 @@ permalink: /cv/
           {% endfor %}
         </div>
       </section>
+      {% endif %}
 
+      {% if cv.projectsNote %}
       <div class="cv-projects-note">
-        Visit <a href="https://kjgarza.github.io/work" rel="noopener">website</a> for OTHER PROJECTs
+        {% if cv.projectsNoteUrl %}<a href="{{ cv.projectsNoteUrl }}" rel="noopener">{{ cv.projectsNote }}</a>{% else %}{{ cv.projectsNote }}{% endif %}
       </div>
+      {% endif %}
 
       {# ── PUBLISHED WORK ── #}
+      {% if cv.publishedWork and cv.publishedWork.length %}
       <section class="cv-section">
         <h2 class="cv-section-heading">
           <i data-lucide="star"></i>
@@ -180,8 +199,10 @@ permalink: /cv/
           {% endfor %}
         </div>
       </section>
+      {% endif %}
 
       {# ── COURSES ── #}
+      {% if cv.courses and cv.courses.length %}
       <section class="cv-section">
         <h2 class="cv-section-heading">
           <i data-lucide="settings"></i>
@@ -196,6 +217,7 @@ permalink: /cv/
           {% endfor %}
         </div>
       </section>
+      {% endif %}
 
     </div>
   </div>

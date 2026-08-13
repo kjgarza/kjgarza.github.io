@@ -131,7 +131,10 @@ permalink: /cv/
       {# ── EDUCATION ── #}
       {# Education opens page 2 only when there is enough after it to fill one. A
          profile with no hacks, publications, or courses would otherwise ship a
-         second page holding two education lines and nothing else. #}
+         second page holding two education lines and nothing else. An empty
+         education list drops the section entirely — some CVs carry the degree in
+         the subtitle instead. #}
+      {% if cv.education and cv.education.length %}
       <section class="cv-section{% if (cv.hacks and cv.hacks.length) or (cv.publishedWork and cv.publishedWork.length) or (cv.courses and cv.courses.length) %} cv-page-break-before{% endif %}">
         <h2 class="cv-section-heading">
           <i data-lucide="graduation-cap"></i>
@@ -151,6 +154,7 @@ permalink: /cv/
           {% endfor %}
         </div>
       </section>
+      {% endif %}
 
       {# ── RECENT HACKS ── #}
       {% if cv.hacks and cv.hacks.length %}

@@ -152,18 +152,54 @@ sys.exit(1 if fails else 0)
 PY
 [[ $? -eq 0 ]] || fails=$((fails + 1))
 
-echo "== 5. Skills carry a profile-resolution step"
+echo "== 5. Every SKILL.md has parseable frontmatter"
+python3 - <<'PY'
+import pathlib, sys
+try:
+    import yaml
+except ImportError:
+    print("  skip  PyYAML not installed; frontmatter not checked")
+    sys.exit(0)
+
+fails = []
+for p in sorted(pathlib.Path(".claude/skills").glob("*/SKILL.md")):
+    parts = p.read_text().split("---")
+    if len(parts) < 3:
+        fails.append(f"{p}: no YAML frontmatter block")
+        continue
+    try:
+        fm = yaml.safe_load(parts[1])
+    except yaml.YAMLError as exc:
+        # The usual cause: an unquoted description containing ": ", which YAML
+        # reads as a nested mapping. Quote the whole description value.
+        fails.append(f"{p}: frontmatter does not parse ({str(exc).splitlines()[0]})")
+        continue
+    for key in ("name", "description"):
+        if not (fm or {}).get(key):
+            fails.append(f"{p}: frontmatter missing {key!r}")
+    if fm and fm.get("name") != p.parent.name:
+        fails.append(f"{p}: name {fm.get('name')!r} != directory {p.parent.name!r}")
+
+for f in fails:
+    print(f"FAIL: {f}")
+if not fails:
+    print(f"  ok    {len(list(pathlib.Path('.claude/skills').glob('*/SKILL.md')))} SKILL.md frontmatter blocks parse")
+sys.exit(1 if fails else 0)
+PY
+[[ $? -eq 0 ]] || fails=$((fails + 1))
+
+echo "== 6. Skills carry a profile-resolution step"
 for f in .claude/skills/generate-application/SKILL.md \
          .claude/skills/find-kristian-jobs/SKILL.md \
          .claude/skills/job-pipeline/SKILL.md; do
-  if grep -qi "resolve the profile\|resolve the profile\b" "$f" && grep -q '\-\-profile' "$f"; then
+  if grep -qi "resolve the profile" "$f" && grep -q '\-\-profile' "$f"; then
     pass "$(basename "$(dirname "$f")") resolves a profile"
   else
     fail "$f has no profile-resolution step"
   fi
 done
 
-echo "== 6. No candidate PII tracked for external-storage profiles"
+echo "== 7. No candidate PII tracked for external-storage profiles"
 python3 - <<'PY'
 import json, pathlib, subprocess, sys
 root = pathlib.Path(".")

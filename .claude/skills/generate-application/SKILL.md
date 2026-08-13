@@ -1,6 +1,6 @@
 ---
 name: generate-application
-description: This skill should be used when the user says "apply for [job URL]", "generate application for", "prepare my CV for", "create application package for", "write a cover letter for", or provides a job posting URL and wants to apply. Generates a full application package — targeted CV, analysis, application form answers, and cover letter — saved under the candidate's applications directory. Profile-parameterized: defaults to Kristian, pass --profile <id> (e.g. claudia) for another candidate.
+description: "This skill should be used when the user says \"apply for [job URL]\", \"generate application for\", \"prepare my CV for\", \"create application package for\", \"write a cover letter for\", or provides a job posting URL and wants to apply. Generates a full application package — targeted CV, analysis, application form answers, and cover letter — saved under the candidate's applications directory. Profile-parameterized: defaults to Kristian, pass --profile <id> (e.g. claudia) for another candidate."
 version: 0.3.0
 argument-hint: "[job-url] [--profile <id>]"
 allowed-tools: ["Bash", "Read", "Write", "Edit", "Glob", "Grep", "Agent", "WebFetch"]

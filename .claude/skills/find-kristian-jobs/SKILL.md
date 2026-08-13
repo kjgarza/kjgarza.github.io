@@ -1,6 +1,7 @@
 ---
 name: find-kristian-jobs
-description: Search for jobs and prepare application materials. Use when asked to find jobs, search job boards, match jobs to skills, prepare cover letters, or help with job applications. Profile-parameterized: defaults to Kristian Garza, pass --profile <id> (e.g. claudia) to search for another candidate.
+description: "This skill should be used when the user asks to \"find jobs\", \"search job boards\", \"match jobs to my skills\", \"prepare cover letters\", or otherwise asks for help finding or triaging job applications. Profile-parameterized: defaults to Kristian Garza, pass --profile <id> (e.g. claudia) to search for another candidate."
+version: 0.2.0
 argument-hint: "[--profile <id>]"
 ---
 

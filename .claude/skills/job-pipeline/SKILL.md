@@ -1,6 +1,7 @@
 ---
 name: job-pipeline
-description: Autonomous end-to-end job pipeline — search, score, decide, prepare full application packages (CV, cover letter, application-form answers, contacts), track state, and notify. Use for "run the job pipeline", "what's in my pipeline", "any new jobs", scheduled/unattended job search runs, or for the whole search→apply flow without prompting each step. Composes find-kristian-jobs, generate-application, and find-linkedin-contacts. Profile-parameterized: defaults to Kristian, pass --profile <id> (e.g. claudia).
+description: "This skill should be used when the user says \"run the job pipeline\", \"what's in my pipeline\", \"any new jobs\", asks for the whole search→apply flow without prompting each step, or a scheduled/unattended job search run fires. Autonomous end-to-end job pipeline — search, score, decide, prepare full application packages (CV, cover letter, application-form answers, contacts), track state, and notify. Composes find-kristian-jobs, generate-application, and find-linkedin-contacts. Profile-parameterized: defaults to Kristian, pass --profile <id> (e.g. claudia)."
+version: 0.2.0
 argument-hint: "[run | status | approve <url-or-slug> | submit <url-or-slug>] [--profile <id>]"
 ---
 

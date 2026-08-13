@@ -113,6 +113,7 @@ module.exports = {
 
   employmentFooter:
     "Visit linkedin.com/in/kjgarza for full EMPLOYMENT HISTORY",
+  employmentFooterUrl: "https://www.linkedin.com/in/kjgarza",
 
   education: [
     {
@@ -150,6 +151,7 @@ module.exports = {
   ],
 
   projectsNote: "Visit website for OTHER PROJECTs",
+  projectsNoteUrl: "https://kjgarza.github.io/work",
 
   publishedWork: [
     {

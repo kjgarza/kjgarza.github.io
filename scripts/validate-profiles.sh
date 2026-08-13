@@ -118,6 +118,15 @@ for cfg in sorted(root.glob(".claude/profiles/*/config.json")):
         elif not (root / f).exists():
             fails.append(f"{pid}: cv.file -> {f} does not exist "
                          "(run scripts/setup-storage.sh, or add the CV)")
+    if cv.get("mode") == "data-driven":
+        for key in ("schemaReference", "masterData"):
+            f = cv.get(key)
+            if f and not (root / f).exists():
+                fails.append(f"{pid}: cv.{key} -> {f} does not exist")
+        if cv.get("masterData") and not any(
+                cv["masterData"].startswith(a) for a in allowed):
+            fails.append(f"{pid}: cv.masterData -> {cv['masterData']} is outside "
+                         f"this profile's allowed paths {sorted(allowed)}")
 
 for f in fails:
     print(f"FAIL: {f}")

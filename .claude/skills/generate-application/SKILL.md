@@ -112,16 +112,16 @@ Write the full analysis (Step 4 output) to `<applications>/[slug]/analysis.md`.
 
 Branch on `cv.mode` in the resolved config.
 
-### `cv.mode: "data-driven"` (profile: `kristian`)
+### `cv.mode: "data-driven"` (profiles: `kristian`, `claudia`)
 
-Generate a targeted CV data file for this role. This is a CommonJS module that exports an object matching the schema in the config's `cv.schemaReference` (`src/_data/cvIris.js` — the canonical targeted CV variant; use it as the schema reference, not `src/_data/cv.js`).
+Generate a targeted CV data file for this role by copying the profile's `cv.masterData` and tailoring it. It is a CommonJS module exporting an object matching the schema in the config's `cv.schemaReference` (`src/_data/cvIris.js` — the canonical targeted CV variant; use it as the schema reference, not `src/_data/cv.js`).
 
 Apply tone and voice guidance from `<toneAndVoice>` when writing the profile statement and employment bullets.
 
 Reframe employment bullets, profile statement, and skill rankings to match:
 - The role's tech stack (prioritise skills they listed first)
 - The positioning frame chosen in Step 4
-- Concrete proof points with metrics from `<profile>`
+- Concrete proof points with metrics from `<profile>` and `cv.masterData`, never invented
 - Honest language — do not invent technologies or claim expertise not in the profile
 
 Save to `<applications>/[slug]/cv-data.js`.
@@ -130,7 +130,7 @@ Also print instructions for the user to integrate it:
 1. Copy `cv-data.js` → `src/_data/cv[Company].js` (camelCase, e.g. `cvDeepMind.js`, `cvCrossref.js`)
 2. Rebuild: `bun run build`
 
-### `cv.mode: "static-pdf"` (profile: `claudia`)
+### `cv.mode: "static-pdf"` (no profile currently uses this)
 
 There is no data-driven CV template for this profile, so there is nothing to generate and nothing to render. Instead:
 

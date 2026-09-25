@@ -211,13 +211,12 @@
       align-items: center;
       gap: 10px;
     }
-    /* Lucide icon in section heading */
-    .cv-section-heading .lucide {
+    /* Phosphor icon in section heading */
+    .cv-section-heading svg {
       width: 18px;
       height: 18px;
       color: var(--color-text);
       flex-shrink: 0;
-      stroke-width: 2;
     }
 
     /* ── Profile ── */
@@ -402,7 +401,5 @@
 </head>
 <body>
   {{ content | safe }}
-  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
-  <script>lucide.createIcons();</script>
 </body>
 </html>

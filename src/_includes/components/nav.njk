@@ -3,10 +3,7 @@
     {% if layout == "layouts/case-study.njk" %}
     <!-- Case Study Back Button -->
     <button onclick="history.back()" class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer text-neutral-900 hover:before:bg-special-state-hover h-10 w-10">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left">
-        <path d="m12 19-7-7 7-7"></path>
-        <path d="M19 12H5"></path>
-      </svg>
+      {% icon "arrow-left" %}
     </button>
     {% endif %}
     
@@ -37,15 +34,8 @@
   
   <!-- Mobile burger button -->
   <button id="burger-btn" aria-label="Toggle menu" aria-expanded="false" class="sm:hidden flex h-10 w-10 items-center justify-center rounded-lg text-neutral-700 hover:bg-neutral-100 transition-colors duration-200">
-    <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
-      <line x1="4" x2="20" y1="6" y2="6"/>
-      <line x1="4" x2="20" y1="12" y2="12"/>
-      <line x1="4" x2="20" y1="18" y2="18"/>
-    </svg>
-    <svg id="icon-x" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x hidden">
-      <path d="M18 6 6 18"/>
-      <path d="m6 6 12 12"/>
-    </svg>
+    {% icon "list", 22, 'id="icon-menu"' %}
+    {% icon "x", 22, 'id="icon-x" class="hidden"' %}
   </button>
 </nav>
 
@@ -61,9 +51,7 @@
       >
         {{ item.name }}
         {% if item.external %}
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right opacity-40 group-hover:opacity-100 transition-opacity">
-          <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
-        </svg>
+        {% icon "arrow-up-right", 14, 'class="opacity-40 group-hover:opacity-100 transition-opacity"' %}
         {% endif %}
       </a>
       {% endfor %}

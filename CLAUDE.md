@@ -92,5 +92,6 @@ This repo doubles as Kristian's job-search system. The orchestrator is the `job-
 - **State ledger**: `leads/pipeline.json` — single source of truth, keyed by job URL. Read it before fetching/scoring/preparing any job; update it after. Never redo work for a URL already in it.
 - **Decision policy**: `.claude/skills/job-pipeline/references/decision-policy.md` — goals, comp targets, auto-prepare thresholds. Unattended decisions follow this file.
 - **Skill chain**: `job-pipeline` → `find-kristian-jobs` (search/score) → `generate-application` (analysis, cv-data.js, cover letter, application-questions.md) → `find-linkedin-contacts` (outreach).
+- **EU-funding outreach**: `/job-pipeline cordis` runs `scripts/cordis-leads.py` — ranks organisations winning Horizon Europe money in the AI × research-ecosystem niche and lists open calls, into `leads/cordis/`. Cold-outreach targets, not postings; kept out of `pipeline.json`.
 - **Packages**: `applications/YYYY-MM-DD-[company]-[role-slug]/` — every package must include `application-questions.md` (draft answers for the actual ATS form; questions come from `fetch-application-form.sh`, falling back to `fetch-job.sh` `.questions`).
 - **Hard rule**: never submit an application or send outreach without explicit human approval.

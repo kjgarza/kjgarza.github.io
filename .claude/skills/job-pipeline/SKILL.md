@@ -30,6 +30,7 @@ Read `references/decision-policy.md` before scoring or deciding anything. It enc
 | `/job-pipeline status` | **Status report** from the ledger |
 | `/job-pipeline approve <url-or-slug>` | Mark approved, proceed to submission prep |
 | `/job-pipeline submit <url-or-slug>` | **Assisted submission** via browser |
+| `/job-pipeline cordis [countries]` | **EU-funding outreach scan** (cold-outreach targets, not postings) |
 
 ---
 
@@ -82,6 +83,17 @@ One full run = find-kristian-jobs budgets + max 3 AUTO-PREPARE packages. If more
 ## Mode: Status report
 
 Read the ledger, print a table grouped by status (active first), flag: stale `prepared` items, unknown deadlines on GO jobs, `⚠️ NEEDS INPUT` markers, anything `expired` in the last 14 days. End with the single most valuable next action.
+
+## Mode: EU-funding outreach scan (`cordis`)
+
+A second lead source for the AI × research-ecosystem niche (research infrastructure, scholarly publishing, research integrity/assessment, research data, PIDs, scholarly knowledge graphs), where much of the money is EU grants and roles are rarely posted on job boards.
+
+1. Run `python3 scripts/cordis-leads.py` (add `--country DE,NL,…` if asked). It downloads the CORDIS Horizon Europe dump (cached a week in `~/.cache/cordis-leads/`) and scans every open/upcoming call on the Funding & Tenders Portal, writing to `leads/cordis/YYYY-MM-DD-*`: a markdown report plus `organisations.csv`, `projects.csv` and `calls.csv`.
+2. Read the report and summarise the top targets. Hiring happens mostly in a project's first ~9 months, so lead with the **companies and non-profits** table (they hire/contract without formal postings) and the **hiring-window** projects, with named work packages Kristian could own (AI, knowledge graphs, PIDs, metadata).
+3. For the organisations Kristian picks, run `find-linkedin-contacts` against the organisation, targeting project coordinators and work-package leads (CORDIS has no person names — get them from the project website).
+4. Open calls are for *consortium-formation* outreach: offer to be named as expert/subcontractor to organisations likely to bid (repeat winners of the same topic family).
+
+These are organisations, not job URLs: **do not add them to `leads/pipeline.json`**. If an outreach turns into a real role, add that role's URL to the ledger as usual. Outreach is never sent without explicit approval.
 
 ## Mode: Approve
 

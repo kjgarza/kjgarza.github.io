@@ -14,8 +14,25 @@ const fs = require("fs");
 const path = require("path");
 const nunjucks = require("nunjucks");
 const puppeteer = require("puppeteer");
+const { iconShortcode } = require("./phosphor-icon.js");
 
 const root = path.resolve(__dirname, "..");
+
+// cv.njk uses Eleventy's {% icon "name" %} shortcode; plain Nunjucks needs it as a tag.
+class IconTag {
+  constructor() {
+    this.tags = ["icon"];
+  }
+  parse(parser, nodes) {
+    const tok = parser.nextToken();
+    const args = parser.parseSignature(null, true);
+    parser.advanceAfterBlockEnd(tok.value);
+    return new nodes.CallExtension(this, "run", args);
+  }
+  run(context, ...args) {
+    return new nunjucks.runtime.SafeString(iconShortcode(...args));
+  }
+}
 
 const CHROME =
   process.env.CHROME_PATH ||
@@ -188,6 +205,7 @@ async function main() {
     .replace("</head>", `<style>${fitCss(opts)}</style>\n</head>`);
 
   const env = new nunjucks.Environment(null, { autoescape: false });
+  env.addExtension("icon", new IconTag());
   const html = env.renderString(combined, { cv });
 
   const contentW = A4_W - (opts.marginLeft + opts.marginRight) * MM;

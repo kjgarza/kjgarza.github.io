@@ -10,7 +10,9 @@ function unescapeAttr(str) {
   return String(str).replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
 }
 
-async function imageShortcode(src, alt, cls = "", loading = "lazy", fetchpriority = "", sizes = "(max-width: 640px) 100vw, 896px", widths = [320, 640, 960, 1280]) {
+const DEFAULT_IMAGE_WIDTHS = [320, 640, 960, 1280];
+
+async function imageShortcode(src, alt, cls = "", loading = "lazy", fetchpriority = "", sizes = "(max-width: 640px) 100vw, 896px", widths = DEFAULT_IMAGE_WIDTHS) {
   if (/^https?:\/\//.test(src)) {
     const parts = [`src="${escapeAttr(src)}"`, `alt="${escapeAttr(alt)}"`];
     if (cls) parts.push(`class="${escapeAttr(cls)}"`);
@@ -21,7 +23,7 @@ async function imageShortcode(src, alt, cls = "", loading = "lazy", fetchpriorit
 
   try {
     let imageSrc = src.startsWith("/") ? `./src${src}` : src;
-    let parsedWidths = Array.isArray(widths) ? widths : [320, 640, 960, 1280];
+    let parsedWidths = Array.isArray(widths) ? widths : DEFAULT_IMAGE_WIDTHS;
     let metadata = await EleventyImage(imageSrc, {
       widths: parsedWidths,
       formats: ["webp", "jpeg"],

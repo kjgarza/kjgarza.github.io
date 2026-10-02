@@ -84,7 +84,7 @@ module.exports = [
     description: "Redesigned DataCite's Harvesting Services from the ground up to boost service utilization and unlock new revenue opportunities.",
     tags: ["UX Research", "Service Design"],
     status: "published",
-    image: "https://i.imgur.com/Y8Jn1lP.png",
+    image: "/assets/images/case-studies/harvesting-design-sprint-challenge.png",
     link: "/work/redesigning-datacite-harvesting-services",
     featured: true,
     gridClass: "col-span-2 row-span-1",

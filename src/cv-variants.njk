@@ -1,0 +1,19 @@
+---js
+{
+  layout: "layouts/cv.njk",
+  pagination: { data: "cvVariants", size: 1, alias: "variant" },
+  permalink: (data) => `/cv/${data.variant.id}/`,
+  // Employer-specific CVs: reachable by direct link only — unlisted, unlinked, not indexed
+  eleventyExcludeFromCollections: true,
+  noindex: true,
+  eleventyComputed: {
+    cv: (data) => data[data.variant.dataKey],
+  },
+}
+---
+{% from "components/cv-sheet.njk" import renderCV %}
+{% include "components/cv-toolbar.njk" %}
+
+<div class="cv-page">
+  {{ renderCV(cv) }}
+</div>

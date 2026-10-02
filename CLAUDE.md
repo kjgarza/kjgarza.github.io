@@ -21,7 +21,7 @@ just build         # Same as bun run build
 just serve         # Serve _site/ with python3 http.server on :8080
 ```
 
-No linter or test suite is configured.
+No linter is configured. `bun test` (`tests/seo.test.js`) builds the site and checks SEO invariants on `_site/`: canonicals, escaped meta tags, one H1 per page, descriptions of at most 160 characters, noindex/sitemap rules, structured data, and image attributes. Run it after touching layouts, front matter or `src/_data/`.
 
 ## Architecture
 
@@ -71,6 +71,17 @@ All files export plain JS arrays/objects consumed as global template variables:
 
 1. Add an entry to `src/_data/work.js` with `id`, `title`, `description`, `tags`, `status`, `link`, `featured`, and optional `image`/`gridClass` fields
 2. Create `src/work/<slug>.md` with frontmatter: `layout: layouts/case-study.njk`, `title`, `description`, `company`, `tags`, `heroImage`, `permalink`, and optionally `passwordProtected: true`
+   - `description` over 160 characters → also add a shorter `metaDescription` for search snippets.
+   - `passwordProtected: true` pages are `noindex` and left out of the sitemap unless they set `publicSummary` (plain text with blank-line-separated paragraphs, shown above the gate).
+   - Put images in `src/assets/images/` and embed them as plain markdown `![alt](/assets/images/x.png)`. A build transform turns them into responsive `<picture>` markup, and the markdown mirrors keep the plain links. Don't hotlink external images.
+
+### SEO head
+
+`components/seo-head.njk` renders the title, description, canonical, robots, Open Graph and Twitter tags for both layouts. Front matter it reads: `metaTitle` (full `<title>` override), `title` (gets ` — Kristian Garza` appended unless `appendSiteName: false`, which case studies set), `metaDescription`/`description`, `heroImage` (becomes `og:image`), `noindex`, and `structuredData` (extra JSON-LD).
+
+### CV pages
+
+`/cv/` renders only the default CV (`src/_data/cv.js`). Employer-specific variants are listed in `src/_data/cvVariants.js` and render at `/cv/<id>/`. Those pages are noindex, left out of the sitemap, and not linked from the site. The sheet markup is the `renderCV` macro in `components/cv-sheet.njk`, which `scripts/cv-to-pdf.js` also uses.
 
 ### CSS / Styling
 

@@ -3,8 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ cv.name }} — CV</title>
-  <meta name="description" content="CV of {{ cv.name }}, {{ cv.title }}">
+{%- set metaTitle = cv.name ~ " — CV" %}
+{%- set description = "CV of " ~ cv.name ~ ", " ~ cv.title ~ " in " ~ cv.location ~ ": AI services, LLM agents, research infrastructure and product design." %}
+{%- if page %}
+{% include "components/seo-head.njk" %}
+{%- else %}
+  {#- scripts/cv-to-pdf.js renders this layout without Eleventy's page/site data #}
+  <title>{{ metaTitle | escape }}</title>
+{%- endif %}
   <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

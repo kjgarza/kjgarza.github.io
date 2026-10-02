@@ -2,6 +2,7 @@
 layout: layouts/case-study.njk
 title: DataCite Usage Reports API - Research Data Metrics at Scale
 description: Designed and delivered Sashimi—a Rails API that ingests, validates, and stores large SUSHI usage reports in S3/MySQL at 50,000-dataset scale with JWT security and on-the-fly compression.
+metaDescription: "Designed and delivered Sashimi, a Rails API that ingests, validates and stores large SUSHI usage reports at 50,000-dataset scale."
 company: DataCite
 tags: 
   - Serverless

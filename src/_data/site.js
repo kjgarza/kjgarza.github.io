@@ -1,7 +1,8 @@
 module.exports = {
   title: "Kristian Garza",
+  // Kept to 150–160 characters so search results show it in full
   description:
-    "I'm a Berlin-based AI engineer. My skill set includes robust research capabilities, prototyping, and coding, all aimed at crafting empowering and intuitive user experiences. I specialize in leveraging the intersection of design and AI to address real-world challenges.",
+    "Berlin-based AI engineer who prototypes and ships LLM-powered services, agents and research tools, drawing on a background in UX design and open science.",
   url: "https://kjgarza.github.io/",
   author: {
     name: "Kristian Garza",
@@ -21,6 +22,7 @@ module.exports = {
   schema_org: {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://kjgarza.github.io/#person",
     sameAs: [
       "https://www.linkedin.com/in/kjgarza",
       "https://commons.datacite.org/orcid.org/0000-0003-3484-6875",
@@ -32,8 +34,8 @@ module.exports = {
       "https://linktr.ee/kristiangarza",
     ],
     email: "mailto:kj.garza+kjgarza@gmail.com",
-    image: "https://kjgarza.github.io/uploads/2022/02/18/photo.jpeg",
-    jobTitle: "Senior AI Engineer",
+    image: "https://kjgarza.github.io/assets/images/kristian-garza.jpg",
+    jobTitle: "AI Engineer",
     affiliation: {
       "@type": "Organization",
       "@id": "https://ror.org/02ktfc112",

@@ -1,5 +1,6 @@
 ---
 layout: layouts/base.njk
+appendSiteName: false
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/case-study.css' | url }}">
@@ -23,16 +24,24 @@ layout: layouts/base.njk
   <!-- ── Hero Image ── -->
   {% if heroImage %}
   <div class="cs-hero">
-    <img alt="{{ title }}" width="640" height="400" decoding="async"
-         src="{{ heroImage }}" loading="lazy">
+    {% image heroImage, title, "", "eager", "high", "(max-width: 672px) 100vw, 672px", [320, 672, 1344] %}
   </div>
   {% endif %}
 
   {% if passwordProtected %}
+  {% if publicSummary %}
+  <!-- ── Public summary (indexable; the rest stays behind the gate) ── -->
+  <div class="cs-public-summary cs-prose prose font-medium">
+    {% for paragraph in (publicSummary | trim).split("\n\n") %}
+    <p>{{ paragraph | escape }}</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+
   <!-- ── Password Gate ── -->
   <div class="cs-prose">
     <div class="cs-password-gate">
-      <h3>This content requires a password</h3>
+      <h2>This content requires a password</h2>
       <p>Some things are meant to stay private. But if you're meant to see this, just reach out.</p>
       <form>
         <label for="Password">Password</label>

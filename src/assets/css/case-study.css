@@ -3,7 +3,7 @@
 /* ── Case Study: Editorial Typography System ── */
 
 .cs-article {
-  --cs-accent: #FF0066;
+  --cs-accent: #d6005a; /* brand #FF0066 darkened to reach 4.5:1 text contrast on white */
   --cs-display: 'Bricolage Grotesque', var(--default-font-family);
   --cs-mono: 'DM Mono', ui-monospace, monospace;
   --cs-text: #1a1a1a;
@@ -309,7 +309,7 @@
   margin: 2rem auto;
 }
 
-.cs-password-gate h3 {
+.cs-password-gate h2 {
   font-family: var(--cs-display);
   font-size: 1.2rem;
   font-weight: 700;

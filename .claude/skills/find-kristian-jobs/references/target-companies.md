@@ -28,6 +28,8 @@
 | **Wellcome Trust** | Research infrastructure funding, open science | Digital Technology, Data Science | Open science publications + infrastructure experience |
 | **EMBL-EBI** | European bioinformatics infrastructure | Web Development, Data Services | Research infrastructure + design systems + AI |
 | **CERN** | Large-scale research infrastructure | IT, Open Science | Infrastructure scale + open science values |
+| **Wiley** | Scholarly publisher building "research intelligence" — NLP/agentic pipelines over its journal corpus; AI content licensing | Applied Research Intelligence, Data Science (NLP + Applied AI) | Added 2026-10-02 from Klue CI digest. Workday: `wiley.wd1.myworkdayjobs.com/wiley_careers`. Roles are "Remote, GBR" — UK right-to-work likely required; ask about EU/EOR |
+| **Clarivate** | Web of Science / research analytics owner; GenAI, agents and RAG product work | AI Product Development (Lead SWE), Life Sciences (Cortellis) | Added 2026-10-02 from Klue CI digest. Workday: `clarivate.wd3.myworkdayjobs.com/Clarivate_Careers`. AI engineering roles seen in Barcelona (hybrid) — relocation |
 
 ## Tier 3 — Emerging (AI for Science & Knowledge)
 
@@ -43,6 +45,13 @@
 | **Replit** | AI-powered development | AI, Engineering | AI SDK side projects show builder mentality |
 | **Vercel** | Developer tools, AI SDK | AI, Engineering | Uses Vercel (Dataset Discovery Agent deployed there) |
 | **Elsevier / RELX** | Research analytics (Scopus, ScienceDirect) | AI/ML, Engineering | Dimensions competitor — knows the space intimately |
+| **Causaly** | Biomedical knowledge graph + GenAI over literature, trials and regulatory documents; agentic long-running workflows | Technology (Staff SWE, Agentic Workflows) | Added 2026-10-02 from Klue CI digest. London, hybrid. Board: `bash .claude/skills/find-kristian-jobs/scripts/fetch-board.sh ashby causaly`. Stack is TypeScript/Node + durable execution |
+| **Wolters Kluwer** | Legal/tax/health knowledge publisher; Libra Legal AI Assistant team sits at the Merantix AI Campus in Berlin | Libra (Lead SWE, AI Evals), AI Platform & Agents | Added 2026-10-02 from Klue CI digest. Workday: `wk.wd3.myworkdayjobs.com/External` — search "Libra" and "AI Platform". Berlin hybrid 8 days/month. Not scholarly, but knowledge-work AI with a Berlin team |
+| **Edison Scientific** | Kosmos AI Scientist; FutureHouse spinout — AI for scientific discovery | Scientific Training & Collaboration, Product Engineering | Added 2026-10-02 from Klue CI digest. Board: `bash .claude/skills/find-kristian-jobs/scripts/fetch-board.sh ashby "Edison Scientific"`. **Caveat:** all roles US (SF / Remote US) as of 2026-10-02 — sweep for EU openings; posted comp $220–350K |
+| **Graphwise** | Graph RAG and semantic/knowledge-graph platform (Ontotext + Semantic Web Company) | AI Engineering (GraphRAG & Automation) | Added 2026-10-02 from Klue CI digest. BambooHR: `graphwise.bamboohr.com/careers`. Roles seen are onsite Sofia/Ruse — geography and comp stretch |
+| **Signals** | Research-integrity knowledge graph (London; ACS/Enago seed) | Engineering | Added 2026-10-02 — watch list, no open roles. Speculative outreach: https://research-signals.com/join-us/ |
+| **Overton** | Policy-citation graph linking research to policy (London) | Engineering | Added 2026-10-02 — watch list, Workable `overton` had 0 roles |
+| **scite / Research Solutions** | Citation-context AI; Article Galaxy MCP for agents over literature | Engineering | Added 2026-10-02 — watch list, scite.ai/jobs says not hiring; jobs@scite.ai |
 | **Digital Science (internal)** | Current employer, AI leadership track | AI Team Lead, Principal Engineer | Internal promotion path if external search doesn't yield |
 
 ## Search Strategy by Tier

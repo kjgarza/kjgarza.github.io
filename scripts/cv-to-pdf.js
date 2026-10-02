@@ -14,8 +14,22 @@ const fs = require("fs");
 const path = require("path");
 const nunjucks = require("nunjucks");
 const puppeteer = require("puppeteer");
+const { iconShortcode } = require("../.eleventy.js");
 
 const root = path.resolve(__dirname, "..");
+
+// The layout uses Eleventy's {% icon %} shortcode; plain nunjucks needs it
+// registered as a custom tag.
+function IconTag() {
+  this.tags = ["icon"];
+  this.parse = (parser, nodes) => {
+    const tok = parser.nextToken();
+    const args = parser.parseSignature(null, true);
+    parser.advanceAfterBlockEnd(tok.value);
+    return new nodes.CallExtension(this, "run", args);
+  };
+  this.run = (_context, ...args) => new nunjucks.runtime.SafeString(iconShortcode(...args));
+}
 
 const CHROME =
   process.env.CHROME_PATH ||
@@ -188,6 +202,7 @@ async function main() {
     .replace("</head>", `<style>${fitCss(opts)}</style>\n</head>`);
 
   const env = new nunjucks.Environment(null, { autoescape: false });
+  env.addExtension("icon", new IconTag());
   const html = env.renderString(combined, { cv });
 
   const contentW = A4_W - (opts.marginLeft + opts.marginRight) * MM;

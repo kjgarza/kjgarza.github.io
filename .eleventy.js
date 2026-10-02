@@ -116,3 +116,6 @@ module.exports = function(eleventyConfig) {
     templateFormats: ["md", "njk", "html", "liquid"]
   };
 };
+
+// Reused by scripts/cv-to-pdf.js, which renders layouts outside Eleventy.
+module.exports.iconShortcode = iconShortcode;

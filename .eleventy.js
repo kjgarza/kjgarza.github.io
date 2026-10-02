@@ -1,12 +1,18 @@
 const EleventyImage = require("@11ty/eleventy-img");
 const site = require("./src/_data/site.js");
-const { iconShortcode } = require("./scripts/phosphor-icon.js");
+const iconShortcode = require("./lib/phosphor-icon.js");
 
 function escapeAttr(str) {
   return String(str).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-async function imageShortcode(src, alt, cls = "", loading = "lazy", fetchpriority = "", sizes = "(max-width: 640px) 100vw, 896px", widths = [320, 640, 1280]) {
+function unescapeAttr(str) {
+  return String(str).replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
+}
+
+const DEFAULT_IMAGE_WIDTHS = [320, 640, 960, 1280];
+
+async function imageShortcode(src, alt, cls = "", loading = "lazy", fetchpriority = "", sizes = "(max-width: 640px) 100vw, 896px", widths = DEFAULT_IMAGE_WIDTHS) {
   if (/^https?:\/\//.test(src)) {
     const parts = [`src="${escapeAttr(src)}"`, `alt="${escapeAttr(alt)}"`];
     if (cls) parts.push(`class="${escapeAttr(cls)}"`);
@@ -17,7 +23,7 @@ async function imageShortcode(src, alt, cls = "", loading = "lazy", fetchpriorit
 
   try {
     let imageSrc = src.startsWith("/") ? `./src${src}` : src;
-    let parsedWidths = Array.isArray(widths) ? widths : [320, 640, 1280];
+    let parsedWidths = Array.isArray(widths) ? widths : DEFAULT_IMAGE_WIDTHS;
     let metadata = await EleventyImage(imageSrc, {
       widths: parsedWidths,
       formats: ["webp", "jpeg"],
@@ -50,6 +56,22 @@ async function imageShortcode(src, alt, cls = "", loading = "lazy", fetchpriorit
 module.exports = function(eleventyConfig) {
   // Image optimization shortcode
   eleventyConfig.addAsyncShortcode("image", imageShortcode);
+
+  // Case-study markdown keeps plain ![alt](/assets/images/x.png) links so the
+  // markdown mirrors stay readable; swap them for optimized <picture> markup in the HTML
+  const caseStudyImg = /<img src="(\/assets\/images\/[^"]+\.(?:png|jpe?g|webp))" alt="([^"]*)">/g;
+  eleventyConfig.addTransform("case-study-images", async function (content) {
+    if (!(this.page.outputPath || "").endsWith(".html") || !caseStudyImg.test(content)) return content;
+    caseStudyImg.lastIndex = 0;
+    const matches = [...content.matchAll(caseStudyImg)];
+    const pictures = await Promise.all(
+      matches.map(([, src, alt]) =>
+        imageShortcode(src, unescapeAttr(alt), "", "lazy", "", "(max-width: 672px) 100vw, 672px", [320, 672, 1344])
+      )
+    );
+    let i = 0;
+    return content.replace(caseStudyImg, () => pictures[i++]);
+  });
 
   // Phosphor icon shortcode: {% icon "linkedin-logo" "w-6 h-6" %}
   eleventyConfig.addShortcode("icon", iconShortcode);

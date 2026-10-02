@@ -1,13 +1,15 @@
 ---
 layout: layouts/base.njk
+metaTitle: Kristian Garza — AI Engineer in Berlin
 openForOportunities: false
 ---
 
 <div class="mt-16 flex flex-col gap-4">
+  <h1 class="text-accent font-mono text-sm font-medium">Kristian Garza — AI Engineer in Berlin</h1>
   <p class="text-primary xs:text-3xl text-2xl font-medium">
     <span class="whitespace-nowrap">Solving 
       <span class="text-accent relative">complex problems
-        <img src="{{ '/drawings/Arrow-new.svg' | url }}" class="fill-ui-decoration xs:left-3 absolute -top-19 -left-2">
+        <img src="{{ '/drawings/Arrow-new.svg' | url }}" alt="" width="110" height="110" class="fill-ui-decoration xs:left-3 absolute -top-19 -left-2">
       </span>
     </span>, 
     <span class="whitespace-nowrap">identifying 
@@ -113,9 +115,9 @@ openForOportunities: false
           {% if workItem.image %}
           <div class="{% if workItem.imageContainer %}{{ workItem.imageContainer }}{% else %}w-full px-6{% endif %}">
             {% if loop.first %}
-              {% image workItem.image, workItem.title, "-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform", "eager", "high" %}
+              {% image workItem.image, workItem.title, "-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform", "eager", "high", "576px" %}
             {% else %}
-              {% image workItem.image, workItem.title, "-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform" %}
+              {% image workItem.image, workItem.title, "-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform", "lazy", "", "576px" %}
             {% endif %}
           </div>
           {% endif %}
@@ -130,7 +132,7 @@ openForOportunities: false
   <h2 class="text-primary font-mono text-lg font-medium">Useful things I've built</h2>
   <section class="flex flex-col gap-4">
     <div class="relative grid gap-6 sm:grid-cols-2 sm:gap-2">
-      <img src="{{ '/drawings/used-by.svg' | url }}" alt="Used by" class="absolute top-10 -left-32 hidden rotate-2 lg:block">
+      <img src="{{ '/drawings/used-by.svg' | url }}" alt="Used by" width="113" height="98" class="absolute top-10 -left-32 hidden rotate-2 lg:block">
       {% for tool in tools %}
         <div class="bg-surface border-card flex h-fit w-fit {{ tool.rotation }} flex-row gap-2 rounded-2xl border-2 p-4">
           <div class="bg-surface border-card h-fit w-fit rounded-xl border p-1 inset-shadow-xs">

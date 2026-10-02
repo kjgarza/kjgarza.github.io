@@ -2,6 +2,7 @@
 layout: layouts/case-study.njk
 title: Query Translation API - Natural Language to Database Queries
 description: Architected and launched a FastAPI microservice that turns natural-language requests into optimized Dimensions searches via LLM entity extraction and pgvector semantic search.
+metaDescription: "Architected a FastAPI microservice that turns natural-language requests into Dimensions searches via LLM entity extraction and pgvector."
 company: Digital Science
 tags: 
   - API Development

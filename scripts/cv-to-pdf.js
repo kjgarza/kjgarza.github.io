@@ -14,25 +14,9 @@ const fs = require("fs");
 const path = require("path");
 const nunjucks = require("nunjucks");
 const puppeteer = require("puppeteer");
-const { iconShortcode } = require("./phosphor-icon.js");
+const phosphorIcon = require("../lib/phosphor-icon.js");
 
 const root = path.resolve(__dirname, "..");
-
-// cv.njk uses Eleventy's {% icon "name" %} shortcode; plain Nunjucks needs it as a tag.
-class IconTag {
-  constructor() {
-    this.tags = ["icon"];
-  }
-  parse(parser, nodes) {
-    const tok = parser.nextToken();
-    const args = parser.parseSignature(null, true);
-    parser.advanceAfterBlockEnd(tok.value);
-    return new nodes.CallExtension(this, "run", args);
-  }
-  run(context, ...args) {
-    return new nunjucks.runtime.SafeString(iconShortcode(...args));
-  }
-}
 
 const CHROME =
   process.env.CHROME_PATH ||
@@ -169,6 +153,20 @@ Behaviour flags:
   --no-education-page-break   let Education flow inline instead of starting page 2
 `;
 
+// The CV macro uses Eleventy's {% icon "name" %} shortcode; mirror it as a Nunjucks tag
+function IconExtension() {
+  this.tags = ["icon"];
+  this.parse = function (parser, nodes) {
+    const tok = parser.nextToken();
+    const args = parser.parseSignature(null, true);
+    parser.advanceAfterBlockEnd(tok.value);
+    return new nodes.CallExtension(this, "run", args);
+  };
+  this.run = function (context, ...args) {
+    return new nunjucks.runtime.SafeString(phosphorIcon(...args));
+  };
+}
+
 async function main() {
   const { positional, opts } = parseArgs(process.argv.slice(2));
   if (!positional[0]) {
@@ -190,12 +188,12 @@ async function main() {
     path.join(root, "src/_includes/layouts/cv.njk"),
     "utf8"
   );
-  const cvPage = fs.readFileSync(path.join(root, "src/cv.njk"), "utf8");
+  const cvSheet = fs.readFileSync(path.join(root, "src/_includes/components/cv-sheet.njk"), "utf8");
 
-  // Pull out just the renderCV macro definition from src/cv.njk.
-  const macroMatch = cvPage.match(/{% macro renderCV\(cv\) %}[\s\S]*?{% endmacro %}/);
+  // Pull out just the renderCV macro definition.
+  const macroMatch = cvSheet.match(/{% macro renderCV\(cv\) %}[\s\S]*?{% endmacro %}/);
   if (!macroMatch) {
-    console.error("Could not find renderCV macro in src/cv.njk");
+    console.error("Could not find renderCV macro in src/_includes/components/cv-sheet.njk");
     process.exit(1);
   }
 
@@ -205,7 +203,7 @@ async function main() {
     .replace("</head>", `<style>${fitCss(opts)}</style>\n</head>`);
 
   const env = new nunjucks.Environment(null, { autoescape: false });
-  env.addExtension("icon", new IconTag());
+  env.addExtension("icon", new IconExtension());
   const html = env.renderString(combined, { cv });
 
   const contentW = A4_W - (opts.marginLeft + opts.marginRight) * MM;

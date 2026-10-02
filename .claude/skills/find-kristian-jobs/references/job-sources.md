@@ -57,6 +57,8 @@ Returns `{ats, board, count, jobs: [{title, location, posted_date, url, apply_ur
 | **Improbable** | 3 | ashby | `improbable` | 9 |
 | **Tractable** | 3 | ashby | `tractable` | 4 |
 | **dunnhumby** | 3 | greenhouse | `dunnhumby` | 72 |
+| **Causaly** | 3 | ashby | `causaly` | 4 (2026-10-02) |
+| **Edison Scientific** | 3 | ashby | `Edison Scientific` | 29 (2026-10-02, all US) |
 
 All rows below Elsevier were discovered and verified on 2026-07-24 by the London/Munich run. Some boards resolve on the EU Greenhouse host (`job-boards.eu.greenhouse.io`) — `fetch-board.sh` handles this transparently.
 

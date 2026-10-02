@@ -32,7 +32,7 @@ module.exports = [
       "A Python toolkit that uses GPT-3/3.5 to translate, enrich, and cross-walk bibliographic metadata across schemas, with CLI and CI/CD support.",
     type: "LLMs",
     image: "/assets/images/openai-icon.png",
-    link: "https://github.com/kjgarza/parrot-gpt",
+    link: "https://github.com/kjgarza/parrot_gpt",
     rotation: "rotate-3",
   },
   {
@@ -60,6 +60,33 @@ module.exports = [
     type: "Claude",
     image: "/assets/images/anthropic-icon.svg",
     link: "https://kjgarza.github.io/chickadee/",
+    rotation: "rotate-2",
+  },
+  {
+    name: "Claude Code Plugin Marketplace",
+    description:
+      "A collection of Claude Code plugins for research, development workflows and personal productivity, installable as a marketplace.",
+    type: "Claude Code",
+    image: "/assets/images/anthropic-icon.svg",
+    link: "https://github.com/kjgarza/marketplace-claude",
+    rotation: "rotate-1",
+  },
+  {
+    name: "Kea Party Games",
+    description:
+      "A party card games app with five game types and LLM-generated card decks to play with friends.",
+    type: "LLMs",
+    image: "/assets/images/github-icon.svg",
+    link: "https://kjgarza.github.io/kea/",
+    rotation: "rotate-4",
+  },
+  {
+    name: "Einbürgerungstest Trainer",
+    description:
+      "A practice app for the German naturalisation test (Leben in Deutschland).",
+    type: "Open Source",
+    image: "/assets/images/github-icon.svg",
+    link: "https://kjgarza.github.io/gouldian_finch/",
     rotation: "rotate-2",
   },
 ];

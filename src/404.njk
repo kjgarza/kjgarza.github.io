@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+title: Page not found
+description: The page you were looking for doesn't exist or has moved.
+permalink: /404.html
+eleventyExcludeFromCollections: true
+noindex: true
+---
+
+<div class="flex w-full max-w-4xl flex-1 flex-col gap-4 p-4 md:p-12 xl:p-8">
+  <h1 class="text-accent font-mono text-2xl font-bold">Page not found</h1>
+  <p class="text-primary text-base font-medium">The page you were looking for doesn't exist or has moved.</p>
+  <ul class="text-primary flex flex-col gap-2 text-base font-medium">
+    <li><a class="text-accent underline hover:no-underline" href="/">Home</a></li>
+    <li><a class="text-accent underline hover:no-underline" href="/work/">Work</a></li>
+    <li><a class="text-accent underline hover:no-underline" href="/tools/">Tools</a></li>
+    <li><a class="text-accent underline hover:no-underline" href="/publications/">Publications</a></li>
+  </ul>
+</div>

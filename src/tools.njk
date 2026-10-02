@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 title: Tools
+description: Side projects and AI tools built by Kristian Garza, from a dataset discovery agent and a technology radar to small everyday web apps.
 permalink: /tools/
 ---
 
@@ -8,7 +9,7 @@ permalink: /tools/
   <h1 class="text-accent font-mono text-2xl font-bold">Tools</h1>
   <section class="flex flex-col gap-4">
     <div class="relative grid gap-6 sm:grid-cols-2 sm:gap-2">
-      <img src="{{ '/drawings/used-by.svg' | url }}" alt="Used by" class="absolute top-10 -left-32 hidden rotate-2 lg:block">
+      <img src="{{ '/drawings/used-by.svg' | url }}" alt="Used by" width="113" height="98" class="absolute top-10 -left-32 hidden rotate-2 lg:block">
       
       {% for tool in tools %}
       <div class="bg-surface border-card flex h-fit w-fit {{ tool.rotation }} flex-row gap-2 rounded-2xl border-2 p-4">
@@ -19,7 +20,7 @@ permalink: /tools/
         </div>
         <div class="flex w-full flex-col gap-1">
           <div class="flex flex-row items-center justify-between">
-            <h3 class="text-primary text-base font-bold">{{ tool.name }}</h3>
+            <h2 class="text-primary text-base font-bold">{{ tool.name }}</h2>
             <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
               {{ tool.type }}
             </div>

@@ -1,0 +1,41 @@
+{#- Title, description, canonical, Open Graph and Twitter tags shared by every layout.
+    Front matter it reads: metaTitle (overrides the computed <title>), title,
+    appendSiteName (false keeps the bare title), metaDescription (overrides description
+    when the on-page one is too long for a search snippet), description, heroImage, noindex. -#}
+{%- if metaTitle -%}
+  {%- set pageTitle = metaTitle -%}
+{%- elif title and appendSiteName != false -%}
+  {%- set pageTitle = title ~ " — " ~ site.title -%}
+{%- else -%}
+  {%- set pageTitle = title or site.title -%}
+{%- endif -%}
+{%- set pageDescription = metaDescription or description or site.description -%}
+{%- set absUrl = page.url | absoluteUrl -%}
+{%- set ogImage = (heroImage or "/assets/images/og-homepage.png") | absoluteUrl -%}
+  <title>{{ pageTitle | escape }}</title>
+  <meta name="description" content="{{ pageDescription | escape }}">
+  <link rel="canonical" href="{{ absUrl }}">
+{%- if noindex %}
+  <meta name="robots" content="noindex">
+{%- endif %}
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ pageTitle | escape }}">
+  <meta property="og:description" content="{{ pageDescription | escape }}">
+  <meta property="og:url" content="{{ absUrl }}">
+  <meta property="og:site_name" content="{{ site.title | escape }}">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="{{ ogImage }}">
+{%- if not heroImage %}
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+{%- endif %}
+  <meta property="og:image:alt" content="{{ pageTitle | escape }}">
+  <meta property="og:type" content="{{ 'article' if heroImage else 'website' }}">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ pageTitle | escape }}">
+  <meta name="twitter:description" content="{{ pageDescription | escape }}">
+  <meta name="twitter:image" content="{{ ogImage }}">
+  <meta name="twitter:image:alt" content="{{ pageTitle | escape }}">

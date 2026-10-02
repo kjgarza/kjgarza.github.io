@@ -2,12 +2,13 @@
 layout: layouts/case-study.njk
 title: Redesigning DataCite's Harvesting Services
 description: Redesigned DataCite's Harvesting Services from the ground up to boost service utilization and unlock new revenue opportunities through user-centered design research.
+metaDescription: "Redesigned DataCite's Harvesting Services from the ground up, using user-centered design research to boost utilization and unlock new revenue."
 company: DataCite
 tags: 
   - UX Research
   - Product Design
   - Service Design
-heroImage: https://i.imgur.com/Y8Jn1lP.png
+heroImage: /assets/images/case-studies/harvesting-design-sprint-challenge.png
 permalink: /work/redesigning-datacite-harvesting-services/
 blogLink: https://doi.org/10.5438/f03x-vr69
 passwordProtected: false
@@ -72,9 +73,9 @@ A design sprint was subsequently conducted to generate a comprehensive initial p
 
 The aim was to ensure that the service redesign would meet the needs of all organizational corners. To foster a long-term vision, we slightly altered the design sprint's activity order, positioning the mapping activity as a secondary step.
 
-![Design Sprint - Defining the Challenge](https://i.imgur.com/Y8Jn1lP.png)
+![Design Sprint - Defining the Challenge](/assets/images/case-studies/harvesting-design-sprint-challenge.png)
 
-![Design Sprint - Mapping Process](https://i.imgur.com/nzSRTi9.png)
+![Design Sprint - Mapping Process](/assets/images/case-studies/harvesting-design-sprint-mapping.png)
 
 ## Design Sprint Process
 
@@ -88,7 +89,7 @@ Over the next three days, I guided the participants through each stage of the de
 
 Two top-voted sketches were selected for further prototyping in Figma, followed by an Expert Walkthrough validation with eight users to collect further feedback.
 
-![Design Sprint - Map & Lightning Demos](https://i.imgur.com/Y8Jn1lP.png)
+![Design Sprint - Map & Lightning Demos](/assets/images/case-studies/harvesting-design-sprint-challenge.png)
 
 ## Key Findings
 

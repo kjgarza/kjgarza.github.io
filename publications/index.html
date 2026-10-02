@@ -3,59 +3,83 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Publications</title>
-  <meta name="description" content="I'm a Berlin-based AI engineer. My skill set includes robust research capabilities, prototyping, and coding, all aimed at crafting empowering and intuitive user experiences. I specialize in leveraging the intersection of design and AI to address real-world challenges.">
-  
+<title>Publications — Kristian Garza</title>
+  <meta name="description" content="Papers, articles and talks by Kristian Garza on persistent identifiers, data citation, open science infrastructure and AI for research.">
+  <link rel="canonical" href="https://kjgarza.github.io/publications/">
+
   <!-- Open Graph -->
-  <meta property="og:title" content="Publications">
-  <meta property="og:description" content="I'm a Berlin-based AI engineer. My skill set includes robust research capabilities, prototyping, and coding, all aimed at crafting empowering and intuitive user experiences. I specialize in leveraging the intersection of design and AI to address real-world challenges.">
-  <meta property="og:url" content="https://kjgarza.github.io//publications/">
+  <meta property="og:title" content="Publications — Kristian Garza">
+  <meta property="og:description" content="Papers, articles and talks by Kristian Garza on persistent identifiers, data citation, open science infrastructure and AI for research.">
+  <meta property="og:url" content="https://kjgarza.github.io/publications/">
   <meta property="og:site_name" content="Kristian Garza">
   <meta property="og:locale" content="en_US">
   <meta property="og:image" content="https://kjgarza.github.io/assets/images/og-homepage.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Kristian Garza">
+  <meta property="og:image:alt" content="Publications — Kristian Garza">
   <meta property="og:type" content="website">
-  
+
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Publications">
-  <meta name="twitter:description" content="I'm a Berlin-based AI engineer. My skill set includes robust research capabilities, prototyping, and coding, all aimed at crafting empowering and intuitive user experiences. I specialize in leveraging the intersection of design and AI to address real-world challenges.">
+  <meta name="twitter:title" content="Publications — Kristian Garza">
+  <meta name="twitter:description" content="Papers, articles and talks by Kristian Garza on persistent identifiers, data citation, open science infrastructure and AI for research.">
   <meta name="twitter:image" content="https://kjgarza.github.io/assets/images/og-homepage.png">
-  <meta name="twitter:image:width" content="1200">
-  <meta name="twitter:image:height" content="630">
-  <meta name="twitter:image:alt" content="Kristian Garza">
-  
+  <meta name="twitter:image:alt" content="Publications — Kristian Garza">
+
+
   <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16">
   <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly summary of this site">
 
-  <!-- Resource hints -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://tally.so">
-
-  <!-- Web fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <!-- Self-hosted fonts (latin subset); Manrope is a single variable file for 400–700 -->
+  <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/_next/static/css/b79f6ce842955dc5.css" as="style">
+  <style>
+    @font-face { font-family: 'Manrope'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/manrope-latin.woff2) format('woff2'); }
+    @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-latin.woff2) format('woff2'); }
+    @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/dm-mono-500-latin.woff2) format('woff2'); }
+    @font-face { font-family: 'DM Mono'; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-italic-latin.woff2) format('woff2'); }
+  </style>
 
   <link rel="stylesheet" href="/_next/static/css/b79f6ce842955dc5.css">
+  <link rel="dns-prefetch" href="https://tally.so">
   <script async src="https://tally.so/widgets/embed.js"></script>
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X7KFRJYWBL"></script>
+  <!-- Analytics: gtag.js (~180 KB) loads on first interaction or when the browser is idle, off the critical path -->
   <script>
-    window.addEventListener('load', function() {
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-X7KFRJYWBL');
-    });
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X7KFRJYWBL');
+    (function() {
+      var loaded = false;
+      function loadGtag() {
+        if (loaded) return;
+        loaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-X7KFRJYWBL';
+        document.head.appendChild(s);
+      }
+      ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
+        window.addEventListener(e, loadGtag, { once: true, passive: true });
+      });
+      window.addEventListener('load', function() {
+        if ('requestIdleCallback' in window) requestIdleCallback(loadGtag, { timeout: 5000 });
+        else setTimeout(loadGtag, 3000);
+      });
+    })();
   </script>
   <script type="application/ld+json">
-   {"@context":"https://schema.org","@type":"Person","sameAs":["https://www.linkedin.com/in/kjgarza","https://commons.datacite.org/orcid.org/0000-0003-3484-6875","https://orcid.org/0000-0003-3484-6875","https://twitter.com/kriztean","https://github.com/kjgarza","https://gitlab.com/kjgarza","https://github.com/kristiangarza","https://linktr.ee/kristiangarza"],"email":"mailto:kj.garza+kjgarza@gmail.com","image":"https://kjgarza.github.io/uploads/2022/02/18/photo.jpeg","jobTitle":"Senior AI Engineer","affiliation":{"@type":"Organization","@id":"https://ror.org/02ktfc112","name":"Digital Science"},"name":"Kristian Garza","url":"https://kjgarza.github.io/","knowsLanguage":[{"@type":"Language","name":"English"},{"@type":"Language","name":"German"},{"@type":"Language","name":"Spanish"}],"knowsAbout":["Web Development","scrum","agile","software development","software engineering","data science","data visualization","data analysis","data engineering","usability testing","user experience","UX Researcher","DevOps","DesignOps","Figma","Miro","Lego Serious Play","Complex applications design","contextual interviews","contextual inquiry","schema.org","google analytics","google tag manager","react","vue","elasticsearch","mysql","Design sprints","graphql","event driven architecture","microservices","docker","aws","terraform","javascript","node","python","typescript","Ruby","Sagemaker","huggingface transformers","Ruby on Rails","langchain","llamaIndex","pydantic","Large Language Models","apisix","Product Design","User Experience","User Interface","User Interface Design","User Interface Development","design thinking","design process","double diamond method","double diamond pattern","open science","open data","open source software","logstash","Persistent Identifiers","Persistent Identifier Systems","DOI","ORCID Identifiers","ROR ID","AI SDK","MCP"]}
+   {"@context":"https://schema.org","@type":"Person","@id":"https://kjgarza.github.io/#person","sameAs":["https://www.linkedin.com/in/kjgarza","https://commons.datacite.org/orcid.org/0000-0003-3484-6875","https://orcid.org/0000-0003-3484-6875","https://twitter.com/kriztean","https://github.com/kjgarza","https://gitlab.com/kjgarza","https://github.com/kristiangarza","https://linktr.ee/kristiangarza"],"email":"mailto:kj.garza+kjgarza@gmail.com","image":"https://kjgarza.github.io/assets/images/kristian-garza.jpg","jobTitle":"AI Engineer","affiliation":{"@type":"Organization","@id":"https://ror.org/02ktfc112","name":"Digital Science"},"name":"Kristian Garza","url":"https://kjgarza.github.io/","knowsLanguage":[{"@type":"Language","name":"English"},{"@type":"Language","name":"German"},{"@type":"Language","name":"Spanish"}],"knowsAbout":["Web Development","scrum","agile","software development","software engineering","data science","data visualization","data analysis","data engineering","usability testing","user experience","UX Researcher","DevOps","DesignOps","Figma","Miro","Lego Serious Play","Complex applications design","contextual interviews","contextual inquiry","schema.org","google analytics","google tag manager","react","vue","elasticsearch","mysql","Design sprints","graphql","event driven architecture","microservices","docker","aws","terraform","javascript","node","python","typescript","Ruby","Sagemaker","huggingface transformers","Ruby on Rails","langchain","llamaIndex","pydantic","Large Language Models","apisix","Product Design","User Experience","User Interface","User Interface Design","User Interface Development","design thinking","design process","double diamond method","double diamond pattern","open science","open data","open source software","logstash","Persistent Identifiers","Persistent Identifier Systems","DOI","ORCID Identifiers","ROR ID","AI SDK","MCP"]}
+  </script>
+  <script type="application/ld+json">
+   {"@context":"https://schema.org","@graph":[{"@type":"ScholarlyArticle","@id":"https://doi.org/10.59350/skna9-1pb77","url":"https://doi.org/10.59350/skna9-1pb77","headline":"The Impact of Language User Interfaces on Finding Scholarly Repositories.","datePublished":"2023","author":{"@id":"https://kjgarza.github.io/#person"}},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5438/tpah-aj25","url":"https://doi.org/10.5438/tpah-aj25","headline":"DataCite Design System is ready to be worn.","datePublished":"2023","author":{"@id":"https://kjgarza.github.io/#person"}},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5438/vwp0-vz05","url":"https://doi.org/10.5438/vwp0-vz05","headline":"Breaking a Metadata Barrier: Improving discoverability with automatic subject classification","datePublished":"2023","author":{"@id":"https://kjgarza.github.io/#person"}},{"@type":"BlogPosting","@id":"https://medium.com/@kj.garza/parrotgpt-on-the-advantages-of-large-language-models-tools-for-academic-metadata-schema-mapping-434cceabc68b","url":"https://medium.com/@kj.garza/parrotgpt-on-the-advantages-of-large-language-models-tools-for-academic-metadata-schema-mapping-434cceabc68b","headline":"ParrotGPT: On the Advantages of Large Language Models Tools for Academic Metadata Schema Mapping","datePublished":"2023","author":{"@id":"https://kjgarza.github.io/#person"}},{"@type":"BlogPosting","@id":"https://medium.com/@kj.garza/academic-publishing-web-forms-meet-your-demise-the-unstoppable-rise-of-large-language-models-dbb1bd6c2ee8","url":"https://medium.com/@kj.garza/academic-publishing-web-forms-meet-your-demise-the-unstoppable-rise-of-large-language-models-dbb1bd6c2ee8","headline":"Academic Publishing web forms meet your demise: The unstoppable rise of large language models (ChatGPT)","datePublished":"2023","author":{"@id":"https://kjgarza.github.io/#person"}},{"@type":"BlogPosting","@id":"https://medium.com/@kj.garza/revolutionizing-metadata-schema-mapping-with-chatgpt-a8df54e41e24","url":"https://medium.com/@kj.garza/revolutionizing-metadata-schema-mapping-with-chatgpt-a8df54e41e24","headline":"Revolutionizing Metadata Schema Mapping with ChatGPT","datePublished":"2022","author":{"@id":"https://kjgarza.github.io/#person"}},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5438/f03x-vr69","url":"https://doi.org/10.5438/f03x-vr69","headline":"Refining our Thinking: How we are improving DataCite design processes.","datePublished":"2022","author":{"@id":"https://kjgarza.github.io/#person"}},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5281/zenodo.6090418","url":"https://doi.org/10.5281/zenodo.6090418","headline":"D4.7 Tools for finding and selecting certified repositories for researchers and other stakeholders","datePublished":"2022","author":{"@id":"https://kjgarza.github.io/#person"}},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5281/zenodo.6536701","url":"https://doi.org/10.5281/zenodo.6536701","headline":"2021 FAIR Island Annual Report","datePublished":"2022","author":{"@id":"https://kjgarza.github.io/#person"}},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5281/zenodo.7308803","url":"https://doi.org/10.5281/zenodo.7308803","headline":"The FAIR Island Project: Tracking the impact of field station research","datePublished":"2022","author":{"@id":"https://kjgarza.github.io/#person"}},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5438/2nps-h961","url":"https://doi.org/10.5438/2nps-h961","headline":"Open hours updates: Spring re-launch open hours for consortium leads","datePublished":"2021","author":{"@id":"https://kjgarza.github.io/#person"}},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5281/zenodo.4487522","url":"https://doi.org/10.5281/zenodo.4487522","headline":"You shoulda put a PID on it: Leveraging the PID Graph for DMPs","datePublished":"2021","author":{"@id":"https://kjgarza.github.io/#person"}},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5438/j4xv-y945","url":"https://doi.org/10.5438/j4xv-y945","headline":"Are You There, Metadata? It’s Me, the Bibliometrician","datePublished":"2021","author":{"@id":"https://kjgarza.github.io/#person"}},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.14454/qgk4-zs88","url":"https://doi.org/10.14454/qgk4-zs88","headline":"Frontend for the DataCite Commons service","datePublished":"2020","author":{"@id":"https://kjgarza.github.io/#person"}},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.14454/w67k-5373","url":"https://doi.org/10.14454/w67k-5373","headline":"maDMPs Machine Actionable Data Management Plans (maDMPs) demonstration.","datePublished":"2020","author":{"@id":"https://kjgarza.github.io/#person"}},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5281/zenodo.3903381","url":"https://doi.org/10.5281/zenodo.3903381","headline":"New Research Work on COVID-19 as the pandemic develops","datePublished":"2020","author":{"@id":"https://kjgarza.github.io/#person"}},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5438/v9pp-7a27","url":"https://doi.org/10.5438/v9pp-7a27","headline":"The DataCite MDC Stack","datePublished":"2020","author":{"@id":"https://kjgarza.github.io/#person"}},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5281/zenodo.3895557","url":"https://doi.org/10.5281/zenodo.3895557","headline":"A tale of two regions: Using Vega-Lite Population Pyramid to explore PIDs populations","datePublished":"2020","author":{"@id":"https://kjgarza.github.io/#person"}},{"@type":"ScholarlyArticle","@id":"https://doi.org/10.5438/1843-k679","url":"https://doi.org/10.5438/1843-k679","headline":"Datacite Citation Display: Unlocking Data Citations","datePublished":"2020","author":{"@id":"https://kjgarza.github.io/#person"}}]}
   </script>
 
   <style>
+    /* Brand pink (#FF0066) is 3.9:1 on white; text needs 4.5:1 (WCAG AA), so accent text uses a darker shade */
+    :root:not([data-theme=dark]) { --color-text-accent: #d6005a; }
+
     body::before {
       content: '';
       position: fixed;

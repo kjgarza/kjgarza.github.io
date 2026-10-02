@@ -41,7 +41,7 @@ DataCite's digital ecosystem is extensive. It comprises:
 
 The absence of a cohesive visual identity across these platforms was beginning to affect the perception of our membership and potentially hamper user experience.
 
-![DataCite Websites Overview](https://i.imgur.com/mFacPB2.png)
+![DataCite Websites Overview](/assets/images/case-studies/design-system-websites-overview.png)
 
 ## Research & Discovery
 
@@ -53,21 +53,21 @@ With Atomic Design principles guiding us, we ventured into the design phase. Fir
 
 In the UI design stage, finding the perfect balance between innovation and brand adherence proved to be another hurdle. After much deliberation, we struck a balance that retained our brand's identity while ensuring innovation and aesthetic appeal.
 
-![Wireframes and Design Process](https://i.imgur.com/wTx0lye.png)
+![Wireframes and Design Process](/assets/images/case-studies/design-system-wireframes.png)
 
-![Component Design](https://i.imgur.com/jM7U6ae.png)
+![Component Design](/assets/images/case-studies/design-system-components.png)
 
 ## Implementation & Adoption
 
 The design system website was the first to receive the design system overhaul, and our homepage followed suit. But the implementation wasn't without its challenges, especially in securing stakeholder buy-in. For this, we turned to our design system website and a forthcoming JavaScript package that includes all components, which we believe will expedite adoption.
 
-![Design System Website](https://i.imgur.com/rE0TQnE.png)
+![Design System Website](/assets/images/case-studies/design-system-website.png)
 
-![Homepage Implementation](https://i.imgur.com/CJ8tUNX.png)
+![Homepage Implementation](/assets/images/case-studies/design-system-homepage.png)
 
-![Component Library](https://i.imgur.com/Snc880N.png)
+![Component Library](/assets/images/case-studies/design-system-component-library.png)
 
-![Documentation](https://i.imgur.com/xWMDvE5.png)
+![Documentation](/assets/images/case-studies/design-system-documentation.png)
 
 ## Stakeholder Engagement
 
@@ -80,7 +80,7 @@ While we are still in the implementation phase, our vision for the future is cle
 - We plan to create a full set of components for all of DataCite's websites and web apps.
 - Moreover, we aim to use Storybook to host these components, thus enabling developers to utilize them easily.
 
-![Storybook Implementation](https://i.imgur.com/1u3gqM0.png)
+![Storybook Implementation](/assets/images/case-studies/design-system-storybook.png)
 
 
 ---

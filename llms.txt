@@ -1,8 +1,8 @@
 # Kristian Garza
 
-> I'm a Berlin-based AI engineer. My skill set includes robust research capabilities, prototyping, and coding, all aimed at crafting empowering and intuitive user experiences. I specialize in leveraging the intersection of design and AI to address real-world challenges.
+> Berlin-based AI engineer who prototypes and ships LLM-powered services, agents and research tools, drawing on a background in UX design and open science.
 
-Kristian Garza is a Senior AI Engineer at Digital Science (ORCID: 0000-0003-3484-6875).
+Kristian Garza is a AI Engineer at Digital Science (ORCID: 0000-0003-3484-6875).
 
 - Currently: Building and prototyping AI-driven microservices and agents at Digital Science, from LLM-powered APIs to Rust-based clustering engines.
 - Previously: Developed core infrastructure at DataCite, including Commons, Fabrica, and Sashimi, while leading metadata and design system initiatives.

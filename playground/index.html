@@ -3,59 +3,80 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Playground</title>
-  <meta name="description" content="I'm a Berlin-based AI engineer. My skill set includes robust research capabilities, prototyping, and coding, all aimed at crafting empowering and intuitive user experiences. I specialize in leveraging the intersection of design and AI to address real-world challenges.">
-  
+<title>Playground — Kristian Garza</title>
+  <meta name="description" content="Experiments and playful prototypes by Kristian Garza, a Berlin-based AI engineer. New projects will appear here soon.">
+  <link rel="canonical" href="https://kjgarza.github.io/playground/">
+
   <!-- Open Graph -->
-  <meta property="og:title" content="Playground">
-  <meta property="og:description" content="I'm a Berlin-based AI engineer. My skill set includes robust research capabilities, prototyping, and coding, all aimed at crafting empowering and intuitive user experiences. I specialize in leveraging the intersection of design and AI to address real-world challenges.">
-  <meta property="og:url" content="https://kjgarza.github.io//playground/">
+  <meta property="og:title" content="Playground — Kristian Garza">
+  <meta property="og:description" content="Experiments and playful prototypes by Kristian Garza, a Berlin-based AI engineer. New projects will appear here soon.">
+  <meta property="og:url" content="https://kjgarza.github.io/playground/">
   <meta property="og:site_name" content="Kristian Garza">
   <meta property="og:locale" content="en_US">
   <meta property="og:image" content="https://kjgarza.github.io/assets/images/og-homepage.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Kristian Garza">
+  <meta property="og:image:alt" content="Playground — Kristian Garza">
   <meta property="og:type" content="website">
-  
+
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Playground">
-  <meta name="twitter:description" content="I'm a Berlin-based AI engineer. My skill set includes robust research capabilities, prototyping, and coding, all aimed at crafting empowering and intuitive user experiences. I specialize in leveraging the intersection of design and AI to address real-world challenges.">
+  <meta name="twitter:title" content="Playground — Kristian Garza">
+  <meta name="twitter:description" content="Experiments and playful prototypes by Kristian Garza, a Berlin-based AI engineer. New projects will appear here soon.">
   <meta name="twitter:image" content="https://kjgarza.github.io/assets/images/og-homepage.png">
-  <meta name="twitter:image:width" content="1200">
-  <meta name="twitter:image:height" content="630">
-  <meta name="twitter:image:alt" content="Kristian Garza">
-  
+  <meta name="twitter:image:alt" content="Playground — Kristian Garza">
+
+
   <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16">
   <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly summary of this site">
 
-  <!-- Resource hints -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://tally.so">
-
-  <!-- Web fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <!-- Self-hosted fonts (latin subset); Manrope is a single variable file for 400–700 -->
+  <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/_next/static/css/b79f6ce842955dc5.css" as="style">
+  <style>
+    @font-face { font-family: 'Manrope'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/manrope-latin.woff2) format('woff2'); }
+    @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-latin.woff2) format('woff2'); }
+    @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/dm-mono-500-latin.woff2) format('woff2'); }
+    @font-face { font-family: 'DM Mono'; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-italic-latin.woff2) format('woff2'); }
+  </style>
 
   <link rel="stylesheet" href="/_next/static/css/b79f6ce842955dc5.css">
+  <link rel="dns-prefetch" href="https://tally.so">
   <script async src="https://tally.so/widgets/embed.js"></script>
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X7KFRJYWBL"></script>
+  <!-- Analytics: gtag.js (~180 KB) loads on first interaction or when the browser is idle, off the critical path -->
   <script>
-    window.addEventListener('load', function() {
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-X7KFRJYWBL');
-    });
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X7KFRJYWBL');
+    (function() {
+      var loaded = false;
+      function loadGtag() {
+        if (loaded) return;
+        loaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-X7KFRJYWBL';
+        document.head.appendChild(s);
+      }
+      ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
+        window.addEventListener(e, loadGtag, { once: true, passive: true });
+      });
+      window.addEventListener('load', function() {
+        if ('requestIdleCallback' in window) requestIdleCallback(loadGtag, { timeout: 5000 });
+        else setTimeout(loadGtag, 3000);
+      });
+    })();
   </script>
   <script type="application/ld+json">
-   {"@context":"https://schema.org","@type":"Person","sameAs":["https://www.linkedin.com/in/kjgarza","https://commons.datacite.org/orcid.org/0000-0003-3484-6875","https://orcid.org/0000-0003-3484-6875","https://twitter.com/kriztean","https://github.com/kjgarza","https://gitlab.com/kjgarza","https://github.com/kristiangarza","https://linktr.ee/kristiangarza"],"email":"mailto:kj.garza+kjgarza@gmail.com","image":"https://kjgarza.github.io/uploads/2022/02/18/photo.jpeg","jobTitle":"Senior AI Engineer","affiliation":{"@type":"Organization","@id":"https://ror.org/02ktfc112","name":"Digital Science"},"name":"Kristian Garza","url":"https://kjgarza.github.io/","knowsLanguage":[{"@type":"Language","name":"English"},{"@type":"Language","name":"German"},{"@type":"Language","name":"Spanish"}],"knowsAbout":["Web Development","scrum","agile","software development","software engineering","data science","data visualization","data analysis","data engineering","usability testing","user experience","UX Researcher","DevOps","DesignOps","Figma","Miro","Lego Serious Play","Complex applications design","contextual interviews","contextual inquiry","schema.org","google analytics","google tag manager","react","vue","elasticsearch","mysql","Design sprints","graphql","event driven architecture","microservices","docker","aws","terraform","javascript","node","python","typescript","Ruby","Sagemaker","huggingface transformers","Ruby on Rails","langchain","llamaIndex","pydantic","Large Language Models","apisix","Product Design","User Experience","User Interface","User Interface Design","User Interface Development","design thinking","design process","double diamond method","double diamond pattern","open science","open data","open source software","logstash","Persistent Identifiers","Persistent Identifier Systems","DOI","ORCID Identifiers","ROR ID","AI SDK","MCP"]}
+   {"@context":"https://schema.org","@type":"Person","@id":"https://kjgarza.github.io/#person","sameAs":["https://www.linkedin.com/in/kjgarza","https://commons.datacite.org/orcid.org/0000-0003-3484-6875","https://orcid.org/0000-0003-3484-6875","https://twitter.com/kriztean","https://github.com/kjgarza","https://gitlab.com/kjgarza","https://github.com/kristiangarza","https://linktr.ee/kristiangarza"],"email":"mailto:kj.garza+kjgarza@gmail.com","image":"https://kjgarza.github.io/assets/images/kristian-garza.jpg","jobTitle":"AI Engineer","affiliation":{"@type":"Organization","@id":"https://ror.org/02ktfc112","name":"Digital Science"},"name":"Kristian Garza","url":"https://kjgarza.github.io/","knowsLanguage":[{"@type":"Language","name":"English"},{"@type":"Language","name":"German"},{"@type":"Language","name":"Spanish"}],"knowsAbout":["Web Development","scrum","agile","software development","software engineering","data science","data visualization","data analysis","data engineering","usability testing","user experience","UX Researcher","DevOps","DesignOps","Figma","Miro","Lego Serious Play","Complex applications design","contextual interviews","contextual inquiry","schema.org","google analytics","google tag manager","react","vue","elasticsearch","mysql","Design sprints","graphql","event driven architecture","microservices","docker","aws","terraform","javascript","node","python","typescript","Ruby","Sagemaker","huggingface transformers","Ruby on Rails","langchain","llamaIndex","pydantic","Large Language Models","apisix","Product Design","User Experience","User Interface","User Interface Design","User Interface Development","design thinking","design process","double diamond method","double diamond pattern","open science","open data","open source software","logstash","Persistent Identifiers","Persistent Identifier Systems","DOI","ORCID Identifiers","ROR ID","AI SDK","MCP"]}
   </script>
 
   <style>
+    /* Brand pink (#FF0066) is 3.9:1 on white; text needs 4.5:1 (WCAG AA), so accent text uses a darker shade */
+    :root:not([data-theme=dark]) { --color-text-accent: #d6005a; }
+
     body::before {
       content: '';
       position: fixed;
@@ -245,13 +266,12 @@
   <h1 class="text-accent font-mono text-2xl font-bold">Playground</h1>
   <section class="flex flex-col gap-4">
     <div class="relative grid gap-6 sm:grid-cols-2 sm:gap-2">
-      <img src="/drawings/playground.svg" alt="Playground projects" class="absolute top-10 -left-32 hidden rotate-2 lg:block">
       
       <!-- Add your playground projects here -->
       <div class="bg-surface border-card flex h-fit w-fit -rotate-4 flex-row gap-2 rounded-2xl border-2 p-4">
         <div class="flex w-full flex-col gap-1">
           <div class="flex flex-row items-center justify-between">
-            <h3 class="text-primary text-base font-bold">Coming Soon</h3>
+            <h2 class="text-primary text-base font-bold">Coming Soon</h2>
             <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
               Projects
             </div>

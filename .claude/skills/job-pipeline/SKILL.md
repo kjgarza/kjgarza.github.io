@@ -43,7 +43,7 @@ Designed to work unattended (cron, remote trigger, `--print`). Never ask interac
 Before searching for anything new:
 
 1. Read `leads/pipeline.json`.
-2. For every job in status `prepared` or `notified`: re-check it's still open (`fetch-job.sh <url>`, check `.status`). If closed → status `expired`, flag prominently in the final report ("missed: X closed before submission").
+2. Re-check every active posting: `python3 scripts/check-postings.py --apply --report leads/YYYY-MM-DD-posting-check.md`. It covers `prepared`/`notified`/`approved` **and** `submitted`/`interviewing`, using the Greenhouse/Ashby/Lever APIs and scrape-core (plain → Jina → raw HTML) for everything else. With `--apply` it expires closed pre-submit jobs and notes closed post-submit ones (status unchanged — a closed posting is not a rejection). Flag every expiry prominently in the final report ("missed: X closed before submission"). `LIKELY_CLOSED` rows (title gone from a non-ATS page) are never applied — eyeball them. Exit 1 means some checks were `UNKNOWN`: report the run degraded, don't read silence as "open". Also runs weekly on its own (launchd `com.kristiangarza.job-posting-check`).
 3. For every `prepared` job missing `answers: true`: generate `application-questions.md` now using generate-application Step 9, set `answers: true`.
 4. For every GO job missing `contacts: true`: invoke `find-linkedin-contacts`, save output to the package folder, set `contacts: true`.
 5. Flag any job sitting in `prepared`/`notified` for more than 7 days — these are the leaks; speed is a stated goal.

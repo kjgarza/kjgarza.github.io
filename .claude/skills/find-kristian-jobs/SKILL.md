@@ -195,6 +195,7 @@ Budget: max 5 **browser** career page fetches + LinkedIn browser search. Board A
    - Navigate to `https://www.linkedin.com/jobs/search/?keywords=AI+Engineer+research+infrastructure&location=Europe&f_TPR=r12960000`
    - Use `mcp__claude-in-chrome__get_page_text` to extract job titles, companies, URLs, **and posted dates**
    - Run 1–2 additional LinkedIn searches varying keywords (Staff Engineer LLM, Head of AI open science) using the same `f_TPR=r12960000` filter
+   - If `leads/linkedin-queries/*.md` exist, also run each report's "Recommended queries" (newest report per seed). They come from `scripts/linkedin-query-optimizer.py <seed-job-url>`, which measures which boolean queries surface roles like a target posting. LinkedIn keyword search matches titles, not description jargon ("GRPO", "post-training" alone return noise), so prefer these measured queries over ad-hoc keywords. Their `.json` sibling already lists the relevant jobs found, with dates.
    - Discard any result where LinkedIn shows "Closed" or a posted date older than 5 months
 3. Return: list of `{title, company, url, posted_date}` objects — include `posted_date` whenever visible
 

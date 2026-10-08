@@ -25,7 +25,7 @@
       <div class="cv-sidebar-section">
         <h2 class="cv-sidebar-heading">
           <span class="cv-heading-dot"></span>
-          Links
+          {{ cv.labels.links or "Links" }}
           <span class="cv-heading-dot"></span>
         </h2>
         <ul class="cv-sidebar-list">
@@ -39,7 +39,7 @@
       <div class="cv-sidebar-section">
         <h2 class="cv-sidebar-heading">
           <span class="cv-heading-dot"></span>
-          Skills
+          {{ cv.labels.skills or "Skills" }}
           <span class="cv-heading-dot"></span>
         </h2>
         <div class="cv-skills-list">
@@ -60,7 +60,7 @@
       <div class="cv-sidebar-section">
         <h2 class="cv-sidebar-heading">
           <span class="cv-heading-dot"></span>
-          Languages
+          {{ cv.labels.languages or "Languages" }}
           <span class="cv-heading-dot"></span>
         </h2>
         <div class="cv-skills-list">
@@ -84,7 +84,7 @@
       <section class="cv-section">
         <h2 class="cv-section-heading">
           {% icon "user" %}
-          Profile
+          {{ cv.labels.profile or "Profile" }}
         </h2>
         <p class="cv-profile-text">{{ cv.profile }}</p>
       </section>
@@ -93,13 +93,13 @@
       <section class="cv-section">
         <h2 class="cv-section-heading">
           {% icon "briefcase" %}
-          Employment History
+          {{ cv.labels.employment or "Employment History" }}
         </h2>
         <div class="cv-timeline">
           {% for job in cv.employment %}
           <div class="cv-entry{% if not loop.first %} hollow{% endif %}">
             <div class="cv-entry-title">
-              {{ job.role | upper }} <span>at {{ job.company }}{% if job.location %}, {{ job.location }}{% endif %}</span>
+              {{ job.role | upper }} <span>{{ cv.labels.at or "at" }} {{ job.company }}{% if job.location %}, {{ job.location }}{% endif %}</span>
             </div>
             <div class="cv-entry-period">{{ job.period }}</div>
             {% if job.bullets.length > 0 %}
@@ -115,14 +115,14 @@
       </section>
 
       <div class="cv-footer-note">
-        Visit <a href="https://www.linkedin.com/in/kjgarza" target="_blank" rel="noopener">linkedin.com/in/kjgarza</a> for full EMPLOYMENT HISTORY
+        {{ cv.labels.employmentFooterHtml or 'Visit <a href="https://www.linkedin.com/in/kjgarza" target="_blank" rel="noopener">linkedin.com/in/kjgarza</a> for full EMPLOYMENT HISTORY' }}
       </div>
 
       {# ── EDUCATION ── #}
       <section class="cv-section cv-page-break-before">
         <h2 class="cv-section-heading">
           {% icon "graduation-cap" %}
-          Education
+          {{ cv.labels.education or "Education" }}
         </h2>
         <div class="cv-timeline">
           {% for edu in cv.education %}
@@ -143,7 +143,7 @@
       <section class="cv-section">
         <h2 class="cv-section-heading">
           {% icon "sparkle" %}
-          Recent Hacks
+          {{ cv.labels.hacks or "Recent Hacks" }}
         </h2>
         <div class="cv-timeline">
           {% for hack in cv.hacks %}
@@ -159,14 +159,14 @@
       </section>
 
       <div class="cv-projects-note">
-        Visit <a href="https://kjgarza.github.io/work" rel="noopener">website</a> for OTHER PROJECTs
+        {{ cv.labels.projectsNoteHtml or 'Visit <a href="https://kjgarza.github.io/work" rel="noopener">website</a> for OTHER PROJECTs' }}
       </div>
 
       {# ── PUBLISHED WORK ── #}
       <section class="cv-section">
         <h2 class="cv-section-heading">
           {% icon "star" %}
-          Published Work
+          {{ cv.labels.publishedWork or "Published Work" }}
         </h2>
         <div class="cv-timeline">
           {% for pub in cv.publishedWork %}
@@ -182,7 +182,7 @@
       <section class="cv-section">
         <h2 class="cv-section-heading">
           {% icon "gear" %}
-          Courses
+          {{ cv.labels.courses or "Courses" }}
         </h2>
         <div class="cv-timeline">
           {% for course in cv.courses %}

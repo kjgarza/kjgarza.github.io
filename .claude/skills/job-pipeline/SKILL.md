@@ -1,7 +1,7 @@
 ---
 name: job-pipeline
 description: Autonomous end-to-end job pipeline for Kristian — search, score, decide, prepare full application packages (CV, cover letter, application-form answers, contacts), track state, and notify. Use for "run the job pipeline", "what's in my pipeline", "any new jobs", scheduled/unattended job search runs, or when Kristian wants the whole search→apply flow without prompting each step. Composes find-kristian-jobs, generate-application, and find-linkedin-contacts.
-argument-hint: "[run | status | approve <url-or-slug> | submit <url-or-slug>]"
+argument-hint: "[run | status | evaluate <url> | approve <url-or-slug> | submit <url-or-slug>]"
 ---
 
 # job-pipeline
@@ -30,6 +30,7 @@ Read `references/decision-policy.md` before scoring or deciding anything. It enc
 | `/job-pipeline status` | **Status report** from the ledger |
 | `/job-pipeline approve <url-or-slug>` | Mark approved, proceed to submission prep |
 | `/job-pipeline submit <url-or-slug>` | **Assisted submission** via browser |
+| `/job-pipeline evaluate <url>` | **Evaluate one posting** Kristian handed over (also used by the kakapo bot's `/job`) |
 | `/job-pipeline cordis [countries]` | **EU-funding outreach scan** (cold-outreach targets, not postings) |
 
 ---
@@ -83,6 +84,20 @@ One full run = find-kristian-jobs budgets + max 3 AUTO-PREPARE packages. If more
 ## Mode: Status report
 
 Read the ledger, print a table grouped by status (active first), flag: stale `prepared` items, unknown deadlines on GO jobs, `⚠️ NEEDS INPUT` markers, anything `expired` in the last 14 days. End with the single most valuable next action.
+
+## Mode: Evaluate one posting (`evaluate <url>`)
+
+Kristian found this posting himself and wants to know whether it fits and, if it does, to have the application ready. Works unattended: the kakapo Telegram bot runs it through `claude --print`, capped at $5 and 20 minutes by default. Never ask interactive questions.
+
+1. **Ledger.** Read `leads/pipeline.json`. If the URL is present with any status other than `discovered`, do not redo it: report its current row and stop.
+2. **Fetch.** `bash .claude/skills/find-kristian-jobs/scripts/fetch-job.sh "<url>"`. Closed, or older than 5 months → ledger `expired` with a note, report, stop. Otherwise add the URL as `discovered`.
+3. **Score** with the find-kristian-jobs matrix, then the modifiers in `references/decision-policy.md`. Ledger → `scored` with `score`, `recommendation`, and the action.
+4. **Decide.** Kristian choosing the posting is the human decision NOTIFY-ONLY waits for, so the bar is the PASS line, not the AUTO-PREPARE one:
+   - modified score ≥ 60 → ledger `preparing`, then run generate-application end-to-end (analysis, cv-data.js, rendered CV, application-questions.md, cover letter) and `find-linkedin-contacts`. Ledger → `prepared` with `package`, `answers`, `contacts` set.
+   - < 60 → ledger `passed` with the one-line reason in `notes`. No package.
+5. **Report** in the final message only — no run-summary file, no Telegram, no PushNotification; the caller relays it. At most eight plain-text lines: company and role, score and recommendation, the ledger status, the package path, every `⚠️ NEEDS INPUT` field, and the single next action (usually "review answers, then `/job-pipeline submit <url>`").
+
+Budget: one package, no optional research. When the caller states a time or money limit, write the ledger after each sub-step (`package` as soon as the folder exists, `answers`/`contacts` as each lands) so a run that is stopped still shows how far it got; a later `/job-pipeline approve` fills in what is missing. Hard rules apply unchanged: ledger first and last, never submit, never send outreach.
 
 ## Mode: EU-funding outreach scan (`cordis`)
 

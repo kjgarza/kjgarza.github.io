@@ -89,8 +89,12 @@ Read the ledger, print a table grouped by status (active first), flag: stale `pr
 
 Kristian found this posting himself and wants to know whether it fits and, if it does, to have the application ready. Works unattended: the kakapo Telegram bot runs it through `claude --print`, capped at $5 and 20 minutes by default. Never ask interactive questions.
 
-1. **Ledger.** Read `leads/pipeline.json`. If the URL is present with any status other than `discovered`, do not redo it: report its current row and stop.
-2. **Fetch.** `bash .claude/skills/find-kristian-jobs/scripts/fetch-job.sh "<url>"`. Closed, or older than 5 months → ledger `expired` with a note, report, stop. Otherwise add the URL as `discovered`.
+1. **Ledger.** Read `leads/pipeline.json` (the caller has already stripped tracking parameters such as `gh_src` and `utm_*`; key the row by the URL exactly as given). Then by status:
+   - absent or `discovered` → continue at step 2.
+   - `scored` → this is the deferred or NOTIFY-ONLY job Kristian has now chosen. Re-check it is still open (step 2's fetch), keep the recorded score, and go to step 4.
+   - `preparing` → a run stopped part-way. Re-check it is open, then go to step 4 and generate only what the package folder is missing.
+   - anything else (`prepared`, `submitted`, `passed`, `expired`, …) → do not redo it: report its current row and stop.
+2. **Fetch.** `bash .claude/skills/find-kristian-jobs/scripts/fetch-job.sh "<url>"`. Closed, or older than 5 months → ledger `expired` with a note, report, stop. Otherwise add the URL as `discovered` if it is new.
 3. **Score** with the find-kristian-jobs matrix, then the modifiers in `references/decision-policy.md`. Ledger → `scored` with `score`, `recommendation`, and the action.
 4. **Decide.** Kristian choosing the posting is the human decision NOTIFY-ONLY waits for, so the bar is the PASS line, not the AUTO-PREPARE one:
    - modified score ≥ 60 → ledger `preparing`, then run generate-application end-to-end (analysis, cv-data.js, rendered CV, application-questions.md, cover letter) and `find-linkedin-contacts`. Ledger → `prepared` with `package`, `answers`, `contacts` set.

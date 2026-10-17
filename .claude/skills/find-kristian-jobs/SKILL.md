@@ -129,12 +129,12 @@ bash .claude/skills/find-kristian-jobs/scripts/fetch-job.sh "$URL_A" "$URL_B" "$
 
 ## Output
 
-Always save results to a markdown file under `leads/` at the repository root, in addition to displaying them in the conversation.
+Always save results to a markdown file under `<leads>` (`storage.leads` from the resolved profile config; `<leads>/` for `kristian`), in addition to displaying them in the conversation.
 
 ### Directory Structure
 
 ```
-leads/
+<leads>/
   YYYY-MM-DD-search.md             # Full Search results
   [company-slug]/                  # One folder per company (kebab-case, e.g. "chan-zuckerberg")
     YYYY-MM-DD-search.md           # Company Search results
@@ -147,10 +147,10 @@ leads/
 
 | Mode | Output Path |
 |------|-------------|
-| **Full Search** | `leads/YYYY-MM-DD-search.md` |
-| **Company Search** | `leads/[company-slug]/YYYY-MM-DD-search.md` |
-| **Deep Analysis** | `leads/[company-slug]/YYYY-MM-DD-[role-slug]-analysis.md` |
-| **Application Package** | `leads/[company-slug]/YYYY-MM-DD-[role-slug]-application.md` |
+| **Full Search** | `<leads>/YYYY-MM-DD-search.md` |
+| **Company Search** | `<leads>/[company-slug]/YYYY-MM-DD-search.md` |
+| **Deep Analysis** | `<leads>/[company-slug]/YYYY-MM-DD-[role-slug]-analysis.md` |
+| **Application Package** | `<leads>/[company-slug]/YYYY-MM-DD-[role-slug]-application.md` |
 
 - `[company-slug]` = company name in kebab-case (e.g. `digital-science`, `chan-zuckerberg`)
 - `[role-slug]` = job title in kebab-case (e.g. `staff-ai-engineer`, `head-of-platform`)

@@ -224,9 +224,10 @@ for cfg in sorted(root.glob(".claude/profiles/*/config.json")):
         if rel and rel in tracked:
             fails.append(f"{pid}: references.{key} -> {rel} is tracked in git; "
                          "PII must stay in external storage")
-    f = (data.get("cv") or {}).get("file")
-    if f and f in tracked:
-        fails.append(f"{pid}: cv.file -> {f} is tracked in git")
+    for key in ("file", "masterData", "sourcePdf"):
+        f = (data.get("cv") or {}).get(key)
+        if f and f in tracked:
+            fails.append(f"{pid}: cv.{key} -> {f} is tracked in git")
 for f in fails:
     print(f"FAIL: {f}")
 if not fails:

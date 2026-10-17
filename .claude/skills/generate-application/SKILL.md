@@ -126,9 +126,11 @@ Reframe employment bullets, profile statement, and skill rankings to match:
 
 Save to `<applications>/[slug]/cv-data.js`.
 
-Also print instructions for the user to integrate it:
-1. Copy `cv-data.js` → `src/_data/cv[Company].js` (camelCase, e.g. `cvDeepMind.js`, `cvCrossref.js`)
+If the active profile's `cv.integrationTarget` is set (e.g. `kristian`), also print instructions for the user to integrate it:
+1. Copy `cv-data.js` -> the `cv.integrationTarget` path, substituting the company (camelCase, e.g. `cvDeepMind.js`, `cvCrossref.js`)
 2. Rebuild: `bun run build`
+
+If `cv.integrationTarget` is not set, skip integration entirely: never copy the file into `src/_data/` or add it to `src/cv.njk` (this repo is public). Keep the CV only in the profile's external `<applications>/[slug]/` location and say the output in that folder is the deliverable.
 
 ### `cv.mode: "static-pdf"` (no profile currently uses this)
 

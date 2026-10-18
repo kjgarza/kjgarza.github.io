@@ -162,3 +162,6 @@ __pycache__/
 # Job-search pipeline storage symlinks (machine-specific; run scripts/setup-storage.sh)
 /leads
 /applications
+CLAUDE.local.md
+.claude/worktrees/
+.claude/settings.local.json

@@ -23,6 +23,12 @@ just serve         # Serve _site/ with python3 http.server on :8080
 
 No linter is configured. `bun test` (`tests/seo.test.js`) builds the site and checks SEO invariants on `_site/`: canonicals, escaped meta tags, one H1 per page, descriptions of at most 160 characters, noindex/sitemap rules, structured data, and image attributes. Run it after touching layouts, front matter or `src/_data/`.
 
+`just test` runs everything; `just test-scripts` (`uvx pytest`) runs only the job-pipeline script tests, offline and in seconds. Run it after touching anything in `scripts/` or a skill's `scripts/`.
+- `tests/cv-to-pdf.test.js` (bun) renders the site CV through `scripts/cv-to-pdf.js` without launching Chrome.
+- `tests/test_*.py` (pytest) cover `check-postings.py`, `cordis-leads.py`, `setup-storage.sh` and the skill shell scripts. Shell scripts run against `tests/fakecurl.py`, a fake `curl` serving canned API responses, so no test touches the network.
+- `tests/test_ledger_contract.py` checks the real `leads/pipeline.json` and skips when it is absent (CI). Never commit ledger data as fixtures: this repo is public.
+- `xfail(strict=True)` tests pin known bugs and copy drift. Fixing one makes it fail, which is the cue to drop the mark.
+
 ## Architecture
 
 ### Tech stack

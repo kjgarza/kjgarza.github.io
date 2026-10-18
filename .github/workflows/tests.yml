@@ -1,0 +1,30 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: "true"  # the CV test renders HTML only; no Chrome needed
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.10
+
+      - uses: astral-sh/setup-uv@v5
+
+      - run: bun install --frozen-lockfile
+
+      - name: Script tests (pytest)
+        run: uvx pytest
+
+      - name: Site and CV tests (bun)
+        run: bun test tests/

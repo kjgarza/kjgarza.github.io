@@ -155,6 +155,10 @@ _site/
 # macOS
 .DS_Store
 
+# Python (pytest suite under tests/)
+__pycache__/
+.pytest_cache/
+
 # Job-search pipeline storage symlinks (machine-specific; run scripts/setup-storage.sh)
 /leads
 /applications

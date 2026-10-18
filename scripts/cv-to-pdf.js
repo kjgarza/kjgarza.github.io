@@ -167,6 +167,31 @@ function IconExtension() {
   };
 }
 
+// The CV page as print-ready HTML: the site's cv.njk layout around the
+// renderCV macro, with the fitCss overrides injected into <head>.
+function renderHtml(cv, opts) {
+  const layout = fs.readFileSync(
+    path.join(root, "src/_includes/layouts/cv.njk"),
+    "utf8"
+  );
+  const cvSheet = fs.readFileSync(path.join(root, "src/_includes/components/cv-sheet.njk"), "utf8");
+
+  // Pull out just the renderCV macro definition.
+  const macroMatch = cvSheet.match(/{% macro renderCV\(cv\) %}[\s\S]*?{% endmacro %}/);
+  if (!macroMatch) {
+    throw new Error("Could not find renderCV macro in src/_includes/components/cv-sheet.njk");
+  }
+
+  const body = `${macroMatch[0]}\n<div class="cv-page">{{ renderCV(cv) }}</div>`;
+  const combined = layout
+    .replace("{{ content | safe }}", body)
+    .replace("</head>", `<style>${fitCss(opts)}</style>\n</head>`);
+
+  const env = new nunjucks.Environment(null, { autoescape: false });
+  env.addExtension("icon", new IconExtension());
+  return env.renderString(combined, { cv });
+}
+
 async function main() {
   const { positional, opts } = parseArgs(process.argv.slice(2));
   if (!positional[0]) {
@@ -184,27 +209,7 @@ async function main() {
     ? path.resolve(process.cwd(), positional[1])
     : path.join(dataDir, `${path.basename(dataDir)}.pdf`);
 
-  const layout = fs.readFileSync(
-    path.join(root, "src/_includes/layouts/cv.njk"),
-    "utf8"
-  );
-  const cvSheet = fs.readFileSync(path.join(root, "src/_includes/components/cv-sheet.njk"), "utf8");
-
-  // Pull out just the renderCV macro definition.
-  const macroMatch = cvSheet.match(/{% macro renderCV\(cv\) %}[\s\S]*?{% endmacro %}/);
-  if (!macroMatch) {
-    console.error("Could not find renderCV macro in src/_includes/components/cv-sheet.njk");
-    process.exit(1);
-  }
-
-  const body = `${macroMatch[0]}\n<div class="cv-page">{{ renderCV(cv) }}</div>`;
-  const combined = layout
-    .replace("{{ content | safe }}", body)
-    .replace("</head>", `<style>${fitCss(opts)}</style>\n</head>`);
-
-  const env = new nunjucks.Environment(null, { autoescape: false });
-  env.addExtension("icon", new IconExtension());
-  const html = env.renderString(combined, { cv });
+  const html = renderHtml(cv, opts);
 
   const contentW = A4_W - (opts.marginLeft + opts.marginRight) * MM;
   const contentH = A4_H - (opts.marginTop + opts.marginBottom) * MM;
@@ -266,7 +271,11 @@ async function main() {
   console.log(`PDF written to ${outPath}`);
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}
+
+module.exports = { DEFAULTS, parseArgs, countPages, fitCss, renderHtml };

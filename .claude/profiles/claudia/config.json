@@ -6,9 +6,9 @@
   "references": {
     "profile": "claudia/profile.md",
     "searchProfile": "claudia/profile.md",
-    "targetCompanies": ".claude/profiles/claudia/target-companies.md",
-    "scoringMatrix": ".claude/profiles/claudia/scoring-matrix.md",
-    "toneAndVoice": ".claude/profiles/claudia/tone-and-voice.md",
+    "targetCompanies": "claudia/target-companies.md",
+    "scoringMatrix": "claudia/scoring-matrix.md",
+    "toneAndVoice": "claudia/tone-and-voice.md",
     "decisionPolicy": "claudia/decision-policy.md"
   },
   "storage": {
@@ -35,7 +35,12 @@
       "Client Success Manager",
       "CRM Manager"
     ],
-    "locations": ["Berlin", "Hamburg", "Munich", "Remote EU"]
+    "locations": [
+      "Berlin",
+      "Hamburg",
+      "Munich",
+      "Remote EU"
+    ]
   },
   "notes": "PII-bearing files (profile, decision policy, CV) live in external storage because this repository is public. Only non-PII reference files are tracked in .claude/profiles/claudia/."
 }

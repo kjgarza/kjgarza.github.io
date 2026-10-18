@@ -219,7 +219,8 @@ for cfg in sorted(root.glob(".claude/profiles/*/config.json")):
     if data.get("layout") != "external-storage":
         continue
     pid = data["id"]
-    for key in ("profile", "searchProfile", "decisionPolicy"):
+    for key in ("profile", "searchProfile", "decisionPolicy",
+                "targetCompanies", "scoringMatrix", "toneAndVoice"):
         rel = (data.get("references") or {}).get(key)
         if rel and rel in tracked:
             fails.append(f"{pid}: references.{key} -> {rel} is tracked in git; "

@@ -27,8 +27,10 @@ This file is the contract for unattended decisions. Edit the numbers here; the p
 | Comp floor (base, EUR) | 110,000 |
 | Comp target (base, EUR) | 140,000+ or equivalent total comp |
 | Salary-expectation answer for forms | "€130,000–150,000 base depending on total package" (adjust per company tier) |
-| Notice period answer | 3 months (German standard — confirm contract) |
+| Notice period answer | 1 month (confirmed by Kristian 2026-10-03) |
 | Start date answer | per notice period |
+| Right to work / visa sponsorship | Full right to work in the UK and Germany — no sponsorship needed (confirmed 2026-10-03) |
+| Interviewed at Anthropic before? | No — never interviewed (confirmed 2026-10-03) |
 | Relocation | Open for exceptional roles (e.g. London/Zurich frontier labs); prefer Berlin or remote EU |
 
 ## Action thresholds (modified score)

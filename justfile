@@ -43,8 +43,16 @@ check-updates:
 update:
     bun update
 
-# Run a quick lint/check on the project
-check:
+# Run every test: site SEO + CV render (bun), job-pipeline scripts (pytest)
+test: test-scripts
+    bun test tests/
+
+# Job-pipeline script tests only (fast, offline, no site build)
+test-scripts:
+    uvx pytest
+
+# Run a quick lint/check on the project, then the tests
+check: test
     @echo "Checking project structure..."
     @test -f package.json && echo "✓ package.json found" || echo "✗ package.json missing"
     @test -d src && echo "✓ src directory found" || echo "✗ src directory missing"

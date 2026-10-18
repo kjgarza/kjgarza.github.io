@@ -25,6 +25,12 @@ module.exports = [
     current: false
   },
   {
+    name: "Writing",
+    href: "https://kjgarza.substack.com",
+    current: false,
+    external: true
+  },
+  {
     name: "Tech Radar",
     href: "https://kjgarza.github.io/radar/",
     current: false,

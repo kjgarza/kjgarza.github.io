@@ -33,7 +33,7 @@ No linter is configured. `bun test` (`tests/seo.test.js`) builds the site and ch
 
 ### Tech stack
 - **Eleventy 3.x** with **Nunjucks** as the primary template engine (`autoescape: false`)
-- CSS is pre-built and served as a static asset from `src/_next/static/css/` (Tailwind output, not compiled during build)
+- **Tailwind CSS v4**, compiled from `src/styles/tailwind.css` on every Eleventy build (see CSS / Styling)
 - No JavaScript bundler — scripts are static files in `src/assets/`
 
 ### Directory layout
@@ -46,7 +46,7 @@ src/
     components/   # Partials (nav.njk, footer.njk, work-card.njk, tool-card.njk)
   assets/         # Images, static CSS/JS — passthrough copied to _site/
   drawings/       # SVG decorations — passthrough copied to _site/
-  _next/          # Pre-built CSS bundle — passthrough copied to _site/
+  styles/         # tailwind.css — Tailwind v4 source, compiled to _site/assets/css/site.css
   static/api/     # Static JSON API responses — copied to _site/api/
   work/           # Case study markdown files (one per project)
   *.njk           # Top-level pages: index, work, tools, publications, playground
@@ -91,7 +91,11 @@ All files export plain JS arrays/objects consumed as global template variables:
 
 ### CSS / Styling
 
-Tailwind utility classes are used throughout templates but the CSS is pre-compiled — **do not run a Tailwind build step**. The compiled bundle lives at `src/_next/static/css/b79f6ce842955dc5.css` and is referenced directly from `base.njk`. To change styles, edit the bundle or regenerate it externally.
+Tailwind v4 compiles `src/styles/tailwind.css` to `_site/assets/css/site.css` in an `eleventy.before` hook (`.eleventy.js`, ~200 ms), so any utility class added to a template gets CSS on the next build. `base.njk` links it through the `cssUrl` filter, which appends a content hash for cache busting. Tailwind scans only `src/` (`source(none)` + `@source ".."`).
+
+- Theme tokens (`--color-text-primary`, `--color-bg-surface`, …) and the site's own utilities (`bg-default`, `text-accent`, `shadow-button-*`) live in that file. Add new tokens there, not in templates.
+- Dark mode is `[data-theme=dark]` on `<html>` (`dark:` variant).
+- Case studies also load `src/assets/css/case-study.css` (plain CSS, `cs-*` classes).
 
 ### Static API passthrough
 

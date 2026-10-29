@@ -1,3 +1,7 @@
+const fs = require("fs");
+const path = require("path");
+const crypto = require("crypto");
+const { execFileSync } = require("child_process");
 const EleventyImage = require("@11ty/eleventy-img");
 const site = require("./src/_data/site.js");
 const iconShortcode = require("./lib/phosphor-icon.js");
@@ -53,7 +57,24 @@ async function imageShortcode(src, alt, cls = "", loading = "lazy", fetchpriorit
   }
 }
 
+// Tailwind v4: src/styles/tailwind.css → _site/assets/css/site.css, rebuilt on every
+// Eleventy build (~200 ms) so classes added to templates always get CSS
+const CSS_IN = path.join(__dirname, "src/styles/tailwind.css");
+const CSS_OUT = path.join(__dirname, "_site/assets/css/site.css");
+const tailwindCli = path.join(path.dirname(require.resolve("@tailwindcss/cli/package.json")), "dist/index.mjs");
+let cssHash = "";
+
+function buildCss() {
+  execFileSync(process.execPath, [tailwindCli, "-i", CSS_IN, "-o", CSS_OUT, "--minify"], { stdio: ["ignore", "ignore", "pipe"] });
+  cssHash = crypto.createHash("sha256").update(fs.readFileSync(CSS_OUT)).digest("hex").slice(0, 10);
+}
+
 module.exports = function(eleventyConfig) {
+  eleventyConfig.on("eleventy.before", buildCss);
+  eleventyConfig.addWatchTarget("src/styles/");
+  // Cache-busting query for the compiled stylesheet: {{ '/assets/css/site.css' | cssUrl }}
+  eleventyConfig.addFilter("cssUrl", (url) => `${url}?v=${cssHash}`);
+
   // Image optimization shortcode
   eleventyConfig.addAsyncShortcode("image", imageShortcode);
 
@@ -79,7 +100,6 @@ module.exports = function(eleventyConfig) {
   // Copy static assets
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/drawings");
-  eleventyConfig.addPassthroughCopy("src/_next");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
   eleventyConfig.addPassthroughCopy({ "src/static/api": "api" });
 

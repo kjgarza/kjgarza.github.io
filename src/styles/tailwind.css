@@ -1,0 +1,129 @@
+/* Site stylesheet. Compiled by Tailwind v4 in .eleventy.js (eleventy.before) to _site/assets/css/site.css */
+@import "tailwindcss" source(none);
+@plugin "@tailwindcss/typography";
+@source "..";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --breakpoint-xs: 375px;
+  --color-brand-primary: #FF0066;
+  --font-sans: Manrope, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  --font-mono: DM Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+  --shadow-button-primary-rest: 0px 2px 0px 0px #ffffff29 inset, -2px 0px 0px 0px #ffffff29 inset, 2px 0px 0px 0px #ffffff29 inset, 0px -3px 0px 1px #19191a inset, 0px 1px 0px 1px #19191a inset, 0px 2px 4px -2px #19191a1a;
+  --shadow-button-secondary-rest: 0px 2px 4px -2px #19191a0d, 0px -3px 0px 0px #cfccc3 inset, 0px 2px 0px 0px #dfddd7 inset, 2px 0px 0px 0px #dfddd7 inset, -2px 0px 0px 0px #dfddd7 inset;
+  --color-special-state-hover: #27272a0a;
+  --color-special-state-hover-inverse: #ffffff1f;
+}
+
+@layer base {
+  :root, :root[data-theme=light] {
+    --color-bg-default: #fff; --color-bg-surface: #f8f8f6; --color-bg-surface-secondary: #fff;
+    --color-text-primary: #27272a; --color-text-secondary: #65656c;
+    --color-text-accent: var(--color-brand-primary); --color-text-link: var(--color-brand-primary);
+    --color-icon-primary: #27272a; --color-icon-secondary: #65656c; --color-icon-accent: var(--color-brand-primary);
+    --color-border-card: #f2f2f3; --color-border-card-hover: #e5e5e6; --color-ui-decoration: #e5e5e6;
+  }
+  :root[data-theme=dark] {
+    --color-bg-default: #19191a; --color-bg-surface: #27272a; --color-bg-surface-secondary: #19191a;
+    --color-text-primary: #fafafa; --color-text-secondary: #f2f2f3;
+    --color-icon-primary: #fafafa; --color-icon-secondary: #f2f2f3;
+    --color-border-card: #27272a; --color-border-card-hover: #65656c; --color-ui-decoration: #65656c;
+  }
+  *, ::backdrop, :after, :before, ::file-selector-button { border-color: var(--color-gray-200, currentColor); }
+  html { scrollbar-gutter: stable; overflow-y: scroll; scrollbar-width: none; }
+  ::-webkit-scrollbar { width: 0; }
+  video { border-radius: var(--radius-md); }
+  @media (hover: hover) { video:hover { outline: 1px solid var(--color-brand-primary); } }
+  :focus-visible { @apply ring-2 ring-brand-primary ring-offset-2 outline-none; }
+}
+
+/* Semantic tokens kept as named utilities so existing markup is unchanged */
+@utility bg-default { background-color: var(--color-bg-default); }
+@utility bg-surface { background-color: var(--color-bg-surface); }
+@utility border-card { border-color: var(--color-border-card); }
+@utility border-card-hover { border-color: var(--color-border-card-hover); }
+@utility text-primary { color: var(--color-text-primary); }
+@utility text-secondary { color: var(--color-text-secondary); }
+@utility text-accent { color: var(--color-text-accent); }
+@utility bg-button-primary { background: linear-gradient(#fff0 50%, #ffffff1f), #27272a; }
+@utility fill-ui-decoration { fill: var(--color-ui-decoration); }
+@utility scrollbar-hide { scrollbar-width: none; &::-webkit-scrollbar { display: none; } }
+
+
+
+/* Rotating role text in the nav (components/nav.njk) */
+
+.dropping-texts {
+    display: inline-block;
+    width: 180px;
+    text-align: left;
+    height: 36px;
+    vertical-align: -2px;
+}
+
+.dropping-texts>span {
+    font-size: 0px;
+    opacity: 0;
+    margin-left: -30px;
+    position: absolute;
+    box-shadow: 0px 60px 25px -20px rgba(0, 0, 0, 0.5);
+}
+
+.dropping-texts>span:nth-child(1) {
+    animation: roll 5s linear infinite 0s;
+}
+
+.dropping-texts>span:nth-child(2) {
+    animation: roll 5s linear infinite 1s;
+}
+
+.dropping-texts>span:nth-child(3) {
+    animation: roll 5s linear infinite 2s;
+}
+
+
+@keyframes roll {
+    0% {
+        font-size: 0px;
+        opacity: 0;
+        margin-left: -30px;
+        margin-top: 0px;
+        transform: rotate(-25deg);
+    }
+
+    3% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+
+    5% {
+        font-size: inherit;
+        opacity: 1;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    20% {
+        font-size: inherit;
+        opacity: 1;
+        margin-left: 0px;
+        margin-top: 0px;
+        transform: rotate(0deg);
+    }
+
+    27% {
+        font-size: 0px;
+        opacity: 0.5;
+        margin-left: 20px;
+        margin-top: 100px;
+    }
+
+    100% {
+        font-size: 0px;
+        opacity: 0;
+        margin-left: -30px;
+        margin-top: 0px;
+        transform: rotate(15deg);
+    }
+}
+

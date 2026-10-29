@@ -57,16 +57,17 @@ async function imageShortcode(src, alt, cls = "", loading = "lazy", fetchpriorit
   }
 }
 
-// Tailwind v4: src/styles/tailwind.css → _site/assets/css/site.css, rebuilt on every
+// Tailwind v4: src/styles/tailwind.css → <output>/assets/css/site.css, rebuilt on every
 // Eleventy build (~200 ms) so classes added to templates always get CSS
 const CSS_IN = path.join(__dirname, "src/styles/tailwind.css");
-const CSS_OUT = path.join(__dirname, "_site/assets/css/site.css");
 const tailwindCli = path.join(path.dirname(require.resolve("@tailwindcss/cli/package.json")), "dist/index.mjs");
 let cssHash = "";
 
-function buildCss() {
-  execFileSync(process.execPath, [tailwindCli, "-i", CSS_IN, "-o", CSS_OUT, "--minify"], { stdio: ["ignore", "ignore", "pipe"] });
-  cssHash = crypto.createHash("sha256").update(fs.readFileSync(CSS_OUT)).digest("hex").slice(0, 10);
+// Writes into Eleventy's actual output dir, so `--output` keeps the stylesheet next to the pages
+function buildCss({ directories }) {
+  const out = path.join(directories.output, "assets/css/site.css");
+  execFileSync(process.execPath, [tailwindCli, "-i", CSS_IN, "-o", out, "--minify"], { stdio: ["ignore", "ignore", "pipe"] });
+  cssHash = crypto.createHash("sha256").update(fs.readFileSync(out)).digest("hex").slice(0, 10);
 }
 
 module.exports = function(eleventyConfig) {
@@ -100,6 +101,11 @@ module.exports = function(eleventyConfig) {
   // Copy static assets
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/drawings");
+  // Basecoat runtime + drawer component, used by the mobile menu (components/nav.njk)
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/basecoat-css/dist/js/basecoat.min.js": "assets/js/basecoat.min.js",
+    "node_modules/basecoat-css/dist/js/drawer.min.js": "assets/js/drawer.min.js",
+  });
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
   eleventyConfig.addPassthroughCopy({ "src/static/api": "api" });
 

@@ -21,6 +21,9 @@
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | cssUrl | url }}">
   <link rel="dns-prefetch" href="https://tally.so">
   <script async src="https://tally.so/widgets/embed.js"></script>
+  <!-- Basecoat runtime + drawer (mobile menu animation and backdrop close; the menu works without them) -->
+  <script defer src="{{ '/assets/js/basecoat.min.js' | url }}"></script>
+  <script defer src="{{ '/assets/js/drawer.min.js' | url }}"></script>
 
   <!-- Analytics: gtag.js (~180 KB) loads on first interaction or when the browser is idle, off the critical path -->
   <script>
@@ -79,7 +82,8 @@
       --grad-mid: rgba(200,200,220,0.03);
     }
 
-    body > * {
+    /* Lift content above the dot background; dialogs keep their own positioning (top layer) */
+    body > :not(dialog) {
       position: relative;
       z-index: 1;
     }

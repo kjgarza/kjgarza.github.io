@@ -1,6 +1,10 @@
 /* Site stylesheet. Compiled by Tailwind v4 in .eleventy.js (eleventy.before) to _site/assets/css/site.css */
 @import "tailwindcss" source(none);
 @plugin "@tailwindcss/typography";
+/* Basecoat (shadcn/ui ported to plain HTML): only the components the site uses.
+   They read the shadcn tokens defined below. */
+@import "basecoat-css/components/dialog";
+@import "basecoat-css/components/drawer";
 @source "..";
 /* Dark mode: [data-theme=dark] (site) or .dark (shadcn/Basecoat convention) on <html> */
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *, .dark, .dark *));
@@ -100,6 +104,17 @@
 
 @utility bg-button-primary { background: linear-gradient(#fff0 50%, #ffffff1f), #27272a; }
 @utility scrollbar-hide { scrollbar-width: none; &::-webkit-scrollbar { display: none; } }
+
+/* Drawer look, from Basecoat's "vega" style (basecoat-css/dist/styles/vega.css) */
+@layer components {
+  .drawer::backdrop { @apply bg-black/10 backdrop-blur-xs; }
+  .drawer > * { @apply bg-popover text-popover-foreground text-sm; }
+  .drawer[data-side='right'] > * { @apply rounded-l-xl border-l border-border; }
+  .drawer[data-side='left'] > * { @apply rounded-r-xl border-r border-border; }
+  .drawer > * > header { @apply gap-0.5 p-4 text-start md:gap-1.5; }
+  .drawer > * > footer { @apply gap-2 p-4; }
+  .drawer > * > header > h2 { @apply text-lg font-semibold leading-none tracking-tight; }
+}
 
 /* Rotating role text in the nav (components/nav.njk) */
 

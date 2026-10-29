@@ -35,7 +35,7 @@ openForOportunities: false
   </p>
   
   <div class="flex flex-row gap-6 py-4">
-    {% call button("primary", class="w-fit", attrs='type="button" data-tally-open="3XjAKz" data-tally-layout="modal"') %}Get in touch{% endcall %}
+    {% call button("primary", href="mailto:" + site.author.email + "?subject=" + ("Hello from your website" | urlencode), class="w-fit") %}Get in touch{% endcall %}
     {%  if openForOportunities %}
     <div class="align-center flex items-center gap-1 rounded-full p-2 text-sm font-medium text-green-800">
       {% icon "check-circle", 20 %}

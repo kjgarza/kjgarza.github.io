@@ -4,10 +4,10 @@
 
 This is a **dual-architecture hybrid portfolio site** combining:
 - **11ty static site generator** (`kjgarza-11ty/`) - the source and build system
-- **Pre-compiled Next.js assets** (`_next/` directories) - providing CSS and interactive components
+- **Tailwind CSS v4** compiled from `src/styles/tailwind.css` during the Eleventy build
 - **Deployed to GitHub Pages** at `https://kjgarza.github.io/`
 
-The site uses Nunjucks templates with Tailwind CSS classes, generating static HTML while leveraging Next.js assets for styling and interactions.
+The site uses Nunjucks templates with Tailwind CSS classes, generating static HTML. See `CLAUDE.md` for the full, current architecture.
 
 ## Key Directory Structure
 
@@ -19,7 +19,7 @@ The site uses Nunjucks templates with Tailwind CSS classes, generating static HT
 │   │   │   ├── layouts/           # Base templates (base.njk, case-study.njk)
 │   │   │   └── components/        # Reusable UI components
 │   │   ├── work/                  # Case study pages (.njk files)
-│   │   └── _next/                 # Pre-compiled Next.js CSS/JS assets
+│   │   └── styles/                # tailwind.css (Tailwind v4 source)
 │   ├── _site/                     # 11ty build output
 │   └── .eleventy.js               # 11ty configuration
 ```
@@ -51,8 +51,6 @@ eleventyConfig.setNunjucksEnvironmentOptions({
   autoescape: false,
 });
 
-// Copies Next.js assets for hybrid architecture
-eleventyConfig.addPassthroughCopy("src/_next");
 ```
 
 ### Data Architecture
@@ -61,8 +59,8 @@ eleventyConfig.addPassthroughCopy("src/_next");
 - **Featured content** filtered via `workItem.featured` boolean
 
 ### Styling System
-- **Tailwind CSS** via pre-compiled Next.js stylesheet: `/_next/static/css/b79f6ce842955dc5.css`
-- **Custom design tokens**: `text-primary`, `text-secondary`, `text-accent`, `bg-surface`, `border-card`
+- **Tailwind CSS v4**: `src/styles/tailwind.css` → `/assets/css/site.css`, compiled in an `eleventy.before` hook
+- **Design tokens** use shadcn/ui names: `text-foreground`, `text-muted-foreground`, `text-primary` (brand pink), `bg-background`, `bg-card`, `border-border`
 - **Component styles**: Complex button classes with hover states, shadow utilities
 
 ## Navigation and State Management
@@ -128,6 +126,4 @@ imageContainer: "bg-retro-100 ml-6 w-full rounded-tl-2xl px-6 pt-6"  // Custom s
 This hybrid architecture requires:
 1. Building 11ty site (`npm run build`)
 2. Copying `_site/` contents to repository root
-3. Ensuring `_next/` assets are properly copied and accessible
-
-The pre-compiled Next.js assets must remain in the `src/_next/` directory and be copied to both `_site/_next/` and root `_next/` for deployment.
+3. CSS is compiled as part of the build; there is no separate asset step

@@ -4,11 +4,12 @@ title: Publications
 description: Papers, articles and talks by Kristian Garza on persistent identifiers, data citation, open science infrastructure and AI for research.
 permalink: /publications/
 ---
+{% from "components/ui/badge.njk" import badge %}
 
 <div class="flex w-full max-w-4xl flex-1 flex-col gap-6 p-4 md:p-12 xl:p-8">
   <div class="flex flex-col gap-2">
-    <h1 class="text-accent font-mono text-2xl font-bold">Publications</h1>
-    <p class="text-secondary text-lg">Research papers, articles, and presentations.</p>
+    <h1 class="text-primary font-mono text-2xl font-bold">Publications</h1>
+    <p class="text-muted-foreground text-lg">Research papers, articles, and presentations.</p>
   </div>
   
   <section class="flex flex-col gap-6">
@@ -18,36 +19,28 @@ permalink: /publications/
       {% if publication.publicationYear != currentYear %}
         {% set currentYear = publication.publicationYear %}
         <div class="flex items-center gap-4 mt-6 first:mt-0">
-          <h2 class="text-primary font-mono text-xl font-bold">{{ currentYear }}</h2>
+          <h2 class="text-foreground font-mono text-xl font-bold">{{ currentYear }}</h2>
           <div class="flex-1 h-px bg-card border-t"></div>
         </div>
       {% endif %}
       
-      <article class="bg-surface border-card group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-accent/20">
+      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
         <div class="flex flex-col gap-3">
-          <h3 class="text-primary text-lg font-semibold leading-tight group-hover:text-accent transition-colors duration-200">
+          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
             {{ publication.title }}
           </h3>
           
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
-              <span class="text-secondary text-sm font-medium">{{ publication.publicationYear }}</span>
+              <span class="text-muted-foreground text-sm font-medium">{{ publication.publicationYear }}</span>
               {% if publication.id.includes('doi.org') %}
-                <span class="inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium border-blue-200 bg-blue-50 text-blue-700">
-                  DOI
-                </span>
+                {{ badge("DOI", "blue") }}
               {% elif publication.id.includes('medium.com') %}
-                <span class="inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium border-green-200 bg-green-50 text-green-700">
-                  Blog
-                </span>
+                {{ badge("Blog", "green") }}
               {% elif publication.id.includes('zenodo.org') %}
-                <span class="inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium border-purple-200 bg-purple-50 text-purple-700">
-                  Zenodo
-                </span>
+                {{ badge("Zenodo", "purple") }}
               {% else %}
-                <span class="inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium border-neutral-200 bg-neutral-50 text-neutral-700">
-                  Article
-                </span>
+                {{ badge("Article", "neutral") }}
               {% endif %}
             </div>
             
@@ -55,7 +48,7 @@ permalink: /publications/
               href="{{ publication.id }}" 
               target="_blank" 
               rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-accent text-sm font-medium hover:text-primary transition-colors duration-200"
+              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
             >
               <span>Read</span>
               {% icon "arrow-square-out", 16 %}
@@ -64,7 +57,7 @@ permalink: /publications/
         </div>
         
         <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
       </article>
     {% endfor %}
   </section>

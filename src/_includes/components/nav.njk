@@ -31,15 +31,15 @@
     {% endfor %}
   </div>
   
-  <!-- Mobile burger button -->
-  <button id="burger-btn" aria-label="Toggle menu" aria-expanded="false" class="sm:hidden flex h-10 w-10 items-center justify-center rounded-lg text-neutral-700 hover:bg-neutral-100 transition-colors duration-200">
-    {% icon "list", 22, 'id="icon-menu"' %}
-    {% icon "x", 22, 'id="icon-x" class="hidden"' %}
+  <!-- Mobile burger button: opens the native popover below (Esc, outside click and focus are handled by the browser) -->
+  <button id="burger-btn" type="button" popovertarget="mobile-menu" aria-label="Toggle menu" aria-expanded="false" class="group sm:hidden flex h-10 w-10 items-center justify-center rounded-lg text-neutral-700 hover:bg-neutral-100 transition-colors duration-200">
+    {% icon "list", 22, 'class="group-aria-expanded:hidden"' %}
+    {% icon "x", 22, 'class="hidden group-aria-expanded:block"' %}
   </button>
 </nav>
 
-<!-- Mobile dropdown — fixed, positioned by JS to sit just below the nav -->
-<div id="mobile-menu" aria-hidden="true" style="display:none;position:fixed;top:0;left:12px;right:12px;z-index:9999;" class="sm:hidden">
+<!-- Mobile dropdown — native popover in the top layer; script below keeps it just under the nav -->
+<div id="mobile-menu" popover class="fixed inset-x-3 bottom-auto m-0 w-auto overflow-visible border-0 bg-transparent p-0 sm:hidden">
   <div class="overflow-hidden rounded-2xl border border-neutral-100 bg-white shadow-xl shadow-neutral-900/10">
     <div class="flex flex-col p-2">
       {% for item in navigation %}
@@ -62,49 +62,15 @@
   (function () {
     var btn = document.getElementById('burger-btn');
     var menu = document.getElementById('mobile-menu');
-    var iconMenu = document.getElementById('icon-menu');
-    var iconX = document.getElementById('icon-x');
     var nav = document.getElementById('main-nav');
 
-    function positionMenu() {
-      var rect = nav.getBoundingClientRect();
-      menu.style.top = rect.bottom + 4 + 'px';
-    }
+    function place() { menu.style.top = nav.getBoundingClientRect().bottom + 4 + 'px'; }
 
-    function openMenu() {
-      positionMenu();
-      menu.style.display = 'block';
-      btn.setAttribute('aria-expanded', 'true');
-      menu.setAttribute('aria-hidden', 'false');
-      iconMenu.classList.add('hidden');
-      iconX.classList.remove('hidden');
-    }
-
-    function closeMenu() {
-      menu.style.display = 'none';
-      btn.setAttribute('aria-expanded', 'false');
-      menu.setAttribute('aria-hidden', 'true');
-      iconMenu.classList.remove('hidden');
-      iconX.classList.add('hidden');
-    }
-
-    btn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      menu.style.display === 'none' ? openMenu() : closeMenu();
-    });
-
-    document.addEventListener('click', function (e) {
-      if (menu.style.display !== 'none' && !menu.contains(e.target) && !btn.contains(e.target)) {
-        closeMenu();
-      }
-    });
-
+    menu.addEventListener('beforetoggle', function (e) { if (e.newState === 'open') place(); });
+    menu.addEventListener('toggle', function (e) { btn.setAttribute('aria-expanded', e.newState === 'open'); });
     menu.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', closeMenu);
+      link.addEventListener('click', function () { menu.hidePopover(); });
     });
-
-    window.addEventListener('resize', function () {
-      if (menu.style.display !== 'none') positionMenu();
-    });
+    window.addEventListener('resize', function () { if (menu.matches(':popover-open')) place(); });
   })();
 </script>

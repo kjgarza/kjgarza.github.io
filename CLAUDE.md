@@ -107,7 +107,7 @@ Tailwind v4 compiles `src/styles/tailwind.css` to `_site/assets/css/site.css` in
 
 ### Contact form
 
-The "Get in touch" button uses [Tally](https://tally.so) embedded forms (`data-tally-open="3XjAKz"`). The Tally embed script is loaded in `base.njk`.
+The "Get in touch" button is a plain `mailto:` link to `site.author.email` with a pre-filled subject. No third-party form service or script.
 
 ## Job Search Pipeline
 

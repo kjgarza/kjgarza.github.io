@@ -9,6 +9,6 @@
 {%- set buttonSizes = { default: "h-10 px-3 min-w-9", icon: "h-10 w-10" } -%}
 {%- macro button(variant="secondary", size="default", href="", class="", attrs="") -%}
 {%- set cls = [buttonBase, buttonVariants[variant], buttonSizes[size], class] | join(" ") | trim -%}
-{%- if href %}<a class="{{ cls }}" href="{{ href }}" {{ attrs }}>{{ caller() }}</a>
-{%- else %}<button class="{{ cls }}" {{ attrs }}>{{ caller() }}</button>{% endif -%}
+{%- if href %}<a class="{{ cls }}" href="{{ href }}"{% if attrs %} {{ attrs }}{% endif %}>{{ caller() }}</a>
+{%- else %}<button class="{{ cls }}"{% if attrs %} {{ attrs }}{% endif %}>{{ caller() }}</button>{% endif -%}
 {%- endmacro -%}

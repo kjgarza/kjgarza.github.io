@@ -3,6 +3,8 @@ layout: layouts/base.njk
 metaTitle: Kristian Garza — AI Engineer in Berlin
 openForOportunities: false
 ---
+{% from "components/ui/badge.njk" import badge %}
+{% from "components/ui/button.njk" import button %}
 
 <div class="mt-16 flex flex-col gap-4">
   <h1 class="text-accent font-mono text-sm font-medium">Kristian Garza — AI Engineer in Berlin</h1>
@@ -33,9 +35,7 @@ openForOportunities: false
   </p>
   
   <div class="flex flex-row gap-6 py-4">
-    <button class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer w-fit hover:before:bg-special-state-hover-inverse bg-button-primary text-white shadow-button-primary-rest active:shadow-none h-10 px-3 min-w-9" data-tally-open="3XjAKz" data-tally-layout="modal">
-      Get in touch
-    </button>
+    {% call button("primary", class="w-fit", attrs='type="button" data-tally-open="3XjAKz" data-tally-layout="modal"') %}Get in touch{% endcall %}
     {%  if openForOportunities %}
     <div class="align-center flex items-center gap-1 rounded-full p-2 text-sm font-medium text-green-800">
       {% icon "check-circle", 20 %}
@@ -92,9 +92,7 @@ openForOportunities: false
               <p class="font-mono">{{ workItem.company }}</p>
               <div class="flex flex-row gap-1">
                 {% for tag in workItem.tags %}
-                <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                  {{ tag }}
-                </div>
+                {{ badge(tag) }}
                 {% endfor %}
               </div>
             </div>
@@ -103,9 +101,7 @@ openForOportunities: false
               <p class="text-secondary text-base font-medium">{{ workItem.description }}</p>
               
               {% if workItem.status == "published" %}
-                <a class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer w-fit hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 mt-2" href="{{ workItem.link }}">
-                  Read case study
-                </a>
+                {% call button("secondary", href=workItem.link, class="w-fit mt-2") %}Read case study{% endcall %}
               {% else %}
                 <p class="text-base font-medium text-neutral-500">Case study coming soon...</p>
               {% endif %}
@@ -143,9 +139,7 @@ openForOportunities: false
           <div class="flex w-full flex-col gap-1">
             <div class="flex flex-row items-center justify-between">
               <h3 class="text-primary text-base font-bold">{{ tool.name }}</h3>
-              <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                {{ tool.type }}
-              </div>
+              {{ badge(tool.type) }}
             </div>
             <p class="text-secondary text-base font-medium">{{ tool.description }}</p>
             <a href="{{ tool.link }}" target="_blank" class="text-accent text-base font-medium underline hover:no-underline">

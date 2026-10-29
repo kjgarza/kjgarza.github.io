@@ -44,6 +44,7 @@ src/
   _includes/
     layouts/      # Page layouts (base.njk, case-study.njk)
     components/   # Partials (nav.njk, footer.njk, work-card.njk, tool-card.njk)
+      ui/         # shadcn-style macros (button.njk, badge.njk)
   assets/         # Images, static CSS/JS — passthrough copied to _site/
   drawings/       # SVG decorations — passthrough copied to _site/
   styles/         # tailwind.css — Tailwind v4 source, compiled to _site/assets/css/site.css
@@ -96,6 +97,8 @@ Tailwind v4 compiles `src/styles/tailwind.css` to `_site/assets/css/site.css` in
 - Theme tokens (`--color-text-primary`, `--color-bg-surface`, …) and the site's own utilities (`bg-default`, `text-accent`, `shadow-button-*`) live in that file. Add new tokens there, not in templates.
 - Dark mode is `[data-theme=dark]` on `<html>` (`dark:` variant).
 - Case studies also load `src/assets/css/case-study.css` (plain CSS, `cs-*` classes).
+- Buttons and tag pills come from the macros in `components/ui/`, shadcn-style variant maps. Use them instead of copying class strings:
+  `{% from "components/ui/button.njk" import button %}` then `{% call button("secondary", href=url, class="w-fit") %}Label{% endcall %}` (variants `primary | secondary | ghost`, sizes `default | icon`, raw attributes via `attrs='type="button"'`), and `{% from "components/ui/badge.njk" import badge %}` then `{{ badge(tag) }}` (variants `outline | blue | green | purple | neutral`).
 
 ### Static API passthrough
 

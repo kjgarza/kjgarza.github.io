@@ -4,6 +4,7 @@ title: Playground
 description: Experiments and playful prototypes by Kristian Garza, a Berlin-based AI engineer. New projects will appear here soon.
 permalink: /playground/
 ---
+{% from "components/ui/badge.njk" import badge %}
 
 <div class="flex w-full max-w-4xl flex-1 flex-col gap-4 p-4 md:p-12 xl:p-8">
   <h1 class="text-accent font-mono text-2xl font-bold">Playground</h1>
@@ -15,9 +16,7 @@ permalink: /playground/
         <div class="flex w-full flex-col gap-1">
           <div class="flex flex-row items-center justify-between">
             <h2 class="text-primary text-base font-bold">Coming Soon</h2>
-            <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-              Projects
-            </div>
+            {{ badge("Projects") }}
           </div>
           <p class="text-secondary text-base font-medium">
             Playground projects and experiments will be showcased here soon.

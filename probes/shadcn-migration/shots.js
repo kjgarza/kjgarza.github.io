@@ -20,7 +20,8 @@ const srv = http.createServer((req, res) => {
       await pg.goto(`http://localhost:${port}${u}`, { waitUntil: 'load' });
       await pg.evaluate(async () => {
         document.querySelectorAll('img[loading=lazy]').forEach(i => i.loading = 'eager');
-        await Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; })));
+        await Promise.all([...document.images].map(i => (i.complete ? Promise.resolve() : new Promise(r => { i.onload = i.onerror = r; })).then(() => i.decode().catch(() => {}))));
+        window.scrollTo(0, document.body.scrollHeight); await new Promise(r => setTimeout(r, 300)); window.scrollTo(0, 0);
         await document.fonts.ready;
         document.getAnimations().forEach(a => { a.currentTime = 0; a.pause(); });
       });

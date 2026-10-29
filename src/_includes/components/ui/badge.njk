@@ -7,5 +7,5 @@
   neutral: "border py-0.5 font-medium border-neutral-200 bg-neutral-50 text-neutral-700"
 } -%}
 {%- macro badge(label, variant="outline", class="") -%}
-<div class="inline-flex items-center rounded-full px-2 text-xs {{ badgeVariants[variant] }} {{ class }}">{{ label }}</div>
+<span class="inline-flex items-center rounded-full px-2 text-xs {{ badgeVariants[variant] }}{% if class %} {{ class }}{% endif %}">{{ label }}</span>
 {%- endmacro -%}

@@ -1,12 +1,11 @@
+{% from "components/ui/badge.njk" import badge %}
 <div class="bg-surface flex flex-col gap-2 p-4 sm:rounded-lg sm:p-6">
   <!-- Company and Tags -->
   <div class="flex flex-row items-center justify-between">
     <p class="font-mono">{{ company }}</p>
     <div class="flex flex-row gap-1">
       {% for tag in tags %}
-      <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-        {{ tag }}
-      </div>
+      {{ badge(tag) }}
       {% endfor %}
     </div>
   </div>

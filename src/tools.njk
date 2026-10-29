@@ -4,6 +4,7 @@ title: Tools
 description: Side projects and AI tools built by Kristian Garza, from a dataset discovery agent and a technology radar to small everyday web apps.
 permalink: /tools/
 ---
+{% from "components/ui/badge.njk" import badge %}
 
 <div class="flex w-full max-w-4xl flex-1 flex-col gap-4 p-4 md:p-12 xl:p-8">
   <h1 class="text-accent font-mono text-2xl font-bold">Tools</h1>
@@ -21,9 +22,7 @@ permalink: /tools/
         <div class="flex w-full flex-col gap-1">
           <div class="flex flex-row items-center justify-between">
             <h2 class="text-primary text-base font-bold">{{ tool.name }}</h2>
-            <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-              {{ tool.type }}
-            </div>
+            {{ badge(tool.type) }}
           </div>
           <p class="text-secondary text-base font-medium">{{ tool.description }}</p>
           <a href="{{ tool.link }}" target="_blank" class="text-accent text-base font-medium underline hover:no-underline">

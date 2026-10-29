@@ -1,0 +1,12 @@
+# Deploy: cd worker/ask && bunx wrangler deploy
+# Secret: bunx wrangler secret put ANTHROPIC_API_KEY
+# Set a monthly spend limit on the Anthropic workspace that owns this key.
+name = "kjgarza-ask"
+main = "index.mjs"
+compatibility_date = "2026-10-01"
+
+[vars]
+SITE_URL = "https://kjgarza.github.io/"
+ALLOWED_ORIGINS = "https://kjgarza.github.io"
+ASK_MODEL = "claude-haiku-5-5"
+RATE_LIMIT_PER_HOUR = "10"

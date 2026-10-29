@@ -10,19 +10,19 @@ install:
 
 # Build the site for production
 build:
-    bun run eleventy
+    bun run build
 
 # Start development server with live reload
 dev:
-    bun run eleventy --serve
+    bun run dev
 
 # Watch for changes and rebuild
 watch:
-    bun run eleventy --watch
+    bun run watch
 
 # Build for GitHub Pages deployment
 build-ghpages:
-    bun x @11ty/eleventy
+    bun run build-ghpages
 
 # Clean build artifacts and dependencies
 clean:
@@ -30,6 +30,10 @@ clean:
 
 # Clean and reinstall dependencies
 reinstall: clean install
+
+# Deploy the /ask/ endpoint (Cloudflare Worker; needs wrangler login)
+deploy-ask:
+    cd worker/ask && bunx wrangler deploy
 
 # Serve the built site locally (without rebuilding)
 serve:

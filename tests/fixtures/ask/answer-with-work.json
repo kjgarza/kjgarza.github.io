@@ -1,0 +1,13 @@
+{
+  "root": "main",
+  "elements": {
+    "main": { "type": "Stack", "props": {}, "children": ["answer", "work-1", "pub-1", "excerpt-1", "roles", "tool-1", "cta"] },
+    "answer": { "type": "Answer", "props": { "text": "Yes. He has built LLM services and data infrastructure for research organisations." }, "children": [] },
+    "work-1": { "type": "WorkCard", "props": { "id": "datacite-usage-reports-api" }, "children": [] },
+    "pub-1": { "type": "Publication", "props": { "id": "https://doi.org/10.5438/vwp0-vz05" }, "children": [] },
+    "excerpt-1": { "type": "CaseStudyExcerpt", "props": { "slug": "datacite-usage-reports-api", "section": "overview" }, "children": [] },
+    "roles": { "type": "Timeline", "props": { "roles": ["digital-science-2024", "datacite-2020"] }, "children": [] },
+    "tool-1": { "type": "ToolCard", "props": { "id": "technology-radar" }, "children": [] },
+    "cta": { "type": "ContactCTA", "props": {}, "children": [] }
+  }
+}

@@ -1,5 +1,6 @@
 // /ask/ registry: hand-written specs render to the site's own markup. No model call.
-import { describe, test, expect } from "bun:test";
+import { describe, test, expect, beforeAll } from "bun:test";
+import { execSync } from "child_process";
 import fs from "fs";
 import path from "path";
 import { renderToString } from "react-dom/server";
@@ -65,8 +66,13 @@ describe("registry", () => {
     spec.elements.answer.props.text = '<img src=x onerror="alert(1)">';
     expect(render(spec)).not.toContain("<img");
   });
-  test("every class the registry renders exists in the pre-built CSS bundle", () => {
-    const css = fs.readFileSync(path.join(root, "src/_next/static/css/b79f6ce842955dc5.css"), "utf8");
+  // Tailwind compiles site.css from the classes it finds in src/ and lib/ask/
+  let css = "";
+  beforeAll(() => {
+    execSync("bun run build", { cwd: root, stdio: "pipe" });
+    css = fs.readFileSync(path.join(root, "_site/assets/css/site.css"), "utf8");
+  }, 120000);
+  test("every class the registry renders gets CSS from the site build", () => {
     // Tailwind escapes : [ ] % / . in selectors
     const escape = (c) => c.replace(/([:\[\]%\/.!])/g, "\\$1");
     const classes = new Set([...html.matchAll(/class="([^"]*)"/g)].flatMap((m) => m[1].split(/\s+/).filter(Boolean)));

@@ -1,23 +1,23 @@
+{% from "components/ui/button.njk" import button %}
 <nav id="main-nav" class="align-center top-0 z-50 flex min-h-[88px] w-full max-w-4xl flex-row items-center justify-between gap-4 bg-linear-to-t from-white/0 from-0% to-white to-10% px-4 pt-4 pb-4 sm:pb-8 text-sm font-medium sm:sticky sm:to-25% md:px-12 xl:px-8">
   <div class="flex min-h-[40px] items-center gap-4">
     {% if layout == "layouts/case-study.njk" %}
     <!-- Case Study Back Button -->
-    <button onclick="history.back()" aria-label="Go back" class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer text-neutral-900 hover:before:bg-special-state-hover h-10 w-10">
-      {% icon "arrow-left" %}
-    </button>
+    {#- A real link, so a visitor who landed here from search still gets to /work/; same-site visitors go back to where they were #}
+    {% call button("ghost", "icon", href="/work/", attrs='aria-label="Back" onclick="if (document.referrer.indexOf(location.origin + \'/\') === 0) { history.back(); return false; }"') %}{% icon "arrow-left" %}{% endcall %}
     {% endif %}
     
     <div class="flex flex-col font-mono lg:flex-row lg:gap-2">
-      <a class="text-secondary hover:text-primary" href="/">{{ site.author.name }}</a>
-      <span class="text-secondary hidden lg:inline">—</span>
+      <a class="text-muted-foreground hover:text-foreground" href="/">{{ site.author.name }}</a>
+      <span class="text-muted-foreground hidden lg:inline">—</span>
       {% if layout == "layouts/case-study.njk" %}
-      <span class="text-primary">/ Case study</span>
+      <span class="text-foreground">/ Case study</span>
       {% else %}      
       <div class="dropping-texts">
-        <span class="text-secondary">AI Engineer</span>
-        <span class="text-secondary">Application Developer</span>
-        <span class="text-secondary">UX Researcher</span>
-        <span class="text-secondary">Technical Lead</span>
+        <span class="text-muted-foreground">AI Engineer</span>
+        <span class="text-muted-foreground">Application Developer</span>
+        <span class="text-muted-foreground">UX Researcher</span>
+        <span class="text-muted-foreground">Technical Lead</span>
       </div>
       {% endif %}
     </div>
@@ -26,86 +26,62 @@
   <!-- Desktop nav links -->
   <div class="hidden items-center gap-1 sm:flex">
     {% for item in navigation %}
-    <a class="text-secondary hover:text-primary rounded-lg p-2 transition-colors duration-200 ease-in-out {% if page.url == item.href %}text-primary{% endif %}" href="{{ item.href }}"{% if item.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
+    {% set active = page.url == item.href or page.url == item.href + "/" %}
+    <a class="{% if active %}text-foreground{% else %}text-muted-foreground{% endif %} hover:text-foreground rounded-lg p-2 transition-colors duration-200 ease-in-out" href="{{ item.href }}"{% if active %} aria-current="page"{% endif %}{% if item.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
       {{ item.name }}
     </a>
     {% endfor %}
   </div>
-  
-  <!-- Mobile burger button -->
-  <button id="burger-btn" aria-label="Toggle menu" aria-expanded="false" class="sm:hidden flex h-10 w-10 items-center justify-center rounded-lg text-neutral-700 hover:bg-neutral-100 transition-colors duration-200">
-    {% icon "list", 22, 'id="icon-menu"' %}
-    {% icon "x", 22, 'id="icon-x" class="hidden"' %}
-  </button>
+
+  <!-- Mobile burger button: opens the drawer below as a modal dialog -->
+  {% call button("ghost", "icon", class="sm:hidden", attrs='id="burger-btn" type="button" aria-label="Open menu" aria-haspopup="dialog" aria-controls="mobile-menu" aria-expanded="false"') %}{% icon "list", 22 %}{% endcall %}
 </nav>
 
-<!-- Mobile dropdown — fixed, positioned by JS to sit just below the nav -->
-<div id="mobile-menu" aria-hidden="true" style="display:none;position:fixed;top:0;left:12px;right:12px;z-index:9999;" class="sm:hidden">
-  <div class="overflow-hidden rounded-2xl border border-neutral-100 bg-white shadow-xl shadow-neutral-900/10">
-    <div class="flex flex-col p-2">
-      {% for item in navigation %}
-      <a
-        class="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-all duration-150 ease-in-out {% if page.url == item.href %}bg-neutral-100 text-neutral-900{% else %}text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900{% endif %}"
-        href="{{ item.href }}"
-        {% if item.external %} target="_blank" rel="noopener noreferrer"{% endif %}
-      >
-        {{ item.name }}
-        {% if item.external %}
-        {% icon "arrow-up-right", 14, 'class="opacity-40 group-hover:opacity-100 transition-opacity"' %}
-        {% endif %}
-      </a>
-      {% endfor %}
-    </div>
+<!-- Mobile menu: Basecoat drawer (shadcn Sheet) on a native <dialog>. Esc, focus trapping and
+     focus return come from showModal(); Basecoat's drawer.js adds the slide-out and backdrop-click close. -->
+<dialog id="mobile-menu" class="drawer sm:hidden" data-side="right" aria-labelledby="mobile-menu-title">
+  <div>
+    <header class="flex-row items-center justify-between">
+      <h2 id="mobile-menu-title" class="font-mono">Menu</h2>
+      {% call button("ghost", "icon", attrs='type="button" aria-label="Close menu" data-close-menu') %}{% icon "x", 20 %}{% endcall %}
+    </header>
+    <section>
+      <nav aria-label="Main" class="flex flex-col gap-1 px-2 pb-4">
+        {% for item in navigation %}
+        {% set active = page.url == item.href or page.url == item.href + "/" %}
+        <a
+          class="group flex items-center justify-between rounded-lg px-3 py-3 text-base font-medium transition-colors {% if active %}bg-accent text-accent-foreground{% else %}text-muted-foreground hover:bg-accent hover:text-accent-foreground{% endif %}"
+          href="{{ item.href }}"{% if active %} aria-current="page"{% endif %}
+          {% if item.external %} target="_blank" rel="noopener noreferrer"{% endif %}
+        >
+          {{ item.name }}
+          {% if item.external %}
+          {% icon "arrow-up-right", 14, 'class="opacity-40 group-hover:opacity-100 transition-opacity"' %}
+          {% endif %}
+        </a>
+        {% endfor %}
+      </nav>
+    </section>
   </div>
-</div>
+</dialog>
 
 <script>
   (function () {
     var btn = document.getElementById('burger-btn');
     var menu = document.getElementById('mobile-menu');
-    var iconMenu = document.getElementById('icon-menu');
-    var iconX = document.getElementById('icon-x');
-    var nav = document.getElementById('main-nav');
+    var wide = window.matchMedia('(min-width: 40rem)');
 
-    function positionMenu() {
-      var rect = nav.getBoundingClientRect();
-      menu.style.top = rect.bottom + 4 + 'px';
-    }
+    function close() { if (menu.open) menu.close(); }
 
-    function openMenu() {
-      positionMenu();
-      menu.style.display = 'block';
+    btn.addEventListener('click', function () {
+      menu.showModal();
       btn.setAttribute('aria-expanded', 'true');
-      menu.setAttribute('aria-hidden', 'false');
-      iconMenu.classList.add('hidden');
-      iconX.classList.remove('hidden');
-    }
-
-    function closeMenu() {
-      menu.style.display = 'none';
-      btn.setAttribute('aria-expanded', 'false');
-      menu.setAttribute('aria-hidden', 'true');
-      iconMenu.classList.remove('hidden');
-      iconX.classList.add('hidden');
-    }
-
-    btn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      menu.style.display === 'none' ? openMenu() : closeMenu();
     });
-
-    document.addEventListener('click', function (e) {
-      if (menu.style.display !== 'none' && !menu.contains(e.target) && !btn.contains(e.target)) {
-        closeMenu();
-      }
-    });
-
-    menu.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', closeMenu);
-    });
-
-    window.addEventListener('resize', function () {
-      if (menu.style.display !== 'none') positionMenu();
-    });
+    menu.addEventListener('close', function () { btn.setAttribute('aria-expanded', 'false'); });
+    menu.querySelector('[data-close-menu]').addEventListener('click', close);
+    // External links open a new tab, so close the drawer behind them
+    menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', close); });
+    // At sm+ the drawer is display:none, but a modal dialog would still make the page inert
+    wide.addEventListener('change', function (e) { if (e.matches) close(); });
   })();
 </script>

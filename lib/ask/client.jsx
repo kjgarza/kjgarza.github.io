@@ -6,7 +6,7 @@ import { createRoot } from "react-dom/client";
 import { useUIStream } from "@json-render/react";
 import { AskAnswer } from "./registry.jsx";
 
-const MESSAGE = "text-secondary text-base font-medium";
+const MESSAGE = "text-muted-foreground text-base font-medium";
 
 function App({ data, endpoint, form, links, region }) {
   const { spec, isStreaming, error, send } = useUIStream({ api: endpoint });

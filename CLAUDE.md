@@ -33,7 +33,7 @@ No linter is configured. `bun test` runs `tests/*.test.js(x)`. `tests/seo.test.j
 
 ### Tech stack
 - **Eleventy 3.x** with **Nunjucks** as the primary template engine (`autoescape: false`)
-- CSS is pre-built and served as a static asset from `src/_next/static/css/` (Tailwind output, not compiled during build)
+- **Tailwind CSS v4**, compiled from `src/styles/tailwind.css` on every Eleventy build (see CSS / Styling)
 - No JavaScript bundler — scripts are static files in `src/assets/`. One page-scoped exception: `/ask/` loads `src/assets/js/ask.js`, bundled from `lib/ask/` by `bun run build:ask` (run by `build`, `dev`, `watch` and `build-ghpages`; the output is gitignored). Every other page stays zero-React static HTML.
 
 ### Directory layout
@@ -44,9 +44,10 @@ src/
   _includes/
     layouts/      # Page layouts (base.njk, case-study.njk)
     components/   # Partials (nav.njk, footer.njk, work-card.njk, tool-card.njk)
+      ui/         # shadcn-style macros (button.njk, badge.njk)
   assets/         # Images, static CSS/JS — passthrough copied to _site/
   drawings/       # SVG decorations — passthrough copied to _site/
-  _next/          # Pre-built CSS bundle — passthrough copied to _site/
+  styles/         # tailwind.css — Tailwind v4 source, compiled to _site/assets/css/site.css
   static/api/     # Static JSON API responses — copied to _site/api/
   work/           # Case study markdown files (one per project)
   *.njk           # Top-level pages: index, work, tools, publications, playground
@@ -96,14 +97,21 @@ All files export plain JS arrays/objects consumed as global template variables:
 
 - `lib/ask/site-data.js` builds `/api/ask-data.json` (via `src/ask-data.11ty.js`) from `work.js`, `publications.js`, `tools.js`, `cv.js` employment and the public case studies (H2 sections and excerpts). `passwordProtected: true` case studies are left out entirely. The page script and the endpoint both read this file.
 - `lib/ask/catalog.mjs` defines the catalog (`Stack`, `Answer`, `WorkCard`, `Publication`, `CaseStudyExcerpt`, `Timeline`, `ToolCard`, `ContactCTA`) with ids as Zod enums, plus `validateAskSpec`.
-- `lib/ask/registry.jsx` renders it with the markup and Tailwind classes of the Nunjucks components. Only use classes that already exist in the pre-built CSS bundle (a test checks).
+- `lib/ask/registry.jsx` renders it with the markup and Tailwind classes of the Nunjucks components. Tailwind scans `lib/ask/` too (`@source` in `tailwind.css`), and a test checks every class it renders gets CSS.
 - `lib/ask/server.mjs` is the endpoint: CORS limited to the site origin, a per-IP rate limit, the catalog prompt plus `/llms-full.txt` and the id lists as a cached system prompt, capped output, and a filter that drops any streamed patch outside the catalog. `worker/ask/` deploys it as a Cloudflare Worker (`just deploy-ask`; API key via `wrangler secret put ANTHROPIC_API_KEY`; set a monthly spend limit on the Anthropic workspace).
 - The site gets the Worker URL from `ASK_ENDPOINT` at build time (a repo variable in the deploy workflow). Without it, `/ask/` ships as the suggested-question links only, which is also the no-JS fallback.
 - json-render is pre-1.0: dependency versions are pinned exactly. Read the release notes before upgrading.
 
 ### CSS / Styling
 
-Tailwind utility classes are used throughout templates but the CSS is pre-compiled — **do not run a Tailwind build step**. The compiled bundle lives at `src/_next/static/css/b79f6ce842955dc5.css` and is referenced directly from `base.njk`. To change styles, edit the bundle or regenerate it externally.
+Tailwind v4 compiles `src/styles/tailwind.css` to `_site/assets/css/site.css` in an `eleventy.before` hook (`.eleventy.js`, ~200 ms), so any utility class added to a template gets CSS on the next build. `base.njk` links it through the `cssUrl` filter, which appends a content hash for cache busting. Tailwind scans only `src/` (`source(none)` + `@source ".."`).
+
+- Colour tokens use **shadcn/ui names** (`--background`, `--foreground`, `--card`, `--muted-foreground`, `--primary`, `--border`, `--ring`, …), defined in that file and exposed as utilities through `@theme inline`. Use `text-foreground`, `text-muted-foreground`, `text-primary` (brand pink, AA-safe #d6005a in light mode), `bg-background`, `bg-card`, `border-border`, `hover:border-border-strong`, `fill-decoration`. `--border-strong` and `--decoration` are site extras. Add new tokens there, not as hex values in templates.
+- Dark mode is `[data-theme=dark]` or `.dark` on `<html>` (`dark:` variant); nothing sets it yet.
+- Case studies also load `src/assets/css/case-study.css` (plain CSS, `cs-*` classes).
+- **Basecoat** (`basecoat-css`, shadcn/ui ported to plain HTML) provides heavier components. Import only what's used at the top of `tailwind.css` (`@import "basecoat-css/components/<name>"`) and copy its JS from `node_modules/basecoat-css/dist/js/` with a passthrough in `.eleventy.js`. Today: the **drawer** (shadcn Sheet) for the mobile menu in `components/nav.njk`, a `<dialog class="drawer">` opened with `showModal()`. `body > :not(dialog)` in `base.njk` keeps the background-lift rule off dialogs.
+- Buttons and tag pills come from the macros in `components/ui/`, shadcn-style variant maps. Use them instead of copying class strings:
+  `{% from "components/ui/button.njk" import button %}` then `{% call button("secondary", href=url, class="w-fit") %}Label{% endcall %}` (variants `primary | secondary | ghost`, sizes `default | icon`, raw attributes via `attrs='type="button"'`), and `{% from "components/ui/badge.njk" import badge %}` then `{{ badge(tag) }}` (variants `outline | blue | green | purple | neutral`).
 
 ### Static API passthrough
 

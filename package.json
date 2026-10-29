@@ -29,11 +29,16 @@
     "@json-render/core": "0.21.3",
     "@json-render/react": "0.21.3",
     "@phosphor-icons/core": "^2.1.1",
+    "@tailwindcss/cli": "4.3.3",
+    "@tailwindcss/typography": "^0.5.20",
     "ai": "7.0.156",
     "gray-matter": "4.0.3",
     "puppeteer": "^24.40.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "zod": "4.6.7"
+  },
+  "dependencies": {
+    "basecoat-css": "1.1.0"
   }
 }

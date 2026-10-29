@@ -10,7 +10,7 @@
 
   <!-- Self-hosted fonts (latin subset); Manrope is a single variable file for 400–700 -->
   <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{{ '/_next/static/css/b79f6ce842955dc5.css' | url }}" as="style">
+  <link rel="preload" href="{{ '/assets/css/site.css' | cssUrl | url }}" as="style">
   <style>
     @font-face { font-family: 'Manrope'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/manrope-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-latin.woff2) format('woff2'); }
@@ -18,9 +18,12 @@
     @font-face { font-family: 'DM Mono'; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-italic-latin.woff2) format('woff2'); }
   </style>
 
-  <link rel="stylesheet" href="{{ '/_next/static/css/b79f6ce842955dc5.css' | url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | cssUrl | url }}">
   <link rel="dns-prefetch" href="https://tally.so">
   <script async src="https://tally.so/widgets/embed.js"></script>
+  <!-- Basecoat runtime + drawer (mobile menu animation and backdrop close; the menu works without them) -->
+  <script defer src="{{ '/assets/js/basecoat.min.js' | url }}"></script>
+  <script defer src="{{ '/assets/js/drawer.min.js' | url }}"></script>
 
   <!-- Analytics: gtag.js (~180 KB) loads on first interaction or when the browser is idle, off the critical path -->
   <script>
@@ -62,9 +65,6 @@
 {%- endif %}
 
   <style>
-    /* Brand pink (#FF0066) is 3.9:1 on white; text needs 4.5:1 (WCAG AA), so accent text uses a darker shade */
-    :root:not([data-theme=dark]) { --color-text-accent: #d6005a; }
-
     body::before {
       content: '';
       position: fixed;
@@ -82,14 +82,15 @@
       --grad-mid: rgba(200,200,220,0.03);
     }
 
-    body > * {
+    /* Lift content above the dot background; dialogs keep their own positioning (top layer) */
+    body > :not(dialog) {
       position: relative;
       z-index: 1;
     }
   </style>
 
 </head>
-<body class="bg-default scrollbar-hide flex min-h-screen flex-col items-center justify-center font-sans">
+<body class="bg-background scrollbar-hide flex min-h-screen flex-col items-center justify-center font-sans">
   {% include "components/nav.njk" %}
   
   <main class="mx-auto flex h-full w-full max-w-4xl grow flex-col justify-center gap-16 p-4 font-sans md:p-12 xl:p-8">

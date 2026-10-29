@@ -60,7 +60,7 @@ eleventyConfig.setNunjucksEnvironmentOptions({
 
 ### Styling System
 - **Tailwind CSS v4**: `src/styles/tailwind.css` → `/assets/css/site.css`, compiled in an `eleventy.before` hook
-- **Custom design tokens**: `text-primary`, `text-secondary`, `text-accent`, `bg-surface`, `border-card`
+- **Design tokens** use shadcn/ui names: `text-foreground`, `text-muted-foreground`, `text-primary` (brand pink), `bg-background`, `bg-card`, `border-border`
 - **Component styles**: Complex button classes with hover states, shadow utilities
 
 ## Navigation and State Management

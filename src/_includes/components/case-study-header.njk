@@ -1,5 +1,5 @@
 {% from "components/ui/badge.njk" import badge %}
-<div class="bg-surface flex flex-col gap-2 p-4 sm:rounded-lg sm:p-6">
+<div class="bg-card flex flex-col gap-2 p-4 sm:rounded-lg sm:p-6">
   <!-- Company and Tags -->
   <div class="flex flex-row items-center justify-between">
     <p class="font-mono">{{ company }}</p>
@@ -12,8 +12,8 @@
   
   <!-- Title and Description -->
   <div class="flex w-full flex-col gap-1">
-    <h1 class="text-primary text-2xl font-bold">{{ title }}</h1>
-    <p class="text-secondary text-base font-medium">{{ description }}</p>
+    <h1 class="text-foreground text-2xl font-bold">{{ title }}</h1>
+    <p class="text-muted-foreground text-base font-medium">{{ description }}</p>
   </div>
   
   <!-- Hero Image -->

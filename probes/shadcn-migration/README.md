@@ -4,6 +4,8 @@ Throwaway spikes run before committing to option C: rebuild the CSS with
 Tailwind v4, add shadcn-style Nunjucks macros, and maybe pull in
 [Basecoat](https://basecoatui.com). None of this is wired into the site build.
 
+**Status:** all five steps have landed (Tailwind build, `components/ui` macros, popover menu, leftover cleanup, shadcn token names). The findings below describe the site before those changes. `shots.js` + `diff.py` remain useful as a visual regression check.
+
 ## Findings
 
 | # | Probe | Result |

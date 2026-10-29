@@ -62,9 +62,6 @@
 {%- endif %}
 
   <style>
-    /* Brand pink (#FF0066) is 3.9:1 on white; text needs 4.5:1 (WCAG AA), so accent text uses a darker shade */
-    :root:not([data-theme=dark]) { --color-text-accent: #d6005a; }
-
     body::before {
       content: '';
       position: fixed;
@@ -89,7 +86,7 @@
   </style>
 
 </head>
-<body class="bg-default scrollbar-hide flex min-h-screen flex-col items-center justify-center font-sans">
+<body class="bg-background scrollbar-hide flex min-h-screen flex-col items-center justify-center font-sans">
   {% include "components/nav.njk" %}
   
   <main class="mx-auto flex h-full w-full max-w-4xl grow flex-col justify-center gap-16 p-4 font-sans md:p-12 xl:p-8">

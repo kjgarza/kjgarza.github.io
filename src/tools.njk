@@ -7,25 +7,25 @@ permalink: /tools/
 {% from "components/ui/badge.njk" import badge %}
 
 <div class="flex w-full max-w-4xl flex-1 flex-col gap-4 p-4 md:p-12 xl:p-8">
-  <h1 class="text-accent font-mono text-2xl font-bold">Tools</h1>
+  <h1 class="text-primary font-mono text-2xl font-bold">Tools</h1>
   <section class="flex flex-col gap-4">
     <div class="relative grid gap-6 sm:grid-cols-2 sm:gap-2">
       <img src="{{ '/drawings/used-by.svg' | url }}" alt="Used by" width="113" height="98" class="absolute top-10 -left-32 hidden rotate-2 lg:block">
       
       {% for tool in tools %}
-      <div class="bg-surface border-card flex h-fit w-fit {{ tool.rotation }} flex-row gap-2 rounded-2xl border-2 p-4">
-        <div class="bg-surface border-card h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-          <div class="bg-surface flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
+      <div class="bg-card border-border flex h-fit w-fit {{ tool.rotation }} flex-row gap-2 rounded-2xl border-2 p-4">
+        <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
+          <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
             <img alt="{{ tool.name }}" loading="lazy" width="44" height="44" class="rounded-md" src="{{ tool.image }}">
           </div>
         </div>
         <div class="flex w-full flex-col gap-1">
           <div class="flex flex-row items-center justify-between">
-            <h2 class="text-primary text-base font-bold">{{ tool.name }}</h2>
+            <h2 class="text-foreground text-base font-bold">{{ tool.name }}</h2>
             {{ badge(tool.type) }}
           </div>
-          <p class="text-secondary text-base font-medium">{{ tool.description }}</p>
-          <a href="{{ tool.link }}" target="_blank" class="text-accent text-base font-medium underline hover:no-underline">
+          <p class="text-muted-foreground text-base font-medium">{{ tool.description }}</p>
+          <a href="{{ tool.link }}" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
             View on the web
           </a>
         </div>

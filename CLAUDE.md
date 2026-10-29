@@ -94,8 +94,8 @@ All files export plain JS arrays/objects consumed as global template variables:
 
 Tailwind v4 compiles `src/styles/tailwind.css` to `_site/assets/css/site.css` in an `eleventy.before` hook (`.eleventy.js`, ~200 ms), so any utility class added to a template gets CSS on the next build. `base.njk` links it through the `cssUrl` filter, which appends a content hash for cache busting. Tailwind scans only `src/` (`source(none)` + `@source ".."`).
 
-- Theme tokens (`--color-text-primary`, `--color-bg-surface`, …) and the site's own utilities (`bg-default`, `text-accent`, `shadow-button-*`) live in that file. Add new tokens there, not in templates.
-- Dark mode is `[data-theme=dark]` on `<html>` (`dark:` variant).
+- Colour tokens use **shadcn/ui names** (`--background`, `--foreground`, `--card`, `--muted-foreground`, `--primary`, `--border`, `--ring`, …), defined in that file and exposed as utilities through `@theme inline`. Use `text-foreground`, `text-muted-foreground`, `text-primary` (brand pink, AA-safe #d6005a in light mode), `bg-background`, `bg-card`, `border-border`, `hover:border-border-strong`, `fill-decoration`. `--border-strong` and `--decoration` are site extras. Add new tokens there, not as hex values in templates.
+- Dark mode is `[data-theme=dark]` or `.dark` on `<html>` (`dark:` variant); nothing sets it yet.
 - Case studies also load `src/assets/css/case-study.css` (plain CSS, `cs-*` classes).
 - Buttons and tag pills come from the macros in `components/ui/`, shadcn-style variant maps. Use them instead of copying class strings:
   `{% from "components/ui/button.njk" import button %}` then `{% call button("secondary", href=url, class="w-fit") %}Label{% endcall %}` (variants `primary | secondary | ghost`, sizes `default | icon`, raw attributes via `attrs='type="button"'`), and `{% from "components/ui/badge.njk" import badge %}` then `{{ badge(tag) }}` (variants `outline | blue | green | purple | neutral`).

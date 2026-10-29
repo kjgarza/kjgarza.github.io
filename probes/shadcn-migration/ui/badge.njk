@@ -1,0 +1,11 @@
+{#- shadcn-style badge: variant = outline (work/tool tags) | blue | green | purple | neutral (publication types) -#}
+{%- set badgeVariants = {
+  outline: "border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-primary",
+  blue: "border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700",
+  green: "border py-0.5 font-medium border-green-200 bg-green-50 text-green-700",
+  purple: "border py-0.5 font-medium border-purple-200 bg-purple-50 text-purple-700",
+  neutral: "border py-0.5 font-medium border-neutral-200 bg-neutral-50 text-neutral-700"
+} -%}
+{%- macro badge(label, variant="outline", class="") -%}
+<div class="inline-flex items-center rounded-full px-2 text-xs {{ badgeVariants[variant] }} {{ class }}">{{ label }}</div>
+{%- endmacro -%}

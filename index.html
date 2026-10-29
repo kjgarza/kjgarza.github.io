@@ -32,7 +32,7 @@
 
   <!-- Self-hosted fonts (latin subset); Manrope is a single variable file for 400–700 -->
   <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/_next/static/css/b79f6ce842955dc5.css" as="style">
+  <link rel="preload" href="/assets/css/site.css?v=17e18d5290" as="style">
   <style>
     @font-face { font-family: 'Manrope'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/manrope-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-latin.woff2) format('woff2'); }
@@ -40,9 +40,12 @@
     @font-face { font-family: 'DM Mono'; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-italic-latin.woff2) format('woff2'); }
   </style>
 
-  <link rel="stylesheet" href="/_next/static/css/b79f6ce842955dc5.css">
+  <link rel="stylesheet" href="/assets/css/site.css?v=17e18d5290">
   <link rel="dns-prefetch" href="https://tally.so">
   <script async src="https://tally.so/widgets/embed.js"></script>
+  <!-- Basecoat runtime + drawer (mobile menu animation and backdrop close; the menu works without them) -->
+  <script defer src="/assets/js/basecoat.min.js"></script>
+  <script defer src="/assets/js/drawer.min.js"></script>
 
   <!-- Analytics: gtag.js (~180 KB) loads on first interaction or when the browser is idle, off the critical path -->
   <script>
@@ -77,9 +80,6 @@
   </script>
 
   <style>
-    /* Brand pink (#FF0066) is 3.9:1 on white; text needs 4.5:1 (WCAG AA), so accent text uses a darker shade */
-    :root:not([data-theme=dark]) { --color-text-accent: #d6005a; }
-
     body::before {
       content: '';
       position: fixed;
@@ -97,27 +97,29 @@
       --grad-mid: rgba(200,200,220,0.03);
     }
 
-    body > * {
+    /* Lift content above the dot background; dialogs keep their own positioning (top layer) */
+    body > :not(dialog) {
       position: relative;
       z-index: 1;
     }
   </style>
 
 </head>
-<body class="bg-default scrollbar-hide flex min-h-screen flex-col items-center justify-center font-sans">
-  <nav id="main-nav" class="align-center top-0 z-50 flex min-h-[88px] w-full max-w-4xl flex-row items-center justify-between gap-4 bg-linear-to-t from-white/0 from-0% to-white to-10% px-4 pt-4 pb-4 sm:pb-8 text-sm font-medium sm:sticky sm:to-25% md:px-12 xl:px-8">
+<body class="bg-background scrollbar-hide flex min-h-screen flex-col items-center justify-center font-sans">
+  
+<nav id="main-nav" class="align-center top-0 z-50 flex min-h-[88px] w-full max-w-4xl flex-row items-center justify-between gap-4 bg-linear-to-t from-white/0 from-0% to-white to-10% px-4 pt-4 pb-4 sm:pb-8 text-sm font-medium sm:sticky sm:to-25% md:px-12 xl:px-8">
   <div class="flex min-h-[40px] items-center gap-4">
     
     
     <div class="flex flex-col font-mono lg:flex-row lg:gap-2">
-      <a class="text-secondary hover:text-primary" href="/">Kristian Garza</a>
-      <span class="text-secondary hidden lg:inline">—</span>
+      <a class="text-muted-foreground hover:text-foreground" href="/">Kristian Garza</a>
+      <span class="text-muted-foreground hidden lg:inline">—</span>
             
       <div class="dropping-texts">
-        <span class="text-secondary">AI Engineer</span>
-        <span class="text-secondary">Application Developer</span>
-        <span class="text-secondary">UX Researcher</span>
-        <span class="text-secondary">Technical Lead</span>
+        <span class="text-muted-foreground">AI Engineer</span>
+        <span class="text-muted-foreground">Application Developer</span>
+        <span class="text-muted-foreground">UX Researcher</span>
+        <span class="text-muted-foreground">Technical Lead</span>
       </div>
       
     </div>
@@ -126,179 +128,167 @@
   <!-- Desktop nav links -->
   <div class="hidden items-center gap-1 sm:flex">
     
-    <a class="text-secondary hover:text-primary rounded-lg p-2 transition-colors duration-200 ease-in-out text-primary" href="/">
+    
+    <a class="text-foreground hover:text-foreground rounded-lg p-2 transition-colors duration-200 ease-in-out" href="/" aria-current="page">
       About
     </a>
     
-    <a class="text-secondary hover:text-primary rounded-lg p-2 transition-colors duration-200 ease-in-out " href="/work">
+    
+    <a class="text-muted-foreground hover:text-foreground rounded-lg p-2 transition-colors duration-200 ease-in-out" href="/work">
       Work
     </a>
     
-    <a class="text-secondary hover:text-primary rounded-lg p-2 transition-colors duration-200 ease-in-out " href="/tools">
+    
+    <a class="text-muted-foreground hover:text-foreground rounded-lg p-2 transition-colors duration-200 ease-in-out" href="/tools">
       Tools
     </a>
     
-    <a class="text-secondary hover:text-primary rounded-lg p-2 transition-colors duration-200 ease-in-out " href="/publications">
+    
+    <a class="text-muted-foreground hover:text-foreground rounded-lg p-2 transition-colors duration-200 ease-in-out" href="/publications">
       Publications
     </a>
     
-    <a class="text-secondary hover:text-primary rounded-lg p-2 transition-colors duration-200 ease-in-out " href="https://kjgarza.substack.com" target="_blank" rel="noopener noreferrer">
+    
+    <a class="text-muted-foreground hover:text-foreground rounded-lg p-2 transition-colors duration-200 ease-in-out" href="https://kjgarza.substack.com" target="_blank" rel="noopener noreferrer">
       Writing
     </a>
     
-    <a class="text-secondary hover:text-primary rounded-lg p-2 transition-colors duration-200 ease-in-out " href="https://kjgarza.github.io/radar/" target="_blank" rel="noopener noreferrer">
+    
+    <a class="text-muted-foreground hover:text-foreground rounded-lg p-2 transition-colors duration-200 ease-in-out" href="https://kjgarza.github.io/radar/" target="_blank" rel="noopener noreferrer">
       Tech Radar
     </a>
     
   </div>
-  
-  <!-- Mobile burger button -->
-  <button id="burger-btn" aria-label="Toggle menu" aria-expanded="false" class="sm:hidden flex h-10 w-10 items-center justify-center rounded-lg text-neutral-700 hover:bg-neutral-100 transition-colors duration-200">
-    <svg width="22" height="22" id="icon-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></svg>
-    <svg width="22" height="22" id="icon-x" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg>
-  </button>
+
+  <!-- Mobile burger button: opens the drawer below as a modal dialog -->
+  <button class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover text-neutral-900 h-10 w-10 sm:hidden" id="burger-btn" type="button" aria-label="Open menu" aria-haspopup="dialog" aria-controls="mobile-menu" aria-expanded="false"><svg width="22" height="22" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></svg></button>
 </nav>
 
-<!-- Mobile dropdown — fixed, positioned by JS to sit just below the nav -->
-<div id="mobile-menu" aria-hidden="true" style="display:none;position:fixed;top:0;left:12px;right:12px;z-index:9999;" class="sm:hidden">
-  <div class="overflow-hidden rounded-2xl border border-neutral-100 bg-white shadow-xl shadow-neutral-900/10">
-    <div class="flex flex-col p-2">
-      
-      <a
-        class="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-all duration-150 ease-in-out bg-neutral-100 text-neutral-900"
-        href="/"
+<!-- Mobile menu: Basecoat drawer (shadcn Sheet) on a native <dialog>. Esc, focus trapping and
+     focus return come from showModal(); Basecoat's drawer.js adds the slide-out and backdrop-click close. -->
+<dialog id="mobile-menu" class="drawer sm:hidden" data-side="right" aria-labelledby="mobile-menu-title">
+  <div>
+    <header class="flex-row items-center justify-between">
+      <h2 id="mobile-menu-title" class="font-mono">Menu</h2>
+      <button class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover text-neutral-900 h-10 w-10" type="button" aria-label="Close menu" data-close-menu><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
+    </header>
+    <section>
+      <nav aria-label="Main" class="flex flex-col gap-1 px-2 pb-4">
         
-      >
-        About
         
-      </a>
-      
-      <a
-        class="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-all duration-150 ease-in-out text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
-        href="/work"
+        <a
+          class="group flex items-center justify-between rounded-lg px-3 py-3 text-base font-medium transition-colors bg-accent text-accent-foreground"
+          href="/" aria-current="page"
+          
+        >
+          About
+          
+        </a>
         
-      >
-        Work
         
-      </a>
-      
-      <a
-        class="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-all duration-150 ease-in-out text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
-        href="/tools"
+        <a
+          class="group flex items-center justify-between rounded-lg px-3 py-3 text-base font-medium transition-colors text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+          href="/work"
+          
+        >
+          Work
+          
+        </a>
         
-      >
-        Tools
         
-      </a>
-      
-      <a
-        class="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-all duration-150 ease-in-out text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
-        href="/publications"
+        <a
+          class="group flex items-center justify-between rounded-lg px-3 py-3 text-base font-medium transition-colors text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+          href="/tools"
+          
+        >
+          Tools
+          
+        </a>
         
-      >
-        Publications
         
-      </a>
-      
-      <a
-        class="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-all duration-150 ease-in-out text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
-        href="https://kjgarza.substack.com"
-         target="_blank" rel="noopener noreferrer"
-      >
-        Writing
+        <a
+          class="group flex items-center justify-between rounded-lg px-3 py-3 text-base font-medium transition-colors text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+          href="/publications"
+          
+        >
+          Publications
+          
+        </a>
         
-        <svg width="14" height="14" class="opacity-40 group-hover:opacity-100 transition-opacity" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
         
-      </a>
-      
-      <a
-        class="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-all duration-150 ease-in-out text-neutral-500 hover:bg-neutral-50 hover:text-neutral-900"
-        href="https://kjgarza.github.io/radar/"
-         target="_blank" rel="noopener noreferrer"
-      >
-        Tech Radar
+        <a
+          class="group flex items-center justify-between rounded-lg px-3 py-3 text-base font-medium transition-colors text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+          href="https://kjgarza.substack.com"
+           target="_blank" rel="noopener noreferrer"
+        >
+          Writing
+          
+          <svg width="14" height="14" class="opacity-40 group-hover:opacity-100 transition-opacity" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
+          
+        </a>
         
-        <svg width="14" height="14" class="opacity-40 group-hover:opacity-100 transition-opacity" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
         
-      </a>
-      
-    </div>
+        <a
+          class="group flex items-center justify-between rounded-lg px-3 py-3 text-base font-medium transition-colors text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+          href="https://kjgarza.github.io/radar/"
+           target="_blank" rel="noopener noreferrer"
+        >
+          Tech Radar
+          
+          <svg width="14" height="14" class="opacity-40 group-hover:opacity-100 transition-opacity" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg>
+          
+        </a>
+        
+      </nav>
+    </section>
   </div>
-</div>
+</dialog>
 
 <script>
   (function () {
     var btn = document.getElementById('burger-btn');
     var menu = document.getElementById('mobile-menu');
-    var iconMenu = document.getElementById('icon-menu');
-    var iconX = document.getElementById('icon-x');
-    var nav = document.getElementById('main-nav');
+    var wide = window.matchMedia('(min-width: 40rem)');
 
-    function positionMenu() {
-      var rect = nav.getBoundingClientRect();
-      menu.style.top = rect.bottom + 4 + 'px';
-    }
+    function close() { if (menu.open) menu.close(); }
 
-    function openMenu() {
-      positionMenu();
-      menu.style.display = 'block';
+    btn.addEventListener('click', function () {
+      menu.showModal();
       btn.setAttribute('aria-expanded', 'true');
-      menu.setAttribute('aria-hidden', 'false');
-      iconMenu.classList.add('hidden');
-      iconX.classList.remove('hidden');
-    }
-
-    function closeMenu() {
-      menu.style.display = 'none';
-      btn.setAttribute('aria-expanded', 'false');
-      menu.setAttribute('aria-hidden', 'true');
-      iconMenu.classList.remove('hidden');
-      iconX.classList.add('hidden');
-    }
-
-    btn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      menu.style.display === 'none' ? openMenu() : closeMenu();
     });
-
-    document.addEventListener('click', function (e) {
-      if (menu.style.display !== 'none' && !menu.contains(e.target) && !btn.contains(e.target)) {
-        closeMenu();
-      }
-    });
-
-    menu.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', closeMenu);
-    });
-
-    window.addEventListener('resize', function () {
-      if (menu.style.display !== 'none') positionMenu();
-    });
+    menu.addEventListener('close', function () { btn.setAttribute('aria-expanded', 'false'); });
+    menu.querySelector('[data-close-menu]').addEventListener('click', close);
+    // External links open a new tab, so close the drawer behind them
+    menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', close); });
+    // At sm+ the drawer is display:none, but a modal dialog would still make the page inert
+    wide.addEventListener('change', function (e) { if (e.matches) close(); });
   })();
 </script>
 
   
   <main class="mx-auto flex h-full w-full max-w-4xl grow flex-col justify-center gap-16 p-4 font-sans md:p-12 xl:p-8">
     
+
+
 <div class="mt-16 flex flex-col gap-4">
-  <h1 class="text-accent font-mono text-sm font-medium">Kristian Garza — AI Engineer in Berlin</h1>
-  <p class="text-primary xs:text-3xl text-2xl font-medium">
+  <h1 class="text-primary font-mono text-sm font-medium">Kristian Garza — AI Engineer in Berlin</h1>
+  <p class="text-foreground xs:text-3xl text-2xl font-medium">
     <span class="whitespace-nowrap">Solving 
-      <span class="text-accent relative">complex problems
-        <img src="/drawings/Arrow-new.svg" alt="" width="110" height="110" class="fill-ui-decoration xs:left-3 absolute -top-19 -left-2">
+      <span class="text-primary relative">complex problems
+        <img src="/drawings/Arrow-new.svg" alt="" width="110" height="110" class="fill-decoration xs:left-3 absolute -top-19 -left-2">
       </span>
     </span>, 
     <span class="whitespace-nowrap">identifying 
-      <span class="text-accent relative">smart solutions
-        <svg class="fill-ui-decoration xs:top-8 xs:left-12 absolute top-7 left-8 -z-10" width="140" height="9" viewBox="0 0 140 9" xmlns="http://www.w3.org/2000/svg">
+      <span class="text-primary relative">smart solutions
+        <svg class="fill-decoration xs:top-8 xs:left-12 absolute top-7 left-8 -z-10" width="140" height="9" viewBox="0 0 140 9" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M59.4595 0.768229C52.8823 1.03149 46.3823 1.3552 40.0437 1.7091C31.0707 2.20974 22.1012 2.72764 13.1858 3.54765C10.3794 3.80659 7.52948 3.97059 4.74064 4.29427C2.98999 4.49712 0.668656 4.78624 0.364011 4.84666C0.204669 4.88119 0.135153 4.93302 0.112691 4.95029C-0.0452472 5.07113 -0.0164293 5.18761 0.072718 5.27824C0.108517 5.31708 0.199043 5.41207 0.45034 5.42502C17.2564 6.30976 34.4414 4.58343 51.2678 4.40217C80.4478 4.09143 110.512 5.32576 139.46 8.01883C139.713 8.04041 139.959 7.93248 139.994 7.7728C140.036 7.61743 139.854 7.46637 139.601 7.44479C110.603 4.7474 80.4899 3.50876 51.2538 3.82381C35.5723 3.99213 19.5812 5.50701 3.87795 4.98911C4.23875 4.94596 4.59255 4.90278 4.91544 4.86394C7.69305 4.54025 10.531 4.38058 13.3262 4.12163C22.2227 3.30162 31.1739 2.78373 40.135 2.28741C51.2538 1.66593 62.857 1.13076 74.5514 0.880444C78.735 0.919287 82.9046 0.958146 87.0741 1.00562C96.0941 1.1092 105.156 1.41131 114.155 1.817C116.865 1.94216 119.574 2.07162 122.284 2.18383C123.182 2.22267 125.499 2.33487 125.822 2.32623C126.222 2.3176 126.299 2.11046 126.306 2.07594C126.327 1.99825 126.313 1.89035 126.116 1.79972C126.095 1.78677 125.969 1.74358 125.688 1.71769C109.326 0.189888 91.8544 -0.0647057 74.5655 0.302139C56.3289 0.142454 38.0221 0.073369 19.8318 0C19.5714 0 19.3587 0.129494 19.3566 0.289179C19.3552 0.448864 19.5651 0.578362 19.8255 0.582678C32.9968 0.634468 46.2349 0.686228 59.4595 0.768229Z"></path>
         </svg>
       </span>
     </span>, 
     <span class="whitespace-nowrap">in  
-      <span class="text-accent">open
+      <span class="text-primary">open
         <span class="relative">science 
-          <svg class="fill-ui-decoration xs:top-5 absolute top-4 -right-5" width="31" height="27" viewBox="0 0 31 27" xmlns="http://www.w3.org/2000/svg">
+          <svg class="fill-decoration xs:top-5 absolute top-4 -right-5" width="31" height="27" viewBox="0 0 31 27" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M20.1878 1.92757C21.3184 1.85206 22.4362 1.76744 23.5685 1.72492C23.812 1.71488 24.0157 1.90323 24.0249 2.14523C24.0349 2.38879 23.8451 2.59332 23.6031 2.60253C22.4771 2.64567 21.3688 2.72928 20.246 2.80459C20.0034 2.8201 19.7942 2.6366 19.778 2.39635C19.7625 2.15372 19.9452 1.94309 20.1878 1.92757Z"></path>
             <path fill-rule="evenodd" clip-rule="evenodd" d="M16.0597 10.3407C18.9114 12.506 21.6519 14.814 24.4555 17.0387C24.6457 17.1904 24.677 17.4665 24.5268 17.6559C24.3751 17.8461 24.0999 17.8789 23.9081 17.728C21.1101 15.5063 18.3752 13.2013 15.5284 11.0414C15.3343 10.8937 15.2975 10.6186 15.4437 10.4254C15.5914 10.2313 15.8665 10.1946 16.0597 10.3407Z"></path>
             <path fill-rule="evenodd" clip-rule="evenodd" d="M5.08252 17.1332C6.06185 19.9973 6.96254 22.8933 7.97383 25.7465C8.05348 25.9749 7.93394 26.2256 7.70633 26.3068C7.47716 26.3888 7.22564 26.2677 7.14444 26.0401C6.13305 23.1831 5.2307 20.284 4.25128 17.4159C4.17318 17.1866 4.29508 16.9366 4.52435 16.8585C4.75517 16.7796 5.0036 16.9024 5.08252 17.1332Z"></path>
@@ -309,9 +299,7 @@
   </p>
   
   <div class="flex flex-row gap-6 py-4">
-    <button class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer w-fit hover:before:bg-special-state-hover-inverse bg-button-primary text-white shadow-button-primary-rest active:shadow-none h-10 px-3 min-w-9" data-tally-open="3XjAKz" data-tally-layout="modal">
-      Get in touch
-    </button>
+    <button class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover-inverse bg-button-primary text-white shadow-button-primary-rest active:shadow-none h-10 px-3 min-w-9 w-fit" type="button" data-tally-open="3XjAKz" data-tally-layout="modal">Get in touch</button>
     
   </div>
 </div>
@@ -319,32 +307,32 @@
 <!-- Bio sections -->
 <section class="flex flex-col gap-4">
   <div class="flex max-w-[560px] flex-col gap-1">
-    <h2 class="text-accent font-mono text-sm font-medium">Currently</h2>
-    <div class="prose text-primary font-sans text-base font-medium">
+    <h2 class="text-primary font-mono text-sm font-medium">Currently</h2>
+    <div class="prose text-foreground font-sans text-base font-medium">
       <p>Building and prototyping AI-driven microservices and agents at Digital Science, from LLM-powered APIs to Rust-based clustering engines.</p>
     </div>
   </div>
   
   <div class="flex max-w-[560px] flex-col gap-1">
-    <h2 class="text-accent font-mono text-sm font-medium">In the past</h2>
-    <div class="prose text-primary font-sans text-base font-medium">
+    <h2 class="text-primary font-mono text-sm font-medium">In the past</h2>
+    <div class="prose text-foreground font-sans text-base font-medium">
       <p>Developed core infrastructure at DataCite, including Commons, Fabrica, and Sashimi, while leading metadata and design system initiatives.</p>
     </div>
   </div>
   
   <div class="flex flex-col gap-2">
-    <h2 class="text-accent font-mono text-sm font-medium">Find me on</h2>
-    <div class="text-primary flex flex-row gap-4">
-      <a class="hover:text-accent" title="Figma" target="_blank" href="https://www.figma.com/@kristiangarza">
+    <h2 class="text-primary font-mono text-sm font-medium">Find me on</h2>
+    <div class="text-foreground flex flex-row gap-4">
+      <a class="hover:text-primary" title="Figma" target="_blank" href="https://www.figma.com/@kristiangarza">
         <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M192,96a40,40,0,0,0-24-72H96A40,40,0,0,0,72,96a40,40,0,0,0,1.37,65A44,44,0,1,0,144,196V160a40,40,0,1,0,48-64Zm0-32a24,24,0,0,1-24,24H144V40h24A24,24,0,0,1,192,64ZM72,64A24,24,0,0,1,96,40h32V88H96A24,24,0,0,1,72,64Zm24,88a24,24,0,0,1,0-48h32v48H96Zm32,44a28,28,0,1,1-28-28h28Zm40-44a24,24,0,1,1,24-24A24,24,0,0,1,168,152Z"/></svg>
       </a>
-      <a class="hover:text-accent" title="Github" target="_blank" href="https://github.com/kjgarza">
+      <a class="hover:text-primary" title="Github" target="_blank" href="https://github.com/kjgarza">
         <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"/></svg>
       </a>
-      <a class="hover:text-accent" title="LinkedIn" target="_blank" href="https://www.linkedin.com/in/kjgarza">
+      <a class="hover:text-primary" title="LinkedIn" target="_blank" href="https://www.linkedin.com/in/kjgarza">
         <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"/></svg>
       </a>
-      <a class="hover:text-accent" title="Email" target="_blank" href="mailto:kj.garza+kjgarza@gmail.com">
+      <a class="hover:text-primary" title="Email" target="_blank" href="mailto:kj.garza+kjgarza@gmail.com">
         <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"/></svg>
       </a>
     </div>
@@ -353,7 +341,7 @@
 
 <!-- Featured Work -->
 <div class="flex flex-col gap-4">
-  <h2 class="text-primary font-mono text-lg font-medium">Featured work</h2>
+  <h2 class="text-foreground font-mono text-lg font-medium">Featured work</h2>
   <section class="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:grid-rows-[480px_480px_480px_320px]">
     
       
@@ -361,34 +349,26 @@
       
     
       
-        <div class="bg-surface hover:border-card-hover border-card col-span-2 row-span-1 flex max-h-[] flex-col overflow-hidden rounded-lg border-2"> 
+        <div class="bg-card hover:border-border-strong border-border col-span-2 row-span-1 flex flex-col overflow-hidden rounded-lg border-2"> 
           <div class="flex flex-col gap-2 p-6">
             <div class="flex flex-row items-center justify-between">
               <p class="font-mono">Digital Science</p>
               <div class="flex flex-row gap-1">
                 
-                <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                  APIs
-                </div>
+                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">APIs</span>
                 
-                <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                  LLMs
-                </div>
+                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">LLMs</span>
                 
-                <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                  Python
-                </div>
+                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Python</span>
                 
               </div>
             </div>
             <div class="flex flex-col gap-2">
               <h3 class="text-2xl font-bold">Query Translation API - Natural Language to Database Queries</h3>
-              <p class="text-secondary text-base font-medium">Architected and launched a FastAPI microservice that turns natural-language requests into optimized Dimensions searches.</p>
+              <p class="text-muted-foreground text-base font-medium">Architected and launched a FastAPI microservice that turns natural-language requests into optimized Dimensions searches.</p>
               
               
-                <a class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer w-fit hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 mt-2" href="/work/query-translation-api">
-                  Read case study
-                </a>
+                <a class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 w-fit mt-2" href="/work/query-translation-api">Read case study</a>
               
             </div>
           </div>
@@ -404,30 +384,24 @@
       
     
       
-        <div class="bg-surface hover:border-card-hover border-card col-span-1 row-span-2 flex max-h-[] flex-col overflow-hidden rounded-lg border-2"> 
+        <div class="bg-card hover:border-border-strong border-border col-span-1 row-span-2 flex flex-col overflow-hidden rounded-lg border-2"> 
           <div class="flex flex-col gap-2 p-6">
             <div class="flex flex-row items-center justify-between">
               <p class="font-mono">DataCite</p>
               <div class="flex flex-row gap-1">
                 
-                <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                  Design systems
-                </div>
+                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Design systems</span>
                 
-                <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                  UX Design
-                </div>
+                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">UX Design</span>
                 
               </div>
             </div>
             <div class="flex flex-col gap-2">
               <h3 class="text-2xl font-bold">Harmonizing with a Design System</h3>
-              <p class="text-secondary text-base font-medium">Crafted a Design System for all DataCite frontend services.</p>
+              <p class="text-muted-foreground text-base font-medium">Crafted a Design System for all DataCite frontend services.</p>
               
               
-                <a class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer w-fit hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 mt-2" href="/work/creating-a-design-system">
-                  Read case study
-                </a>
+                <a class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 w-fit mt-2" href="/work/creating-a-design-system">Read case study</a>
               
             </div>
           </div>
@@ -443,30 +417,24 @@
       
     
       
-        <div class="bg-surface hover:border-card-hover border-card col-span-1 row-span-1 flex max-h-[] flex-col overflow-hidden rounded-lg border-2"> 
+        <div class="bg-card hover:border-border-strong border-border col-span-1 row-span-1 flex flex-col overflow-hidden rounded-lg border-2"> 
           <div class="flex flex-col gap-2 p-6">
             <div class="flex flex-row items-center justify-between">
               <p class="font-mono">DataCite</p>
               <div class="flex flex-row gap-1">
                 
-                <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                  Product Design
-                </div>
+                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Product Design</span>
                 
-                <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                  UX Research
-                </div>
+                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">UX Research</span>
                 
               </div>
             </div>
             <div class="flex flex-col gap-2">
               <h3 class="text-2xl font-bold">Innovating Data Usage Processing Services</h3>
-              <p class="text-secondary text-base font-medium">Pioneering an alternative to existing data usage processing services through web tracker development.</p>
+              <p class="text-muted-foreground text-base font-medium">Pioneering an alternative to existing data usage processing services through web tracker development.</p>
               
               
-                <a class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer w-fit hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 mt-2" href="/work/innovating-data-usage-processing-services">
-                  Read case study
-                </a>
+                <a class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 w-fit mt-2" href="/work/innovating-data-usage-processing-services">Read case study</a>
               
             </div>
           </div>
@@ -482,30 +450,24 @@
       
     
       
-        <div class="bg-surface hover:border-card-hover border-card col-span-1 row-span-1 flex max-h-[] flex-col overflow-hidden rounded-lg border-2"> 
+        <div class="bg-card hover:border-border-strong border-border col-span-1 row-span-1 flex flex-col overflow-hidden rounded-lg border-2"> 
           <div class="flex flex-col gap-2 p-6">
             <div class="flex flex-row items-center justify-between">
               <p class="font-mono">DataCite</p>
               <div class="flex flex-row gap-1">
                 
-                <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                  Serverless
-                </div>
+                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Serverless</span>
                 
-                <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                  Ruby on Rails
-                </div>
+                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Ruby on Rails</span>
                 
               </div>
             </div>
             <div class="flex flex-col gap-2">
               <h3 class="text-2xl font-bold">Usage Reports API - Research Data Metrics at Scale</h3>
-              <p class="text-secondary text-base font-medium">Designed and delivered Sashimi—a Rails API that ingests, validates, and stores large SUSHI usage reports at 50,000-dataset scale.</p>
+              <p class="text-muted-foreground text-base font-medium">Designed and delivered Sashimi—a Rails API that ingests, validates, and stores large SUSHI usage reports at 50,000-dataset scale.</p>
               
               
-                <a class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer w-fit hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 mt-2" href="/work/datacite-usage-reports-api">
-                  Read case study
-                </a>
+                <a class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 w-fit mt-2" href="/work/datacite-usage-reports-api">Read case study</a>
               
             </div>
           </div>
@@ -521,30 +483,24 @@
       
     
       
-        <div class="bg-surface hover:border-card-hover border-card col-span-2 row-span-1 flex max-h-[] flex-col overflow-hidden rounded-lg border-2"> 
+        <div class="bg-card hover:border-border-strong border-border col-span-2 row-span-1 flex flex-col overflow-hidden rounded-lg border-2"> 
           <div class="flex flex-col gap-2 p-6">
             <div class="flex flex-row items-center justify-between">
               <p class="font-mono">DataCite</p>
               <div class="flex flex-row gap-1">
                 
-                <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                  UX Research
-                </div>
+                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">UX Research</span>
                 
-                <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                  Service Design
-                </div>
+                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Service Design</span>
                 
               </div>
             </div>
             <div class="flex flex-col gap-2">
               <h3 class="text-2xl font-bold">Redesigning DataCite's Harvesting Services</h3>
-              <p class="text-secondary text-base font-medium">Redesigned DataCite's Harvesting Services from the ground up to boost service utilization and unlock new revenue opportunities.</p>
+              <p class="text-muted-foreground text-base font-medium">Redesigned DataCite's Harvesting Services from the ground up to boost service utilization and unlock new revenue opportunities.</p>
               
               
-                <a class="before:block: before:rounded-lg before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:transform active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer w-fit hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 mt-2" href="/work/redesigning-datacite-harvesting-services">
-                  Read case study
-                </a>
+                <a class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 w-fit mt-2" href="/work/redesigning-datacite-harvesting-services">Read case study</a>
               
             </div>
           </div>
@@ -564,206 +520,186 @@
 
 <!-- Tools Section -->
 <div class="flex flex-col gap-4">
-  <h2 class="text-primary font-mono text-lg font-medium">Useful things I've built</h2>
+  <h2 class="text-foreground font-mono text-lg font-medium">Useful things I've built</h2>
   <section class="flex flex-col gap-4">
     <div class="relative grid gap-6 sm:grid-cols-2 sm:gap-2">
       <img src="/drawings/used-by.svg" alt="Used by" width="113" height="98" class="absolute top-10 -left-32 hidden rotate-2 lg:block">
       
-        <div class="bg-surface border-card flex h-fit w-fit rotate-2 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-surface border-card h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-surface flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
+        <div class="bg-card border-border flex h-fit w-fit rotate-2 flex-row gap-2 rounded-2xl border-2 p-4">
+          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
+            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
               <picture><source type="image/webp" srcset="/img/Tv4I10CcoE-44.webp 44w, /img/Tv4I10CcoE-88.webp 88w" sizes="44px"><img src="/img/Tv4I10CcoE-44.jpeg" alt="Dataset Discovery Agent" class="rounded-md" loading="lazy" decoding="async" width="88" height="88" srcset="/img/Tv4I10CcoE-44.jpeg 44w, /img/Tv4I10CcoE-88.jpeg 88w" sizes="44px"></picture>
             </div>
           </div>
           <div class="flex w-full flex-col gap-1">
             <div class="flex flex-row items-center justify-between">
-              <h3 class="text-primary text-base font-bold">Dataset Discovery Agent</h3>
-              <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                AI   SDK
-              </div>
+              <h3 class="text-foreground text-base font-bold">Dataset Discovery Agent</h3>
+              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">AI   SDK</span>
             </div>
-            <p class="text-secondary text-base font-medium">An AI agent automating discovery, evaluation, and acquisition of open research datasets for scientists and data engineers.</p>
-            <a href="https://hawfinch.vercel.app/" target="_blank" class="text-accent text-base font-medium underline hover:no-underline">
+            <p class="text-muted-foreground text-base font-medium">An AI agent automating discovery, evaluation, and acquisition of open research datasets for scientists and data engineers.</p>
+            <a href="https://hawfinch.vercel.app/" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
               View on the web
             </a>
           </div>
         </div>
       
-        <div class="bg-surface border-card flex h-fit w-fit rotate-3 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-surface border-card h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-surface flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
+        <div class="bg-card border-border flex h-fit w-fit rotate-3 flex-row gap-2 rounded-2xl border-2 p-4">
+          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
+            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
               <picture><source type="image/webp" srcset="/img/xyTiMIx5Lg-44.webp 44w, /img/xyTiMIx5Lg-88.webp 88w" sizes="44px"><img src="/img/xyTiMIx5Lg-44.jpeg" alt="SnowyOwl" class="rounded-md" loading="lazy" decoding="async" width="88" height="88" srcset="/img/xyTiMIx5Lg-44.jpeg 44w, /img/xyTiMIx5Lg-88.jpeg 88w" sizes="44px"></picture>
             </div>
           </div>
           <div class="flex w-full flex-col gap-1">
             <div class="flex flex-row items-center justify-between">
-              <h3 class="text-primary text-base font-bold">SnowyOwl</h3>
-              <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                Claude SDK
-              </div>
+              <h3 class="text-foreground text-base font-bold">SnowyOwl</h3>
+              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Claude SDK</span>
             </div>
-            <p class="text-secondary text-base font-medium">An asynchronous AI development tool where you write task specifications and receive completed pull requests overnight — delegation without presence.</p>
-            <a href="https://github.com/kjgarza/snowyowl" target="_blank" class="text-accent text-base font-medium underline hover:no-underline">
+            <p class="text-muted-foreground text-base font-medium">An asynchronous AI development tool where you write task specifications and receive completed pull requests overnight — delegation without presence.</p>
+            <a href="https://github.com/kjgarza/snowyowl" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
               View on the web
             </a>
           </div>
         </div>
       
-        <div class="bg-surface border-card flex h-fit w-fit rotate-1 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-surface border-card h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-surface flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
+        <div class="bg-card border-border flex h-fit w-fit rotate-1 flex-row gap-2 rounded-2xl border-2 p-4">
+          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
+            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
               <picture><source type="image/webp" srcset="/img/9QYjau4ik6-44.webp 44w, /img/9QYjau4ik6-88.webp 88w" sizes="44px"><img src="/img/9QYjau4ik6-44.jpeg" alt="Technology Radar" class="rounded-md" loading="lazy" decoding="async" width="88" height="88" srcset="/img/9QYjau4ik6-44.jpeg 44w, /img/9QYjau4ik6-88.jpeg 88w" sizes="44px"></picture>
             </div>
           </div>
           <div class="flex w-full flex-col gap-1">
             <div class="flex flex-row items-center justify-between">
-              <h3 class="text-primary text-base font-bold">Technology Radar</h3>
-              <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                Open Source
-              </div>
+              <h3 class="text-foreground text-base font-bold">Technology Radar</h3>
+              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Open Source</span>
             </div>
-            <p class="text-secondary text-base font-medium">A personal technology radar that categorizes tools, frameworks, and techniques into Adopt, Trial, and other tiers — separating what's genuinely useful from what's just hype.</p>
-            <a href="https://kjgarza.github.io/radar" target="_blank" class="text-accent text-base font-medium underline hover:no-underline">
+            <p class="text-muted-foreground text-base font-medium">A personal technology radar that categorizes tools, frameworks, and techniques into Adopt, Trial, and other tiers — separating what's genuinely useful from what's just hype.</p>
+            <a href="https://kjgarza.github.io/radar" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
               View on the web
             </a>
           </div>
         </div>
       
-        <div class="bg-surface border-card flex h-fit w-fit rotate-3 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-surface border-card h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-surface flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
+        <div class="bg-card border-border flex h-fit w-fit rotate-3 flex-row gap-2 rounded-2xl border-2 p-4">
+          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
+            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
               <picture><source type="image/webp" srcset="/img/4OTy2l2YLy-44.webp 44w, /img/4OTy2l2YLy-88.webp 88w" sizes="44px"><img src="/img/4OTy2l2YLy-44.jpeg" alt="Parrot GPT" class="rounded-md" loading="lazy" decoding="async" width="88" height="88" srcset="/img/4OTy2l2YLy-44.jpeg 44w, /img/4OTy2l2YLy-88.jpeg 88w" sizes="44px"></picture>
             </div>
           </div>
           <div class="flex w-full flex-col gap-1">
             <div class="flex flex-row items-center justify-between">
-              <h3 class="text-primary text-base font-bold">Parrot GPT</h3>
-              <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                LLMs
-              </div>
+              <h3 class="text-foreground text-base font-bold">Parrot GPT</h3>
+              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">LLMs</span>
             </div>
-            <p class="text-secondary text-base font-medium">A Python toolkit that uses GPT-3/3.5 to translate, enrich, and cross-walk bibliographic metadata across schemas, with CLI and CI/CD support.</p>
-            <a href="https://github.com/kjgarza/parrot_gpt" target="_blank" class="text-accent text-base font-medium underline hover:no-underline">
+            <p class="text-muted-foreground text-base font-medium">A Python toolkit that uses GPT-3/3.5 to translate, enrich, and cross-walk bibliographic metadata across schemas, with CLI and CI/CD support.</p>
+            <a href="https://github.com/kjgarza/parrot_gpt" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
               View on the web
             </a>
           </div>
         </div>
       
-        <div class="bg-surface border-card flex h-fit w-fit rotate-5 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-surface border-card h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-surface flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
+        <div class="bg-card border-border flex h-fit w-fit rotate-5 flex-row gap-2 rounded-2xl border-2 p-4">
+          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
+            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
               <picture><source type="image/webp" srcset="/img/YCBaiRoUX4-44.webp 44w, /img/YCBaiRoUX4-88.webp 88w" sizes="44px"><img src="/img/YCBaiRoUX4-44.jpeg" alt="Election Program AI Analyser" class="rounded-md" loading="lazy" decoding="async" width="88" height="102" srcset="/img/YCBaiRoUX4-44.jpeg 44w, /img/YCBaiRoUX4-88.jpeg 88w" sizes="44px"></picture>
             </div>
           </div>
           <div class="flex w-full flex-col gap-1">
             <div class="flex flex-row items-center justify-between">
-              <h3 class="text-primary text-base font-bold">Election Program AI Analyser</h3>
-              <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                OpenAI
-              </div>
+              <h3 class="text-foreground text-base font-bold">Election Program AI Analyser</h3>
+              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">OpenAI</span>
             </div>
-            <p class="text-secondary text-base font-medium">An AI-powered tool that simplifies 2025 Bundestag election programs, giving clear answers to voters’ policy questions in natural language.</p>
-            <a href="https://chatgpt.com/g/g-678bbfd0f3388191b253ef5725e242e0-bundestags-wahlnavigator-2025" target="_blank" class="text-accent text-base font-medium underline hover:no-underline">
+            <p class="text-muted-foreground text-base font-medium">An AI-powered tool that simplifies 2025 Bundestag election programs, giving clear answers to voters’ policy questions in natural language.</p>
+            <a href="https://chatgpt.com/g/g-678bbfd0f3388191b253ef5725e242e0-bundestags-wahlnavigator-2025" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
               View on the web
             </a>
           </div>
         </div>
       
-        <div class="bg-surface border-card flex h-fit w-fit rotate-4 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-surface border-card h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-surface flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
+        <div class="bg-card border-border flex h-fit w-fit rotate-4 flex-row gap-2 rounded-2xl border-2 p-4">
+          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
+            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
               <picture><source type="image/webp" srcset="/img/qErplFUdSF-44.webp 44w, /img/qErplFUdSF-88.webp 88w" sizes="44px"><img src="/img/qErplFUdSF-44.jpeg" alt="CrossFit WOD Viewer" class="rounded-md" loading="lazy" decoding="async" width="88" height="88" srcset="/img/qErplFUdSF-44.jpeg 44w, /img/qErplFUdSF-88.jpeg 88w" sizes="44px"></picture>
             </div>
           </div>
           <div class="flex w-full flex-col gap-1">
             <div class="flex flex-row items-center justify-between">
-              <h3 class="text-primary text-base font-bold">CrossFit WOD Viewer</h3>
-              <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                Git Scrape
-              </div>
+              <h3 class="text-foreground text-base font-bold">CrossFit WOD Viewer</h3>
+              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Git Scrape</span>
             </div>
-            <p class="text-secondary text-base font-medium">A web app that scrapes CrossFit workout-of-the-day data and uses AI to provide explanations, scaling options, and beginner-friendly modifications.</p>
-            <a href="https://kjgarza.github.io/oxypogon/" target="_blank" class="text-accent text-base font-medium underline hover:no-underline">
+            <p class="text-muted-foreground text-base font-medium">A web app that scrapes CrossFit workout-of-the-day data and uses AI to provide explanations, scaling options, and beginner-friendly modifications.</p>
+            <a href="https://kjgarza.github.io/oxypogon/" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
               View on the web
             </a>
           </div>
         </div>
       
-        <div class="bg-surface border-card flex h-fit w-fit rotate-2 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-surface border-card h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-surface flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
+        <div class="bg-card border-border flex h-fit w-fit rotate-2 flex-row gap-2 rounded-2xl border-2 p-4">
+          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
+            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
               <picture><source type="image/webp" srcset="/img/xyTiMIx5Lg-44.webp 44w, /img/xyTiMIx5Lg-88.webp 88w" sizes="44px"><img src="/img/xyTiMIx5Lg-44.jpeg" alt="Kitchen Timer" class="rounded-md" loading="lazy" decoding="async" width="88" height="88" srcset="/img/xyTiMIx5Lg-44.jpeg 44w, /img/xyTiMIx5Lg-88.jpeg 88w" sizes="44px"></picture>
             </div>
           </div>
           <div class="flex w-full flex-col gap-1">
             <div class="flex flex-row items-center justify-between">
-              <h3 class="text-primary text-base font-bold">Kitchen Timer</h3>
-              <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                Claude
-              </div>
+              <h3 class="text-foreground text-base font-bold">Kitchen Timer</h3>
+              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Claude</span>
             </div>
-            <p class="text-secondary text-base font-medium">A mobile-optimized cooking app that uses GPT vision to extract structured data from recipe photos, with an action-first UI designed to reduce cognitive load in the kitchen.</p>
-            <a href="https://kjgarza.github.io/chickadee/" target="_blank" class="text-accent text-base font-medium underline hover:no-underline">
+            <p class="text-muted-foreground text-base font-medium">A mobile-optimized cooking app that uses GPT vision to extract structured data from recipe photos, with an action-first UI designed to reduce cognitive load in the kitchen.</p>
+            <a href="https://kjgarza.github.io/chickadee/" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
               View on the web
             </a>
           </div>
         </div>
       
-        <div class="bg-surface border-card flex h-fit w-fit rotate-1 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-surface border-card h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-surface flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
+        <div class="bg-card border-border flex h-fit w-fit rotate-1 flex-row gap-2 rounded-2xl border-2 p-4">
+          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
+            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
               <picture><source type="image/webp" srcset="/img/xyTiMIx5Lg-44.webp 44w, /img/xyTiMIx5Lg-88.webp 88w" sizes="44px"><img src="/img/xyTiMIx5Lg-44.jpeg" alt="Claude Code Plugin Marketplace" class="rounded-md" loading="lazy" decoding="async" width="88" height="88" srcset="/img/xyTiMIx5Lg-44.jpeg 44w, /img/xyTiMIx5Lg-88.jpeg 88w" sizes="44px"></picture>
             </div>
           </div>
           <div class="flex w-full flex-col gap-1">
             <div class="flex flex-row items-center justify-between">
-              <h3 class="text-primary text-base font-bold">Claude Code Plugin Marketplace</h3>
-              <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                Claude Code
-              </div>
+              <h3 class="text-foreground text-base font-bold">Claude Code Plugin Marketplace</h3>
+              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Claude Code</span>
             </div>
-            <p class="text-secondary text-base font-medium">A collection of Claude Code plugins for research, development workflows and personal productivity, installable as a marketplace.</p>
-            <a href="https://github.com/kjgarza/marketplace-claude" target="_blank" class="text-accent text-base font-medium underline hover:no-underline">
+            <p class="text-muted-foreground text-base font-medium">A collection of Claude Code plugins for research, development workflows and personal productivity, installable as a marketplace.</p>
+            <a href="https://github.com/kjgarza/marketplace-claude" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
               View on the web
             </a>
           </div>
         </div>
       
-        <div class="bg-surface border-card flex h-fit w-fit rotate-4 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-surface border-card h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-surface flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
+        <div class="bg-card border-border flex h-fit w-fit rotate-4 flex-row gap-2 rounded-2xl border-2 p-4">
+          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
+            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
               <picture><source type="image/webp" srcset="/img/9QYjau4ik6-44.webp 44w, /img/9QYjau4ik6-88.webp 88w" sizes="44px"><img src="/img/9QYjau4ik6-44.jpeg" alt="Kea Party Games" class="rounded-md" loading="lazy" decoding="async" width="88" height="88" srcset="/img/9QYjau4ik6-44.jpeg 44w, /img/9QYjau4ik6-88.jpeg 88w" sizes="44px"></picture>
             </div>
           </div>
           <div class="flex w-full flex-col gap-1">
             <div class="flex flex-row items-center justify-between">
-              <h3 class="text-primary text-base font-bold">Kea Party Games</h3>
-              <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                LLMs
-              </div>
+              <h3 class="text-foreground text-base font-bold">Kea Party Games</h3>
+              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">LLMs</span>
             </div>
-            <p class="text-secondary text-base font-medium">A party card games app with five game types and LLM-generated card decks to play with friends.</p>
-            <a href="https://kjgarza.github.io/kea/" target="_blank" class="text-accent text-base font-medium underline hover:no-underline">
+            <p class="text-muted-foreground text-base font-medium">A party card games app with five game types and LLM-generated card decks to play with friends.</p>
+            <a href="https://kjgarza.github.io/kea/" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
               View on the web
             </a>
           </div>
         </div>
       
-        <div class="bg-surface border-card flex h-fit w-fit rotate-2 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-surface border-card h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-surface flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
+        <div class="bg-card border-border flex h-fit w-fit rotate-2 flex-row gap-2 rounded-2xl border-2 p-4">
+          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
+            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
               <picture><source type="image/webp" srcset="/img/9QYjau4ik6-44.webp 44w, /img/9QYjau4ik6-88.webp 88w" sizes="44px"><img src="/img/9QYjau4ik6-44.jpeg" alt="Einbürgerungstest Trainer" class="rounded-md" loading="lazy" decoding="async" width="88" height="88" srcset="/img/9QYjau4ik6-44.jpeg 44w, /img/9QYjau4ik6-88.jpeg 88w" sizes="44px"></picture>
             </div>
           </div>
           <div class="flex w-full flex-col gap-1">
             <div class="flex flex-row items-center justify-between">
-              <h3 class="text-primary text-base font-bold">Einbürgerungstest Trainer</h3>
-              <div class="inline-flex items-center rounded-full border-2 px-2 py-1 w-fit h-fit text-xs font-bold transition-colors border-neutral-300 bg-white text-primary">
-                Open Source
-              </div>
+              <h3 class="text-foreground text-base font-bold">Einbürgerungstest Trainer</h3>
+              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Open Source</span>
             </div>
-            <p class="text-secondary text-base font-medium">A practice app for the German naturalisation test (Leben in Deutschland).</p>
-            <a href="https://kjgarza.github.io/gouldian_finch/" target="_blank" class="text-accent text-base font-medium underline hover:no-underline">
+            <p class="text-muted-foreground text-base font-medium">A practice app for the German naturalisation test (Leben in Deutschland).</p>
+            <a href="https://kjgarza.github.io/gouldian_finch/" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
               View on the web
             </a>
           </div>
@@ -775,33 +711,33 @@
 
   </main>
   
-  <footer class="text-primary flex w-full max-w-4xl flex-col items-center justify-between gap-1 px-4 pt-8 pb-24 font-mono font-medium sm:pb-8 md:px-12 xl:px-8">
+  <footer class="text-foreground flex w-full max-w-4xl flex-col items-center justify-between gap-1 px-4 pt-8 pb-24 font-mono font-medium sm:pb-8 md:px-12 xl:px-8">
   <div class="flex flex-wrap items-center gap-4">
     <div class="flex items-center gap-4">
-      <a class="hover:text-accent hover:underline" target="_blank" href="https://www.figma.com/@kristiangarza">
+      <a class="hover:text-primary hover:underline" target="_blank" href="https://www.figma.com/@kristiangarza">
         Figma
       </a>
     </div>
     <div class="flex items-center gap-4">
       <span class="text-neutral-400">·</span>
-      <a class="hover:text-accent hover:underline" target="_blank" href="https://github.com/kjgarza">
+      <a class="hover:text-primary hover:underline" target="_blank" href="https://github.com/kjgarza">
         Github
       </a>
     </div>
     <div class="flex items-center gap-4">
       <span class="text-neutral-400">·</span>
-      <a class="hover:text-accent hover:underline" target="_blank" href="https://www.linkedin.com/in/kjgarza">
+      <a class="hover:text-primary hover:underline" target="_blank" href="https://www.linkedin.com/in/kjgarza">
         LinkedIn
       </a>
     </div>
     <div class="flex items-center gap-4">
       <span class="text-neutral-400">·</span>
-      <a class="hover:text-accent hover:underline" target="_blank" href="mailto:kj.garza+kjgarza@gmail.com">
+      <a class="hover:text-primary hover:underline" target="_blank" href="mailto:kj.garza+kjgarza@gmail.com">
         Email
       </a>
     </div>
   </div>
-  <p class="text-secondary text-sm">Copyright © 2026 Kristian Garza</p>
+  <p class="text-muted-foreground text-sm">Copyright © 2026 Kristian Garza</p>
 </footer>
 
 </body>

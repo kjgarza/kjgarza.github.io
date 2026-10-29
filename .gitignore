@@ -165,3 +165,6 @@ __pycache__/
 CLAUDE.local.md
 .claude/worktrees/
 .claude/settings.local.json
+
+# /ask/ page bundle, built from lib/ask/ by `bun run build:ask`
+src/assets/js/ask.js

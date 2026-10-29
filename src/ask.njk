@@ -1,0 +1,47 @@
+---
+layout: layouts/base.njk
+title: Ask about my work
+description: Ask a question about Kristian Garza's work and get a short answer built from his real projects, case studies and publications.
+permalink: /ask/
+suggestedQuestions:
+  - question: Have you built AI products for researchers?
+    href: /work/
+  - question: What have you done with knowledge graphs?
+    href: /work/knowledge-graph-engine/
+  - question: Which design systems have you worked on?
+    href: /work/creating-a-design-system/
+  - question: What have you published on metadata and LLMs?
+    href: /publications/
+  - question: What side projects have you built with AI?
+    href: /tools/
+---
+{% from "components/ui/button.njk" import button %}
+
+<div class="flex w-full max-w-4xl flex-1 flex-col gap-6 p-4 md:p-12 xl:p-8">
+  <div class="flex flex-col gap-2">
+    <h1 class="text-primary font-mono text-2xl font-bold">Ask about my work</h1>
+    <p class="text-muted-foreground text-lg">Ask a question about my projects, roles or writing. A small Claude model picks the projects, case studies and papers that answer it, and they render here as the same cards you see on the rest of the site. It only knows what's published on this site.</p>
+  </div>
+
+  {%- if site.askEndpoint %}
+  <form id="ask-form" class="flex flex-col gap-2" data-endpoint="{{ site.askEndpoint }}" hidden>
+    <label for="ask-question" class="text-primary font-mono text-sm font-medium">Your question</label>
+    <textarea id="ask-question" name="question" rows="2" maxlength="300" required class="bg-card border-border text-foreground w-full rounded-lg border-2 p-4 text-base font-medium" placeholder="Has Kristian built AI products for researchers?"></textarea>
+    {% call button("primary", class="w-fit", attrs='type="submit"') %}Ask{% endcall %}
+  </form>
+  {%- endif %}
+
+  <section class="flex flex-col gap-2">
+    <h2 class="text-primary font-mono text-sm font-medium">Try asking</h2>
+    <ul class="flex flex-col gap-1">
+      {%- for s in suggestedQuestions %}
+      <li><a href="{{ s.href }}" data-question="{{ s.question }}" class="text-primary text-base font-medium underline hover:no-underline">{{ s.question }}</a></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <div id="ask-answer" class="flex flex-col gap-6" aria-live="polite" aria-busy="false"></div>
+</div>
+{%- if site.askEndpoint %}
+<script type="module" src="/assets/js/ask.js"></script>
+{%- endif %}

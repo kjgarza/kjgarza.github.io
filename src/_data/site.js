@@ -19,6 +19,8 @@ module.exports = {
       "Hosting DS’s AI Technology Radar sessions and experimenting with personal AI projects like a Dataset Discovery & Evaluation Agent.",
   },
   ga_code: "G-X7KFRJYWBL",
+  // Deployed worker/ask endpoint. Unset, /ask/ ships as suggested-question links only
+  askEndpoint: process.env.ASK_ENDPOINT || "",
   schema_org: {
     "@context": "https://schema.org",
     "@type": "Person",

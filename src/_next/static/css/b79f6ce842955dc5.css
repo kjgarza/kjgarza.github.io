@@ -2774,3 +2774,9 @@
     --tw-prose-code: #FF0066;
     --tw-prose-pre-bg: #1e1e2e;
 }
+
+/* Missing from the pre-built bundle: without these the desktop nav links never show and the burger shows at every width. */
+@media (width>=40rem) {
+    .sm\:flex { display: flex }
+    .sm\:hidden { display: none }
+}

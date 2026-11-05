@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap');
+
+/* Homepage hierarchy, matching the case-study type scale so both pages read
+   as one system: display headline > section heading > card title > body,
+   with mono-caps labels as the quiet tier. Colours come from the shared
+   tokens in src/styles/tailwind.css; only the display face is local. */
+:root {
+  --home-display: 'Bricolage Grotesque', var(--font-sans);
+}
+
+/* ── Tier 0: eyebrow + labels (quiet) ── */
+.home-eyebrow,
+.home-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--primary);
+}
+
+/* ── Tier 1: the headline is the page's h1 ── */
+.home-title {
+  font-family: var(--home-display);
+  font-size: clamp(1.9rem, 6vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  font-variation-settings: 'opsz' 72;
+  color: var(--foreground);
+}
+/* Let the sentence wrap on narrow screens; keep each accent phrase whole. */
+.home-title .whitespace-nowrap { white-space: normal; }
+.home-title .text-primary { white-space: nowrap; }
+
+/* Decorations positioned in em so they track the larger type. */
+.home-title .home-deco-underline {
+  top: auto; left: 0; bottom: -0.08em;
+  width: 100%; height: auto;
+}
+.home-title .home-deco-sparkle { top: -0.15em; right: -0.65em; }
+.home-title .home-deco-arrow { top: -1.5em; left: 0.4em; width: 2.1em; height: auto; }
+
+/* ── Tier 2: section headings (match case-study h2) ── */
+.home-section {
+  font-family: var(--home-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-variation-settings: 'opsz' 48;
+  color: var(--foreground);
+  padding-bottom: 0.6rem;
+  margin-top: 1.5rem;
+  border-bottom: 2px solid var(--primary);
+}
+
+/* ── Tier 3: work cards ── */
+.home-company {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.home-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border: 1px solid var(--border-strong);
+  border-radius: 2px;
+  padding: 0.25em 0.65em;
+  background: transparent;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+}
+
+.home-card-title {
+  font-family: var(--home-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+}
+
+/* Equal-height media strip: every card image gets the same frame. */
+.home-card-media {
+  margin-top: auto;
+  padding: 0 1.5rem;
+  height: 220px;
+  overflow: hidden;
+}
+.home-card-media picture { display: block; height: 100%; }
+.home-card-media img {
+  position: static !important;
+  min-width: 0 !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+}
+
+/* Strict two-column rhythm: wide lead card, then even pairs. */
+@media (min-width: 640px) {
+  .home-work-grid { grid-template-rows: none !important; grid-auto-rows: auto; }
+  .home-work-grid > .home-card { grid-row: auto !important; }
+  .home-work-grid > .home-card:not(:first-child) { grid-column: span 1 / span 1 !important; }
+}
+
+/* ── Touch targets: 40px hit area around 20px icons ── */
+.home-social { gap: 0; margin-left: -10px; }
+.home-social a { display: inline-flex; padding: 10px; }
+
+.home-visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}

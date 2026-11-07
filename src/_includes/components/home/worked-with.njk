@@ -1,0 +1,14 @@
+{#- Logo row from src/_data/organisations.js. Grey vs colour comes from the
+    theme's --logo-filter token, so the markup is the same in both themes. -#}
+<section class="home-block" data-reveal aria-labelledby="worked-with">
+  <h2 id="worked-with" class="home-label">Worked with</h2>
+  <ul class="home-logos">
+    {%- for org in organisations %}
+    <li>
+      <a href="{{ org.link }}" title="{{ org.name }}: {{ org.relationship }}">
+        <img src="{{ org.logo }}" alt="{{ org.name }}" width="{{ org.width }}" height="{{ org.height }}" style="height: {{ org.displayHeight }}px" loading="lazy" decoding="async">
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>

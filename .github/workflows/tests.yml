@@ -26,5 +26,11 @@ jobs:
       - name: Script tests (pytest)
         run: uvx pytest
 
-      - name: Site and CV tests (bun)
+      - name: Site, CV and theme tests (bun, accent theme)
         run: bun test tests/
+
+      # Both build-time themes must pass the SEO and CV checks (issue #33)
+      - name: Site and CV tests (bun, editorial theme)
+        run: bun test tests/seo.test.js tests/cv-to-pdf.test.js
+        env:
+          SITE_THEME: editorial

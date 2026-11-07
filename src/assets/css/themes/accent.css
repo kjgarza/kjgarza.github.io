@@ -1,0 +1,23 @@
+/* Theme B, "accent": editorial structure with the brand pink (issue #33).
+   Keeps the shared colour tokens from src/styles/tailwind.css as they are and
+   only sets the theme tokens that src/assets/css/home.css reads. */
+:root {
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --display-weight: 400;
+  --display-tracking: -0.015em;
+
+  --label: var(--primary);     /* labels carry the pink */
+  --label-tracking: 0.14em;
+  --rule: #ececee;
+  --logo-filter: none;
+  --logo-opacity: 1;
+  --feature-bg: var(--card);   /* radar block sits on a soft card */
+  --feature-pad: 1.75rem;
+  --feature-radius: 12px;
+}
+
+:root[data-theme=dark], .dark {
+  --rule: #333336;
+  --logo-filter: grayscale(1) invert(1) brightness(1.5);
+  --logo-opacity: 0.85;
+}

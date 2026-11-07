@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en">
+<html class="scroll-smooth" lang="en" data-site-theme="{{ theme.name }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,15 +10,19 @@
 
   <!-- Self-hosted fonts (latin subset); Manrope is a single variable file for 400–700 -->
   <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ theme.displayFont.file }}" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ '/assets/css/site.css' | cssUrl | url }}" as="style">
   <style>
     @font-face { font-family: 'Manrope'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/manrope-latin.woff2) format('woff2'); }
+    @font-face { font-family: '{{ theme.displayFont.family }}'; font-style: normal; font-weight: {{ theme.displayFont.weight }}; font-display: swap; src: url({{ theme.displayFont.file }}) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/dm-mono-500-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-italic-latin.woff2) format('woff2'); }
   </style>
 
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | cssUrl | url }}">
+  <!-- Build-time theme tokens (SITE_THEME, src/_data/theme.js); overrides the shared variables above -->
+  <link rel="stylesheet" href="{{ ('/assets/css/themes/' + theme.name + '.css') | url }}">
   <!-- Basecoat runtime + drawer (mobile menu animation and backdrop close; the menu works without them) -->
   <script defer src="{{ '/assets/js/basecoat.min.js' | url }}"></script>
   <script defer src="{{ '/assets/js/drawer.min.js' | url }}"></script>

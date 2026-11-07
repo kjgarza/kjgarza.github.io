@@ -35,7 +35,11 @@ jobs:
           key: ${{ runner.os }}-eleventy-fetch-cache
 
       - run: bun install
+      # Build-time theme: set the SITE_THEME repository variable (accent | editorial).
+      # Unset or empty builds the default theme (accent).
       - run: bun run build-ghpages
+        env:
+          SITE_THEME: ${{ vars.SITE_THEME }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

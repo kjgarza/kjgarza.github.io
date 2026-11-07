@@ -211,8 +211,10 @@ describe("images and performance", () => {
       }
     }
   });
-  test("decorative arrow has empty alt", () => {
-    expect(read("/")).toMatch(/<img src="\/drawings\/Arrow-new\.svg" alt=""/);
+  test("homepage decorations are hidden from assistive technology", () => {
+    const html = read("/");
+    for (const img of html.match(/<img\b[^>]*src="\/drawings\/[^"]*"[^>]*>/g) || []) expect(img).toMatch(/\salt=""/);
+    for (const svg of html.match(/<svg\b[^>]*class="home-doodle[^"]*"[^>]*>/g) || []) expect(svg).toContain('aria-hidden="true"');
   });
   test("fonts are self-hosted and preloaded", () => {
     const html = read("/");

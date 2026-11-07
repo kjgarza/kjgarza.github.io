@@ -1,0 +1,26 @@
+{#- Featured case studies as a numbered list. theme.projectThumbnails adds a
+    small screenshot to each row. -#}
+<section id="work" class="home-block" data-reveal aria-labelledby="work-heading">
+  <p class="home-label">Selected work</p>
+  <h2 id="work-heading" class="home-heading">Case studies</h2>
+  <ol class="home-list">
+    {%- set n = 0 %}
+    {%- for item in work %}{% if item.featured %}
+    {%- set n = n + 1 %}
+    <li class="home-row{% if theme.projectThumbnails and item.image %} home-row--thumb{% endif %}">
+      <span class="home-row-num">{{ "0" if n < 10 }}{{ n }}</span>
+      <div class="home-row-body">
+        <p class="home-row-title"><a href="{{ item.link }}/">{{ item.title }}</a></p>
+        <p class="home-row-meta">{{ item.company }}{% for tag in item.tags | batch(2) | first %} · {{ tag }}{% endfor %}</p>
+        <p class="home-row-text">{{ item.description }}</p>
+      </div>
+      {%- if theme.projectThumbnails and item.image %}
+      <div class="home-row-thumb">
+        {% image item.image, "", "", "lazy", "", "128px", [128, 256] %}
+      </div>
+      {%- endif %}
+    </li>
+    {%- endif %}{% endfor %}
+  </ol>
+  <a class="home-link-strong home-more" href="/work/">All case studies →</a>
+</section>

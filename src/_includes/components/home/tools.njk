@@ -1,0 +1,16 @@
+<section class="home-block" data-reveal aria-labelledby="tools-heading">
+  <p class="home-label">Side projects</p>
+  <h2 id="tools-heading" class="home-heading">Useful things I've built</h2>
+  <ul class="home-list">
+    {%- for tool in tools | batch(4) | first %}
+    <li class="home-row home-row--plain">
+      <div class="home-row-body">
+        <p class="home-row-title"><a href="{{ tool.link }}">{{ tool.name }} ↗</a></p>
+        <p class="home-row-meta">{{ tool.type }}</p>
+        <p class="home-row-text">{{ tool.description }}</p>
+      </div>
+    </li>
+    {%- endfor %}
+  </ul>
+  <a class="home-link-strong home-more" href="/tools/">All {{ tools.length }} tools →</a>
+</section>

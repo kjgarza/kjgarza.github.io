@@ -1,0 +1,32 @@
+{#- Hero. theme.heroStyle: "profile" (name as H1, monogram, role, chips) or
+    "headline" (the "Solving complex problems…" sentence as H1, one doodle). -#}
+{% from "components/ui/button.njk" import button %}
+{% set mailto = "mailto:" + site.author.email + "?subject=" + ("Hello from your website" | urlencode) %}
+<header class="home-hero home-hero--{{ theme.heroStyle }}">
+  {% if theme.heroStyle == "profile" %}
+  <div class="home-monogram" aria-hidden="true">KG</div>
+  <div class="home-hero-body">
+    <h1 class="home-name">{{ site.author.name }}</h1>
+    <p class="home-role">{{ site.role }}</p>
+    <p class="home-position">{{ site.position }}</p>
+  {% else %}
+  <div class="home-hero-body">
+    <p class="home-eyebrow">{{ site.author.name }} — AI Engineer in Berlin</p>
+    <h1 class="home-headline">Solving complex problems, identifying smart solutions, in
+      <span class="home-headline-accent">open science<svg class="home-doodle" aria-hidden="true" focusable="false" width="140" height="9" viewBox="0 0 140 9" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 6.5C40 2.5 90 2 139 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></h1>
+  {% endif %}
+    <ul class="home-chips" aria-label="Focus areas">
+      {%- for area in site.focusAreas %}
+      <li>{{ area }}</li>
+      {%- endfor %}
+    </ul>
+    <div class="home-hero-actions">
+      {% if theme.ctaStyle == "button" %}
+      {% call button("primary", href=mailto, class="w-fit home-button") %}Get in touch{% endcall %}
+      {% else %}
+      <a class="home-link-strong" href="{{ mailto }}">Get in touch →</a>
+      {% endif %}
+      <a class="home-link" href="#work">Explore selected work ↓</a>
+    </div>
+  </div>
+</header>

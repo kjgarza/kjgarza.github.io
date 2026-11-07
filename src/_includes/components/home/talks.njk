@@ -1,0 +1,18 @@
+{#- Renders only when src/_data/talks.js has entries. -#}
+{% if talks.length %}
+<section class="home-block" data-reveal aria-labelledby="talks-heading">
+  <p class="home-label">On stage</p>
+  <h2 id="talks-heading" class="home-heading">Talks</h2>
+  <ul class="home-list">
+    {%- for talk in talks %}
+    <li class="home-row home-row--plain home-row--dated">
+      <div class="home-row-body">
+        <p class="home-row-title home-row-title--serif">{% if talk.link %}<a href="{{ talk.link }}">{{ talk.title }}</a>{% else %}{{ talk.title }}{% endif %}</p>
+        <p class="home-row-meta">{{ talk.event }}{% if talk.city %}, {{ talk.city }}{% endif %}{% if talk.role %} · {{ talk.role }}{% endif %}</p>
+      </div>
+      <span class="home-row-year">{{ talk.year }}</span>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+{% endif %}

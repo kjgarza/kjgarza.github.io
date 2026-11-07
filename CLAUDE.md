@@ -16,12 +16,17 @@ bun run reinstall  # Clean + reinstall dependencies
 
 Via `just` (requires [just](https://github.com/casey/just)):
 ```bash
-just dev           # Same as bun run dev
-just build         # Same as bun run build
+just dev           # Same as bun run dev (accent theme)
+just dev editorial # Dev server with the editorial theme
+just build         # Same as bun run build; `just build editorial` for the other theme
 just serve         # Serve _site/ with python3 http.server on :8080
 ```
 
+The site has two **build-time themes**, picked with `SITE_THEME` (`accent`, the default, or `editorial`). See Themes below.
+
 No linter is configured. `bun test` (`tests/seo.test.js`) builds the site and checks SEO invariants on `_site/`: canonicals, escaped meta tags, one H1 per page, descriptions of at most 160 characters, noindex/sitemap rules, structured data, and image attributes. Run it after touching layouts, front matter or `src/_data/`.
+
+`tests/themes.test.js` builds both themes into `.cache/theme-test-<theme>/` and checks the homepage: theme selection, section order, logos, case-study links, publications, thumbnails and the scroll-reveal markup. `just test` and CI also run the SEO and CV suites a second time with `SITE_THEME=editorial`.
 
 `just test` runs everything; `just test-scripts` (`uvx pytest`) runs only the job-pipeline script tests, offline and in seconds. Run it after touching anything in `scripts/` or a skill's `scripts/`.
 - `tests/cv-to-pdf.test.js` (bun) renders the site CV through `scripts/cv-to-pdf.js` without launching Chrome.
@@ -65,10 +70,14 @@ All files export plain JS arrays/objects consumed as global template variables:
 | `tools.js` | `tools` | Side-project tools shown on homepage + /tools |
 | `publications.js` | `publications` | Academic publications list |
 | `navigation.js` | `navigation` | Nav links array |
+| `theme.js` | `theme` | Active build-time theme (from `SITE_THEME`) and its layout switches |
+| `organisations.js` | `organisations` | "Worked with" logo row on the homepage |
+| `talks.js` | `talks` | Homepage Talks section; hidden while empty |
+| `awards.js` | `awards` | Homepage Awards & affiliations; hidden while empty |
 
 ### Pages and routing
 
-- **`/`** (`index.njk`) — Homepage: hero text, bio sections, featured work grid, tools preview
+- **`/`** (`index.njk`) — Homepage: an ordered list of section partials in `components/home/` (hero, about, worked-with, work, tools, radar, publications, talks, awards, contact)
 - **`/work`** (`work.njk`) — All work items from `work.js`
 - **`/work/:slug/`** — Individual case studies from `src/work/*.md`, using `layout: layouts/case-study.njk`
 - **`/tools`** (`tools.njk`) — All tools from `tools.js`
@@ -100,6 +109,16 @@ Tailwind v4 compiles `src/styles/tailwind.css` to `_site/assets/css/site.css` in
 - **Basecoat** (`basecoat-css`, shadcn/ui ported to plain HTML) provides heavier components. Import only what's used at the top of `tailwind.css` (`@import "basecoat-css/components/<name>"`) and copy its JS from `node_modules/basecoat-css/dist/js/` with a passthrough in `.eleventy.js`. Today: the **drawer** (shadcn Sheet) for the mobile menu in `components/nav.njk`, a `<dialog class="drawer">` opened with `showModal()`. `body > :not(dialog)` in `base.njk` keeps the background-lift rule off dialogs.
 - Buttons and tag pills come from the macros in `components/ui/`, shadcn-style variant maps. Use them instead of copying class strings:
   `{% from "components/ui/button.njk" import button %}` then `{% call button("secondary", href=url, class="w-fit") %}Label{% endcall %}` (variants `primary | secondary | ghost`, sizes `default | icon`, raw attributes via `attrs='type="button"'`), and `{% from "components/ui/badge.njk" import badge %}` then `{{ badge(tag) }}` (variants `outline | blue | green | purple | neutral`).
+
+### Themes
+
+Two build-time themes share all markup (issue #33): **`accent`** (default; brand pink, Fraunces display, project thumbnails, staggered row reveal) and **`editorial`** (monochrome, Playfair Display, grey logos, text-link calls to action). `SITE_THEME` selects one; an unknown name fails the build. Deploy reads the `SITE_THEME` repository variable.
+
+- `src/_data/theme.js` holds every layout switch: `heroStyle` (`profile` | `headline`), `projectThumbnails`, `ctaStyle` (`link` | `button`), `reveal` (`section` | `stagger`), and `displayFont`. Partials read them as `theme.<switch>`; `<html data-site-theme>` names the active theme. (`data-theme` is taken by dark mode.)
+- `src/assets/css/themes/<name>.css` loads after `site.css` and only sets tokens: `--font-display`, `--primary` (editorial), `--label`, `--rule`, `--logo-filter`, `--feature-*`, each with a dark-mode value.
+- `src/assets/css/home.css` is the shared homepage layout (`home-*` classes) and reads only tokens. Case studies take `--font-display` and `--primary` from the theme too.
+- Scroll reveal: sections carry `data-reveal`; `src/assets/js/reveal.js` (deferred, no dependencies) adds `reveal-ready` to `<html>` and reveals each section once. The server HTML never hides anything, and reduced motion turns it off.
+- A new homepage section is a partial in `components/home/`: a `<section data-reveal aria-labelledby=…>` with a `home-label` and a `home-heading` H2, styled only with tokens, and it must look right in both themes. Add a switch to `theme.js` only when tokens can't express the difference.
 
 ### Static API passthrough
 

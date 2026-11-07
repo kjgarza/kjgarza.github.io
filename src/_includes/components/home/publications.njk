@@ -1,0 +1,13 @@
+<section class="home-block" data-reveal aria-labelledby="pubs-heading">
+  <p class="home-label">Research</p>
+  <h2 id="pubs-heading" class="home-heading">Publications</h2>
+  <ul class="home-list">
+    {%- for pub in (publications | sort(true, false, "publicationYear")) | batch(5) | first %}
+    <li class="home-row home-row--plain home-row--dated">
+      <p class="home-row-title home-row-title--serif"><a href="{{ pub.id }}">{{ pub.title }}</a></p>
+      <span class="home-row-year">{{ pub.publicationYear }}</span>
+    </li>
+    {%- endfor %}
+  </ul>
+  <a class="home-link-strong home-more" href="/publications/">All {{ publications.length }} publications →</a>
+</section>

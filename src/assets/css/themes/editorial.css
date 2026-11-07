@@ -1,0 +1,27 @@
+/* Theme A, "editorial": quiet and monochrome (issue #33).
+   Only overrides the shared tokens from src/styles/tailwind.css plus the
+   theme tokens that src/assets/css/home.css reads. No layout here. */
+:root {
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --display-weight: 400;
+  --display-tracking: -0.01em;
+
+  --primary: #1a1a1a;          /* accent text becomes ink */
+  --ring: #1a1a1a;
+  --label: #737373;            /* small uppercase labels: 4.7:1 on white */
+  --label-tracking: 0.16em;
+  --rule: #e6e6e6;             /* hairlines between rows and sections */
+  --decoration: #d4d4d4;
+  --logo-filter: grayscale(1) brightness(0.45);
+  --logo-opacity: 0.85;
+}
+
+:root[data-theme=dark], .dark {
+  --primary: #fafafa;
+  --ring: #fafafa;
+  --label: #a1a1aa;
+  --rule: #333336;
+  --decoration: #52525b;
+  --logo-filter: grayscale(1) invert(1) brightness(1.5);
+  --logo-opacity: 0.8;
+}

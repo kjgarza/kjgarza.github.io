@@ -1,6 +1,6 @@
 /* Scroll reveal (issues #33, #35), loaded on every page by layouts/base.njk with
-   src/assets/js/reveal.js. Sections opt in with [data-reveal]. */
-/* ── Scroll reveal (reveal.js adds .reveal-ready; without it nothing is hidden) ── */
+   src/assets/js/reveal.js. Sections opt in with [data-reveal]; reveal.js adds
+   .reveal-ready to <html>, and without it nothing is hidden. */
 /* Transition only on the way in, so the hidden start state applies instantly. */
 .reveal-ready [data-reveal].is-revealed {
   transition: opacity 600ms ease-out, transform 600ms ease-out;

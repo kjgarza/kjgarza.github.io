@@ -15,7 +15,7 @@ permalink: /tools/
   <section class="ed-section" data-reveal aria-label="Tools">
     <ul class="ed-list">
       {%- for tool in tools %}
-      {{ ed.plainRow({ title: tool.name, titleTag: "h2", href: tool.link, arrow: true, meta: tool.type, text: tool.description }) }}
+      {{ ed.plainRow({ title: tool.name, titleTag: "h2", href: tool.link, newTab: true, arrow: true, meta: tool.type, text: tool.description }) }}
       {%- endfor %}
     </ul>
   </section>

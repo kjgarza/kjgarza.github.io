@@ -26,10 +26,9 @@ noindex: true
   {{ pageHeader("Page not found") }}
   <p class="text-foreground text-base font-medium">The page you were looking for doesn't exist or has moved.</p>
   <ul class="text-foreground flex flex-col gap-2 text-base font-medium">
-    <li><a class="text-primary underline hover:no-underline" href="/">Home</a></li>
-    <li><a class="text-primary underline hover:no-underline" href="/work/">Work</a></li>
-    <li><a class="text-primary underline hover:no-underline" href="/tools/">Tools</a></li>
-    <li><a class="text-primary underline hover:no-underline" href="/publications/">Publications</a></li>
+    {%- for link in links %}
+    <li><a class="text-primary underline hover:no-underline" href="{{ link[1] }}">{{ link[0] }}</a></li>
+    {%- endfor %}
   </ul>
 </div>
 {% endif %}

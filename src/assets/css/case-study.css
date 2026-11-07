@@ -239,7 +239,6 @@
 .cs-prose :is(img) {
   border-radius: 3px !important;
   margin: 1.75rem 0 !important;
-  border: var(--cs-hero-border, none) !important;
   box-shadow: var(--cs-image-shadow, 0 1px 3px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.06)) !important;
   width: 100% !important;
   height: auto !important;
@@ -247,7 +246,7 @@
 
 /* Links */
 .cs-prose :is(a) {
-  color: var(--cs-accent) !important;
+  color: var(--cs-link, var(--cs-accent)) !important;
   text-decoration: underline !important;
   text-decoration-thickness: 1px !important;
   text-underline-offset: 3px !important;

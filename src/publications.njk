@@ -22,11 +22,7 @@ permalink: /publications/
     <h2 id="year-{{ year }}" class="ed-label ed-label--ruled">{{ year }}</h2>
     <ul class="ed-list">
       {%- for pub in sortedPublications %}{% if pub.publicationYear == year %}
-      {%- if pub.id.includes('doi.org') %}{% set type = "DOI" %}
-      {%- elif pub.id.includes('medium.com') %}{% set type = "Blog" %}
-      {%- elif pub.id.includes('zenodo.org') %}{% set type = "Zenodo" %}
-      {%- else %}{% set type = "Article" %}{% endif %}
-      {{ ed.datedRow({ title: pub.title | trim, titleTag: "h3", serif: true, href: pub.id, newTab: true, aside: type }) }}
+      {{ ed.datedRow({ title: pub.title | trim, titleTag: "h3", serif: true, href: pub.id, newTab: true, aside: pub.id | pubType }) }}
       {%- endif %}{% endfor %}
     </ul>
   </section>
@@ -56,15 +52,8 @@ permalink: /publications/
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">{{ publication.publicationYear }}</span>
-              {% if publication.id.includes('doi.org') %}
-                {{ badge("DOI", "blue") }}
-              {% elif publication.id.includes('medium.com') %}
-                {{ badge("Blog", "green") }}
-              {% elif publication.id.includes('zenodo.org') %}
-                {{ badge("Zenodo", "purple") }}
-              {% else %}
-                {{ badge("Article", "neutral") }}
-              {% endif %}
+              {% set type = publication.id | pubType %}
+              {{ badge(type, { DOI: "blue", Blog: "green", Zenodo: "purple", Article: "neutral" }[type]) }}
             </div>
             
             <a 

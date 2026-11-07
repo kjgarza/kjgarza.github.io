@@ -27,10 +27,11 @@
   --cs-desc-bar: none;             /* plain muted description */
   --cs-desc-indent: 0;
   --cs-h2-rule: 1px solid var(--rule);
+  --cs-link: var(--foreground);    /* ink links, underlined */
   --cs-h3-color: var(--label);
-  --cs-hero-border: 1px solid var(--rule);
+  --cs-hero-border: 1px solid var(--rule);  /* hero only */
   --cs-hero-shadow: none;
-  --cs-image-shadow: none;
+  --cs-image-shadow: none;         /* prose images: flat, no frame */
   --cs-quote-bg: transparent;
   --cs-quote-weight: 400;
   --cs-summary-rule: 1px solid var(--rule);

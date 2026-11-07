@@ -57,6 +57,24 @@ async function imageShortcode(src, alt, cls = "", loading = "lazy", fetchpriorit
   }
 }
 
+// Synchronous twin of imageShortcode for Nunjucks macros, which can't await an
+// async shortcode (the build fails inside {% call %}; {% set %} captures render
+// empty). Reads dimensions with statsSync and lets the files generate in the
+// background, the pattern eleventy-img documents for sync shortcodes.
+function imageSync(src, alt = "", cls = "", loading = "lazy", sizes = "100vw", widths = DEFAULT_IMAGE_WIDTHS) {
+  const options = {
+    widths,
+    formats: ["webp", "jpeg"],
+    outputDir: "./_site/img/",
+    urlPath: "/img/",
+    cacheOptions: { duration: "1d", directory: ".cache" },
+  };
+  const imageSrc = src.startsWith("/") ? `./src${src}` : src;
+  EleventyImage(imageSrc, options).catch(() => {});
+  const metadata = EleventyImage.statsSync(imageSrc, options);
+  return EleventyImage.generateHTML(metadata, { alt, class: cls, loading, decoding: "async", sizes });
+}
+
 // Tailwind v4: src/styles/tailwind.css → <output>/assets/css/site.css, rebuilt on every
 // Eleventy build (~200 ms) so classes added to templates always get CSS
 const CSS_IN = path.join(__dirname, "src/styles/tailwind.css");
@@ -78,6 +96,8 @@ module.exports = function(eleventyConfig) {
 
   // Image optimization shortcode
   eleventyConfig.addAsyncShortcode("image", imageShortcode);
+  // {{ src | imageSync(alt, class, loading, sizes, widths) }}: usable inside macros
+  eleventyConfig.addFilter("imageSync", imageSync);
 
   // Case-study markdown keeps plain ![alt](/assets/images/x.png) links so the
   // markdown mirrors stay readable; swap them for optimized <picture> markup in the HTML

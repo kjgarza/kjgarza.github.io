@@ -1,5 +1,7 @@
 
-/* ── Case Study: Editorial Typography System ── */
+/* ── Case Study: Editorial Typography System ──
+   Theme differences come from --cs-* tokens (issue #35). Each var() fallback is
+   the accent look; src/assets/css/themes/editorial.css overrides them. */
 
 .cs-article {
   --cs-accent: var(--primary, #d6005a); /* theme accent; accent theme: brand pink darkened to 4.5:1 on white */
@@ -38,13 +40,13 @@
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--cs-accent);
+  color: var(--cs-company-color, var(--cs-accent));
   padding-top: 0.15em;
 }
 
 .cs-tags {
   display: flex;
-  gap: 0.375rem;
+  gap: var(--cs-tags-gap, 0.375rem);
   flex-wrap: wrap;
   justify-content: flex-end;
 }
@@ -54,19 +56,19 @@
   font-size: 0.6rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  border: 1px solid #d1d5db;
-  padding: 0.25em 0.65em;
+  border: var(--cs-tag-border, 1px solid #d1d5db);
+  padding: var(--cs-tag-padding, 0.25em 0.65em);
   border-radius: 2px;
-  color: var(--cs-muted);
+  color: var(--cs-tag-color, var(--cs-muted));
   white-space: nowrap;
 }
 
 .cs-title {
   font-family: var(--cs-display);
   font-size: clamp(2.2rem, 5.5vw, 3.5rem);
-  font-weight: 800;
+  font-weight: var(--cs-title-weight, 800);
   line-height: 1.1;
-  letter-spacing: -0.03em;
+  letter-spacing: var(--cs-title-tracking, -0.03em);
   font-variation-settings: 'opsz' 72;
   color: var(--cs-text);
   margin-bottom: 1.25rem;
@@ -79,8 +81,8 @@
   font-weight: 400;
   max-width: 58ch;
   margin-bottom: 2rem;
-  border-left: 3px solid var(--cs-accent);
-  padding-left: 1rem;
+  border-left: var(--cs-desc-bar, 3px solid var(--cs-accent));
+  padding-left: var(--cs-desc-indent, 1rem);
 }
 
 /* ── Hero Image ── */
@@ -94,7 +96,8 @@
   height: auto;
   border-radius: 3px;
   display: block;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07), 0 8px 32px rgba(0,0,0,0.05);
+  border: var(--cs-hero-border, none);
+  box-shadow: var(--cs-hero-shadow, 0 2px 8px rgba(0,0,0,0.07), 0 8px 32px rgba(0,0,0,0.05));
 }
 
 /* ── Prose Content ── */
@@ -106,7 +109,7 @@
 .cs-prose :is(h2) {
   font-family: var(--cs-display) !important;
   font-size: 1.75rem !important;
-  font-weight: 700 !important;
+  font-weight: var(--cs-heading-weight, 700) !important;
   line-height: 1.15 !important;
   letter-spacing: -0.02em !important;
   font-variation-settings: 'opsz' 48 !important;
@@ -114,7 +117,7 @@
   margin-top: 3rem !important;
   margin-bottom: 1rem !important;
   padding-bottom: 0.6rem !important;
-  border-bottom: 2px solid var(--cs-accent) !important;
+  border-bottom: var(--cs-h2-rule, 2px solid var(--cs-accent)) !important;
 }
 
 /* H3 — Sub-section headings: small mono caps */
@@ -124,7 +127,7 @@
   font-weight: 500 !important;
   letter-spacing: 0.13em !important;
   text-transform: uppercase !important;
-  color: var(--cs-accent) !important;
+  color: var(--cs-h3-color, var(--cs-accent)) !important;
   margin-top: 1.75rem !important;
   margin-bottom: 0.4rem !important;
 }
@@ -159,7 +162,7 @@
   position: relative !important;
   margin: 2.5rem 0 !important;
   padding: 2rem 1.75rem 1.75rem 2rem !important;
-  background: #fff8f9 !important;
+  background: var(--cs-quote-bg, #fff8f9) !important;
   border-left: none !important;
   border-top: 3px solid var(--cs-accent) !important;
   border-radius: 0 0 3px 3px !important;
@@ -181,7 +184,7 @@
 .cs-prose :is(blockquote) p {
   font-family: var(--cs-display) !important;
   font-style: normal !important;
-  font-weight: 600 !important;
+  font-weight: var(--cs-quote-weight, 600) !important;
   font-size: 1.18rem !important;
   line-height: 1.65 !important;
   color: #1f2937 !important;
@@ -236,7 +239,8 @@
 .cs-prose :is(img) {
   border-radius: 3px !important;
   margin: 1.75rem 0 !important;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.06) !important;
+  border: var(--cs-hero-border, none) !important;
+  box-shadow: var(--cs-image-shadow, 0 1px 3px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.06)) !important;
   width: 100% !important;
   height: auto !important;
 }
@@ -299,10 +303,14 @@
   letter-spacing: inherit !important;
 }
 
-/* ── Password gate ── */
+/* ── Public summary and password gate ── */
+.cs-public-summary {
+  border-bottom: var(--cs-summary-rule, none);
+}
+
 .cs-password-gate {
-  border: 1.5px solid var(--cs-border);
-  border-radius: 6px;
+  border: var(--cs-gate-border, 1.5px solid var(--cs-border));
+  border-radius: var(--cs-gate-radius, 6px);
   padding: 2rem;
   max-width: 380px;
   margin: 2rem auto;
@@ -311,7 +319,7 @@
 .cs-password-gate h2 {
   font-family: var(--cs-display);
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: var(--cs-heading-weight, 700);
   color: var(--cs-text);
   margin-bottom: 0.5rem;
 }
@@ -339,8 +347,8 @@
 }
 
 .cs-password-gate input[type="password"] {
-  border: 1.5px solid #d1d5db;
-  border-radius: 4px;
+  border: var(--cs-input-border, 1.5px solid #d1d5db);
+  border-radius: var(--cs-gate-radius, 4px);
   padding: 0.55rem 0.75rem;
   font-size: 0.9rem;
   width: 100%;

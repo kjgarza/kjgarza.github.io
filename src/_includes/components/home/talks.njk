@@ -1,17 +1,13 @@
 {#- Renders only when src/_data/talks.js has entries. -#}
+{% import "components/editorial.njk" as ed %}
 {% if talks.length %}
-<section class="home-block" data-reveal aria-labelledby="talks-heading">
-  <p class="home-label">On stage</p>
-  <h2 id="talks-heading" class="home-heading">Talks</h2>
-  <ul class="home-list">
+<section class="ed-block" data-reveal aria-labelledby="talks-heading">
+  {{ ed.label("On stage") }}
+  {{ ed.heading("Talks", "talks-heading") }}
+  <ul class="ed-list">
     {%- for talk in talks %}
-    <li class="home-row home-row--plain home-row--dated">
-      <div class="home-row-body">
-        <p class="home-row-title home-row-title--serif">{% if talk.link %}<a href="{{ talk.link }}">{{ talk.title }}</a>{% else %}{{ talk.title }}{% endif %}</p>
-        <p class="home-row-meta">{{ talk.event }}{% if talk.city %}, {{ talk.city }}{% endif %}{% if talk.role %} · {{ talk.role }}{% endif %}</p>
-      </div>
-      <span class="home-row-year">{{ talk.year }}</span>
-    </li>
+    {%- set talkMeta = talk.event + (", " + talk.city if talk.city else "") + (" · " + talk.role if talk.role else "") %}
+    {{ ed.datedRow({ title: talk.title, href: talk.link, serif: true, meta: talkMeta, year: talk.year }) }}
     {%- endfor %}
   </ul>
 </section>

@@ -225,8 +225,13 @@ describe("images and performance", () => {
   test("gtag is not fetched during initial load", () => {
     expect(read("/")).not.toMatch(/<script async src="https:\/\/www\.googletagmanager\.com/);
   });
+  // The editorial Work page is a text-only list (issue #35); only accent has card images
   test("work card images declare their displayed size", () => {
-    expect(read("/work/")).toContain('sizes="576px"');
+    if ((process.env.SITE_THEME || "accent") === "editorial") {
+      expect(read("/work/").match(/<main\b[\s\S]*<\/main>/)[0]).not.toContain("<img");
+    } else {
+      expect(read("/work/")).toContain('sizes="576px"');
+    }
   });
 });
 

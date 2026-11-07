@@ -14,6 +14,8 @@
   --feature-bg: var(--card);   /* radar block sits on a soft card */
   --feature-pad: 1.75rem;
   --feature-radius: 12px;
+  /* Case-study --cs-* tokens are left unset: case-study.css falls back to the
+     accent look (bold title, boxed tags, accent bar). */
 }
 
 :root[data-theme=dark], .dark {

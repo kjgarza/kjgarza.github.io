@@ -1,17 +1,12 @@
 {#- Renders only when src/_data/awards.js has entries. -#}
+{% import "components/editorial.njk" as ed %}
 {% if awards.length %}
-<section class="home-block" data-reveal aria-labelledby="awards-heading">
-  <p class="home-label">Recognition</p>
-  <h2 id="awards-heading" class="home-heading">Awards &amp; affiliations</h2>
-  <ul class="home-list">
+<section class="ed-block" data-reveal aria-labelledby="awards-heading">
+  {{ ed.label("Recognition") }}
+  {{ ed.heading("Awards &amp; affiliations", "awards-heading") }}
+  <ul class="ed-list">
     {%- for award in awards %}
-    <li class="home-row home-row--plain home-row--dated">
-      <div class="home-row-body">
-        <p class="home-row-title">{% if award.link %}<a href="{{ award.link }}">{{ award.title }} ↗</a>{% else %}{{ award.title }}{% endif %}</p>
-        {% if award.description %}<p class="home-row-text">{{ award.description }}</p>{% endif %}
-      </div>
-      <span class="home-row-year">{{ award.year }}</span>
-    </li>
+    {{ ed.datedRow({ title: award.title, href: award.link, arrow: true, text: award.description, year: award.year }) }}
     {%- endfor %}
   </ul>
 </section>

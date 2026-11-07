@@ -5,10 +5,25 @@ description: Side projects and AI tools built by Kristian Garza, from a dataset 
 permalink: /tools/
 ---
 {% from "components/ui/badge.njk" import badge %}
-
+{% import "components/editorial.njk" as ed %}
+{% from "components/editorial.njk" import pageHeader with context %}
+{#- theme.pageStyle: "editorial" = plain rows (name as the link, type, description),
+    no icons or doodle; "cards" = tilted cards with app icons. Same tools, same order. -#}
+{% if theme.pageStyle == "editorial" %}
+<div class="ed-page">
+  {{ pageHeader("Tools", "Side projects") }}
+  <section class="ed-section" data-reveal aria-label="Tools">
+    <ul class="ed-list">
+      {%- for tool in tools %}
+      {{ ed.plainRow({ title: tool.name, titleTag: "h2", href: tool.link, arrow: true, meta: tool.type, text: tool.description }) }}
+      {%- endfor %}
+    </ul>
+  </section>
+</div>
+{% else %}
 <div class="flex w-full max-w-4xl flex-1 flex-col gap-4 p-4 md:p-12 xl:p-8">
-  <h1 class="text-primary font-mono text-2xl font-bold">Tools</h1>
-  <section class="flex flex-col gap-4">
+  {{ pageHeader("Tools") }}
+  <section data-reveal class="flex flex-col gap-4">
     <div class="relative grid gap-6 sm:grid-cols-2 sm:gap-2">
       <img src="{{ '/drawings/used-by.svg' | url }}" alt="Used by" width="113" height="98" class="absolute top-10 -left-32 hidden rotate-2 lg:block">
       
@@ -34,3 +49,4 @@ permalink: /tools/
     </div>
   </section>
 </div>
+{% endif %}

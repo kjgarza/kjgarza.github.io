@@ -1,7 +1,8 @@
 {% from "components/ui/button.njk" import button %}
-<section id="contact" class="home-block home-block--ruled home-contact" data-reveal aria-labelledby="contact-heading">
+{% import "components/editorial.njk" as ed %}
+<section id="contact" class="ed-block ed-block--ruled home-contact" data-reveal aria-labelledby="contact-heading">
   <div class="home-contact-body">
-    <h2 id="contact-heading" class="home-heading">Get in touch</h2>
+    {{ ed.heading("Get in touch", "contact-heading") }}
     <ul class="home-contact-links">
       <li><a href="mailto:{{ site.author.email }}">Email</a></li>
       <li><a href="{{ site.author.linkedin }}">LinkedIn</a></li>
@@ -12,6 +13,6 @@
   {% if theme.ctaStyle == "button" %}
   {% call button("primary", href=site.author.booking, class="w-fit home-button") %}Book a call{% endcall %}
   {% else %}
-  <a class="home-link-strong" href="{{ site.author.booking }}">Book a call ↗</a>
+  {{ ed.link(site.author.booking, "Book a call ↗") }}
   {% endif %}
 </section>

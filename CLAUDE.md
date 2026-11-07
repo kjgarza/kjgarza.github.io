@@ -26,7 +26,7 @@ The site has two **build-time themes**, picked with `SITE_THEME` (`accent`, the 
 
 No linter is configured. `bun test` (`tests/seo.test.js`) builds the site and checks SEO invariants on `_site/`: canonicals, escaped meta tags, one H1 per page, descriptions of at most 160 characters, noindex/sitemap rules, structured data, and image attributes. Run it after touching layouts, front matter or `src/_data/`.
 
-`tests/themes.test.js` builds both themes into `.cache/theme-test-<theme>/` and checks the homepage: theme selection, section order, logos, case-study links, publications, thumbnails and the scroll-reveal markup. `just test` and CI also run the SEO and CV suites a second time with `SITE_THEME=editorial`.
+`tests/themes.test.js` builds both themes into `.cache/theme-test-<theme>/` and checks the homepage (theme selection, section order, logos, case-study links, publications, thumbnails, scroll-reveal markup) and the subpages: Work, Tools, Publications, Playground, 404, case studies and footer list the same items in both themes, and each theme keeps its distinctive elements. `just test` and CI also run the SEO and CV suites a second time with `SITE_THEME=editorial`.
 
 `just test` runs everything; `just test-scripts` (`uvx pytest`) runs only the job-pipeline script tests, offline and in seconds. Run it after touching anything in `scripts/` or a skill's `scripts/`.
 - `tests/cv-to-pdf.test.js` (bun) renders the site CV through `scripts/cv-to-pdf.js` without launching Chrome.
@@ -48,7 +48,7 @@ src/
   _data/          # Global data files (JS modules) — auto-injected into all templates
   _includes/
     layouts/      # Page layouts (base.njk, case-study.njk)
-    components/   # Partials (nav.njk, footer.njk, work-card.njk, tool-card.njk)
+    components/   # Partials (nav.njk, footer.njk, editorial.njk macros, home/ sections)
       ui/         # shadcn-style macros (button.njk, badge.njk)
   assets/         # Images, static CSS/JS — passthrough copied to _site/
   drawings/       # SVG decorations — passthrough copied to _site/
@@ -114,11 +114,13 @@ Tailwind v4 compiles `src/styles/tailwind.css` to `_site/assets/css/site.css` in
 
 Two build-time themes share all markup (issue #33): **`accent`** (default; brand pink, Fraunces display, project thumbnails, staggered row reveal) and **`editorial`** (monochrome, Playfair Display, grey logos, text-link calls to action). `SITE_THEME` selects one; an unknown name fails the build. Deploy reads the `SITE_THEME` repository variable.
 
-- `src/_data/theme.js` holds every layout switch: `heroStyle` (`profile` | `headline`), `projectThumbnails`, `ctaStyle` (`link` | `button`), `reveal` (`section` | `stagger`), and `displayFont`. Partials read them as `theme.<switch>`; `<html data-site-theme>` names the active theme. (`data-theme` is taken by dark mode.)
-- `src/assets/css/themes/<name>.css` loads after `site.css` and only sets tokens: `--font-display`, `--primary` (editorial), `--label`, `--rule`, `--logo-filter`, `--feature-*`, each with a dark-mode value.
-- `src/assets/css/home.css` is the shared homepage layout (`home-*` classes) and reads only tokens. Case studies take `--font-display` and `--primary` from the theme too.
-- Scroll reveal: sections carry `data-reveal`; `src/assets/js/reveal.js` (deferred, no dependencies) adds `reveal-ready` to `<html>` and reveals each section once. The server HTML never hides anything, and reduced motion turns it off.
-- A new homepage section is a partial in `components/home/`: a `<section data-reveal aria-labelledby=…>` with a `home-label` and a `home-heading` H2, styled only with tokens, and it must look right in both themes. Add a switch to `theme.js` only when tokens can't express the difference.
+- `src/_data/theme.js` holds every layout switch. Homepage only: `heroStyle` (`profile` | `headline`), `ctaStyle` (`link` | `button`), `reveal` (`section` | `stagger`). Everywhere: `displayFont`. `projectThumbnails` applies to the homepage and the Work page. `pageStyle` (`editorial` | `cards`, issue #35) picks the subpage presentation (Work, Tools, Publications, Playground, 404) and the footer; `cards` is the accent look and must stay unchanged. Partials read them as `theme.<switch>`; `<html data-site-theme>` names the active theme. (`data-theme` is taken by dark mode.)
+- `src/assets/css/themes/<name>.css` loads after `site.css` and only sets tokens: `--font-display`, `--primary` (editorial), `--label`, `--rule`, `--logo-filter`, `--feature-*`, each with a dark-mode value, plus the case-study `--cs-*` tokens (editorial only; `case-study.css` falls back to the accent look). Case studies have no switch: title weight, tag, description, heading, hero, quote and password-gate styles are all tokens.
+- **Shared editorial components** (`components/editorial.njk`, styles in `src/assets/css/editorial.css`): `label`, `heading`, `link` (strong text link), `numberedRow`, `plainRow`, `datedRow` and `pageHeader`. Rows take one object (`title`, `href`, `titleTag`, `meta`, `text`, `note`, `year`/`aside`, `thumb`…). The homepage sections and the editorial subpages both use them, so change a row's look there, not per page. `editorial.css` loads on the homepage (both themes) and on every page when `pageStyle` is `editorial`. `home.css` keeps only the homepage-only parts (hero, about, logos, radar, contact).
+- Macros can't call the async `{% image %}` shortcode (the build fails inside `{% call %}`, and `{% set %}` captures render empty). Pass images pre-rendered with the sync filter: `item.image | imageSync(alt, class, loading, sizes, widths)`.
+- Scroll reveal: sections carry `data-reveal`; `layouts/base.njk` loads `src/assets/css/reveal.css` and `src/assets/js/reveal.js` (deferred, no dependencies) on every page. The script adds `reveal-ready` to `<html>` and reveals each section once. The server HTML never hides anything, and reduced motion turns it off.
+- A new homepage section is a partial in `components/home/`: a `<section class="ed-block" data-reveal aria-labelledby=…>` with `ed.label` and an `ed.heading` H2, styled only with tokens, and it must look right in both themes. Add a switch to `theme.js` only when tokens can't express the difference.
+- A new subpage on `layouts/base.njk`: import `pageHeader` with context (`{% from "components/editorial.njk" import pageHeader with context %}`) and branch on `theme.pageStyle`. The `editorial` branch is `<div class="ed-page">`, `pageHeader(title, label, intro)` (the only H1), then `<section class="ed-section" data-reveal>` blocks of `ed.*Row` items with H2 titles. The `cards` branch keeps the accent markup, uses `pageHeader(title)` too and puts `data-reveal` on whole sections. Both branches show the same items in the same order; add a test for that to `tests/themes.test.js`.
 
 ### Static API passthrough
 

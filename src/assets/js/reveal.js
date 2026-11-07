@@ -1,7 +1,7 @@
-// Scroll reveal for homepage sections marked [data-reveal] (issue #33).
+// Scroll reveal for sections marked [data-reveal] (issue #33; every page since #35).
 // Progressive enhancement: the server HTML never hides anything. This script
 // adds `reveal-ready` to <html>, which applies the hidden start state from
-// home.css, and only when motion is welcome and IntersectionObserver exists.
+// reveal.css, and only when motion is welcome and IntersectionObserver exists.
 // Each section reveals once. In [data-reveal-mode="stagger"] list rows also
 // get increasing delays (--reveal-delay) so they arrive one after another.
 (function () {
@@ -13,7 +13,7 @@
 
   if (document.querySelector('[data-reveal-mode="stagger"]')) {
     targets.forEach(function (section) {
-      var rows = section.querySelectorAll(".home-row");
+      var rows = section.querySelectorAll(".ed-row");
       for (var i = 0; i < rows.length; i++) {
         rows[i].style.setProperty("--reveal-delay", Math.min(i, 8) * 90 + "ms");
       }

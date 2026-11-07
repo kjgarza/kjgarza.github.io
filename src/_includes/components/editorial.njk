@@ -1,0 +1,95 @@
+{#- Editorial building blocks (issue #35), shared by the homepage sections and
+    the editorial subpages so the two can't drift apart. Styles: src/assets/css/editorial.css.
+    Import with: {% import "components/editorial.njk" as ed %}
+
+    Rows take one object. Common fields:
+      title, href (optional; no href renders plain text), titleTag ("p" | "h2" | "h3"),
+      serif (display-face title), arrow (append ↗ inside the link), newTab,
+      meta (small mono caps line), text (muted description), note (quiet text, e.g. "coming soon").
+    Macros can't await async shortcodes, so pass images pre-rendered with the
+    imageSync filter (row.thumb). -#}
+
+{% macro label(text, id="", tag="p") -%}
+<{{ tag }}{% if id %} id="{{ id }}"{% endif %} class="ed-label">{{ text }}</{{ tag }}>
+{%- endmacro %}
+
+{% macro heading(text, id="", tag="h2") -%}
+<{{ tag }}{% if id %} id="{{ id }}"{% endif %} class="ed-heading">{{ text }}</{{ tag }}>
+{%- endmacro %}
+
+{#- The strong text link: ink (or theme accent) with a rule underneath -#}
+{% macro link(href, text, class="") -%}
+<a class="ed-link-strong{% if class %} {{ class }}{% endif %}" href="{{ href }}">{{ text }}</a>
+{%- endmacro %}
+
+{% macro _title(r) -%}
+{%- set tag = r.titleTag or "p" -%}
+<{{ tag }} class="ed-row-title{% if r.serif %} ed-row-title--serif{% endif %}">
+  {%- if r.href %}<a href="{{ r.href }}"{% if r.newTab %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ r.title }}{% if r.arrow %} <span aria-hidden="true">↗</span>{% endif %}</a>
+  {%- else %}{{ r.title }}{% endif -%}
+</{{ tag }}>
+{%- endmacro %}
+
+{% macro _body(r) -%}
+<div class="ed-row-body">
+        {{ _title(r) }}
+        {%- if r.meta %}
+        <p class="ed-row-meta">{{ r.meta }}</p>
+        {%- endif %}
+        {%- if r.text %}
+        <p class="ed-row-text">{{ r.text }}</p>
+        {%- endif %}
+        {%- if r.note %}
+        <p class="ed-row-note">{{ r.note }}</p>
+        {%- endif %}
+      </div>
+{%- endmacro %}
+
+{#- 01, 02 … then the body; row.thumb adds a small screenshot on the right -#}
+{% macro numberedRow(r) -%}
+<li class="ed-row{% if r.thumb %} ed-row--thumb{% endif %}">
+      <span class="ed-row-num">{{ "0" if r.n < 10 }}{{ r.n }}</span>
+      {{ _body(r) }}
+      {%- if r.thumb %}
+      <div class="ed-row-thumb">{{ r.thumb }}</div>
+      {%- endif %}
+    </li>
+{%- endmacro %}
+
+{% macro plainRow(r) -%}
+<li class="ed-row ed-row--plain">
+      {{ _body(r) }}
+    </li>
+{%- endmacro %}
+
+{#- Body on the left, the year (or row.aside, e.g. a publication type) in mono on the right -#}
+{% macro datedRow(r) -%}
+<li class="ed-row ed-row--plain ed-row--dated">
+      {{ _body(r) }}
+      <span class="ed-row-year">{{ r.aside if r.aside else r.year }}</span>
+    </li>
+{%- endmacro %}
+
+{#- Subpage title. theme.pageStyle "editorial": small label, serif H1, optional
+    intro line. "cards": today's mono H1 (with the intro under it when given).
+    Import with context so it can read theme: {% from "components/editorial.njk" import pageHeader with context %} -#}
+{% macro pageHeader(title, label="", intro="") -%}
+{%- if theme.pageStyle == "editorial" %}
+<header class="ed-page-header">
+    {%- if label %}
+    <p class="ed-label">{{ label }}</p>
+    {%- endif %}
+    <h1 class="ed-title">{{ title }}</h1>
+    {%- if intro %}
+    <p class="ed-intro">{{ intro }}</p>
+    {%- endif %}
+  </header>
+{%- elif intro %}
+<div class="flex flex-col gap-2">
+    <h1 class="text-primary font-mono text-2xl font-bold">{{ title }}</h1>
+    <p class="text-muted-foreground text-lg">{{ intro }}</p>
+  </div>
+{%- else %}
+<h1 class="text-primary font-mono text-2xl font-bold">{{ title }}</h1>
+{%- endif %}
+{%- endmacro %}

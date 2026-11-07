@@ -5,16 +5,39 @@ description: Papers, articles and talks by Kristian Garza on persistent identifi
 permalink: /publications/
 ---
 {% from "components/ui/badge.njk" import badge %}
-
+{% import "components/editorial.njk" as ed %}
+{% from "components/editorial.njk" import pageHeader with context %}
+{% set intro = "Research papers, articles, and presentations." %}
+{% set sortedPublications = publications | sort(false, false, 'publicationYear') | reverse %}
+{#- theme.pageStyle: "editorial" = one section per year (newest first), dated rows
+    with the type as mono text; "cards" = rounded cards with coloured type badges.
+    Both use sortedPublications, so the order is the same. -#}
+{% if theme.pageStyle == "editorial" %}
+{%- set years = [] %}
+{%- for pub in sortedPublications %}{% if not (pub.publicationYear in years) %}{% set _ = years.push(pub.publicationYear) %}{% endif %}{% endfor %}
+<div class="ed-page">
+  {{ pageHeader("Publications", "Research", intro) }}
+  {%- for year in years %}
+  <section class="ed-section" data-reveal aria-labelledby="year-{{ year }}">
+    <h2 id="year-{{ year }}" class="ed-label ed-label--ruled">{{ year }}</h2>
+    <ul class="ed-list">
+      {%- for pub in sortedPublications %}{% if pub.publicationYear == year %}
+      {%- if pub.id.includes('doi.org') %}{% set type = "DOI" %}
+      {%- elif pub.id.includes('medium.com') %}{% set type = "Blog" %}
+      {%- elif pub.id.includes('zenodo.org') %}{% set type = "Zenodo" %}
+      {%- else %}{% set type = "Article" %}{% endif %}
+      {{ ed.datedRow({ title: pub.title | trim, titleTag: "h3", serif: true, href: pub.id, newTab: true, aside: type }) }}
+      {%- endif %}{% endfor %}
+    </ul>
+  </section>
+  {%- endfor %}
+</div>
+{% else %}
 <div class="flex w-full max-w-4xl flex-1 flex-col gap-6 p-4 md:p-12 xl:p-8">
-  <div class="flex flex-col gap-2">
-    <h1 class="text-primary font-mono text-2xl font-bold">Publications</h1>
-    <p class="text-muted-foreground text-lg">Research papers, articles, and presentations.</p>
-  </div>
+  {{ pageHeader("Publications", "", intro) }}
   
-  <section class="flex flex-col gap-6">
+  <section data-reveal class="flex flex-col gap-6">
     {% set currentYear = null %}
-    {% set sortedPublications = publications | sort(false, false, 'publicationYear') | reverse %}
     {% for publication in sortedPublications %}
       {% if publication.publicationYear != currentYear %}
         {% set currentYear = publication.publicationYear %}
@@ -62,3 +85,4 @@ permalink: /publications/
     {% endfor %}
   </section>
 </div>
+{% endif %}

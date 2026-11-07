@@ -16,9 +16,9 @@ build theme="accent":
 dev theme="accent":
     SITE_THEME={{theme}} bun run eleventy --serve
 
-# Watch for changes and rebuild
-watch:
-    bun run eleventy --watch
+# Watch for changes and rebuild, e.g. `just watch editorial`
+watch theme="accent":
+    SITE_THEME={{theme}} bun run eleventy --watch
 
 # Build for GitHub Pages deployment (CI sets SITE_THEME from a repository variable)
 build-ghpages theme="accent":

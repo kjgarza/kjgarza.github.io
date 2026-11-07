@@ -39,4 +39,26 @@ module.exports = [
     height: 327,
     displayHeight: 40,
   },
+  {
+    name: "The University of Manchester",
+    relationship: "PhD Computer Science, 2012–2016",
+    link: "https://www.manchester.ac.uk/",
+    // Official logo from assets.manchester.ac.uk, white band under the block made transparent
+    logo: "/assets/images/logos/university-of-manchester.png",
+    width: 206,
+    height: 86,
+    displayHeight: 36,
+  },
+  {
+    name: "UCL Mullard Space Science Laboratory",
+    relationship: "MSc Spacecraft Technology, 2007–2008",
+    link: "https://www.ucl.ac.uk/mssl/",
+    // MSSL has no mark of its own and uses UCL's identity. This is the UCL logo
+    // from mssl.ucl.ac.uk with its dark background removed and the white
+    // portico recoloured dark for light backgrounds.
+    logo: "/assets/images/logos/ucl-mssl.png",
+    width: 177,
+    height: 50,
+    displayHeight: 24,
+  },
 ];

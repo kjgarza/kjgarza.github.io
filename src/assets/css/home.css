@@ -68,18 +68,42 @@
 .home-prose { display: flex; flex-direction: column; gap: 0.9rem; max-width: 36rem; }
 .home-prose p { font-size: 1rem; line-height: 1.65; }
 
-/* ── Logo row ── */
+/* ── Logo banner: one row that scrolls sideways in a loop ── */
+.home-marquee {
+  margin-top: 0.75rem;
+  overflow: hidden;
+  /* fade the logos in and out at both edges */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.home-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: home-marquee 40s linear infinite;
+}
+/* Pause while someone is looking at or tabbing through the logos */
+.home-marquee:hover .home-marquee-track,
+.home-marquee:focus-within .home-marquee-track { animation-play-state: paused; }
+/* Two identical lists, so moving by half the track loops seamlessly */
+@keyframes home-marquee { to { transform: translateX(-50%); } }
 .home-logos {
   list-style: none;
-  padding: 0;
-  margin: 0.75rem 0 0;
+  margin: 0;
+  padding: 0.5rem 3rem 0.5rem 0; /* the right padding is the gap between the two copies */
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem 2.25rem;
+  gap: 3rem;
 }
+.home-logos li { flex: none; }
 .home-logos a { display: block; }
+.home-logos a:focus-visible { outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  .home-marquee { -webkit-mask-image: none; mask-image: none; }
+  .home-marquee-track { animation: none; width: auto; }
+  .home-logos { flex: 1; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem 2.25rem; padding: 0; }
+  .home-logos[aria-hidden="true"] { display: none; }
+}
 .home-logos img { display: block; width: auto; max-width: 100%; filter: var(--logo-filter, none); opacity: var(--logo-opacity, 1); }
 
 /* ── Links ── */

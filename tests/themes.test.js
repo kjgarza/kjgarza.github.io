@@ -62,9 +62,27 @@ describe("homepage sections", () => {
     return m[0];
   };
 
-  test.each(THEMES)("the %s logo row names the four organisations", (theme) => {
-    const imgs = [...section(readHome(theme), "worked-with").matchAll(/<img\b[^>]*\balt="([^"]*)"/g)].map((m) => m[1]);
-    expect(imgs).toEqual(["Digital Science", "DataCite", "Make Data Count", "Research Data Alliance"]);
+  test.each(THEMES)("the %s logo row names every organisation once to assistive technology", (theme) => {
+    const lists = [...section(readHome(theme), "worked-with").matchAll(/<ul\b([^>]*)>([\s\S]*?)<\/ul>/g)];
+    const visible = lists.filter((m) => !/aria-hidden="true"/.test(m[1]));
+    expect(visible.length).toBe(1);
+    const alts = [...visible[0][2].matchAll(/<img\b[^>]*\balt="([^"]*)"/g)].map((m) => m[1]);
+    expect(alts).toEqual([
+      "Digital Science",
+      "DataCite",
+      "Make Data Count",
+      "Research Data Alliance",
+      "The University of Manchester",
+      "UCL Mullard Space Science Laboratory",
+    ]);
+  });
+
+  test.each(THEMES)("the %s logo banner's looping copy is hidden and unfocusable", (theme) => {
+    const hidden = [...section(readHome(theme), "worked-with").matchAll(/<ul\b[^>]*aria-hidden="true"[^>]*>([\s\S]*?)<\/ul>/g)];
+    expect(hidden.length).toBe(1);
+    const links = hidden[0][1].match(/<a\b[^>]*>/g);
+    expect(links.length).toBe(6);
+    for (const a of links) expect(a).toContain('tabindex="-1"');
   });
 
   test.each(THEMES)("every %s case-study row links to a built case-study page", (theme) => {

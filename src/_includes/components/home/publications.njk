@@ -1,13 +1,11 @@
-<section class="home-block" data-reveal aria-labelledby="pubs-heading">
-  <p class="home-label">Research</p>
-  <h2 id="pubs-heading" class="home-heading">Publications</h2>
-  <ul class="home-list">
+{% import "components/editorial.njk" as ed %}
+<section class="ed-block" data-reveal aria-labelledby="pubs-heading">
+  {{ ed.label("Research") }}
+  {{ ed.heading("Publications", "pubs-heading") }}
+  <ul class="ed-list">
     {%- for pub in (publications | sort(true, false, "publicationYear")) | batch(5) | first %}
-    <li class="home-row home-row--plain home-row--dated">
-      <p class="home-row-title home-row-title--serif"><a href="{{ pub.id }}">{{ pub.title }}</a></p>
-      <span class="home-row-year">{{ pub.publicationYear }}</span>
-    </li>
+    {{ ed.datedRow({ title: pub.title, href: pub.id, serif: true, year: pub.publicationYear }) }}
     {%- endfor %}
   </ul>
-  <a class="home-link-strong home-more" href="/publications/">All {{ publications.length }} publications →</a>
+  {{ ed.link("/publications/", "All " + publications.length + " publications →", "ed-more") }}
 </section>

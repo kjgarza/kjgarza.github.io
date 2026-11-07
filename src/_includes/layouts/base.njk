@@ -23,6 +23,11 @@
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | cssUrl | url }}">
   <!-- Build-time theme tokens (SITE_THEME, src/_data/theme.js); overrides the shared variables above -->
   <link rel="stylesheet" href="{{ ('/assets/css/themes/' + theme.name + '.css') | url }}">
+  {%- if theme.pageStyle == "editorial" or page.url == "/" %}
+  <!-- Shared editorial building blocks: the homepage in both themes, every page in pageStyle "editorial" -->
+  <link rel="stylesheet" href="{{ '/assets/css/editorial.css' | url }}">
+  {%- endif %}
+  <link rel="stylesheet" href="{{ '/assets/css/reveal.css' | url }}">
   <!-- Basecoat runtime + drawer (mobile menu animation and backdrop close; the menu works without them) -->
   <script defer src="{{ '/assets/js/basecoat.min.js' | url }}"></script>
   <script defer src="{{ '/assets/js/drawer.min.js' | url }}"></script>
@@ -100,5 +105,7 @@
   </main>
   
   {% include "components/footer.njk" %}
+  <!-- Scroll reveal for [data-reveal] sections; progressive enhancement, see reveal.js -->
+  <script defer src="{{ '/assets/js/reveal.js' | url }}"></script>
 </body>
 </html>

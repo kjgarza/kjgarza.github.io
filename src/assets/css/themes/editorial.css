@@ -14,6 +14,30 @@
   --decoration: #d4d4d4;
   --logo-filter: grayscale(1) brightness(0.45);
   --logo-opacity: 0.85;
+
+  /* Case studies (read by case-study.css; the accent look is its fallback) */
+  --cs-title-weight: 400;          /* regular-weight serif, not heavy bold */
+  --cs-title-tracking: -0.01em;
+  --cs-heading-weight: 400;        /* prose H2 and the gate heading */
+  --cs-company-color: var(--label);
+  --cs-tags-gap: 0.9rem;           /* tags as mono labels, no boxes */
+  --cs-tag-border: none;
+  --cs-tag-padding: 0;
+  --cs-tag-color: var(--label);
+  --cs-desc-bar: none;             /* plain muted description */
+  --cs-desc-indent: 0;
+  --cs-h2-rule: 1px solid var(--rule);
+  --cs-link: var(--foreground);    /* ink links, underlined */
+  --cs-h3-color: var(--label);
+  --cs-hero-border: 1px solid var(--rule);  /* hero only */
+  --cs-hero-shadow: none;
+  --cs-image-shadow: none;         /* prose images: flat, no frame */
+  --cs-quote-bg: transparent;
+  --cs-quote-weight: 400;
+  --cs-summary-rule: 1px solid var(--rule);
+  --cs-gate-border: 1px solid var(--rule);
+  --cs-gate-radius: 0;
+  --cs-input-border: 1px solid var(--rule);
 }
 
 :root[data-theme=dark], .dark {

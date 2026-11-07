@@ -1,7 +1,8 @@
+{% import "components/editorial.njk" as ed %}
 {#- Logo row from src/_data/organisations.js. Grey vs colour comes from the
     theme's --logo-filter token, so the markup is the same in both themes. -#}
-<section class="home-block" data-reveal aria-labelledby="worked-with">
-  <h2 id="worked-with" class="home-label">Worked with</h2>
+<section class="ed-block" data-reveal aria-labelledby="worked-with">
+  {{ ed.label("Worked with", "worked-with", "h2") }}
   <ul class="home-logos">
     {%- for org in organisations %}
     <li>

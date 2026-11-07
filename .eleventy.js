@@ -16,6 +16,16 @@ function unescapeAttr(str) {
 
 const DEFAULT_IMAGE_WIDTHS = [320, 640, 960, 1280];
 
+// Shared by imageShortcode and imageSync: site-relative paths read from src/
+const localImageSrc = (src) => (src.startsWith("/") ? `./src${src}` : src);
+const imageOptions = (widths) => ({
+  widths: Array.isArray(widths) ? widths : DEFAULT_IMAGE_WIDTHS,
+  formats: ["webp", "jpeg"],
+  outputDir: "./_site/img/",
+  urlPath: "/img/",
+  cacheOptions: { duration: "1d", directory: ".cache" },
+});
+
 async function imageShortcode(src, alt, cls = "", loading = "lazy", fetchpriority = "", sizes = "(max-width: 640px) 100vw, 896px", widths = DEFAULT_IMAGE_WIDTHS) {
   if (/^https?:\/\//.test(src)) {
     const parts = [`src="${escapeAttr(src)}"`, `alt="${escapeAttr(alt)}"`];
@@ -26,18 +36,7 @@ async function imageShortcode(src, alt, cls = "", loading = "lazy", fetchpriorit
   }
 
   try {
-    let imageSrc = src.startsWith("/") ? `./src${src}` : src;
-    let parsedWidths = Array.isArray(widths) ? widths : DEFAULT_IMAGE_WIDTHS;
-    let metadata = await EleventyImage(imageSrc, {
-      widths: parsedWidths,
-      formats: ["webp", "jpeg"],
-      outputDir: "./_site/img/",
-      urlPath: "/img/",
-      cacheOptions: {
-        duration: "1d",
-        directory: ".cache",
-      },
-    });
+    let metadata = await EleventyImage(localImageSrc(src), imageOptions(widths));
     let attrs = {
       alt,
       class: cls,
@@ -55,6 +54,18 @@ async function imageShortcode(src, alt, cls = "", loading = "lazy", fetchpriorit
     if (fetchpriority) parts.push(`fetchpriority="${fetchpriority}"`);
     return `<img ${parts.join(" ")}>`;
   }
+}
+
+// Synchronous twin of imageShortcode for Nunjucks macros, which can't await an
+// async shortcode (the build fails inside {% call %}; {% set %} captures render
+// empty). Reads dimensions with statsSync and lets the files generate in the
+// background, the pattern eleventy-img documents for sync shortcodes.
+function imageSync(src, alt = "", cls = "", loading = "lazy", sizes = "100vw", widths = DEFAULT_IMAGE_WIDTHS) {
+  const options = imageOptions(widths);
+  const imageSrc = localImageSrc(src);
+  EleventyImage(imageSrc, options).catch((e) => console.warn(`[imageSync] ${src}: ${e.message}`));
+  const metadata = EleventyImage.statsSync(imageSrc, options);
+  return EleventyImage.generateHTML(metadata, { alt, class: cls, loading, decoding: "async", sizes });
 }
 
 // Tailwind v4: src/styles/tailwind.css → <output>/assets/css/site.css, rebuilt on every
@@ -78,6 +89,12 @@ module.exports = function(eleventyConfig) {
 
   // Image optimization shortcode
   eleventyConfig.addAsyncShortcode("image", imageShortcode);
+  // {{ src | imageSync(alt, class, loading, sizes, widths) }}: usable inside macros
+  eleventyConfig.addFilter("imageSync", imageSync);
+  // Publication type from its URL, shown as a badge (cards) or mono text (editorial)
+  eleventyConfig.addFilter("pubType", (url) =>
+    url.includes("doi.org") ? "DOI" : url.includes("medium.com") ? "Blog" : url.includes("zenodo.org") ? "Zenodo" : "Article"
+  );
 
   // Case-study markdown keeps plain ![alt](/assets/images/x.png) links so the
   // markdown mirrors stay readable; swap them for optimized <picture> markup in the HTML

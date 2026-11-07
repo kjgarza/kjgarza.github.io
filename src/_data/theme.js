@@ -2,12 +2,15 @@
 //   SITE_THEME=editorial bun run build
 // Every difference between the themes lives here (layout switches) or in
 // src/assets/css/themes/<name>.css (colour, font, label, rule, logo-filter and
-// feature-block tokens). Section markup is
-// shared; partials read these switches for their few variations.
+// feature-block and case-study tokens). Section markup is shared; partials
+// read these switches for their few variations. pageStyle is the only switch
+// the subpages (work, tools, publications, playground, 404) and the footer read;
+// projectThumbnails also applies to the Work page. The rest are homepage-only.
 const THEMES = {
   // Direction A: quiet and monochrome, serif display, grey logos.
   editorial: {
     name: "editorial",
+    pageStyle: "editorial", // subpages: page header, hairline rows, serif titles
     heroStyle: "profile", // name + monogram, role line, focus chips
     projectThumbnails: false,
     ctaStyle: "link",
@@ -17,6 +20,7 @@ const THEMES = {
   // Direction B: the same structure, keeps the brand pink and one doodle.
   accent: {
     name: "accent",
+    pageStyle: "cards", // subpages: the card layouts (work grid, tilted tool cards, badges)
     heroStyle: "headline", // "Solving complex problems…" with doodles
     projectThumbnails: true,
     ctaStyle: "button",

@@ -1,3 +1,16 @@
+{#- theme.pageStyle "editorial": left-aligned under a hairline, small mono caps
+    (styles in editorial.css). "cards": the centred mono line. -#}
+{% if theme.pageStyle == "editorial" %}
+<footer class="ed-footer">
+  <p>{{ site.author.name }} · {{ site.schema_org.jobTitle }} · © {% year %}</p>
+  <ul class="ed-footer-links">
+    <li><a target="_blank" rel="noopener" href="{{ site.author.figma }}">Figma</a></li>
+    <li><a target="_blank" rel="noopener" href="{{ site.author.github }}">GitHub</a></li>
+    <li><a target="_blank" rel="noopener" href="{{ site.author.linkedin }}">LinkedIn</a></li>
+    <li><a href="mailto:{{ site.author.email }}">Email</a></li>
+  </ul>
+</footer>
+{% else %}
 <footer class="text-foreground flex w-full max-w-4xl flex-col items-center justify-between gap-1 px-4 pt-8 pb-24 font-mono font-medium sm:pb-8 md:px-12 xl:px-8">
   <div class="flex flex-wrap items-center gap-4">
     <div class="flex items-center gap-4">
@@ -26,3 +39,4 @@
   </div>
   <p class="text-muted-foreground text-sm">Copyright © {% year %} {{ site.author.name }}</p>
 </footer>
+{% endif %}

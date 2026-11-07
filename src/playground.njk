@@ -5,10 +5,22 @@ description: Experiments and playful prototypes by Kristian Garza, a Berlin-base
 permalink: /playground/
 ---
 {% from "components/ui/badge.njk" import badge %}
-
+{% import "components/editorial.njk" as ed %}
+{% from "components/editorial.njk" import pageHeader with context %}
+{#- theme.pageStyle: "editorial" = one plain row; "cards" = a tilted card. -#}
+{% if theme.pageStyle == "editorial" %}
+<div class="ed-page">
+  {{ pageHeader("Playground", "Experiments") }}
+  <section class="ed-section" data-reveal aria-label="Projects">
+    <ul class="ed-list">
+      {{ ed.plainRow({ title: "Coming soon", titleTag: "h2", meta: "Projects", text: "Playground projects and experiments will be showcased here soon." }) }}
+    </ul>
+  </section>
+</div>
+{% else %}
 <div class="flex w-full max-w-4xl flex-1 flex-col gap-4 p-4 md:p-12 xl:p-8">
-  <h1 class="text-primary font-mono text-2xl font-bold">Playground</h1>
-  <section class="flex flex-col gap-4">
+  {{ pageHeader("Playground") }}
+  <section data-reveal class="flex flex-col gap-4">
     <div class="relative grid gap-6 sm:grid-cols-2 sm:gap-2">
       
       <!-- Add your playground projects here -->
@@ -26,3 +38,4 @@ permalink: /playground/
     </div>
   </section>
 </div>
+{% endif %}

@@ -8,7 +8,7 @@ const THEMES = {
   // Direction A: quiet and monochrome, serif display, grey logos.
   editorial: {
     name: "editorial",
-    heroStyle: "profile", // name + monogram, role line, focus chips
+    heroStyle: "profile", // name, role line, focus chips (no portrait)
     projectThumbnails: false,
     ctaStyle: "link",
     reveal: "section",

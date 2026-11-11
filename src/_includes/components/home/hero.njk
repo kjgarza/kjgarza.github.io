@@ -1,10 +1,9 @@
-{#- Hero. theme.heroStyle: "profile" (name as H1, monogram, role, chips) or
+{#- Hero. theme.heroStyle: "profile" (name as H1, role, chips; no portrait) or
     "headline" (the "Solving complex problems…" sentence as H1, one doodle). -#}
 {% from "components/ui/button.njk" import button %}
 {% set mailto = "mailto:" + site.author.email + "?subject=" + ("Hello from your website" | urlencode) %}
 <header class="home-hero home-hero--{{ theme.heroStyle }}">
   {% if theme.heroStyle == "profile" %}
-  <div class="home-monogram" aria-hidden="true">KG</div>
   <div class="home-hero-body">
     <h1 class="home-name">{{ site.author.name }}</h1>
     <p class="home-role">{{ site.role }}</p>

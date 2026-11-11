@@ -30,19 +30,6 @@
   padding: 2.5rem 0 3.5rem;
 }
 .home-hero-body { display: flex; flex-direction: column; gap: 0.75rem; flex: 1 1 20rem; min-width: 0; }
-.home-monogram {
-  flex: none;
-  width: 6.5rem;
-  height: 6.5rem;
-  border-radius: 50%;
-  background: var(--card);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--home-display);
-  font-size: 2.1rem;
-  color: var(--muted-foreground);
-}
 .home-name {
   margin: 0;
   font-family: var(--home-display);

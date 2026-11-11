@@ -33,7 +33,8 @@ let sitemapUrls = [];
 const allHtml = [];
 
 beforeAll(() => {
-  execSync("bun run build", { cwd: root, stdio: "pipe" });
+  // A configured endpoint, so /ask/ renders its form and script
+  execSync("bun run build", { cwd: root, stdio: "pipe", env: { ...process.env, ASK_ENDPOINT: "https://ask.example.test/" } });
   const xml = fs.readFileSync(path.join(out, "sitemap.xml"), "utf8");
   sitemapUrls = [...xml.matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) => new URL(m[1]).pathname);
   const walk = (dir) => {
@@ -225,6 +226,37 @@ describe("images and performance", () => {
   });
   test("work card images declare their displayed size", () => {
     expect(read("/work/")).toContain('sizes="576px"');
+  });
+});
+
+describe("ask page", () => {
+  test("/ask/ is indexable with one H1, a canonical and a short description", () => {
+    const html = read("/ask/");
+    expect(sitemapUrls).toContain("/ask/");
+    expect(isNoindex(html)).toBe(false);
+    expect(count(html, /<h1[\s>]/g)).toBe(1);
+    expect(canonical(html)).toEqual([`${SITE}/ask/`]);
+    expect(meta(html, "description").length).toBeLessThanOrEqual(160);
+  });
+  test("suggested questions are plain links that work without JavaScript", () => {
+    const html = read("/ask/");
+    const links = (html.match(/<a [^>]*data-question="[^"]+"[^>]*>/g) || []).map((a) => a.match(/href="([^"]+)"/)[1]);
+    expect(links.length).toBeGreaterThanOrEqual(3);
+    for (const href of links) {
+      if (href.startsWith("/")) expect(fs.existsSync(path.join(out, href, "index.html")), href).toBe(true);
+    }
+  });
+  test("the answer region is a polite live region and the script is page-scoped", () => {
+    expect(read("/ask/")).toMatch(/<div [^>]*id="ask-answer"[^>]*aria-live="polite"/);
+    expect(read("/ask/")).toContain('<script type="module" src="/assets/js/ask.js"');
+    expect(fs.existsSync(path.join(out, "assets/js/ask.js"))).toBe(true);
+    for (const url of ["/", "/work/", "/tools/", "/cv/"]) expect(read(url), url).not.toContain("ask.js");
+  });
+  test("the shared ask data is published and leaves out gated case studies", () => {
+    const data = JSON.parse(fs.readFileSync(path.join(out, "api/ask-data.json"), "utf8"));
+    expect(data.work.length).toBeGreaterThan(0);
+    const gatedSlugs = ["knowledge-graph-engine", "query-translation-api", "repo-atlas-catalogue"];
+    for (const slug of gatedSlugs) expect(data.caseStudies.map((c) => c.slug)).not.toContain(slug);
   });
 });
 

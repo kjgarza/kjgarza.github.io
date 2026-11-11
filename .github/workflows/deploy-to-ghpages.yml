@@ -36,6 +36,9 @@ jobs:
 
       - run: bun install
       - run: bun run build-ghpages
+        env:
+          # Worker URL for /ask/ (repo variable); unset, the page ships without the form
+          ASK_ENDPOINT: ${{ vars.ASK_ENDPOINT }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

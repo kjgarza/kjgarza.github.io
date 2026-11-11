@@ -1,0 +1,8 @@
+{
+  "root": "main",
+  "elements": {
+    "main": { "type": "Stack", "props": {}, "children": ["answer", "cta"] },
+    "answer": { "type": "Answer", "props": { "text": "That's not in my portfolio." }, "children": [] },
+    "cta": { "type": "ContactCTA", "props": {}, "children": [] }
+  }
+}

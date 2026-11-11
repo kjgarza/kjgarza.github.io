@@ -21,7 +21,7 @@ just build         # Same as bun run build
 just serve         # Serve _site/ with python3 http.server on :8080
 ```
 
-No linter is configured. `bun test` (`tests/seo.test.js`) builds the site and checks SEO invariants on `_site/`: canonicals, escaped meta tags, one H1 per page, descriptions of at most 160 characters, noindex/sitemap rules, structured data, and image attributes. Run it after touching layouts, front matter or `src/_data/`.
+No linter is configured. `bun test` runs `tests/*.test.js(x)`. `tests/seo.test.js` builds the site and checks SEO invariants on `_site/`: canonicals, escaped meta tags, one H1 per page, descriptions of at most 160 characters, noindex/sitemap rules, structured data, and image attributes. Run it after touching layouts, front matter or `src/_data/`. The `tests/ask-*` files cover the `/ask/` page (see below) and never call a live model.
 
 `just test` runs everything; `just test-scripts` (`uvx pytest`) runs only the job-pipeline script tests, offline and in seconds. Run it after touching anything in `scripts/` or a skill's `scripts/`.
 - `tests/cv-to-pdf.test.js` (bun) renders the site CV through `scripts/cv-to-pdf.js` without launching Chrome.
@@ -34,7 +34,7 @@ No linter is configured. `bun test` (`tests/seo.test.js`) builds the site and ch
 ### Tech stack
 - **Eleventy 3.x** with **Nunjucks** as the primary template engine (`autoescape: false`)
 - **Tailwind CSS v4**, compiled from `src/styles/tailwind.css` on every Eleventy build (see CSS / Styling)
-- No JavaScript bundler — scripts are static files in `src/assets/`
+- No JavaScript bundler — scripts are static files in `src/assets/`. One page-scoped exception: `/ask/` loads `src/assets/js/ask.js`, bundled from `lib/ask/` by `bun run build:ask` (run by `build`, `dev`, `watch` and `build-ghpages`; the output is gitignored). Every other page stays zero-React static HTML.
 
 ### Directory layout
 
@@ -73,6 +73,7 @@ All files export plain JS arrays/objects consumed as global template variables:
 - **`/work/:slug/`** — Individual case studies from `src/work/*.md`, using `layout: layouts/case-study.njk`
 - **`/tools`** (`tools.njk`) — All tools from `tools.js`
 - **`/publications`** (`publications.njk`) — All publications from `publications.js`
+- **`/ask/`** (`ask.njk`) — "Ask about my work": a question box that streams a generated answer (see Ask page)
 
 ### Adding a new case study
 
@@ -89,6 +90,17 @@ All files export plain JS arrays/objects consumed as global template variables:
 ### CV pages
 
 `/cv/` renders only the default CV (`src/_data/cv.js`). Employer-specific variants are listed in `src/_data/cvVariants.js` and render at `/cv/<id>/`. Those pages are noindex, left out of the sitemap, and not linked from the site. The sheet markup is the `renderCV` macro in `components/cv-sheet.njk`, which `scripts/cv-to-pdf.js` also uses.
+
+### Ask page
+
+`/ask/` answers a visitor's question with [json-render](https://github.com/vercel-labs/json-render) generative UI. The model picks, the data renders: every component prop is an id from the site data, and the only free text is a short `Answer`.
+
+- `lib/ask/site-data.js` builds `/api/ask-data.json` (via `src/ask-data.11ty.js`) from `work.js`, `publications.js`, `tools.js`, `cv.js` employment and the public case studies (H2 sections and excerpts). `passwordProtected: true` case studies are left out entirely. The page script and the endpoint both read this file.
+- `lib/ask/catalog.mjs` defines the catalog (`Stack`, `Answer`, `WorkCard`, `Publication`, `CaseStudyExcerpt`, `Timeline`, `ToolCard`, `ContactCTA`) with ids as Zod enums, plus `validateAskSpec`.
+- `lib/ask/registry.jsx` renders it with the markup and Tailwind classes of the Nunjucks components. Tailwind scans `lib/ask/` too (`@source` in `tailwind.css`), and a test checks every class it renders gets CSS.
+- `lib/ask/server.mjs` is the endpoint: CORS limited to the site origin, a per-IP rate limit, the catalog prompt plus `/llms-full.txt` and the id lists as a cached system prompt, capped output, and a filter that drops any streamed patch outside the catalog. `worker/ask/` deploys it as a Cloudflare Worker (`just deploy-ask`; API key via `wrangler secret put ANTHROPIC_API_KEY`; set a monthly spend limit on the Anthropic workspace).
+- The site gets the Worker URL from `ASK_ENDPOINT` at build time (a repo variable in the deploy workflow). Without it, `/ask/` ships as the suggested-question links only, which is also the no-JS fallback.
+- json-render is pre-1.0: dependency versions are pinned exactly. Read the release notes before upgrading.
 
 ### CSS / Styling
 

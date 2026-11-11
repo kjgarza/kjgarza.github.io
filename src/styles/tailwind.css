@@ -6,6 +6,9 @@
 @import "basecoat-css/components/dialog";
 @import "basecoat-css/components/drawer";
 @source "..";
+/* /ask/ renders its components from lib/ask/ (React) */
+@source "../../lib/ask";
+@source not "../assets/js/ask.js";
 /* Dark mode: [data-theme=dark] (site) or .dark (shadcn/Basecoat convention) on <html> */
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *, .dark, .dark *));
 

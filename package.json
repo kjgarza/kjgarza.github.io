@@ -4,25 +4,39 @@
   "description": "Kristian Garza Portfolio - Built with 11ty",
   "main": "index.js",
   "scripts": {
-    "build": "bun run eleventy",
-    "dev": "bun run eleventy --serve",
-    "watch": "bun run eleventy --watch",
+    "build": "bun run build:ask && bun run eleventy",
+    "build:ask": "bun build lib/ask/client.jsx --outfile src/assets/js/ask.js --target browser --minify --define process.env.NODE_ENV='\"production\"'",
+    "dev": "bun run build:ask && bun run eleventy --serve",
+    "watch": "bun run build:ask && bun run eleventy --watch",
     "test": "bun test tests/",
-    "build-ghpages": "bun x @11ty/eleventy",
+    "build-ghpages": "bun run build:ask && bun x @11ty/eleventy",
     "clean": "rm -rf _site node_modules",
     "reinstall": "bun run clean && bun install",
     "cv-pdf": "node scripts/cv-to-pdf.js"
   },
-  "keywords": ["eleventy", "portfolio", "design", "static-site"],
+  "keywords": [
+    "eleventy",
+    "portfolio",
+    "design",
+    "static-site"
+  ],
   "author": "Kristian Garza",
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-img": "^6.0.4",
+    "@ai-sdk/anthropic": "4.0.91",
+    "@json-render/core": "0.21.3",
+    "@json-render/react": "0.21.3",
     "@phosphor-icons/core": "^2.1.1",
     "@tailwindcss/cli": "4.3.3",
     "@tailwindcss/typography": "^0.5.20",
-    "puppeteer": "^24.40.0"
+    "ai": "7.0.156",
+    "gray-matter": "4.0.3",
+    "puppeteer": "^24.40.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "zod": "4.6.7"
   },
   "dependencies": {
     "basecoat-css": "1.1.0"

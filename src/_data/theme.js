@@ -11,7 +11,7 @@ const THEMES = {
   editorial: {
     name: "editorial",
     pageStyle: "editorial", // subpages: page header, hairline rows, serif titles
-    heroStyle: "profile", // name + monogram, role line, focus chips
+    heroStyle: "profile", // name , role line, focus chips
     projectThumbnails: false,
     ctaStyle: "link",
     reveal: "section",

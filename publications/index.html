@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en" data-site-theme="accent">
+<html class="scroll-smooth" lang="en" data-site-theme="editorial">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,11 +32,11 @@
 
   <!-- Self-hosted fonts (latin subset); Manrope is a single variable file for 400–700 -->
   <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/css/site.css?v=f5463b8534" as="style">
   <style>
     @font-face { font-family: 'Manrope'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/manrope-latin.woff2) format('woff2'); }
-    @font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(/assets/fonts/fraunces-latin.woff2) format('woff2'); }
+    @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/playfair-display-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/dm-mono-500-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-italic-latin.woff2) format('woff2'); }
@@ -44,7 +44,9 @@
 
   <link rel="stylesheet" href="/assets/css/site.css?v=f5463b8534">
   <!-- Build-time theme tokens (SITE_THEME, src/_data/theme.js); overrides the shared variables above -->
-  <link rel="stylesheet" href="/assets/css/themes/accent.css">
+  <link rel="stylesheet" href="/assets/css/themes/editorial.css">
+  <!-- Shared editorial building blocks: the homepage in both themes, every page in pageStyle "editorial" -->
+  <link rel="stylesheet" href="/assets/css/editorial.css">
   <link rel="stylesheet" href="/assets/css/reveal.css">
   <!-- Basecoat runtime + drawer (mobile menu animation and backdrop close; the menu works without them) -->
   <script defer src="/assets/js/basecoat.min.js"></script>
@@ -270,629 +272,146 @@
 
 
 
-<div class="flex w-full max-w-4xl flex-1 flex-col gap-6 p-4 md:p-12 xl:p-8">
+<div class="ed-page">
   
-<div class="flex flex-col gap-2">
-    <h1 class="text-primary font-mono text-2xl font-bold">Publications</h1>
-    <p class="text-muted-foreground text-lg">Research papers, articles, and presentations.</p>
-  </div>
-  
-  <section data-reveal class="flex flex-col gap-6">
-    
-    
-      
-        
-        <div class="flex items-center gap-4 mt-6 first:mt-0">
-          <h2 class="text-foreground font-mono text-xl font-bold">2023</h2>
-          <div class="flex-1 h-px bg-card border-t"></div>
-        </div>
-      
-      
-      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
-            Academic Publishing web forms meet your demise: The unstoppable rise of large language models (ChatGPT)
-          </h3>
-          
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-muted-foreground text-sm font-medium">2023</span>
-              
-              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-green-200 bg-green-50 text-green-700">Blog</span>
-            </div>
-            
-            <a 
-              href="https://medium.com/@kj.garza/academic-publishing-web-forms-meet-your-demise-the-unstoppable-rise-of-large-language-models-dbb1bd6c2ee8" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
-            >
-              <span>Read</span>
-              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-      </article>
-    
-      
-      
-      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
-            ParrotGPT: On the Advantages of Large Language Models Tools for Academic Metadata Schema Mapping
-          </h3>
-          
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-muted-foreground text-sm font-medium">2023</span>
-              
-              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-green-200 bg-green-50 text-green-700">Blog</span>
-            </div>
-            
-            <a 
-              href="https://medium.com/@kj.garza/parrotgpt-on-the-advantages-of-large-language-models-tools-for-academic-metadata-schema-mapping-434cceabc68b" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
-            >
-              <span>Read</span>
-              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-      </article>
-    
-      
-      
-      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
-            Breaking a Metadata Barrier: Improving discoverability with automatic subject classification
-          </h3>
-          
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-muted-foreground text-sm font-medium">2023</span>
-              
-              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-            </div>
-            
-            <a 
-              href="https://doi.org/10.5438/vwp0-vz05" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
-            >
-              <span>Read</span>
-              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-      </article>
-    
-      
-      
-      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
-            DataCite Design System is ready to be worn.
-          </h3>
-          
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-muted-foreground text-sm font-medium">2023</span>
-              
-              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-            </div>
-            
-            <a 
-              href="https://doi.org/10.5438/tpah-aj25" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
-            >
-              <span>Read</span>
-              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-      </article>
-    
-      
-      
-      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
-            The Impact of Language User Interfaces on Finding Scholarly Repositories.
-          </h3>
-          
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-muted-foreground text-sm font-medium">2023</span>
-              
-              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-            </div>
-            
-            <a 
-              href="https://doi.org/10.59350/skna9-1pb77" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
-            >
-              <span>Read</span>
-              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-      </article>
-    
-      
-        
-        <div class="flex items-center gap-4 mt-6 first:mt-0">
-          <h2 class="text-foreground font-mono text-xl font-bold">2022</h2>
-          <div class="flex-1 h-px bg-card border-t"></div>
-        </div>
-      
-      
-      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
-            The FAIR Island Project: Tracking the impact of field station research
-          </h3>
-          
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-muted-foreground text-sm font-medium">2022</span>
-              
-              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-            </div>
-            
-            <a 
-              href="https://doi.org/10.5281/zenodo.7308803" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
-            >
-              <span>Read</span>
-              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-      </article>
-    
-      
-      
-      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
-            2021 FAIR Island Annual Report
-          </h3>
-          
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-muted-foreground text-sm font-medium">2022</span>
-              
-              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-            </div>
-            
-            <a 
-              href="https://doi.org/10.5281/zenodo.6536701" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
-            >
-              <span>Read</span>
-              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-      </article>
-    
-      
-      
-      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
-            D4.7 Tools for finding and selecting certified repositories for researchers and other stakeholders
-          </h3>
-          
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-muted-foreground text-sm font-medium">2022</span>
-              
-              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-            </div>
-            
-            <a 
-              href="https://doi.org/10.5281/zenodo.6090418" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
-            >
-              <span>Read</span>
-              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-      </article>
-    
-      
-      
-      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
-            Refining our Thinking: How we are improving DataCite design processes.
-          </h3>
-          
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-muted-foreground text-sm font-medium">2022</span>
-              
-              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-            </div>
-            
-            <a 
-              href="https://doi.org/10.5438/f03x-vr69" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
-            >
-              <span>Read</span>
-              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-      </article>
-    
-      
-      
-      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
-            Revolutionizing Metadata Schema Mapping with ChatGPT
-          </h3>
-          
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-muted-foreground text-sm font-medium">2022</span>
-              
-              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-green-200 bg-green-50 text-green-700">Blog</span>
-            </div>
-            
-            <a 
-              href="https://medium.com/@kj.garza/revolutionizing-metadata-schema-mapping-with-chatgpt-a8df54e41e24" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
-            >
-              <span>Read</span>
-              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-      </article>
-    
-      
-        
-        <div class="flex items-center gap-4 mt-6 first:mt-0">
-          <h2 class="text-foreground font-mono text-xl font-bold">2021</h2>
-          <div class="flex-1 h-px bg-card border-t"></div>
-        </div>
-      
-      
-      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
-            Are You There, Metadata? It’s Me, the Bibliometrician
-          </h3>
-          
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-muted-foreground text-sm font-medium">2021</span>
-              
-              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-            </div>
-            
-            <a 
-              href="https://doi.org/10.5438/j4xv-y945" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
-            >
-              <span>Read</span>
-              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-      </article>
-    
-      
-      
-      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
-            You shoulda put a PID on it: Leveraging the PID Graph for DMPs
-          </h3>
-          
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-muted-foreground text-sm font-medium">2021</span>
-              
-              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-            </div>
-            
-            <a 
-              href="https://doi.org/10.5281/zenodo.4487522" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
-            >
-              <span>Read</span>
-              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-      </article>
-    
-      
-      
-      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
-            Open hours updates: Spring re-launch open hours for consortium leads
-          </h3>
-          
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-muted-foreground text-sm font-medium">2021</span>
-              
-              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-            </div>
-            
-            <a 
-              href="https://doi.org/10.5438/2nps-h961" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
-            >
-              <span>Read</span>
-              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-      </article>
-    
-      
-        
-        <div class="flex items-center gap-4 mt-6 first:mt-0">
-          <h2 class="text-foreground font-mono text-xl font-bold">2020</h2>
-          <div class="flex-1 h-px bg-card border-t"></div>
-        </div>
-      
-      
-      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
-            Datacite Citation Display: Unlocking Data Citations
-          </h3>
-          
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-muted-foreground text-sm font-medium">2020</span>
-              
-              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-            </div>
-            
-            <a 
-              href="https://doi.org/10.5438/1843-k679" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
-            >
-              <span>Read</span>
-              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-      </article>
-    
-      
-      
-      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
-            A tale of two regions: Using Vega-Lite Population Pyramid to explore PIDs populations
-          </h3>
-          
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-muted-foreground text-sm font-medium">2020</span>
-              
-              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-            </div>
-            
-            <a 
-              href="https://doi.org/10.5281/zenodo.3895557" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
-            >
-              <span>Read</span>
-              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-      </article>
-    
-      
-      
-      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
-            The DataCite MDC Stack
-          </h3>
-          
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-muted-foreground text-sm font-medium">2020</span>
-              
-              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-            </div>
-            
-            <a 
-              href="https://doi.org/10.5438/v9pp-7a27" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
-            >
-              <span>Read</span>
-              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-      </article>
-    
-      
-      
-      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
-            New Research Work on COVID-19 as the pandemic develops
-          </h3>
-          
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-muted-foreground text-sm font-medium">2020</span>
-              
-              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-            </div>
-            
-            <a 
-              href="https://doi.org/10.5281/zenodo.3903381" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
-            >
-              <span>Read</span>
-              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-      </article>
-    
-      
-      
-      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
-            maDMPs Machine Actionable Data Management Plans (maDMPs) demonstration.
-          </h3>
-          
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-muted-foreground text-sm font-medium">2020</span>
-              
-              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-            </div>
-            
-            <a 
-              href="https://doi.org/10.14454/w67k-5373" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
-            >
-              <span>Read</span>
-              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-      </article>
-    
-      
-      
-      <article class="bg-card border-border group relative rounded-2xl border-2 p-6 transition-all duration-200 hover:shadow-md hover:border-primary/20">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-foreground text-lg font-semibold leading-tight group-hover:text-primary transition-colors duration-200">
-            Frontend for the DataCite Commons service
-          </h3>
-          
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-muted-foreground text-sm font-medium">2020</span>
-              
-              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-            </div>
-            
-            <a 
-              href="https://doi.org/10.14454/qgk4-zs88" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="relative z-10 inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-foreground transition-colors duration-200"
-            >
-              <span>Read</span>
-              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Decorative hover element -->
-        <div class="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-r from-primary/5 to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-      </article>
-    
+<header class="ed-page-header">
+    <p class="ed-label">Research</p>
+    <h1 class="ed-title">Publications</h1>
+    <p class="ed-intro">Research papers, articles, and presentations.</p>
+  </header>
+  <section class="ed-section" data-reveal aria-labelledby="year-2023">
+    <h2 id="year-2023" class="ed-label ed-label--ruled">2023</h2>
+    <ul class="ed-list">
+      <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <h3 class="ed-row-title ed-row-title--serif"><a href="https://medium.com/@kj.garza/academic-publishing-web-forms-meet-your-demise-the-unstoppable-rise-of-large-language-models-dbb1bd6c2ee8" target="_blank" rel="noopener noreferrer">Academic Publishing web forms meet your demise: The unstoppable rise of large language models (ChatGPT)</a></h3>
+      </div>
+      <span class="ed-row-year">Blog</span>
+    </li>
+      <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <h3 class="ed-row-title ed-row-title--serif"><a href="https://medium.com/@kj.garza/parrotgpt-on-the-advantages-of-large-language-models-tools-for-academic-metadata-schema-mapping-434cceabc68b" target="_blank" rel="noopener noreferrer">ParrotGPT: On the Advantages of Large Language Models Tools for Academic Metadata Schema Mapping</a></h3>
+      </div>
+      <span class="ed-row-year">Blog</span>
+    </li>
+      <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <h3 class="ed-row-title ed-row-title--serif"><a href="https://doi.org/10.5438/vwp0-vz05" target="_blank" rel="noopener noreferrer">Breaking a Metadata Barrier: Improving discoverability with automatic subject classification</a></h3>
+      </div>
+      <span class="ed-row-year">DOI</span>
+    </li>
+      <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <h3 class="ed-row-title ed-row-title--serif"><a href="https://doi.org/10.5438/tpah-aj25" target="_blank" rel="noopener noreferrer">DataCite Design System is ready to be worn.</a></h3>
+      </div>
+      <span class="ed-row-year">DOI</span>
+    </li>
+      <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <h3 class="ed-row-title ed-row-title--serif"><a href="https://doi.org/10.59350/skna9-1pb77" target="_blank" rel="noopener noreferrer">The Impact of Language User Interfaces on Finding Scholarly Repositories.</a></h3>
+      </div>
+      <span class="ed-row-year">DOI</span>
+    </li>
+    </ul>
+  </section>
+  <section class="ed-section" data-reveal aria-labelledby="year-2022">
+    <h2 id="year-2022" class="ed-label ed-label--ruled">2022</h2>
+    <ul class="ed-list">
+      <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <h3 class="ed-row-title ed-row-title--serif"><a href="https://doi.org/10.5281/zenodo.7308803" target="_blank" rel="noopener noreferrer">The FAIR Island Project: Tracking the impact of field station research</a></h3>
+      </div>
+      <span class="ed-row-year">DOI</span>
+    </li>
+      <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <h3 class="ed-row-title ed-row-title--serif"><a href="https://doi.org/10.5281/zenodo.6536701" target="_blank" rel="noopener noreferrer">2021 FAIR Island Annual Report</a></h3>
+      </div>
+      <span class="ed-row-year">DOI</span>
+    </li>
+      <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <h3 class="ed-row-title ed-row-title--serif"><a href="https://doi.org/10.5281/zenodo.6090418" target="_blank" rel="noopener noreferrer">D4.7 Tools for finding and selecting certified repositories for researchers and other stakeholders</a></h3>
+      </div>
+      <span class="ed-row-year">DOI</span>
+    </li>
+      <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <h3 class="ed-row-title ed-row-title--serif"><a href="https://doi.org/10.5438/f03x-vr69" target="_blank" rel="noopener noreferrer">Refining our Thinking: How we are improving DataCite design processes.</a></h3>
+      </div>
+      <span class="ed-row-year">DOI</span>
+    </li>
+      <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <h3 class="ed-row-title ed-row-title--serif"><a href="https://medium.com/@kj.garza/revolutionizing-metadata-schema-mapping-with-chatgpt-a8df54e41e24" target="_blank" rel="noopener noreferrer">Revolutionizing Metadata Schema Mapping with ChatGPT</a></h3>
+      </div>
+      <span class="ed-row-year">Blog</span>
+    </li>
+    </ul>
+  </section>
+  <section class="ed-section" data-reveal aria-labelledby="year-2021">
+    <h2 id="year-2021" class="ed-label ed-label--ruled">2021</h2>
+    <ul class="ed-list">
+      <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <h3 class="ed-row-title ed-row-title--serif"><a href="https://doi.org/10.5438/j4xv-y945" target="_blank" rel="noopener noreferrer">Are You There, Metadata? It’s Me, the Bibliometrician</a></h3>
+      </div>
+      <span class="ed-row-year">DOI</span>
+    </li>
+      <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <h3 class="ed-row-title ed-row-title--serif"><a href="https://doi.org/10.5281/zenodo.4487522" target="_blank" rel="noopener noreferrer">You shoulda put a PID on it: Leveraging the PID Graph for DMPs</a></h3>
+      </div>
+      <span class="ed-row-year">DOI</span>
+    </li>
+      <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <h3 class="ed-row-title ed-row-title--serif"><a href="https://doi.org/10.5438/2nps-h961" target="_blank" rel="noopener noreferrer">Open hours updates: Spring re-launch open hours for consortium leads</a></h3>
+      </div>
+      <span class="ed-row-year">DOI</span>
+    </li>
+    </ul>
+  </section>
+  <section class="ed-section" data-reveal aria-labelledby="year-2020">
+    <h2 id="year-2020" class="ed-label ed-label--ruled">2020</h2>
+    <ul class="ed-list">
+      <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <h3 class="ed-row-title ed-row-title--serif"><a href="https://doi.org/10.5438/1843-k679" target="_blank" rel="noopener noreferrer">Datacite Citation Display: Unlocking Data Citations</a></h3>
+      </div>
+      <span class="ed-row-year">DOI</span>
+    </li>
+      <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <h3 class="ed-row-title ed-row-title--serif"><a href="https://doi.org/10.5281/zenodo.3895557" target="_blank" rel="noopener noreferrer">A tale of two regions: Using Vega-Lite Population Pyramid to explore PIDs populations</a></h3>
+      </div>
+      <span class="ed-row-year">DOI</span>
+    </li>
+      <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <h3 class="ed-row-title ed-row-title--serif"><a href="https://doi.org/10.5438/v9pp-7a27" target="_blank" rel="noopener noreferrer">The DataCite MDC Stack</a></h3>
+      </div>
+      <span class="ed-row-year">DOI</span>
+    </li>
+      <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <h3 class="ed-row-title ed-row-title--serif"><a href="https://doi.org/10.5281/zenodo.3903381" target="_blank" rel="noopener noreferrer">New Research Work on COVID-19 as the pandemic develops</a></h3>
+      </div>
+      <span class="ed-row-year">DOI</span>
+    </li>
+      <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <h3 class="ed-row-title ed-row-title--serif"><a href="https://doi.org/10.14454/w67k-5373" target="_blank" rel="noopener noreferrer">maDMPs Machine Actionable Data Management Plans (maDMPs) demonstration.</a></h3>
+      </div>
+      <span class="ed-row-year">DOI</span>
+    </li>
+      <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <h3 class="ed-row-title ed-row-title--serif"><a href="https://doi.org/10.14454/qgk4-zs88" target="_blank" rel="noopener noreferrer">Frontend for the DataCite Commons service</a></h3>
+      </div>
+      <span class="ed-row-year">DOI</span>
+    </li>
+    </ul>
   </section>
 </div>
 
@@ -900,33 +419,14 @@
   </main>
   
   
-<footer class="text-foreground flex w-full max-w-4xl flex-col items-center justify-between gap-1 px-4 pt-8 pb-24 font-mono font-medium sm:pb-8 md:px-12 xl:px-8">
-  <div class="flex flex-wrap items-center gap-4">
-    <div class="flex items-center gap-4">
-      <a class="hover:text-primary hover:underline" target="_blank" href="https://www.figma.com/@kristiangarza">
-        Figma
-      </a>
-    </div>
-    <div class="flex items-center gap-4">
-      <span class="text-neutral-400">·</span>
-      <a class="hover:text-primary hover:underline" target="_blank" href="https://github.com/kjgarza">
-        Github
-      </a>
-    </div>
-    <div class="flex items-center gap-4">
-      <span class="text-neutral-400">·</span>
-      <a class="hover:text-primary hover:underline" target="_blank" href="https://www.linkedin.com/in/kjgarza">
-        LinkedIn
-      </a>
-    </div>
-    <div class="flex items-center gap-4">
-      <span class="text-neutral-400">·</span>
-      <a class="hover:text-primary hover:underline" target="_blank" href="mailto:kj.garza+kjgarza@gmail.com">
-        Email
-      </a>
-    </div>
-  </div>
-  <p class="text-muted-foreground text-sm">Copyright © 2026 Kristian Garza</p>
+<footer class="ed-footer">
+  <p>Kristian Garza · AI Engineer · © 2026</p>
+  <ul class="ed-footer-links">
+    <li><a target="_blank" rel="noopener" href="https://www.figma.com/@kristiangarza">Figma</a></li>
+    <li><a target="_blank" rel="noopener" href="https://github.com/kjgarza">GitHub</a></li>
+    <li><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/kjgarza">LinkedIn</a></li>
+    <li><a href="mailto:kj.garza+kjgarza@gmail.com">Email</a></li>
+  </ul>
 </footer>
 
 

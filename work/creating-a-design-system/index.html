@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en" data-site-theme="accent">
+<html class="scroll-smooth" lang="en" data-site-theme="editorial">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,11 +30,11 @@
 
   <!-- Self-hosted fonts (latin subset); Manrope is a single variable file for 400–700 -->
   <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/css/site.css?v=f5463b8534" as="style">
   <style>
     @font-face { font-family: 'Manrope'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/manrope-latin.woff2) format('woff2'); }
-    @font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(/assets/fonts/fraunces-latin.woff2) format('woff2'); }
+    @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/playfair-display-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/dm-mono-500-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-italic-latin.woff2) format('woff2'); }
@@ -42,7 +42,9 @@
 
   <link rel="stylesheet" href="/assets/css/site.css?v=f5463b8534">
   <!-- Build-time theme tokens (SITE_THEME, src/_data/theme.js); overrides the shared variables above -->
-  <link rel="stylesheet" href="/assets/css/themes/accent.css">
+  <link rel="stylesheet" href="/assets/css/themes/editorial.css">
+  <!-- Shared editorial building blocks: the homepage in both themes, every page in pageStyle "editorial" -->
+  <link rel="stylesheet" href="/assets/css/editorial.css">
   <link rel="stylesheet" href="/assets/css/reveal.css">
   <!-- Basecoat runtime + drawer (mobile menu animation and backdrop close; the menu works without them) -->
   <script defer src="/assets/js/basecoat.min.js"></script>
@@ -363,33 +365,14 @@
   </main>
   
   
-<footer class="text-foreground flex w-full max-w-4xl flex-col items-center justify-between gap-1 px-4 pt-8 pb-24 font-mono font-medium sm:pb-8 md:px-12 xl:px-8">
-  <div class="flex flex-wrap items-center gap-4">
-    <div class="flex items-center gap-4">
-      <a class="hover:text-primary hover:underline" target="_blank" href="https://www.figma.com/@kristiangarza">
-        Figma
-      </a>
-    </div>
-    <div class="flex items-center gap-4">
-      <span class="text-neutral-400">·</span>
-      <a class="hover:text-primary hover:underline" target="_blank" href="https://github.com/kjgarza">
-        Github
-      </a>
-    </div>
-    <div class="flex items-center gap-4">
-      <span class="text-neutral-400">·</span>
-      <a class="hover:text-primary hover:underline" target="_blank" href="https://www.linkedin.com/in/kjgarza">
-        LinkedIn
-      </a>
-    </div>
-    <div class="flex items-center gap-4">
-      <span class="text-neutral-400">·</span>
-      <a class="hover:text-primary hover:underline" target="_blank" href="mailto:kj.garza+kjgarza@gmail.com">
-        Email
-      </a>
-    </div>
-  </div>
-  <p class="text-muted-foreground text-sm">Copyright © 2026 Kristian Garza</p>
+<footer class="ed-footer">
+  <p>Kristian Garza · AI Engineer · © 2026</p>
+  <ul class="ed-footer-links">
+    <li><a target="_blank" rel="noopener" href="https://www.figma.com/@kristiangarza">Figma</a></li>
+    <li><a target="_blank" rel="noopener" href="https://github.com/kjgarza">GitHub</a></li>
+    <li><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/kjgarza">LinkedIn</a></li>
+    <li><a href="mailto:kj.garza+kjgarza@gmail.com">Email</a></li>
+  </ul>
 </footer>
 
 

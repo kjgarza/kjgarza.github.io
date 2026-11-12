@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en" data-site-theme="accent">
+<html class="scroll-smooth" lang="en" data-site-theme="editorial">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,11 +32,11 @@
 
   <!-- Self-hosted fonts (latin subset); Manrope is a single variable file for 400–700 -->
   <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/css/site.css?v=f5463b8534" as="style">
   <style>
     @font-face { font-family: 'Manrope'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/manrope-latin.woff2) format('woff2'); }
-    @font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(/assets/fonts/fraunces-latin.woff2) format('woff2'); }
+    @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/playfair-display-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/dm-mono-500-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-italic-latin.woff2) format('woff2'); }
@@ -44,7 +44,9 @@
 
   <link rel="stylesheet" href="/assets/css/site.css?v=f5463b8534">
   <!-- Build-time theme tokens (SITE_THEME, src/_data/theme.js); overrides the shared variables above -->
-  <link rel="stylesheet" href="/assets/css/themes/accent.css">
+  <link rel="stylesheet" href="/assets/css/themes/editorial.css">
+  <!-- Shared editorial building blocks: the homepage in both themes, every page in pageStyle "editorial" -->
+  <link rel="stylesheet" href="/assets/css/editorial.css">
   <link rel="stylesheet" href="/assets/css/reveal.css">
   <!-- Basecoat runtime + drawer (mobile menu animation and backdrop close; the menu works without them) -->
   <script defer src="/assets/js/basecoat.min.js"></script>
@@ -266,177 +268,55 @@
 
 
 
-<div class="flex w-full max-w-4xl flex-1 flex-col gap-6 p-4 md:p-12 xl:p-8">
+<div class="ed-page">
   
-<h1 class="text-primary font-mono text-2xl font-bold">Work</h1>
-  <section data-reveal class="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:grid-rows-[480px_480px_480px_320px]">
-    
-      
-    
-      
-    
-      
-        <div class="bg-card hover:border-border-strong border-border col-span-2 row-span-1 flex flex-col overflow-hidden rounded-lg border-2">
-          <div class="flex flex-col gap-2 p-6">
-            <div class="flex flex-row items-center justify-between">
-              <p class="font-mono">Digital Science</p>
-              <div class="flex flex-row gap-1">
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">APIs</span>
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">LLMs</span>
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Python</span>
-                
-              </div>
-            </div>
-            <div class="flex flex-col gap-2">
-              <h2 class="text-2xl font-bold">Query Translation API - Natural Language to Database Queries</h2>
-              <p class="text-muted-foreground text-base font-medium">Architected and launched a FastAPI microservice that turns natural-language requests into optimized Dimensions searches.</p>
-              
-                <a class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 w-fit mt-2" href="/work/query-translation-api">Read case study</a>
-              
-            </div>
-          </div>
-          
-          
-          <div class="w-full px-6">
-            
-              <picture><source type="image/webp" srcset="/img/Zj-vTGRj-2-320.webp 320w, /img/Zj-vTGRj-2-640.webp 640w, /img/Zj-vTGRj-2-960.webp 960w, /img/Zj-vTGRj-2-1280.webp 1280w" sizes="576px"><img src="/img/Zj-vTGRj-2-320.jpeg" alt="Query Translation API - Natural Language to Database Queries" class="-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform" loading="lazy" decoding="async" width="1280" height="720" srcset="/img/Zj-vTGRj-2-320.jpeg 320w, /img/Zj-vTGRj-2-640.jpeg 640w, /img/Zj-vTGRj-2-960.jpeg 960w, /img/Zj-vTGRj-2-1280.jpeg 1280w" sizes="576px"></picture>
-            
-          </div>
-          
-        </div>
-      
-    
-      
-        <div class="bg-card hover:border-border-strong border-border col-span-1 row-span-2 flex flex-col overflow-hidden rounded-lg border-2">
-          <div class="flex flex-col gap-2 p-6">
-            <div class="flex flex-row items-center justify-between">
-              <p class="font-mono">DataCite</p>
-              <div class="flex flex-row gap-1">
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Design systems</span>
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">UX Design</span>
-                
-              </div>
-            </div>
-            <div class="flex flex-col gap-2">
-              <h2 class="text-2xl font-bold">Harmonizing with a Design System</h2>
-              <p class="text-muted-foreground text-base font-medium">Crafted a Design System for all DataCite frontend services.</p>
-              
-                <a class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 w-fit mt-2" href="/work/creating-a-design-system">Read case study</a>
-              
-            </div>
-          </div>
-          
-          
-          <div class="h-full rounded-tl-2xl px-6 pt-6">
-            
-              <picture><source type="image/webp" srcset="/img/urPLmFUxwi-320.webp 320w, /img/urPLmFUxwi-640.webp 640w, /img/urPLmFUxwi-960.webp 960w, /img/urPLmFUxwi-1280.webp 1280w" sizes="576px"><img src="/img/urPLmFUxwi-320.jpeg" alt="Harmonizing with a Design System" class="-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform" loading="lazy" decoding="async" width="1280" height="1501" srcset="/img/urPLmFUxwi-320.jpeg 320w, /img/urPLmFUxwi-640.jpeg 640w, /img/urPLmFUxwi-960.jpeg 960w, /img/urPLmFUxwi-1280.jpeg 1280w" sizes="576px"></picture>
-            
-          </div>
-          
-        </div>
-      
-    
-      
-        <div class="bg-card hover:border-border-strong border-border col-span-1 row-span-1 flex flex-col overflow-hidden rounded-lg border-2">
-          <div class="flex flex-col gap-2 p-6">
-            <div class="flex flex-row items-center justify-between">
-              <p class="font-mono">DataCite</p>
-              <div class="flex flex-row gap-1">
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Product Design</span>
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">UX Research</span>
-                
-              </div>
-            </div>
-            <div class="flex flex-col gap-2">
-              <h2 class="text-2xl font-bold">Innovating Data Usage Processing Services</h2>
-              <p class="text-muted-foreground text-base font-medium">Pioneering an alternative to existing data usage processing services through web tracker development.</p>
-              
-                <a class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 w-fit mt-2" href="/work/innovating-data-usage-processing-services">Read case study</a>
-              
-            </div>
-          </div>
-          
-          
-          <div class="w-full px-6">
-            
-              <picture><source type="image/webp" srcset="/img/kXO8RmnCCM-320.webp 320w, /img/kXO8RmnCCM-640.webp 640w" sizes="576px"><img src="/img/kXO8RmnCCM-320.jpeg" alt="Innovating Data Usage Processing Services" class="-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform" loading="lazy" decoding="async" width="640" height="425" srcset="/img/kXO8RmnCCM-320.jpeg 320w, /img/kXO8RmnCCM-640.jpeg 640w" sizes="576px"></picture>
-            
-          </div>
-          
-        </div>
-      
-    
-      
-        <div class="bg-card hover:border-border-strong border-border col-span-1 row-span-1 flex flex-col overflow-hidden rounded-lg border-2">
-          <div class="flex flex-col gap-2 p-6">
-            <div class="flex flex-row items-center justify-between">
-              <p class="font-mono">DataCite</p>
-              <div class="flex flex-row gap-1">
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Serverless</span>
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Ruby on Rails</span>
-                
-              </div>
-            </div>
-            <div class="flex flex-col gap-2">
-              <h2 class="text-2xl font-bold">Usage Reports API - Research Data Metrics at Scale</h2>
-              <p class="text-muted-foreground text-base font-medium">Designed and delivered Sashimi—a Rails API that ingests, validates, and stores large SUSHI usage reports at 50,000-dataset scale.</p>
-              
-                <a class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 w-fit mt-2" href="/work/datacite-usage-reports-api">Read case study</a>
-              
-            </div>
-          </div>
-          
-          
-          <div class="w-full px-6">
-            
-              <picture><source type="image/webp" srcset="/img/MPiSVyB7Yd-320.webp 320w, /img/MPiSVyB7Yd-640.webp 640w, /img/MPiSVyB7Yd-960.webp 960w, /img/MPiSVyB7Yd-1218.webp 1218w" sizes="576px"><img src="/img/MPiSVyB7Yd-320.jpeg" alt="Usage Reports API - Research Data Metrics at Scale" class="-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform" loading="lazy" decoding="async" width="1218" height="633" srcset="/img/MPiSVyB7Yd-320.jpeg 320w, /img/MPiSVyB7Yd-640.jpeg 640w, /img/MPiSVyB7Yd-960.jpeg 960w, /img/MPiSVyB7Yd-1218.jpeg 1218w" sizes="576px"></picture>
-            
-          </div>
-          
-        </div>
-      
-    
-      
-        <div class="bg-card hover:border-border-strong border-border col-span-2 row-span-1 flex flex-col overflow-hidden rounded-lg border-2">
-          <div class="flex flex-col gap-2 p-6">
-            <div class="flex flex-row items-center justify-between">
-              <p class="font-mono">DataCite</p>
-              <div class="flex flex-row gap-1">
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">UX Research</span>
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Service Design</span>
-                
-              </div>
-            </div>
-            <div class="flex flex-col gap-2">
-              <h2 class="text-2xl font-bold">Redesigning DataCite's Harvesting Services</h2>
-              <p class="text-muted-foreground text-base font-medium">Redesigned DataCite's Harvesting Services from the ground up to boost service utilization and unlock new revenue opportunities.</p>
-              
-                <a class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 w-fit mt-2" href="/work/redesigning-datacite-harvesting-services">Read case study</a>
-              
-            </div>
-          </div>
-          
-          
-          <div class="w-full px-6">
-            
-              <picture><source type="image/webp" srcset="/img/jsjkiQM2NG-320.webp 320w, /img/jsjkiQM2NG-640.webp 640w, /img/jsjkiQM2NG-960.webp 960w, /img/jsjkiQM2NG-1280.webp 1280w" sizes="576px"><img src="/img/jsjkiQM2NG-320.jpeg" alt="Redesigning DataCite's Harvesting Services" class="-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform" loading="lazy" decoding="async" width="1280" height="832" srcset="/img/jsjkiQM2NG-320.jpeg 320w, /img/jsjkiQM2NG-640.jpeg 640w, /img/jsjkiQM2NG-960.jpeg 960w, /img/jsjkiQM2NG-1280.jpeg 1280w" sizes="576px"></picture>
-            
-          </div>
-          
-        </div>
-      
-    
+<header class="ed-page-header">
+    <p class="ed-label">Selected work</p>
+    <h1 class="ed-title">Work</h1>
+  </header>
+  <section class="ed-section" data-reveal aria-label="Case studies">
+    <ol class="ed-list">
+      <li class="ed-row">
+      <span class="ed-row-num">01</span>
+      <div class="ed-row-body">
+        <h2 class="ed-row-title"><a href="/work/query-translation-api/">Query Translation API - Natural Language to Database Queries</a></h2>
+        <p class="ed-row-meta">Digital Science · APIs · LLMs · Python</p>
+        <p class="ed-row-text">Architected and launched a FastAPI microservice that turns natural-language requests into optimized Dimensions searches.</p>
+      </div>
+    </li>
+      <li class="ed-row">
+      <span class="ed-row-num">02</span>
+      <div class="ed-row-body">
+        <h2 class="ed-row-title"><a href="/work/creating-a-design-system/">Harmonizing with a Design System</a></h2>
+        <p class="ed-row-meta">DataCite · Design systems · UX Design</p>
+        <p class="ed-row-text">Crafted a Design System for all DataCite frontend services.</p>
+      </div>
+    </li>
+      <li class="ed-row">
+      <span class="ed-row-num">03</span>
+      <div class="ed-row-body">
+        <h2 class="ed-row-title"><a href="/work/innovating-data-usage-processing-services/">Innovating Data Usage Processing Services</a></h2>
+        <p class="ed-row-meta">DataCite · Product Design · UX Research</p>
+        <p class="ed-row-text">Pioneering an alternative to existing data usage processing services through web tracker development.</p>
+      </div>
+    </li>
+      <li class="ed-row">
+      <span class="ed-row-num">04</span>
+      <div class="ed-row-body">
+        <h2 class="ed-row-title"><a href="/work/datacite-usage-reports-api/">Usage Reports API - Research Data Metrics at Scale</a></h2>
+        <p class="ed-row-meta">DataCite · Serverless · Ruby on Rails</p>
+        <p class="ed-row-text">Designed and delivered Sashimi—a Rails API that ingests, validates, and stores large SUSHI usage reports at 50,000-dataset scale.</p>
+      </div>
+    </li>
+      <li class="ed-row">
+      <span class="ed-row-num">05</span>
+      <div class="ed-row-body">
+        <h2 class="ed-row-title"><a href="/work/redesigning-datacite-harvesting-services/">Redesigning DataCite's Harvesting Services</a></h2>
+        <p class="ed-row-meta">DataCite · UX Research · Service Design</p>
+        <p class="ed-row-text">Redesigned DataCite's Harvesting Services from the ground up to boost service utilization and unlock new revenue opportunities.</p>
+      </div>
+    </li>
+    </ol>
   </section>
 </div>
 
@@ -444,33 +324,14 @@
   </main>
   
   
-<footer class="text-foreground flex w-full max-w-4xl flex-col items-center justify-between gap-1 px-4 pt-8 pb-24 font-mono font-medium sm:pb-8 md:px-12 xl:px-8">
-  <div class="flex flex-wrap items-center gap-4">
-    <div class="flex items-center gap-4">
-      <a class="hover:text-primary hover:underline" target="_blank" href="https://www.figma.com/@kristiangarza">
-        Figma
-      </a>
-    </div>
-    <div class="flex items-center gap-4">
-      <span class="text-neutral-400">·</span>
-      <a class="hover:text-primary hover:underline" target="_blank" href="https://github.com/kjgarza">
-        Github
-      </a>
-    </div>
-    <div class="flex items-center gap-4">
-      <span class="text-neutral-400">·</span>
-      <a class="hover:text-primary hover:underline" target="_blank" href="https://www.linkedin.com/in/kjgarza">
-        LinkedIn
-      </a>
-    </div>
-    <div class="flex items-center gap-4">
-      <span class="text-neutral-400">·</span>
-      <a class="hover:text-primary hover:underline" target="_blank" href="mailto:kj.garza+kjgarza@gmail.com">
-        Email
-      </a>
-    </div>
-  </div>
-  <p class="text-muted-foreground text-sm">Copyright © 2026 Kristian Garza</p>
+<footer class="ed-footer">
+  <p>Kristian Garza · AI Engineer · © 2026</p>
+  <ul class="ed-footer-links">
+    <li><a target="_blank" rel="noopener" href="https://www.figma.com/@kristiangarza">Figma</a></li>
+    <li><a target="_blank" rel="noopener" href="https://github.com/kjgarza">GitHub</a></li>
+    <li><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/kjgarza">LinkedIn</a></li>
+    <li><a href="mailto:kj.garza+kjgarza@gmail.com">Email</a></li>
+  </ul>
 </footer>
 
 

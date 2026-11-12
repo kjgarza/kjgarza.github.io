@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en" data-site-theme="accent">
+<html class="scroll-smooth" lang="en" data-site-theme="editorial">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,11 +32,11 @@
 
   <!-- Self-hosted fonts (latin subset); Manrope is a single variable file for 400–700 -->
   <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/css/site.css?v=f5463b8534" as="style">
   <style>
     @font-face { font-family: 'Manrope'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/manrope-latin.woff2) format('woff2'); }
-    @font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(/assets/fonts/fraunces-latin.woff2) format('woff2'); }
+    @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/playfair-display-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/dm-mono-500-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-italic-latin.woff2) format('woff2'); }
@@ -44,7 +44,9 @@
 
   <link rel="stylesheet" href="/assets/css/site.css?v=f5463b8534">
   <!-- Build-time theme tokens (SITE_THEME, src/_data/theme.js); overrides the shared variables above -->
-  <link rel="stylesheet" href="/assets/css/themes/accent.css">
+  <link rel="stylesheet" href="/assets/css/themes/editorial.css">
+  <!-- Shared editorial building blocks: the homepage in both themes, every page in pageStyle "editorial" -->
+  <link rel="stylesheet" href="/assets/css/editorial.css">
   <link rel="stylesheet" href="/assets/css/reveal.css">
   <!-- Basecoat runtime + drawer (mobile menu animation and backdrop close; the menu works without them) -->
   <script defer src="/assets/js/basecoat.min.js"></script>
@@ -265,195 +267,85 @@
     
 
 
-<div class="flex w-full max-w-4xl flex-1 flex-col gap-4 p-4 md:p-12 xl:p-8">
+<div class="ed-page">
   
-<h1 class="text-primary font-mono text-2xl font-bold">Tools</h1>
-  <section data-reveal class="flex flex-col gap-4">
-    <div class="relative grid gap-6 sm:grid-cols-2 sm:gap-2">
-      <img src="/drawings/used-by.svg" alt="Used by" width="113" height="98" class="absolute top-10 -left-32 hidden rotate-2 lg:block">
-      
-      
-      <div class="bg-card border-border flex h-fit w-fit rotate-2 flex-row gap-2 rounded-2xl border-2 p-4">
-        <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-          <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-            <img alt="Dataset Discovery Agent" loading="lazy" width="44" height="44" class="rounded-md" src="/assets/images/ai-sdk-icon.png">
-          </div>
-        </div>
-        <div class="flex w-full flex-col gap-1">
-          <div class="flex flex-row items-center justify-between">
-            <h2 class="text-foreground text-base font-bold">Dataset Discovery Agent</h2>
-            <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">AI   SDK</span>
-          </div>
-          <p class="text-muted-foreground text-base font-medium">An AI agent automating discovery, evaluation, and acquisition of open research datasets for scientists and data engineers.</p>
-          <a href="https://hawfinch.vercel.app/" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-            View on the web
-          </a>
-        </div>
+<header class="ed-page-header">
+    <p class="ed-label">Side projects</p>
+    <h1 class="ed-title">Tools</h1>
+  </header>
+  <section class="ed-section" data-reveal aria-label="Tools">
+    <ul class="ed-list">
+      <li class="ed-row ed-row--plain">
+      <div class="ed-row-body">
+        <h2 class="ed-row-title"><a href="https://hawfinch.vercel.app/" target="_blank" rel="noopener noreferrer">Dataset Discovery Agent <span aria-hidden="true">↗</span></a></h2>
+        <p class="ed-row-meta">AI   SDK</p>
+        <p class="ed-row-text">An AI agent automating discovery, evaluation, and acquisition of open research datasets for scientists and data engineers.</p>
       </div>
-      
-      <div class="bg-card border-border flex h-fit w-fit rotate-3 flex-row gap-2 rounded-2xl border-2 p-4">
-        <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-          <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-            <img alt="SnowyOwl" loading="lazy" width="44" height="44" class="rounded-md" src="/assets/images/anthropic-icon.svg">
-          </div>
-        </div>
-        <div class="flex w-full flex-col gap-1">
-          <div class="flex flex-row items-center justify-between">
-            <h2 class="text-foreground text-base font-bold">SnowyOwl</h2>
-            <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Claude SDK</span>
-          </div>
-          <p class="text-muted-foreground text-base font-medium">An asynchronous AI development tool where you write task specifications and receive completed pull requests overnight — delegation without presence.</p>
-          <a href="https://github.com/kjgarza/snowyowl" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-            View on the web
-          </a>
-        </div>
+    </li>
+      <li class="ed-row ed-row--plain">
+      <div class="ed-row-body">
+        <h2 class="ed-row-title"><a href="https://github.com/kjgarza/snowyowl" target="_blank" rel="noopener noreferrer">SnowyOwl <span aria-hidden="true">↗</span></a></h2>
+        <p class="ed-row-meta">Claude SDK</p>
+        <p class="ed-row-text">An asynchronous AI development tool where you write task specifications and receive completed pull requests overnight — delegation without presence.</p>
       </div>
-      
-      <div class="bg-card border-border flex h-fit w-fit rotate-1 flex-row gap-2 rounded-2xl border-2 p-4">
-        <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-          <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-            <img alt="Technology Radar" loading="lazy" width="44" height="44" class="rounded-md" src="/assets/images/github-icon.svg">
-          </div>
-        </div>
-        <div class="flex w-full flex-col gap-1">
-          <div class="flex flex-row items-center justify-between">
-            <h2 class="text-foreground text-base font-bold">Technology Radar</h2>
-            <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Open Source</span>
-          </div>
-          <p class="text-muted-foreground text-base font-medium">A personal technology radar that categorizes tools, frameworks, and techniques into Adopt, Trial, and other tiers — separating what's genuinely useful from what's just hype.</p>
-          <a href="https://kjgarza.github.io/radar" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-            View on the web
-          </a>
-        </div>
+    </li>
+      <li class="ed-row ed-row--plain">
+      <div class="ed-row-body">
+        <h2 class="ed-row-title"><a href="https://kjgarza.github.io/radar" target="_blank" rel="noopener noreferrer">Technology Radar <span aria-hidden="true">↗</span></a></h2>
+        <p class="ed-row-meta">Open Source</p>
+        <p class="ed-row-text">A personal technology radar that categorizes tools, frameworks, and techniques into Adopt, Trial, and other tiers — separating what's genuinely useful from what's just hype.</p>
       </div>
-      
-      <div class="bg-card border-border flex h-fit w-fit rotate-3 flex-row gap-2 rounded-2xl border-2 p-4">
-        <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-          <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-            <img alt="Parrot GPT" loading="lazy" width="44" height="44" class="rounded-md" src="/assets/images/openai-icon.png">
-          </div>
-        </div>
-        <div class="flex w-full flex-col gap-1">
-          <div class="flex flex-row items-center justify-between">
-            <h2 class="text-foreground text-base font-bold">Parrot GPT</h2>
-            <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">LLMs</span>
-          </div>
-          <p class="text-muted-foreground text-base font-medium">A Python toolkit that uses GPT-3/3.5 to translate, enrich, and cross-walk bibliographic metadata across schemas, with CLI and CI/CD support.</p>
-          <a href="https://github.com/kjgarza/parrot_gpt" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-            View on the web
-          </a>
-        </div>
+    </li>
+      <li class="ed-row ed-row--plain">
+      <div class="ed-row-body">
+        <h2 class="ed-row-title"><a href="https://github.com/kjgarza/parrot_gpt" target="_blank" rel="noopener noreferrer">Parrot GPT <span aria-hidden="true">↗</span></a></h2>
+        <p class="ed-row-meta">LLMs</p>
+        <p class="ed-row-text">A Python toolkit that uses GPT-3/3.5 to translate, enrich, and cross-walk bibliographic metadata across schemas, with CLI and CI/CD support.</p>
       </div>
-      
-      <div class="bg-card border-border flex h-fit w-fit rotate-5 flex-row gap-2 rounded-2xl border-2 p-4">
-        <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-          <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-            <img alt="Election Program AI Analyser" loading="lazy" width="44" height="44" class="rounded-md" src="/assets/images/bundes-icon.png">
-          </div>
-        </div>
-        <div class="flex w-full flex-col gap-1">
-          <div class="flex flex-row items-center justify-between">
-            <h2 class="text-foreground text-base font-bold">Election Program AI Analyser</h2>
-            <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">OpenAI</span>
-          </div>
-          <p class="text-muted-foreground text-base font-medium">An AI-powered tool that simplifies 2025 Bundestag election programs, giving clear answers to voters’ policy questions in natural language.</p>
-          <a href="https://chatgpt.com/g/g-678bbfd0f3388191b253ef5725e242e0-bundestags-wahlnavigator-2025" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-            View on the web
-          </a>
-        </div>
+    </li>
+      <li class="ed-row ed-row--plain">
+      <div class="ed-row-body">
+        <h2 class="ed-row-title"><a href="https://chatgpt.com/g/g-678bbfd0f3388191b253ef5725e242e0-bundestags-wahlnavigator-2025" target="_blank" rel="noopener noreferrer">Election Program AI Analyser <span aria-hidden="true">↗</span></a></h2>
+        <p class="ed-row-meta">OpenAI</p>
+        <p class="ed-row-text">An AI-powered tool that simplifies 2025 Bundestag election programs, giving clear answers to voters’ policy questions in natural language.</p>
       </div>
-      
-      <div class="bg-card border-border flex h-fit w-fit rotate-4 flex-row gap-2 rounded-2xl border-2 p-4">
-        <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-          <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-            <img alt="CrossFit WOD Viewer" loading="lazy" width="44" height="44" class="rounded-md" src="/assets/images/crossfit-icon.jpg">
-          </div>
-        </div>
-        <div class="flex w-full flex-col gap-1">
-          <div class="flex flex-row items-center justify-between">
-            <h2 class="text-foreground text-base font-bold">CrossFit WOD Viewer</h2>
-            <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Git Scrape</span>
-          </div>
-          <p class="text-muted-foreground text-base font-medium">A web app that scrapes CrossFit workout-of-the-day data and uses AI to provide explanations, scaling options, and beginner-friendly modifications.</p>
-          <a href="https://kjgarza.github.io/oxypogon/" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-            View on the web
-          </a>
-        </div>
+    </li>
+      <li class="ed-row ed-row--plain">
+      <div class="ed-row-body">
+        <h2 class="ed-row-title"><a href="https://kjgarza.github.io/oxypogon/" target="_blank" rel="noopener noreferrer">CrossFit WOD Viewer <span aria-hidden="true">↗</span></a></h2>
+        <p class="ed-row-meta">Git Scrape</p>
+        <p class="ed-row-text">A web app that scrapes CrossFit workout-of-the-day data and uses AI to provide explanations, scaling options, and beginner-friendly modifications.</p>
       </div>
-      
-      <div class="bg-card border-border flex h-fit w-fit rotate-2 flex-row gap-2 rounded-2xl border-2 p-4">
-        <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-          <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-            <img alt="Kitchen Timer" loading="lazy" width="44" height="44" class="rounded-md" src="/assets/images/anthropic-icon.svg">
-          </div>
-        </div>
-        <div class="flex w-full flex-col gap-1">
-          <div class="flex flex-row items-center justify-between">
-            <h2 class="text-foreground text-base font-bold">Kitchen Timer</h2>
-            <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Claude</span>
-          </div>
-          <p class="text-muted-foreground text-base font-medium">A mobile-optimized cooking app that uses GPT vision to extract structured data from recipe photos, with an action-first UI designed to reduce cognitive load in the kitchen.</p>
-          <a href="https://kjgarza.github.io/chickadee/" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-            View on the web
-          </a>
-        </div>
+    </li>
+      <li class="ed-row ed-row--plain">
+      <div class="ed-row-body">
+        <h2 class="ed-row-title"><a href="https://kjgarza.github.io/chickadee/" target="_blank" rel="noopener noreferrer">Kitchen Timer <span aria-hidden="true">↗</span></a></h2>
+        <p class="ed-row-meta">Claude</p>
+        <p class="ed-row-text">A mobile-optimized cooking app that uses GPT vision to extract structured data from recipe photos, with an action-first UI designed to reduce cognitive load in the kitchen.</p>
       </div>
-      
-      <div class="bg-card border-border flex h-fit w-fit rotate-1 flex-row gap-2 rounded-2xl border-2 p-4">
-        <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-          <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-            <img alt="Claude Code Plugin Marketplace" loading="lazy" width="44" height="44" class="rounded-md" src="/assets/images/anthropic-icon.svg">
-          </div>
-        </div>
-        <div class="flex w-full flex-col gap-1">
-          <div class="flex flex-row items-center justify-between">
-            <h2 class="text-foreground text-base font-bold">Claude Code Plugin Marketplace</h2>
-            <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Claude Code</span>
-          </div>
-          <p class="text-muted-foreground text-base font-medium">A collection of Claude Code plugins for research, development workflows and personal productivity, installable as a marketplace.</p>
-          <a href="https://github.com/kjgarza/marketplace-claude" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-            View on the web
-          </a>
-        </div>
+    </li>
+      <li class="ed-row ed-row--plain">
+      <div class="ed-row-body">
+        <h2 class="ed-row-title"><a href="https://github.com/kjgarza/marketplace-claude" target="_blank" rel="noopener noreferrer">Claude Code Plugin Marketplace <span aria-hidden="true">↗</span></a></h2>
+        <p class="ed-row-meta">Claude Code</p>
+        <p class="ed-row-text">A collection of Claude Code plugins for research, development workflows and personal productivity, installable as a marketplace.</p>
       </div>
-      
-      <div class="bg-card border-border flex h-fit w-fit rotate-4 flex-row gap-2 rounded-2xl border-2 p-4">
-        <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-          <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-            <img alt="Kea Party Games" loading="lazy" width="44" height="44" class="rounded-md" src="/assets/images/github-icon.svg">
-          </div>
-        </div>
-        <div class="flex w-full flex-col gap-1">
-          <div class="flex flex-row items-center justify-between">
-            <h2 class="text-foreground text-base font-bold">Kea Party Games</h2>
-            <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">LLMs</span>
-          </div>
-          <p class="text-muted-foreground text-base font-medium">A party card games app with five game types and LLM-generated card decks to play with friends.</p>
-          <a href="https://kjgarza.github.io/kea/" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-            View on the web
-          </a>
-        </div>
+    </li>
+      <li class="ed-row ed-row--plain">
+      <div class="ed-row-body">
+        <h2 class="ed-row-title"><a href="https://kjgarza.github.io/kea/" target="_blank" rel="noopener noreferrer">Kea Party Games <span aria-hidden="true">↗</span></a></h2>
+        <p class="ed-row-meta">LLMs</p>
+        <p class="ed-row-text">A party card games app with five game types and LLM-generated card decks to play with friends.</p>
       </div>
-      
-      <div class="bg-card border-border flex h-fit w-fit rotate-2 flex-row gap-2 rounded-2xl border-2 p-4">
-        <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-          <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-            <img alt="Einbürgerungstest Trainer" loading="lazy" width="44" height="44" class="rounded-md" src="/assets/images/github-icon.svg">
-          </div>
-        </div>
-        <div class="flex w-full flex-col gap-1">
-          <div class="flex flex-row items-center justify-between">
-            <h2 class="text-foreground text-base font-bold">Einbürgerungstest Trainer</h2>
-            <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Open Source</span>
-          </div>
-          <p class="text-muted-foreground text-base font-medium">A practice app for the German naturalisation test (Leben in Deutschland).</p>
-          <a href="https://kjgarza.github.io/gouldian_finch/" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-            View on the web
-          </a>
-        </div>
+    </li>
+      <li class="ed-row ed-row--plain">
+      <div class="ed-row-body">
+        <h2 class="ed-row-title"><a href="https://kjgarza.github.io/gouldian_finch/" target="_blank" rel="noopener noreferrer">Einbürgerungstest Trainer <span aria-hidden="true">↗</span></a></h2>
+        <p class="ed-row-meta">Open Source</p>
+        <p class="ed-row-text">A practice app for the German naturalisation test (Leben in Deutschland).</p>
       </div>
-      
-    </div>
+    </li>
+    </ul>
   </section>
 </div>
 
@@ -461,33 +353,14 @@
   </main>
   
   
-<footer class="text-foreground flex w-full max-w-4xl flex-col items-center justify-between gap-1 px-4 pt-8 pb-24 font-mono font-medium sm:pb-8 md:px-12 xl:px-8">
-  <div class="flex flex-wrap items-center gap-4">
-    <div class="flex items-center gap-4">
-      <a class="hover:text-primary hover:underline" target="_blank" href="https://www.figma.com/@kristiangarza">
-        Figma
-      </a>
-    </div>
-    <div class="flex items-center gap-4">
-      <span class="text-neutral-400">·</span>
-      <a class="hover:text-primary hover:underline" target="_blank" href="https://github.com/kjgarza">
-        Github
-      </a>
-    </div>
-    <div class="flex items-center gap-4">
-      <span class="text-neutral-400">·</span>
-      <a class="hover:text-primary hover:underline" target="_blank" href="https://www.linkedin.com/in/kjgarza">
-        LinkedIn
-      </a>
-    </div>
-    <div class="flex items-center gap-4">
-      <span class="text-neutral-400">·</span>
-      <a class="hover:text-primary hover:underline" target="_blank" href="mailto:kj.garza+kjgarza@gmail.com">
-        Email
-      </a>
-    </div>
-  </div>
-  <p class="text-muted-foreground text-sm">Copyright © 2026 Kristian Garza</p>
+<footer class="ed-footer">
+  <p>Kristian Garza · AI Engineer · © 2026</p>
+  <ul class="ed-footer-links">
+    <li><a target="_blank" rel="noopener" href="https://www.figma.com/@kristiangarza">Figma</a></li>
+    <li><a target="_blank" rel="noopener" href="https://github.com/kjgarza">GitHub</a></li>
+    <li><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/kjgarza">LinkedIn</a></li>
+    <li><a href="mailto:kj.garza+kjgarza@gmail.com">Email</a></li>
+  </ul>
 </footer>
 
 

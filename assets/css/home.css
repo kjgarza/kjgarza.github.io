@@ -1,120 +1,117 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap');
-
-/* Homepage hierarchy, matching the case-study type scale so both pages read
-   as one system: display headline > section heading > card title > body,
-   with mono-caps labels as the quiet tier. Colours come from the shared
-   tokens in src/styles/tailwind.css; only the display face is local. */
+/* Homepage (issue #33): the homepage-only parts (hero, prose, logos, feature
+   block, contact). The column, labels, headings, rows and links are the shared
+   editorial building blocks in editorial.css (issue #35). Colours come from the shared tokens in src/styles/tailwind.css; the display
+   face and the label/rule/logo/feature tokens come from the active theme
+   stylesheet (src/assets/css/themes/<name>.css). No hex values here. */
 :root {
-  --home-display: 'Bricolage Grotesque', var(--font-sans);
+  --home-display: var(--font-display, var(--font-sans));
 }
 
-/* ── Tier 0: eyebrow + labels (quiet) ── */
-.home-eyebrow,
-.home-label {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--primary);
-}
+/* ctaStyle "button": the shared primary button, filled with the theme accent */
+.home .home-button { background: var(--primary); color: var(--primary-foreground); box-shadow: none; }
 
-/* ── Tier 1: the headline is the page's h1 ── */
-.home-title {
+/* ── Hero ── */
+.home-hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  align-items: flex-start;
+  padding: 2.5rem 0 3.5rem;
+}
+.home-hero-body { display: flex; flex-direction: column; gap: 0.75rem; flex: 1 1 20rem; min-width: 0; }
+.home-name {
+  margin: 0;
   font-family: var(--home-display);
-  font-size: clamp(1.9rem, 6vw, 3.25rem);
-  font-weight: 800;
-  line-height: 1.12;
-  letter-spacing: -0.03em;
-  font-variation-settings: 'opsz' 72;
-  color: var(--foreground);
+  font-weight: var(--display-weight, 400);
+  font-size: clamp(2.4rem, 7vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: var(--display-tracking, 0);
 }
-/* Let the sentence wrap on narrow screens; keep each accent phrase whole. */
-.home-title .whitespace-nowrap { white-space: normal; }
-.home-title .text-primary { white-space: nowrap; }
-
-/* Decorations positioned in em so they track the larger type. */
-.home-title .home-deco-underline {
-  top: auto; left: 0; bottom: -0.08em;
-  width: 100%; height: auto;
-}
-.home-title .home-deco-sparkle { top: -0.15em; right: -0.65em; }
-.home-title .home-deco-arrow { top: -1.5em; left: 0.4em; width: 2.1em; height: auto; }
-
-/* ── Tier 2: section headings (match case-study h2) ── */
-.home-section {
+.home-role { font-size: 1.05rem; }
+.home-position { font-size: 0.875rem; color: var(--muted-foreground); }
+.home-eyebrow { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 500; color: var(--label); }
+.home-headline {
+  margin: 0;
   font-family: var(--home-display);
-  font-size: 1.75rem;
-  font-weight: 700;
+  font-weight: var(--display-weight, 400);
+  font-size: clamp(2rem, 6vw, 2.9rem);
   line-height: 1.15;
-  letter-spacing: -0.02em;
-  font-variation-settings: 'opsz' 48;
-  color: var(--foreground);
-  padding-bottom: 0.6rem;
-  margin-top: 1.5rem;
-  border-bottom: 2px solid var(--primary);
+  letter-spacing: var(--display-tracking, 0);
 }
-
-/* ── Tier 3: work cards ── */
-.home-company {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--primary);
-}
-
-.home-tag {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 500;
-  border: 1px solid var(--border-strong);
-  border-radius: 2px;
-  padding: 0.25em 0.65em;
-  background: transparent;
+.home-headline-accent { position: relative; white-space: nowrap; color: var(--primary); }
+.home-doodle { position: absolute; left: 0; bottom: -0.3em; width: 100%; height: 0.3em; color: var(--decoration); }
+.home-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0; margin: 0.25rem 0 0; }
+.home-hero--headline .home-chips { margin-top: 1rem; } /* room for the doodle under the headline */
+.home-chips li {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
   color: var(--muted-foreground);
-  white-space: nowrap;
 }
+.home-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem; margin-top: 0.75rem; }
 
-.home-card-title {
-  font-family: var(--home-display);
-  font-size: 1.3rem;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  color: var(--foreground);
-}
+/* ── About ── */
+.home-prose { display: flex; flex-direction: column; gap: 0.9rem; max-width: 36rem; }
+.home-prose p { font-size: 1rem; line-height: 1.65; }
 
-/* Equal-height media strip: every card image gets the same frame. */
-.home-card-media {
-  margin-top: auto;
-  padding: 0 1.5rem;
-  height: 220px;
+/* ── Logo banner: one row that scrolls sideways in a loop ── */
+.home-marquee {
+  margin-top: 0.75rem;
   overflow: hidden;
+  /* fade the logos in and out at both edges */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
-.home-card-media picture { display: block; height: 100%; }
-.home-card-media img {
-  position: static !important;
-  min-width: 0 !important;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top left;
+.home-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: home-marquee 40s linear infinite;
 }
+/* Pause while someone is looking at or tabbing through the logos */
+.home-marquee:hover .home-marquee-track,
+.home-marquee:focus-within .home-marquee-track { animation-play-state: paused; }
+/* Two identical lists, so moving by half the track loops seamlessly */
+@keyframes home-marquee { to { transform: translateX(-50%); } }
+.home-logos {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 3rem 0.5rem 0; /* the right padding is the gap between the two copies */
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 3rem;
+}
+.home-logos li { flex: none; }
+.home-logos a { display: block; }
+.home-logos a:focus-visible { outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  .home-marquee { -webkit-mask-image: none; mask-image: none; }
+  .home-marquee-track { animation: none; width: auto; }
+  .home-logos { flex: 1; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem 2.25rem; padding: 0; }
+  .home-logos[aria-hidden="true"] { display: none; }
+}
+.home-logos img { display: block; width: auto; max-width: 100%; filter: var(--logo-filter, none); opacity: var(--logo-opacity, 1); }
 
-/* Strict two-column rhythm: wide lead card, then even pairs. */
-@media (min-width: 640px) {
-  .home-work-grid { grid-template-rows: none !important; grid-auto-rows: auto; }
-  .home-work-grid > .home-card { grid-row: auto !important; }
-  .home-work-grid > .home-card:not(:first-child) { grid-column: span 1 / span 1 !important; }
-}
+/* ── Links ── */
+.home .home-link { font-size: 0.875rem; font-weight: 500; }
 
-/* ── Touch targets: 40px hit area around 20px icons ── */
-.home-social { gap: 0; margin-left: -10px; }
-.home-social a { display: inline-flex; padding: 10px; }
-
-.home-visually-hidden {
-  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+/* ── Feature block (radar) ── */
+.home-feature {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  background: var(--feature-bg, transparent);
+  padding-inline: var(--feature-pad, 0);
+  border-radius: var(--feature-radius, 0);
 }
+.home-feature-body { display: flex; flex-direction: column; gap: 0.5rem; flex: 1 1 20rem; }
+.home-feature .ed-heading { margin: 0; }
+
+/* ── Contact ── */
+.home-contact { flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 1.5rem; }
+.home-contact .ed-heading { margin: 0 0 0.25rem; }
+.home-contact-links { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+.home-contact-links a { display: inline-block; padding: 0.65rem 0; font-size: 0.875rem; font-weight: 500; }

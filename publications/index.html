@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en">
+<html class="scroll-smooth" lang="en" data-site-theme="accent">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,15 +32,20 @@
 
   <!-- Self-hosted fonts (latin subset); Manrope is a single variable file for 400–700 -->
   <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/css/site.css?v=76cde4ba6f" as="style">
+  <link rel="preload" href="/assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/css/site.css?v=f5463b8534" as="style">
   <style>
     @font-face { font-family: 'Manrope'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/manrope-latin.woff2) format('woff2'); }
+    @font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(/assets/fonts/fraunces-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/dm-mono-500-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-italic-latin.woff2) format('woff2'); }
   </style>
 
-  <link rel="stylesheet" href="/assets/css/site.css?v=76cde4ba6f">
+  <link rel="stylesheet" href="/assets/css/site.css?v=f5463b8534">
+  <!-- Build-time theme tokens (SITE_THEME, src/_data/theme.js); overrides the shared variables above -->
+  <link rel="stylesheet" href="/assets/css/themes/accent.css">
+  <link rel="stylesheet" href="/assets/css/reveal.css">
   <!-- Basecoat runtime + drawer (mobile menu animation and backdrop close; the menu works without them) -->
   <script defer src="/assets/js/basecoat.min.js"></script>
   <script defer src="/assets/js/drawer.min.js"></script>
@@ -262,14 +267,17 @@
   <main class="mx-auto flex h-full w-full max-w-4xl grow flex-col justify-center gap-16 p-4 font-sans md:p-12 xl:p-8">
     
 
+
+
+
 <div class="flex w-full max-w-4xl flex-1 flex-col gap-6 p-4 md:p-12 xl:p-8">
-  <div class="flex flex-col gap-2">
+  
+<div class="flex flex-col gap-2">
     <h1 class="text-primary font-mono text-2xl font-bold">Publications</h1>
     <p class="text-muted-foreground text-lg">Research papers, articles, and presentations.</p>
   </div>
   
-  <section class="flex flex-col gap-6">
-    
+  <section data-reveal class="flex flex-col gap-6">
     
     
       
@@ -290,8 +298,7 @@
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">2023</span>
               
-                <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-green-200 bg-green-50 text-green-700">Blog</span>
-              
+              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-green-200 bg-green-50 text-green-700">Blog</span>
             </div>
             
             <a 
@@ -322,8 +329,7 @@
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">2023</span>
               
-                <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-green-200 bg-green-50 text-green-700">Blog</span>
-              
+              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-green-200 bg-green-50 text-green-700">Blog</span>
             </div>
             
             <a 
@@ -354,8 +360,7 @@
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">2023</span>
               
-                <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-              
+              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
             </div>
             
             <a 
@@ -386,8 +391,7 @@
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">2023</span>
               
-                <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-              
+              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
             </div>
             
             <a 
@@ -418,8 +422,7 @@
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">2023</span>
               
-                <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-              
+              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
             </div>
             
             <a 
@@ -456,8 +459,7 @@
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">2022</span>
               
-                <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-              
+              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
             </div>
             
             <a 
@@ -488,8 +490,7 @@
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">2022</span>
               
-                <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-              
+              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
             </div>
             
             <a 
@@ -520,8 +521,7 @@
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">2022</span>
               
-                <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-              
+              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
             </div>
             
             <a 
@@ -552,8 +552,7 @@
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">2022</span>
               
-                <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-              
+              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
             </div>
             
             <a 
@@ -584,8 +583,7 @@
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">2022</span>
               
-                <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-green-200 bg-green-50 text-green-700">Blog</span>
-              
+              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-green-200 bg-green-50 text-green-700">Blog</span>
             </div>
             
             <a 
@@ -622,8 +620,7 @@
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">2021</span>
               
-                <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-              
+              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
             </div>
             
             <a 
@@ -654,8 +651,7 @@
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">2021</span>
               
-                <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-              
+              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
             </div>
             
             <a 
@@ -686,8 +682,7 @@
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">2021</span>
               
-                <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-              
+              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
             </div>
             
             <a 
@@ -724,8 +719,7 @@
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">2020</span>
               
-                <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-              
+              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
             </div>
             
             <a 
@@ -756,8 +750,7 @@
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">2020</span>
               
-                <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-              
+              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
             </div>
             
             <a 
@@ -788,8 +781,7 @@
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">2020</span>
               
-                <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-              
+              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
             </div>
             
             <a 
@@ -820,8 +812,7 @@
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">2020</span>
               
-                <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-              
+              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
             </div>
             
             <a 
@@ -852,8 +843,7 @@
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">2020</span>
               
-                <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-              
+              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
             </div>
             
             <a 
@@ -884,8 +874,7 @@
             <div class="flex items-center gap-2">
               <span class="text-muted-foreground text-sm font-medium">2020</span>
               
-                <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
-              
+              <span class="inline-flex items-center rounded-full px-2 text-xs border py-0.5 font-medium border-blue-200 bg-blue-50 text-blue-700">DOI</span>
             </div>
             
             <a 
@@ -906,9 +895,12 @@
     
   </section>
 </div>
+
+
   </main>
   
-  <footer class="text-foreground flex w-full max-w-4xl flex-col items-center justify-between gap-1 px-4 pt-8 pb-24 font-mono font-medium sm:pb-8 md:px-12 xl:px-8">
+  
+<footer class="text-foreground flex w-full max-w-4xl flex-col items-center justify-between gap-1 px-4 pt-8 pb-24 font-mono font-medium sm:pb-8 md:px-12 xl:px-8">
   <div class="flex flex-wrap items-center gap-4">
     <div class="flex items-center gap-4">
       <a class="hover:text-primary hover:underline" target="_blank" href="https://www.figma.com/@kristiangarza">
@@ -937,5 +929,8 @@
   <p class="text-muted-foreground text-sm">Copyright © 2026 Kristian Garza</p>
 </footer>
 
+
+  <!-- Scroll reveal for [data-reveal] sections; progressive enhancement, see reveal.js -->
+  <script defer src="/assets/js/reveal.js"></script>
 </body>
 </html>

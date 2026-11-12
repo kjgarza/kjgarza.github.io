@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en">
+<html class="scroll-smooth" lang="en" data-site-theme="accent">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,15 +32,22 @@
 
   <!-- Self-hosted fonts (latin subset); Manrope is a single variable file for 400–700 -->
   <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/css/site.css?v=76cde4ba6f" as="style">
+  <link rel="preload" href="/assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/css/site.css?v=f5463b8534" as="style">
   <style>
     @font-face { font-family: 'Manrope'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/manrope-latin.woff2) format('woff2'); }
+    @font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(/assets/fonts/fraunces-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/dm-mono-500-latin.woff2) format('woff2'); }
     @font-face { font-family: 'DM Mono'; font-style: italic; font-weight: 400; font-display: swap; src: url(/assets/fonts/dm-mono-400-italic-latin.woff2) format('woff2'); }
   </style>
 
-  <link rel="stylesheet" href="/assets/css/site.css?v=76cde4ba6f">
+  <link rel="stylesheet" href="/assets/css/site.css?v=f5463b8534">
+  <!-- Build-time theme tokens (SITE_THEME, src/_data/theme.js); overrides the shared variables above -->
+  <link rel="stylesheet" href="/assets/css/themes/accent.css">
+  <!-- Shared editorial building blocks: the homepage in both themes, every page in pageStyle "editorial" -->
+  <link rel="stylesheet" href="/assets/css/editorial.css">
+  <link rel="stylesheet" href="/assets/css/reveal.css">
   <!-- Basecoat runtime + drawer (mobile menu animation and backdrop close; the menu works without them) -->
   <script defer src="/assets/js/basecoat.min.js"></script>
   <script defer src="/assets/js/drawer.min.js"></script>
@@ -260,448 +267,287 @@
 
   
   <main class="mx-auto flex h-full w-full max-w-4xl grow flex-col justify-center gap-16 p-4 font-sans md:p-12 xl:p-8">
-    
+    <link rel="stylesheet" href="/assets/css/home.css">
 
-
-<link rel="stylesheet" href="/assets/css/home.css">
-
-<div class="mt-16 flex flex-col gap-4">
-  <p class="home-eyebrow">Kristian Garza — AI Engineer in Berlin</p>
-  <h1 class="home-title">
-    <span class="whitespace-nowrap">Solving 
-      <span class="text-primary relative">complex problems<img src="/drawings/Arrow-new.svg" alt="" width="110" height="110" class="home-deco-arrow fill-decoration xs:left-3 absolute -top-19 -left-2"></span></span>, 
-    <span class="whitespace-nowrap">identifying 
-      <span class="text-primary relative">smart solutions<svg class="home-deco-underline fill-decoration xs:top-8 xs:left-12 absolute top-7 left-8 -z-10" width="140" height="9" viewBox="0 0 140 9" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M59.4595 0.768229C52.8823 1.03149 46.3823 1.3552 40.0437 1.7091C31.0707 2.20974 22.1012 2.72764 13.1858 3.54765C10.3794 3.80659 7.52948 3.97059 4.74064 4.29427C2.98999 4.49712 0.668656 4.78624 0.364011 4.84666C0.204669 4.88119 0.135153 4.93302 0.112691 4.95029C-0.0452472 5.07113 -0.0164293 5.18761 0.072718 5.27824C0.108517 5.31708 0.199043 5.41207 0.45034 5.42502C17.2564 6.30976 34.4414 4.58343 51.2678 4.40217C80.4478 4.09143 110.512 5.32576 139.46 8.01883C139.713 8.04041 139.959 7.93248 139.994 7.7728C140.036 7.61743 139.854 7.46637 139.601 7.44479C110.603 4.7474 80.4899 3.50876 51.2538 3.82381C35.5723 3.99213 19.5812 5.50701 3.87795 4.98911C4.23875 4.94596 4.59255 4.90278 4.91544 4.86394C7.69305 4.54025 10.531 4.38058 13.3262 4.12163C22.2227 3.30162 31.1739 2.78373 40.135 2.28741C51.2538 1.66593 62.857 1.13076 74.5514 0.880444C78.735 0.919287 82.9046 0.958146 87.0741 1.00562C96.0941 1.1092 105.156 1.41131 114.155 1.817C116.865 1.94216 119.574 2.07162 122.284 2.18383C123.182 2.22267 125.499 2.33487 125.822 2.32623C126.222 2.3176 126.299 2.11046 126.306 2.07594C126.327 1.99825 126.313 1.89035 126.116 1.79972C126.095 1.78677 125.969 1.74358 125.688 1.71769C109.326 0.189888 91.8544 -0.0647057 74.5655 0.302139C56.3289 0.142454 38.0221 0.073369 19.8318 0C19.5714 0 19.3587 0.129494 19.3566 0.289179C19.3552 0.448864 19.5651 0.578362 19.8255 0.582678C32.9968 0.634468 46.2349 0.686228 59.4595 0.768229Z"></path>
-        </svg></span></span>, 
-    <span class="whitespace-nowrap">in  
-      <span class="text-primary">open
-        <span class="relative">science 
-          <svg class="home-deco-sparkle fill-decoration xs:top-5 absolute top-4 -right-5" width="31" height="27" viewBox="0 0 31 27" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M20.1878 1.92757C21.3184 1.85206 22.4362 1.76744 23.5685 1.72492C23.812 1.71488 24.0157 1.90323 24.0249 2.14523C24.0349 2.38879 23.8451 2.59332 23.6031 2.60253C22.4771 2.64567 21.3688 2.72928 20.246 2.80459C20.0034 2.8201 19.7942 2.6366 19.778 2.39635C19.7625 2.15372 19.9452 1.94309 20.1878 1.92757Z"></path>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.0597 10.3407C18.9114 12.506 21.6519 14.814 24.4555 17.0387C24.6457 17.1904 24.677 17.4665 24.5268 17.6559C24.3751 17.8461 24.0999 17.8789 23.9081 17.728C21.1101 15.5063 18.3752 13.2013 15.5284 11.0414C15.3343 10.8937 15.2975 10.6186 15.4437 10.4254C15.5914 10.2313 15.8665 10.1946 16.0597 10.3407Z"></path>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.08252 17.1332C6.06185 19.9973 6.96254 22.8933 7.97383 25.7465C8.05348 25.9749 7.93394 26.2256 7.70633 26.3068C7.47716 26.3888 7.22564 26.2677 7.14444 26.0401C6.13305 23.1831 5.2307 20.284 4.25128 17.4159C4.17318 17.1866 4.29508 16.9366 4.52435 16.8585C4.75517 16.7796 5.0036 16.9024 5.08252 17.1332Z"></path>
-          </svg>
-        </span>
-      </span>
-    </span>
-  </h1>
+<div class="home ed-page" data-reveal-mode="stagger">
   
-  <div class="flex flex-row gap-6 py-4">
-    <a class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover-inverse bg-button-primary text-white shadow-button-primary-rest active:shadow-none h-10 px-3 min-w-9 w-fit" href="mailto:kj.garza+kjgarza@gmail.com?subject=Hello%20from%20your%20website">Get in touch</a>
-    
-  </div>
-</div>
 
-<!-- Bio sections -->
-<section class="flex flex-col gap-4">
-  <h2 class="home-visually-hidden">About</h2>
-  <div class="flex max-w-[560px] flex-col gap-1">
-    <h3 class="home-label">Currently</h3>
-    <div class="prose text-foreground font-sans text-base font-medium">
-      <p>Building and prototyping AI-driven microservices and agents at Digital Science, from LLM-powered APIs to Rust-based clustering engines.</p>
+
+<header class="home-hero home-hero--headline">
+  
+  <div class="home-hero-body">
+    <p class="home-eyebrow">Kristian Garza — AI Engineer in Berlin</p>
+    <h1 class="home-headline">Solving complex problems, identifying smart solutions, in
+      <span class="home-headline-accent">open science<svg class="home-doodle" aria-hidden="true" focusable="false" width="140" height="9" viewBox="0 0 140 9" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 6.5C40 2.5 90 2 139 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></h1>
+  
+    <ul class="home-chips" aria-label="Focus areas">
+      <li>LLM APIs & agents</li>
+      <li>Knowledge graphs</li>
+      <li>MCP</li>
+      <li>Open science infrastructure</li>
+      <li>Design systems</li>
+      <li>Product design</li>
+    </ul>
+    <div class="home-hero-actions">
+      
+      <a class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover-inverse bg-button-primary text-white shadow-button-primary-rest active:shadow-none h-10 px-3 min-w-9 w-fit home-button" href="mailto:kj.garza+kjgarza@gmail.com?subject=Hello%20from%20your%20website">Get in touch</a>
+      
+      <a class="home-link" href="#work">Explore selected work ↓</a>
     </div>
   </div>
+</header>
+
   
-  <div class="flex max-w-[560px] flex-col gap-1">
-    <h3 class="home-label">In the past</h3>
-    <div class="prose text-foreground font-sans text-base font-medium">
-      <p>Developed core infrastructure at DataCite, including Commons, Fabrica, and Sashimi, while leading metadata and design system initiatives.</p>
-    </div>
+<section class="ed-block" data-reveal aria-labelledby="about">
+  <h2 id="about" class="ed-label">About</h2>
+  <div class="home-prose">
+    <p>Building and prototyping AI-driven microservices and agents at Digital Science, from LLM-powered APIs to Rust-based clustering engines.</p>
+    <p>Developed core infrastructure at DataCite, including Commons, Fabrica, and Sashimi, while leading metadata and design system initiatives.</p>
+    <p>Hosting DS’s AI Technology Radar sessions and experimenting with personal AI projects like a Dataset Discovery & Evaluation Agent.</p>
   </div>
-  
-  <div class="flex flex-col gap-2">
-    <h3 class="home-label">Find me on</h3>
-    <div class="home-social text-foreground flex flex-row">
-      <a class="hover:text-primary" title="Figma" target="_blank" href="https://www.figma.com/@kristiangarza">
-        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M192,96a40,40,0,0,0-24-72H96A40,40,0,0,0,72,96a40,40,0,0,0,1.37,65A44,44,0,1,0,144,196V160a40,40,0,1,0,48-64Zm0-32a24,24,0,0,1-24,24H144V40h24A24,24,0,0,1,192,64ZM72,64A24,24,0,0,1,96,40h32V88H96A24,24,0,0,1,72,64Zm24,88a24,24,0,0,1,0-48h32v48H96Zm32,44a28,28,0,1,1-28-28h28Zm40-44a24,24,0,1,1,24-24A24,24,0,0,1,168,152Z"/></svg>
-      </a>
-      <a class="hover:text-primary" title="Github" target="_blank" href="https://github.com/kjgarza">
-        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"/></svg>
-      </a>
-      <a class="hover:text-primary" title="LinkedIn" target="_blank" href="https://www.linkedin.com/in/kjgarza">
-        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"/></svg>
-      </a>
-      <a class="hover:text-primary" title="Email" target="_blank" href="mailto:kj.garza+kjgarza@gmail.com">
-        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"/></svg>
-      </a>
+</section>
+
+  <section class="ed-block" data-reveal aria-labelledby="worked-with">
+  <h2 id="worked-with" class="ed-label">Worked with</h2>
+  <div class="home-marquee">
+    <div class="home-marquee-track">
+      <ul class="home-logos">
+        <li>
+          <a href="https://www.digital-science.com/" title="Digital Science: Employer, 2024–present">
+            <img src="/assets/images/logos/digital-science.svg" alt="Digital Science" width="171" height="50" style="height: 26px" loading="lazy" decoding="async">
+          </a>
+        </li>
+        <li>
+          <a href="https://datacite.org/" title="DataCite: Employer, 2016–2023">
+            <img src="/assets/images/logos/datacite.svg" alt="DataCite" width="572" height="101" style="height: 22px" loading="lazy" decoding="async">
+          </a>
+        </li>
+        <li>
+          <a href="https://makedatacount.org/" title="Make Data Count: Usage reports infrastructure">
+            <img src="/assets/images/logos/make-data-count.svg" alt="Make Data Count" width="283" height="58" style="height: 24px" loading="lazy" decoding="async">
+          </a>
+        </li>
+        <li>
+          <a href="https://www.rd-alliance.org/" title="Research Data Alliance: Community work">
+            <img src="/assets/images/logos/research-data-alliance.png" alt="Research Data Alliance" width="500" height="327" style="height: 40px" loading="lazy" decoding="async">
+          </a>
+        </li>
+        <li>
+          <a href="https://www.manchester.ac.uk/" title="The University of Manchester: PhD Computer Science, 2012–2016">
+            <img src="/assets/images/logos/university-of-manchester.png" alt="The University of Manchester" width="206" height="86" style="height: 36px" loading="lazy" decoding="async">
+          </a>
+        </li>
+        <li>
+          <a href="https://www.ucl.ac.uk/mssl/" title="UCL Mullard Space Science Laboratory: MSc Spacecraft Technology, 2007–2008">
+            <img src="/assets/images/logos/ucl-mssl.png" alt="UCL Mullard Space Science Laboratory" width="177" height="50" style="height: 24px" loading="lazy" decoding="async">
+          </a>
+        </li>
+      </ul>
+      <ul class="home-logos" aria-hidden="true">
+        <li>
+          <a href="https://www.digital-science.com/" title="Digital Science: Employer, 2024–present" tabindex="-1">
+            <img src="/assets/images/logos/digital-science.svg" alt="Digital Science" width="171" height="50" style="height: 26px" loading="lazy" decoding="async">
+          </a>
+        </li>
+        <li>
+          <a href="https://datacite.org/" title="DataCite: Employer, 2016–2023" tabindex="-1">
+            <img src="/assets/images/logos/datacite.svg" alt="DataCite" width="572" height="101" style="height: 22px" loading="lazy" decoding="async">
+          </a>
+        </li>
+        <li>
+          <a href="https://makedatacount.org/" title="Make Data Count: Usage reports infrastructure" tabindex="-1">
+            <img src="/assets/images/logos/make-data-count.svg" alt="Make Data Count" width="283" height="58" style="height: 24px" loading="lazy" decoding="async">
+          </a>
+        </li>
+        <li>
+          <a href="https://www.rd-alliance.org/" title="Research Data Alliance: Community work" tabindex="-1">
+            <img src="/assets/images/logos/research-data-alliance.png" alt="Research Data Alliance" width="500" height="327" style="height: 40px" loading="lazy" decoding="async">
+          </a>
+        </li>
+        <li>
+          <a href="https://www.manchester.ac.uk/" title="The University of Manchester: PhD Computer Science, 2012–2016" tabindex="-1">
+            <img src="/assets/images/logos/university-of-manchester.png" alt="The University of Manchester" width="206" height="86" style="height: 36px" loading="lazy" decoding="async">
+          </a>
+        </li>
+        <li>
+          <a href="https://www.ucl.ac.uk/mssl/" title="UCL Mullard Space Science Laboratory: MSc Spacecraft Technology, 2007–2008" tabindex="-1">
+            <img src="/assets/images/logos/ucl-mssl.png" alt="UCL Mullard Space Science Laboratory" width="177" height="50" style="height: 24px" loading="lazy" decoding="async">
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- Featured Work -->
-<div class="flex flex-col gap-4">
-  <h2 class="home-section">Featured work</h2>
-  <section class="home-work-grid flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:grid-rows-[480px_480px_480px_320px]">
-    
-      
-    
-      
-    
-      
-        <div class="home-card bg-card hover:border-border-strong border-border col-span-2 row-span-1 flex flex-col overflow-hidden rounded-lg border-2"> 
-          <div class="flex flex-col gap-2 p-6">
-            <div class="flex flex-row items-center justify-between">
-              <p class="home-company">Digital Science</p>
-              <div class="flex flex-row gap-1">
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground home-tag">APIs</span>
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground home-tag">LLMs</span>
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground home-tag">Python</span>
-                
-              </div>
-            </div>
-            <div class="flex flex-col gap-2">
-              <h3 class="home-card-title">Query Translation API - Natural Language to Database Queries</h3>
-              <p class="text-muted-foreground text-base font-medium">Architected and launched a FastAPI microservice that turns natural-language requests into optimized Dimensions searches.</p>
-              
-              
-                <a class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 w-fit mt-2" href="/work/query-translation-api">Read case study</a>
-              
-            </div>
-          </div>
-          
-          
-          <div class="home-card-media">
-            
-              <picture><source type="image/webp" srcset="/img/Zj-vTGRj-2-320.webp 320w, /img/Zj-vTGRj-2-640.webp 640w, /img/Zj-vTGRj-2-960.webp 960w, /img/Zj-vTGRj-2-1280.webp 1280w" sizes="576px"><img src="/img/Zj-vTGRj-2-320.jpeg" alt="Query Translation API - Natural Language to Database Queries" class="-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform" loading="lazy" decoding="async" width="1280" height="720" srcset="/img/Zj-vTGRj-2-320.jpeg 320w, /img/Zj-vTGRj-2-640.jpeg 640w, /img/Zj-vTGRj-2-960.jpeg 960w, /img/Zj-vTGRj-2-1280.jpeg 1280w" sizes="576px"></picture>
-            
-          </div>
-          
-        </div>
-      
-    
-      
-        <div class="home-card bg-card hover:border-border-strong border-border col-span-1 row-span-2 flex flex-col overflow-hidden rounded-lg border-2"> 
-          <div class="flex flex-col gap-2 p-6">
-            <div class="flex flex-row items-center justify-between">
-              <p class="home-company">DataCite</p>
-              <div class="flex flex-row gap-1">
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground home-tag">Design systems</span>
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground home-tag">UX Design</span>
-                
-              </div>
-            </div>
-            <div class="flex flex-col gap-2">
-              <h3 class="home-card-title">Harmonizing with a Design System</h3>
-              <p class="text-muted-foreground text-base font-medium">Crafted a Design System for all DataCite frontend services.</p>
-              
-              
-                <a class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 w-fit mt-2" href="/work/creating-a-design-system">Read case study</a>
-              
-            </div>
-          </div>
-          
-          
-          <div class="home-card-media">
-            
-              <picture><source type="image/webp" srcset="/img/urPLmFUxwi-320.webp 320w, /img/urPLmFUxwi-640.webp 640w, /img/urPLmFUxwi-960.webp 960w, /img/urPLmFUxwi-1280.webp 1280w" sizes="576px"><img src="/img/urPLmFUxwi-320.jpeg" alt="Harmonizing with a Design System" class="-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform" loading="lazy" decoding="async" width="1280" height="1501" srcset="/img/urPLmFUxwi-320.jpeg 320w, /img/urPLmFUxwi-640.jpeg 640w, /img/urPLmFUxwi-960.jpeg 960w, /img/urPLmFUxwi-1280.jpeg 1280w" sizes="576px"></picture>
-            
-          </div>
-          
-        </div>
-      
-    
-      
-        <div class="home-card bg-card hover:border-border-strong border-border col-span-1 row-span-1 flex flex-col overflow-hidden rounded-lg border-2"> 
-          <div class="flex flex-col gap-2 p-6">
-            <div class="flex flex-row items-center justify-between">
-              <p class="home-company">DataCite</p>
-              <div class="flex flex-row gap-1">
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground home-tag">Product Design</span>
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground home-tag">UX Research</span>
-                
-              </div>
-            </div>
-            <div class="flex flex-col gap-2">
-              <h3 class="home-card-title">Innovating Data Usage Processing Services</h3>
-              <p class="text-muted-foreground text-base font-medium">Pioneering an alternative to existing data usage processing services through web tracker development.</p>
-              
-              
-                <a class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 w-fit mt-2" href="/work/innovating-data-usage-processing-services">Read case study</a>
-              
-            </div>
-          </div>
-          
-          
-          <div class="home-card-media">
-            
-              <picture><source type="image/webp" srcset="/img/kXO8RmnCCM-320.webp 320w, /img/kXO8RmnCCM-640.webp 640w" sizes="576px"><img src="/img/kXO8RmnCCM-320.jpeg" alt="Innovating Data Usage Processing Services" class="-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform" loading="lazy" decoding="async" width="640" height="425" srcset="/img/kXO8RmnCCM-320.jpeg 320w, /img/kXO8RmnCCM-640.jpeg 640w" sizes="576px"></picture>
-            
-          </div>
-          
-        </div>
-      
-    
-      
-        <div class="home-card bg-card hover:border-border-strong border-border col-span-1 row-span-1 flex flex-col overflow-hidden rounded-lg border-2"> 
-          <div class="flex flex-col gap-2 p-6">
-            <div class="flex flex-row items-center justify-between">
-              <p class="home-company">DataCite</p>
-              <div class="flex flex-row gap-1">
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground home-tag">Serverless</span>
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground home-tag">Ruby on Rails</span>
-                
-              </div>
-            </div>
-            <div class="flex flex-col gap-2">
-              <h3 class="home-card-title">Usage Reports API - Research Data Metrics at Scale</h3>
-              <p class="text-muted-foreground text-base font-medium">Designed and delivered Sashimi—a Rails API that ingests, validates, and stores large SUSHI usage reports at 50,000-dataset scale.</p>
-              
-              
-                <a class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 w-fit mt-2" href="/work/datacite-usage-reports-api">Read case study</a>
-              
-            </div>
-          </div>
-          
-          
-          <div class="home-card-media">
-            
-              <picture><source type="image/webp" srcset="/img/MPiSVyB7Yd-320.webp 320w, /img/MPiSVyB7Yd-640.webp 640w, /img/MPiSVyB7Yd-960.webp 960w, /img/MPiSVyB7Yd-1218.webp 1218w" sizes="576px"><img src="/img/MPiSVyB7Yd-320.jpeg" alt="Usage Reports API - Research Data Metrics at Scale" class="-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform" loading="lazy" decoding="async" width="1218" height="633" srcset="/img/MPiSVyB7Yd-320.jpeg 320w, /img/MPiSVyB7Yd-640.jpeg 640w, /img/MPiSVyB7Yd-960.jpeg 960w, /img/MPiSVyB7Yd-1218.jpeg 1218w" sizes="576px"></picture>
-            
-          </div>
-          
-        </div>
-      
-    
-      
-        <div class="home-card bg-card hover:border-border-strong border-border col-span-2 row-span-1 flex flex-col overflow-hidden rounded-lg border-2"> 
-          <div class="flex flex-col gap-2 p-6">
-            <div class="flex flex-row items-center justify-between">
-              <p class="home-company">DataCite</p>
-              <div class="flex flex-row gap-1">
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground home-tag">UX Research</span>
-                
-                <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground home-tag">Service Design</span>
-                
-              </div>
-            </div>
-            <div class="flex flex-col gap-2">
-              <h3 class="home-card-title">Redesigning DataCite's Harvesting Services</h3>
-              <p class="text-muted-foreground text-base font-medium">Redesigned DataCite's Harvesting Services from the ground up to boost service utilization and unlock new revenue opportunities.</p>
-              
-              
-                <a class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover bg-white text-neutral-900 shadow-button-secondary-rest active:shadow-none h-10 px-3 min-w-9 w-fit mt-2" href="/work/redesigning-datacite-harvesting-services">Read case study</a>
-              
-            </div>
-          </div>
-          
-          
-          <div class="home-card-media">
-            
-              <picture><source type="image/webp" srcset="/img/jsjkiQM2NG-320.webp 320w, /img/jsjkiQM2NG-640.webp 640w, /img/jsjkiQM2NG-960.webp 960w, /img/jsjkiQM2NG-1280.webp 1280w" sizes="576px"><img src="/img/jsjkiQM2NG-320.jpeg" alt="Redesigning DataCite's Harvesting Services" class="-right-24 min-w-xl transform rounded-t-xl transition-transform duration-300 hover:scale-102 will-change-transform" loading="lazy" decoding="async" width="1280" height="832" srcset="/img/jsjkiQM2NG-320.jpeg 320w, /img/jsjkiQM2NG-640.jpeg 640w, /img/jsjkiQM2NG-960.jpeg 960w, /img/jsjkiQM2NG-1280.jpeg 1280w" sizes="576px"></picture>
-            
-          </div>
-          
-        </div>
-      
-    
-  </section>
-</div>
+  
+<section id="work" class="ed-block" data-reveal aria-labelledby="work-heading">
+  <p class="ed-label">Selected work</p>
+  <h2 id="work-heading" class="ed-heading">Case studies</h2>
+  <ol class="ed-list">
+    <li class="ed-row ed-row--thumb">
+      <span class="ed-row-num">01</span>
+      <div class="ed-row-body">
+        <p class="ed-row-title"><a href="/work/query-translation-api/">Query Translation API - Natural Language to Database Queries</a></p>
+        <p class="ed-row-meta">Digital Science · APIs · LLMs</p>
+        <p class="ed-row-text">Architected and launched a FastAPI microservice that turns natural-language requests into optimized Dimensions searches.</p>
+      </div>
+      <div class="ed-row-thumb"><picture><source type="image/webp" srcset="/img/Zj-vTGRj-2-128.webp 128w, /img/Zj-vTGRj-2-256.webp 256w" sizes="128px"><img alt="" class="" loading="lazy" decoding="async" src="/img/Zj-vTGRj-2-128.jpeg" width="256" height="144" srcset="/img/Zj-vTGRj-2-128.jpeg 128w, /img/Zj-vTGRj-2-256.jpeg 256w" sizes="128px"></picture></div>
+    </li>
+    <li class="ed-row ed-row--thumb">
+      <span class="ed-row-num">02</span>
+      <div class="ed-row-body">
+        <p class="ed-row-title"><a href="/work/creating-a-design-system/">Harmonizing with a Design System</a></p>
+        <p class="ed-row-meta">DataCite · Design systems · UX Design</p>
+        <p class="ed-row-text">Crafted a Design System for all DataCite frontend services.</p>
+      </div>
+      <div class="ed-row-thumb"><picture><source type="image/webp" srcset="/img/urPLmFUxwi-128.webp 128w, /img/urPLmFUxwi-256.webp 256w" sizes="128px"><img alt="" class="" loading="lazy" decoding="async" src="/img/urPLmFUxwi-128.jpeg" width="256" height="300" srcset="/img/urPLmFUxwi-128.jpeg 128w, /img/urPLmFUxwi-256.jpeg 256w" sizes="128px"></picture></div>
+    </li>
+    <li class="ed-row ed-row--thumb">
+      <span class="ed-row-num">03</span>
+      <div class="ed-row-body">
+        <p class="ed-row-title"><a href="/work/innovating-data-usage-processing-services/">Innovating Data Usage Processing Services</a></p>
+        <p class="ed-row-meta">DataCite · Product Design · UX Research</p>
+        <p class="ed-row-text">Pioneering an alternative to existing data usage processing services through web tracker development.</p>
+      </div>
+      <div class="ed-row-thumb"><picture><source type="image/webp" srcset="/img/kXO8RmnCCM-128.webp 128w, /img/kXO8RmnCCM-256.webp 256w" sizes="128px"><img alt="" class="" loading="lazy" decoding="async" src="/img/kXO8RmnCCM-128.jpeg" width="256" height="170" srcset="/img/kXO8RmnCCM-128.jpeg 128w, /img/kXO8RmnCCM-256.jpeg 256w" sizes="128px"></picture></div>
+    </li>
+    <li class="ed-row ed-row--thumb">
+      <span class="ed-row-num">04</span>
+      <div class="ed-row-body">
+        <p class="ed-row-title"><a href="/work/datacite-usage-reports-api/">Usage Reports API - Research Data Metrics at Scale</a></p>
+        <p class="ed-row-meta">DataCite · Serverless · Ruby on Rails</p>
+        <p class="ed-row-text">Designed and delivered Sashimi—a Rails API that ingests, validates, and stores large SUSHI usage reports at 50,000-dataset scale.</p>
+      </div>
+      <div class="ed-row-thumb"><picture><source type="image/webp" srcset="/img/MPiSVyB7Yd-128.webp 128w, /img/MPiSVyB7Yd-256.webp 256w" sizes="128px"><img alt="" class="" loading="lazy" decoding="async" src="/img/MPiSVyB7Yd-128.jpeg" width="256" height="133" srcset="/img/MPiSVyB7Yd-128.jpeg 128w, /img/MPiSVyB7Yd-256.jpeg 256w" sizes="128px"></picture></div>
+    </li>
+    <li class="ed-row ed-row--thumb">
+      <span class="ed-row-num">05</span>
+      <div class="ed-row-body">
+        <p class="ed-row-title"><a href="/work/redesigning-datacite-harvesting-services/">Redesigning DataCite's Harvesting Services</a></p>
+        <p class="ed-row-meta">DataCite · UX Research · Service Design</p>
+        <p class="ed-row-text">Redesigned DataCite's Harvesting Services from the ground up to boost service utilization and unlock new revenue opportunities.</p>
+      </div>
+      <div class="ed-row-thumb"><picture><source type="image/webp" srcset="/img/jsjkiQM2NG-128.webp 128w, /img/jsjkiQM2NG-256.webp 256w" sizes="128px"><img alt="" class="" loading="lazy" decoding="async" src="/img/jsjkiQM2NG-128.jpeg" width="256" height="166" srcset="/img/jsjkiQM2NG-128.jpeg 128w, /img/jsjkiQM2NG-256.jpeg 256w" sizes="128px"></picture></div>
+    </li>
+  </ol>
+  <a class="ed-link-strong ed-more" href="/work/">All case studies →</a>
+</section>
 
-<!-- Tools Section -->
-<div class="flex flex-col gap-4">
-  <h2 class="home-section">Useful things I've built</h2>
-  <section class="flex flex-col gap-4">
-    <div class="relative grid gap-6 sm:grid-cols-2 sm:gap-2">
-      <img src="/drawings/used-by.svg" alt="Used by" width="113" height="98" class="absolute top-10 -left-32 hidden rotate-2 lg:block">
-      
-        <div class="bg-card border-border flex h-fit w-fit rotate-2 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-              <picture><source type="image/webp" srcset="/img/Tv4I10CcoE-44.webp 44w, /img/Tv4I10CcoE-88.webp 88w" sizes="44px"><img src="/img/Tv4I10CcoE-44.jpeg" alt="Dataset Discovery Agent" class="rounded-md" loading="lazy" decoding="async" width="88" height="88" srcset="/img/Tv4I10CcoE-44.jpeg 44w, /img/Tv4I10CcoE-88.jpeg 88w" sizes="44px"></picture>
-            </div>
-          </div>
-          <div class="flex w-full flex-col gap-1">
-            <div class="flex flex-row items-center justify-between">
-              <h3 class="text-foreground text-base font-bold">Dataset Discovery Agent</h3>
-              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">AI   SDK</span>
-            </div>
-            <p class="text-muted-foreground text-base font-medium">An AI agent automating discovery, evaluation, and acquisition of open research datasets for scientists and data engineers.</p>
-            <a href="https://hawfinch.vercel.app/" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-              View on the web
-            </a>
-          </div>
-        </div>
-      
-        <div class="bg-card border-border flex h-fit w-fit rotate-3 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-              <picture><source type="image/webp" srcset="/img/xyTiMIx5Lg-44.webp 44w, /img/xyTiMIx5Lg-88.webp 88w" sizes="44px"><img src="/img/xyTiMIx5Lg-44.jpeg" alt="SnowyOwl" class="rounded-md" loading="lazy" decoding="async" width="88" height="88" srcset="/img/xyTiMIx5Lg-44.jpeg 44w, /img/xyTiMIx5Lg-88.jpeg 88w" sizes="44px"></picture>
-            </div>
-          </div>
-          <div class="flex w-full flex-col gap-1">
-            <div class="flex flex-row items-center justify-between">
-              <h3 class="text-foreground text-base font-bold">SnowyOwl</h3>
-              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Claude SDK</span>
-            </div>
-            <p class="text-muted-foreground text-base font-medium">An asynchronous AI development tool where you write task specifications and receive completed pull requests overnight — delegation without presence.</p>
-            <a href="https://github.com/kjgarza/snowyowl" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-              View on the web
-            </a>
-          </div>
-        </div>
-      
-        <div class="bg-card border-border flex h-fit w-fit rotate-1 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-              <picture><source type="image/webp" srcset="/img/9QYjau4ik6-44.webp 44w, /img/9QYjau4ik6-88.webp 88w" sizes="44px"><img src="/img/9QYjau4ik6-44.jpeg" alt="Technology Radar" class="rounded-md" loading="lazy" decoding="async" width="88" height="88" srcset="/img/9QYjau4ik6-44.jpeg 44w, /img/9QYjau4ik6-88.jpeg 88w" sizes="44px"></picture>
-            </div>
-          </div>
-          <div class="flex w-full flex-col gap-1">
-            <div class="flex flex-row items-center justify-between">
-              <h3 class="text-foreground text-base font-bold">Technology Radar</h3>
-              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Open Source</span>
-            </div>
-            <p class="text-muted-foreground text-base font-medium">A personal technology radar that categorizes tools, frameworks, and techniques into Adopt, Trial, and other tiers — separating what's genuinely useful from what's just hype.</p>
-            <a href="https://kjgarza.github.io/radar" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-              View on the web
-            </a>
-          </div>
-        </div>
-      
-        <div class="bg-card border-border flex h-fit w-fit rotate-3 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-              <picture><source type="image/webp" srcset="/img/4OTy2l2YLy-44.webp 44w, /img/4OTy2l2YLy-88.webp 88w" sizes="44px"><img src="/img/4OTy2l2YLy-44.jpeg" alt="Parrot GPT" class="rounded-md" loading="lazy" decoding="async" width="88" height="88" srcset="/img/4OTy2l2YLy-44.jpeg 44w, /img/4OTy2l2YLy-88.jpeg 88w" sizes="44px"></picture>
-            </div>
-          </div>
-          <div class="flex w-full flex-col gap-1">
-            <div class="flex flex-row items-center justify-between">
-              <h3 class="text-foreground text-base font-bold">Parrot GPT</h3>
-              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">LLMs</span>
-            </div>
-            <p class="text-muted-foreground text-base font-medium">A Python toolkit that uses GPT-3/3.5 to translate, enrich, and cross-walk bibliographic metadata across schemas, with CLI and CI/CD support.</p>
-            <a href="https://github.com/kjgarza/parrot_gpt" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-              View on the web
-            </a>
-          </div>
-        </div>
-      
-        <div class="bg-card border-border flex h-fit w-fit rotate-5 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-              <picture><source type="image/webp" srcset="/img/YCBaiRoUX4-44.webp 44w, /img/YCBaiRoUX4-88.webp 88w" sizes="44px"><img src="/img/YCBaiRoUX4-44.jpeg" alt="Election Program AI Analyser" class="rounded-md" loading="lazy" decoding="async" width="88" height="102" srcset="/img/YCBaiRoUX4-44.jpeg 44w, /img/YCBaiRoUX4-88.jpeg 88w" sizes="44px"></picture>
-            </div>
-          </div>
-          <div class="flex w-full flex-col gap-1">
-            <div class="flex flex-row items-center justify-between">
-              <h3 class="text-foreground text-base font-bold">Election Program AI Analyser</h3>
-              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">OpenAI</span>
-            </div>
-            <p class="text-muted-foreground text-base font-medium">An AI-powered tool that simplifies 2025 Bundestag election programs, giving clear answers to voters’ policy questions in natural language.</p>
-            <a href="https://chatgpt.com/g/g-678bbfd0f3388191b253ef5725e242e0-bundestags-wahlnavigator-2025" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-              View on the web
-            </a>
-          </div>
-        </div>
-      
-        <div class="bg-card border-border flex h-fit w-fit rotate-4 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-              <picture><source type="image/webp" srcset="/img/qErplFUdSF-44.webp 44w, /img/qErplFUdSF-88.webp 88w" sizes="44px"><img src="/img/qErplFUdSF-44.jpeg" alt="CrossFit WOD Viewer" class="rounded-md" loading="lazy" decoding="async" width="88" height="88" srcset="/img/qErplFUdSF-44.jpeg 44w, /img/qErplFUdSF-88.jpeg 88w" sizes="44px"></picture>
-            </div>
-          </div>
-          <div class="flex w-full flex-col gap-1">
-            <div class="flex flex-row items-center justify-between">
-              <h3 class="text-foreground text-base font-bold">CrossFit WOD Viewer</h3>
-              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Git Scrape</span>
-            </div>
-            <p class="text-muted-foreground text-base font-medium">A web app that scrapes CrossFit workout-of-the-day data and uses AI to provide explanations, scaling options, and beginner-friendly modifications.</p>
-            <a href="https://kjgarza.github.io/oxypogon/" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-              View on the web
-            </a>
-          </div>
-        </div>
-      
-        <div class="bg-card border-border flex h-fit w-fit rotate-2 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-              <picture><source type="image/webp" srcset="/img/xyTiMIx5Lg-44.webp 44w, /img/xyTiMIx5Lg-88.webp 88w" sizes="44px"><img src="/img/xyTiMIx5Lg-44.jpeg" alt="Kitchen Timer" class="rounded-md" loading="lazy" decoding="async" width="88" height="88" srcset="/img/xyTiMIx5Lg-44.jpeg 44w, /img/xyTiMIx5Lg-88.jpeg 88w" sizes="44px"></picture>
-            </div>
-          </div>
-          <div class="flex w-full flex-col gap-1">
-            <div class="flex flex-row items-center justify-between">
-              <h3 class="text-foreground text-base font-bold">Kitchen Timer</h3>
-              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Claude</span>
-            </div>
-            <p class="text-muted-foreground text-base font-medium">A mobile-optimized cooking app that uses GPT vision to extract structured data from recipe photos, with an action-first UI designed to reduce cognitive load in the kitchen.</p>
-            <a href="https://kjgarza.github.io/chickadee/" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-              View on the web
-            </a>
-          </div>
-        </div>
-      
-        <div class="bg-card border-border flex h-fit w-fit rotate-1 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-              <picture><source type="image/webp" srcset="/img/xyTiMIx5Lg-44.webp 44w, /img/xyTiMIx5Lg-88.webp 88w" sizes="44px"><img src="/img/xyTiMIx5Lg-44.jpeg" alt="Claude Code Plugin Marketplace" class="rounded-md" loading="lazy" decoding="async" width="88" height="88" srcset="/img/xyTiMIx5Lg-44.jpeg 44w, /img/xyTiMIx5Lg-88.jpeg 88w" sizes="44px"></picture>
-            </div>
-          </div>
-          <div class="flex w-full flex-col gap-1">
-            <div class="flex flex-row items-center justify-between">
-              <h3 class="text-foreground text-base font-bold">Claude Code Plugin Marketplace</h3>
-              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Claude Code</span>
-            </div>
-            <p class="text-muted-foreground text-base font-medium">A collection of Claude Code plugins for research, development workflows and personal productivity, installable as a marketplace.</p>
-            <a href="https://github.com/kjgarza/marketplace-claude" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-              View on the web
-            </a>
-          </div>
-        </div>
-      
-        <div class="bg-card border-border flex h-fit w-fit rotate-4 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-              <picture><source type="image/webp" srcset="/img/9QYjau4ik6-44.webp 44w, /img/9QYjau4ik6-88.webp 88w" sizes="44px"><img src="/img/9QYjau4ik6-44.jpeg" alt="Kea Party Games" class="rounded-md" loading="lazy" decoding="async" width="88" height="88" srcset="/img/9QYjau4ik6-44.jpeg 44w, /img/9QYjau4ik6-88.jpeg 88w" sizes="44px"></picture>
-            </div>
-          </div>
-          <div class="flex w-full flex-col gap-1">
-            <div class="flex flex-row items-center justify-between">
-              <h3 class="text-foreground text-base font-bold">Kea Party Games</h3>
-              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">LLMs</span>
-            </div>
-            <p class="text-muted-foreground text-base font-medium">A party card games app with five game types and LLM-generated card decks to play with friends.</p>
-            <a href="https://kjgarza.github.io/kea/" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-              View on the web
-            </a>
-          </div>
-        </div>
-      
-        <div class="bg-card border-border flex h-fit w-fit rotate-2 flex-row gap-2 rounded-2xl border-2 p-4">
-          <div class="bg-card border-border h-fit w-fit rounded-xl border p-1 inset-shadow-xs">
-            <div class="bg-card flex h-fit w-fit items-center justify-center rounded-lg p-1 shadow-sm">
-              <picture><source type="image/webp" srcset="/img/9QYjau4ik6-44.webp 44w, /img/9QYjau4ik6-88.webp 88w" sizes="44px"><img src="/img/9QYjau4ik6-44.jpeg" alt="Einbürgerungstest Trainer" class="rounded-md" loading="lazy" decoding="async" width="88" height="88" srcset="/img/9QYjau4ik6-44.jpeg 44w, /img/9QYjau4ik6-88.jpeg 88w" sizes="44px"></picture>
-            </div>
-          </div>
-          <div class="flex w-full flex-col gap-1">
-            <div class="flex flex-row items-center justify-between">
-              <h3 class="text-foreground text-base font-bold">Einbürgerungstest Trainer</h3>
-              <span class="inline-flex items-center rounded-full px-2 text-xs border-2 py-1 w-fit h-fit font-bold transition-colors border-neutral-300 bg-white text-foreground">Open Source</span>
-            </div>
-            <p class="text-muted-foreground text-base font-medium">A practice app for the German naturalisation test (Leben in Deutschland).</p>
-            <a href="https://kjgarza.github.io/gouldian_finch/" target="_blank" class="text-primary text-base font-medium underline hover:no-underline">
-              View on the web
-            </a>
-          </div>
-        </div>
-      
-    </div>
-  </section>
+  
+<section class="ed-block" data-reveal aria-labelledby="tools-heading">
+  <p class="ed-label">Side projects</p>
+  <h2 id="tools-heading" class="ed-heading">Useful things I've built</h2>
+  <ul class="ed-list">
+    <li class="ed-row ed-row--plain">
+      <div class="ed-row-body">
+        <p class="ed-row-title"><a href="https://hawfinch.vercel.app/">Dataset Discovery Agent <span aria-hidden="true">↗</span></a></p>
+        <p class="ed-row-meta">AI   SDK</p>
+        <p class="ed-row-text">An AI agent automating discovery, evaluation, and acquisition of open research datasets for scientists and data engineers.</p>
+      </div>
+    </li>
+    <li class="ed-row ed-row--plain">
+      <div class="ed-row-body">
+        <p class="ed-row-title"><a href="https://github.com/kjgarza/snowyowl">SnowyOwl <span aria-hidden="true">↗</span></a></p>
+        <p class="ed-row-meta">Claude SDK</p>
+        <p class="ed-row-text">An asynchronous AI development tool where you write task specifications and receive completed pull requests overnight — delegation without presence.</p>
+      </div>
+    </li>
+    <li class="ed-row ed-row--plain">
+      <div class="ed-row-body">
+        <p class="ed-row-title"><a href="https://kjgarza.github.io/radar">Technology Radar <span aria-hidden="true">↗</span></a></p>
+        <p class="ed-row-meta">Open Source</p>
+        <p class="ed-row-text">A personal technology radar that categorizes tools, frameworks, and techniques into Adopt, Trial, and other tiers — separating what's genuinely useful from what's just hype.</p>
+      </div>
+    </li>
+    <li class="ed-row ed-row--plain">
+      <div class="ed-row-body">
+        <p class="ed-row-title"><a href="https://github.com/kjgarza/parrot_gpt">Parrot GPT <span aria-hidden="true">↗</span></a></p>
+        <p class="ed-row-meta">LLMs</p>
+        <p class="ed-row-text">A Python toolkit that uses GPT-3/3.5 to translate, enrich, and cross-walk bibliographic metadata across schemas, with CLI and CI/CD support.</p>
+      </div>
+    </li>
+  </ul>
+  <a class="ed-link-strong ed-more" href="/tools/">All 10 tools →</a>
+</section>
+
+  
+<section class="ed-block home-feature" data-reveal aria-labelledby="radar-heading">
+  <div class="home-feature-body">
+    <p class="ed-label">Ongoing</p>
+    <h2 id="radar-heading" class="ed-heading">Technology Radar</h2>
+    <p class="ed-row-text">Tools, frameworks and techniques sorted into Adopt, Trial, Assess and Hold, the same format as the AI Technology Radar sessions I host at Digital Science.</p>
+  </div>
+  <a class="ed-link-strong" href="https://kjgarza.github.io/radar/">Open the radar ↗</a>
+</section>
+
+  
+<section class="ed-block" data-reveal aria-labelledby="pubs-heading">
+  <p class="ed-label">Research</p>
+  <h2 id="pubs-heading" class="ed-heading">Publications</h2>
+  <ul class="ed-list">
+    <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <p class="ed-row-title ed-row-title--serif"><a href="https://doi.org/10.59350/skna9-1pb77">The Impact of Language User Interfaces on Finding Scholarly Repositories.</a></p>
+      </div>
+      <span class="ed-row-year">2023</span>
+    </li>
+    <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <p class="ed-row-title ed-row-title--serif"><a href="https://doi.org/10.5438/tpah-aj25">DataCite Design System is ready to be worn.</a></p>
+      </div>
+      <span class="ed-row-year">2023</span>
+    </li>
+    <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <p class="ed-row-title ed-row-title--serif"><a href="https://doi.org/10.5438/vwp0-vz05">Breaking a Metadata Barrier: Improving discoverability with automatic subject classification</a></p>
+      </div>
+      <span class="ed-row-year">2023</span>
+    </li>
+    <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <p class="ed-row-title ed-row-title--serif"><a href="https://medium.com/@kj.garza/parrotgpt-on-the-advantages-of-large-language-models-tools-for-academic-metadata-schema-mapping-434cceabc68b">ParrotGPT: On the Advantages of Large Language Models Tools for Academic Metadata Schema Mapping</a></p>
+      </div>
+      <span class="ed-row-year">2023</span>
+    </li>
+    <li class="ed-row ed-row--plain ed-row--dated">
+      <div class="ed-row-body">
+        <p class="ed-row-title ed-row-title--serif"><a href="https://medium.com/@kj.garza/academic-publishing-web-forms-meet-your-demise-the-unstoppable-rise-of-large-language-models-dbb1bd6c2ee8">Academic Publishing web forms meet your demise: The unstoppable rise of large language models (ChatGPT)</a></p>
+      </div>
+      <span class="ed-row-year">2023</span>
+    </li>
+  </ul>
+  <a class="ed-link-strong ed-more" href="/publications/">All 19 publications →</a>
+</section>
+
+  
+
+
+  
+
+
+  
+
+<section id="contact" class="ed-block ed-block--ruled home-contact" data-reveal aria-labelledby="contact-heading">
+  <div class="home-contact-body">
+    <h2 id="contact-heading" class="ed-heading">Get in touch</h2>
+    <ul class="home-contact-links">
+      <li><a href="mailto:kj.garza+kjgarza@gmail.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/kjgarza">LinkedIn</a></li>
+      <li><a href="https://github.com/kjgarza">GitHub</a></li>
+      <li><a href="https://www.figma.com/@kristiangarza">Figma</a></li>
+    </ul>
+  </div>
+  
+  <a class="before:block before:rounded-lg before:absolute before:inset-0 inline-flex gap-3 relative items-center justify-center whitespace-nowrap rounded-lg text-base font-medium ring-offset-white disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-500 disabled:shadow-none active:scale-[99%] active:transition-transform active:duration-75 active:ease-in-out hover:cursor-pointer hover:before:bg-special-state-hover-inverse bg-button-primary text-white shadow-button-primary-rest active:shadow-none h-10 px-3 min-w-9 w-fit home-button" href="https://calendar.app.google/bzhLhP2NVcWHwma2A">Book a call</a>
+  
+</section>
+
 </div>
 
   </main>
   
-  <footer class="text-foreground flex w-full max-w-4xl flex-col items-center justify-between gap-1 px-4 pt-8 pb-24 font-mono font-medium sm:pb-8 md:px-12 xl:px-8">
+  
+<footer class="text-foreground flex w-full max-w-4xl flex-col items-center justify-between gap-1 px-4 pt-8 pb-24 font-mono font-medium sm:pb-8 md:px-12 xl:px-8">
   <div class="flex flex-wrap items-center gap-4">
     <div class="flex items-center gap-4">
       <a class="hover:text-primary hover:underline" target="_blank" href="https://www.figma.com/@kristiangarza">
@@ -730,5 +576,8 @@
   <p class="text-muted-foreground text-sm">Copyright © 2026 Kristian Garza</p>
 </footer>
 
+
+  <!-- Scroll reveal for [data-reveal] sections; progressive enhancement, see reveal.js -->
+  <script defer src="/assets/js/reveal.js"></script>
 </body>
 </html>

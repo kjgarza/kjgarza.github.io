@@ -8,21 +8,21 @@ default:
 install:
     bun install
 
-# Build the site for production
-build:
-    bun run eleventy
+# Build the site for production. Theme: accent (default) or editorial, see src/_data/theme.js
+build theme="accent":
+    SITE_THEME={{theme}} bun run eleventy
 
-# Start development server with live reload
-dev:
-    bun run eleventy --serve
+# Start development server with live reload, e.g. `just dev editorial`
+dev theme="accent":
+    SITE_THEME={{theme}} bun run eleventy --serve
 
-# Watch for changes and rebuild
-watch:
-    bun run eleventy --watch
+# Watch for changes and rebuild, e.g. `just watch editorial`
+watch theme="accent":
+    SITE_THEME={{theme}} bun run eleventy --watch
 
-# Build for GitHub Pages deployment
-build-ghpages:
-    bun x @11ty/eleventy
+# Build for GitHub Pages deployment (CI sets SITE_THEME from a repository variable)
+build-ghpages theme="accent":
+    SITE_THEME={{theme}} bun x @11ty/eleventy
 
 # Clean build artifacts and dependencies
 clean:
@@ -43,9 +43,11 @@ check-updates:
 update:
     bun update
 
-# Run every test: site SEO + CV render (bun), job-pipeline scripts (pytest)
+# Run every test: site SEO + CV render + themes (bun), job-pipeline scripts (pytest).
+# The SEO and CV suites run once per theme; themes.test.js builds both itself.
 test: test-scripts
     bun test tests/
+    SITE_THEME=editorial bun test tests/seo.test.js tests/cv-to-pdf.test.js
 
 # Job-pipeline script tests only (fast, offline, no site build)
 test-scripts:

@@ -1,0 +1,25 @@
+{% import "components/editorial.njk" as ed %}
+{#- Logo banner from src/_data/organisations.js: the list scrolls sideways in a
+    loop (a conveyor). The second copy only makes the loop seamless, so it is
+    hidden from assistive technology and its links can't take focus. Hover or
+    focus pauses it; reduced motion shows one static, wrapping row (home.css).
+    Grey vs colour comes from the theme's --logo-filter token, so the markup is
+    the same in both themes. -#}
+<section class="ed-block" data-reveal aria-labelledby="worked-with">
+  {{ ed.label("Worked with", "worked-with", "h2") }}
+  <div class="home-marquee">
+    <div class="home-marquee-track">
+      {%- for copy in [false, true] %}
+      <ul class="home-logos"{% if copy %} aria-hidden="true"{% endif %}>
+        {%- for org in organisations %}
+        <li>
+          <a href="{{ org.link }}" title="{{ org.name }}: {{ org.relationship }}"{% if copy %} tabindex="-1"{% endif %}>
+            <img src="{{ org.logo }}" alt="{{ org.name }}" width="{{ org.width }}" height="{{ org.height }}" style="height: {{ org.displayHeight }}px" loading="lazy" decoding="async">
+          </a>
+        </li>
+        {%- endfor %}
+      </ul>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

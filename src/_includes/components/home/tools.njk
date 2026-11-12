@@ -1,0 +1,11 @@
+{% import "components/editorial.njk" as ed %}
+<section class="ed-block" data-reveal aria-labelledby="tools-heading">
+  {{ ed.label("Side projects") }}
+  {{ ed.heading("Useful things I've built", "tools-heading") }}
+  <ul class="ed-list">
+    {%- for tool in tools | batch(4) | first %}
+    {{ ed.plainRow({ title: tool.name, href: tool.link, arrow: true, meta: tool.type, text: tool.description }) }}
+    {%- endfor %}
+  </ul>
+  {{ ed.link("/tools/", "All " + tools.length + " tools →", "ed-more") }}
+</section>

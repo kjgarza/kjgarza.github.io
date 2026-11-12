@@ -10,7 +10,19 @@ module.exports = {
     figma: "https://www.figma.com/@kristiangarza",
     github: "https://github.com/kjgarza",
     linkedin: "https://www.linkedin.com/in/kjgarza",
+    booking: "https://calendar.app.google/bzhLhP2NVcWHwma2A",
   },
+  // Homepage hero (editorial theme): role line and focus-area chips
+  role: "AI Software Engineer · Product Designer · Open Science",
+  position: "Senior AI Software Engineer at Digital Science, Berlin",
+  focusAreas: [
+    "LLM APIs & agents",
+    "Knowledge graphs",
+    "MCP",
+    "Open science infrastructure",
+    "Design systems",
+    "Product design",
+  ],
   bio: {
     currently:
       "Building and prototyping AI-driven microservices and agents at Digital Science, from LLM-powered APIs to Rust-based clustering engines.",

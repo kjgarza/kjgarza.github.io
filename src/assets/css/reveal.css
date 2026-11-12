@@ -1,0 +1,22 @@
+/* Scroll reveal (issues #33, #35), loaded on every page by layouts/base.njk with
+   src/assets/js/reveal.js. Sections opt in with [data-reveal]; reveal.js adds
+   .reveal-ready to <html>, and without it nothing is hidden. */
+/* Transition only on the way in, so the hidden start state applies instantly. */
+.reveal-ready [data-reveal].is-revealed {
+  transition: opacity 600ms ease-out, transform 600ms ease-out;
+}
+.reveal-ready [data-reveal]:not(.is-revealed) {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.reveal-ready [data-reveal-mode="stagger"] [data-reveal].is-revealed .ed-row {
+  transition: opacity 600ms ease-out var(--reveal-delay, 0ms), transform 600ms ease-out var(--reveal-delay, 0ms);
+}
+.reveal-ready [data-reveal-mode="stagger"] [data-reveal]:not(.is-revealed) .ed-row {
+  opacity: 0;
+  transform: translateY(10px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready [data-reveal],
+  .reveal-ready [data-reveal] .ed-row { opacity: 1 !important; transform: none !important; transition: none !important; }
+}

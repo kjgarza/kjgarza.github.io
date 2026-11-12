@@ -1,0 +1,9 @@
+{% import "components/editorial.njk" as ed %}
+<section class="ed-block" data-reveal aria-labelledby="about">
+  {{ ed.label("About", "about", "h2") }}
+  <div class="home-prose">
+    <p>{{ site.bio.currently }}</p>
+    <p>{{ site.bio.past }}</p>
+    <p>{{ site.bio.findMe }}</p>
+  </div>
+</section>

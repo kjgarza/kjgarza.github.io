@@ -1,0 +1,16 @@
+{#- Featured case studies as a numbered list. theme.projectThumbnails adds a
+    small screenshot to each row. -#}
+{% import "components/editorial.njk" as ed %}
+<section id="work" class="ed-block" data-reveal aria-labelledby="work-heading">
+  {{ ed.label("Selected work") }}
+  {{ ed.heading("Case studies", "work-heading") }}
+  <ol class="ed-list">
+    {%- set n = 0 %}
+    {%- for item in work %}{% if item.featured %}
+    {%- set n = n + 1 %}
+    {%- set thumb = (item.image | imageSync("", "", "lazy", "128px", [128, 256])) if (theme.projectThumbnails and item.image) else "" %}
+    {{ ed.numberedRow({ n: n, title: item.title, href: item.link + "/", meta: ([item.company].concat(item.tags.slice(0, 2))) | join(" · "), text: item.description, thumb: thumb }) }}
+    {%- endif %}{% endfor %}
+  </ol>
+  {{ ed.link("/work/", "All case studies →", "ed-more") }}
+</section>

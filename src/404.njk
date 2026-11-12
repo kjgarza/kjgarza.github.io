@@ -7,13 +7,28 @@ eleventyExcludeFromCollections: true
 noindex: true
 ---
 
-<div class="flex w-full max-w-4xl flex-1 flex-col gap-4 p-4 md:p-12 xl:p-8">
-  <h1 class="text-primary font-mono text-2xl font-bold">Page not found</h1>
-  <p class="text-foreground text-base font-medium">The page you were looking for doesn't exist or has moved.</p>
-  <ul class="text-foreground flex flex-col gap-2 text-base font-medium">
-    <li><a class="text-primary underline hover:no-underline" href="/">Home</a></li>
-    <li><a class="text-primary underline hover:no-underline" href="/work/">Work</a></li>
-    <li><a class="text-primary underline hover:no-underline" href="/tools/">Tools</a></li>
-    <li><a class="text-primary underline hover:no-underline" href="/publications/">Publications</a></li>
+{% import "components/editorial.njk" as ed %}
+{% from "components/editorial.njk" import pageHeader with context %}
+{% set links = [["Home", "/"], ["Work", "/work/"], ["Tools", "/tools/"], ["Publications", "/publications/"]] %}
+{#- theme.pageStyle: "editorial" = serif title and strong text links; "cards" = mono title, pink links. -#}
+{% if theme.pageStyle == "editorial" %}
+<div class="ed-page">
+  {{ pageHeader("Page not found") }}
+  <p class="ed-intro">The page you were looking for doesn't exist or has moved.</p>
+  <ul class="ed-links">
+    {%- for link in links %}
+    <li>{{ ed.link(link[1], link[0]) }}</li>
+    {%- endfor %}
   </ul>
 </div>
+{% else %}
+<div class="flex w-full max-w-4xl flex-1 flex-col gap-4 p-4 md:p-12 xl:p-8">
+  {{ pageHeader("Page not found") }}
+  <p class="text-foreground text-base font-medium">The page you were looking for doesn't exist or has moved.</p>
+  <ul class="text-foreground flex flex-col gap-2 text-base font-medium">
+    {%- for link in links %}
+    <li><a class="text-primary underline hover:no-underline" href="{{ link[1] }}">{{ link[0] }}</a></li>
+    {%- endfor %}
+  </ul>
+</div>
+{% endif %}

@@ -6,10 +6,38 @@ permalink: /work/
 ---
 {% from "components/ui/badge.njk" import badge %}
 {% from "components/ui/button.njk" import button %}
-
+{% import "components/editorial.njk" as ed %}
+{% from "components/editorial.njk" import pageHeader with context %}
+{#- theme.pageStyle (src/_data/theme.js): "editorial" = numbered rows like the
+    homepage; "cards" = the image card grid. Same items, same order. -#}
+{% if theme.pageStyle == "editorial" %}
+<div class="ed-page">
+  {{ pageHeader("Work", "Selected work") }}
+  <section class="ed-section" data-reveal aria-label="Case studies">
+    <ol class="ed-list">
+      {%- set n = 0 %}
+      {%- for item in work %}{% if item.featured %}
+      {%- set n = n + 1 %}
+      {%- set published = item.status == "published" %}
+      {%- set thumb = (item.image | imageSync("", "", "lazy", "128px", [128, 256])) if (theme.projectThumbnails and item.image) else "" %}
+      {{ ed.numberedRow({
+        n: n,
+        title: item.title,
+        titleTag: "h2",
+        href: (item.link + "/") if published else "",
+        meta: ([item.company].concat(item.tags)) | join(" · "),
+        text: item.description,
+        note: "" if published else "Case study coming soon",
+        thumb: thumb
+      }) }}
+      {%- endif %}{% endfor %}
+    </ol>
+  </section>
+</div>
+{% else %}
 <div class="flex w-full max-w-4xl flex-1 flex-col gap-6 p-4 md:p-12 xl:p-8">
-  <h1 class="text-primary font-mono text-2xl font-bold">Work</h1>
-  <section class="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:grid-rows-[480px_480px_480px_320px]">
+  {{ pageHeader("Work") }}
+  <section data-reveal class="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:grid-rows-[480px_480px_480px_320px]">
     {% for workItem in work %}
       {% if workItem.featured %}
         <div class="bg-card hover:border-border-strong border-border {{ workItem.gridClass }} flex flex-col overflow-hidden rounded-lg border-2">
@@ -47,3 +75,4 @@ permalink: /work/
     {% endfor %}
   </section>
 </div>
+{% endif %}

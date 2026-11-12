@@ -1,0 +1,9 @@
+{% import "components/editorial.njk" as ed %}
+<section class="ed-block home-feature" data-reveal aria-labelledby="radar-heading">
+  <div class="home-feature-body">
+    {{ ed.label("Ongoing") }}
+    {{ ed.heading("Technology Radar", "radar-heading") }}
+    <p class="ed-row-text">Tools, frameworks and techniques sorted into Adopt, Trial, Assess and Hold, the same format as the AI Technology Radar sessions I host at Digital Science.</p>
+  </div>
+  {{ ed.link(site.url + "radar/", "Open the radar ↗") }}
+</section>

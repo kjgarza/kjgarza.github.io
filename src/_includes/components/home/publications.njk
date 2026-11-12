@@ -1,0 +1,11 @@
+{% import "components/editorial.njk" as ed %}
+<section class="ed-block" data-reveal aria-labelledby="pubs-heading">
+  {{ ed.label("Research") }}
+  {{ ed.heading("Publications", "pubs-heading") }}
+  <ul class="ed-list">
+    {%- for pub in (publications | sort(true, false, "publicationYear")) | batch(5) | first %}
+    {{ ed.datedRow({ title: pub.title, href: pub.id, serif: true, year: pub.publicationYear }) }}
+    {%- endfor %}
+  </ul>
+  {{ ed.link("/publications/", "All " + publications.length + " publications →", "ed-more") }}
+</section>

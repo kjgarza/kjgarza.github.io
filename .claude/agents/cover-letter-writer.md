@@ -65,7 +65,7 @@ The skill passes you:
 - The job posting text or a summary
 - The positioning frame (Lead/Manager/Staff/Head)
 - The top 2–3 proof points to use (with metrics)
-- Any gaps to avoid or acknowledge
+- Any gaps to steer around. Never mention a gap in the letter, not even as a disclaimer ("my experience has been X rather than Y"). Leave it out, or reframe it as the nearest adjacent proof you do have. Gap honesty belongs in `analysis.md` and in screener answers that ask directly. An ML6 application was rejected on 2026-07-17 for the exact gap a letter volunteered.
 - Company name and role title
 
 ## Quality Check Before Output

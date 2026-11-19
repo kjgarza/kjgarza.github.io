@@ -113,6 +113,15 @@ def test_generic_follows_the_apply_link(fake_curl, href, apply_url):
     assert (out["ats"], out["apply_url"], out["questions"][0]["label"]) == ("generic", apply_url, "Cover letter")
 
 
+@pytest.mark.parametrize("bad_href", ["mailto:apply@example.org", "MAILTO:apply@example.org", "tel:apply-line", "javascript:apply()"])
+def test_generic_skips_non_web_apply_links(fake_curl, bad_href):
+    url = "https://careers.example.org/jobs/42"
+    apply_url = "https://careers.example.org/jobs/42/apply"
+    fake_curl.route(apply_url, '<label>Cover letter</label>')
+    fake_curl.route(url, f'<a href="{bad_href}">Email us</a><a href="/jobs/42/apply">Apply</a>')
+    assert fake_curl.json(FETCH_FORM, url)["apply_url"] == apply_url
+
+
 def test_generic_without_apply_link_returns_page_text(fake_curl):
     url = "https://careers.example.org/jobs/42"
     fake_curl.route(url, "<p>Email jobs@example.org</p>")

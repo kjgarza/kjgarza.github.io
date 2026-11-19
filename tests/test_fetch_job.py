@@ -83,11 +83,6 @@ def test_lever_closed_text_detected(fake_curl):
     assert fake_curl.json(FETCH_JOB, LEVER_URL)["status"] == "closed"
 
 
-def _bsd_date():
-    return subprocess.run(["date", "-d", "@0"], capture_output=True).returncode != 0
-
-
-@pytest.mark.xfail(_bsd_date(), strict=True, reason="BUG: `date -d @epoch` is GNU-only; macOS/BSD date gives unknown")
 def test_lever_posted_date_from_created_at(fake_curl):
     fake_curl.route("api.lever.co/v0/postings/", LEVER_JOB)
     assert fake_curl.json(FETCH_JOB, LEVER_URL)["posted_date"] == "2026-09-01"

@@ -340,6 +340,7 @@ APPLY_URL=""
 if [[ -n "$HTML" ]]; then
   CAND=$(grep -oiE 'href="[^"]*(apply|application)[^"]*"' <<<"$HTML" \
     | sed -E 's/^[Hh][Rr][Ee][Ff]="//; s/"$//' \
+    | grep -viE '^(mailto:|tel:|javascript:)' \
     | grep -viE '\.(css|js|png|jpg|svg)([?#]|$)' \
     | head -1 || true)
   if [[ -n "${CAND:-}" ]]; then

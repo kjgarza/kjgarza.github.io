@@ -65,7 +65,7 @@ The skill passes you:
 - The job posting text or a summary
 - The positioning frame (Lead/Manager/Staff/Head)
 - The top 2–3 proof points to use (with metrics)
-- Any gaps to avoid or acknowledge
+- Any gaps to steer around. Never mention a gap in the letter, not even as a disclaimer: leave it out or reframe it as the nearest adjacent proof. The full rule is in `.claude/skills/generate-application/references/tone-and-voice.md`.
 - Company name and role title
 
 ## Quality Check Before Output
